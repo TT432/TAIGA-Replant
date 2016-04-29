@@ -2,6 +2,8 @@ package main.world;
 
 import main.ZCompression;
 import main.util.Generator;
+import net.minecraft.block.BlockStone;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -28,7 +30,7 @@ public class ZWorldGen implements IWorldGenerator {
         Generator.generateOre(ZCompression.vibraniumOre.getDefaultState(), random, x, z, world, 16, 48, 64, 2, 4);
         Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), random, x, z, world, 16, 16, 32, 2, 4);
         Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(), random, x, z, world, 25, 0, 32, 3, 6);
-        Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 450, 32, 96, 3, 6);
+        Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 2450, 32, 96, 3, 6);
     }
 
     private void end(Random random, int x, int z, World world) {
