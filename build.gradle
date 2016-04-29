@@ -13,25 +13,13 @@ buildscript {
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
-repositories {
-    maven {
-        name "DVS1 Maven FS'"
-        url 'http://dvs1.progwml6.com/files/maven'
-    }
-}
 
-/*
-// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
-//plugins {
-//    id "net.minecraftforge.gradle.forge" version "2.0.2"
-//}
-*/
 version = "0.1"
 group= "com.sosnitzka.zcompression" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "zcompression"
 
 minecraft {
-    version = "1.9-12.16.0.1865-1.9"
+    version = "1.9-12.16.0.1867-1.9"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -64,7 +52,7 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-compile "tconstruct:TConstruct:1.9-2.2.2.jenkins159:deobf"
+    // compile "tconstruct:TConstruct:1.9-2.2.2.jenkins159:deobf"
 }
 
 processResources

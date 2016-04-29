@@ -1,7 +1,8 @@
 package proxy;
 
 public class ServerProxy {
-	
-	public void registerClientStuff() {}
-	
+
+    public void registerClientStuff() {
+
+    }
 }

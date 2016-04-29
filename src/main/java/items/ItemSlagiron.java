@@ -1,10 +1,8 @@
 package items;
 
-public class ItemSlagiron extends BasicItem{
+public class ItemSlagiron extends BasicItem {
 
-	public ItemSlagiron() {
-		super("slagiron");
-	}
-	
-
+    public ItemSlagiron() {
+        super("slagiron");
+    }
 }
