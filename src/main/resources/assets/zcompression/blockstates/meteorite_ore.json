@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "zcompression:meteorite_ore" }
+    }
+}

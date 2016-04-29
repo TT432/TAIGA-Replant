@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "zcompression:karmesite_ore" }
+    }
+}
