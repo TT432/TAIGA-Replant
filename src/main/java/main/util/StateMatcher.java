@@ -21,6 +21,12 @@ public class StateMatcher implements Predicate<IBlockState> {
     }
 
     public boolean apply(IBlockState state) {
-        return state != null && state.getBlock() == this.state.getBlock() && state.getValue(property) == value;
+        if (state != null) {
+            if (property != null && value != null)
+                return state.getBlock() == this.state.getBlock() && state.getValue(property) == value;
+            else
+                return state.getBlock() == this.state.getBlock();
+        }
+        return false;
     }
 }

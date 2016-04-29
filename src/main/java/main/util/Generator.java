@@ -16,9 +16,12 @@ public class Generator {
     }
 
     public static void generateNetherOre(IBlockState state, Random random, int x, int z, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
-        generateOre(state, Blocks.NETHERRACK.getDefaultState(),null, null, random, x, z, world, chance, minY, maxY, minSize, maxSize);
+        generateOre(state, Blocks.NETHERRACK.getDefaultState(), null, null, random, x, z, world, chance, minY, maxY, minSize, maxSize);
     }
 
+    public static void generateOre(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
+        generateOre(state, replace, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize);
+    }
 
     public static void generateOre(IBlockState state, IBlockState replace, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
         int size = minSize + random.nextInt(maxSize - minSize);
