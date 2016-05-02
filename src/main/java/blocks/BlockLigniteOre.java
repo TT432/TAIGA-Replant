@@ -8,4 +8,6 @@ public class BlockLigniteOre extends BasicBlockOre {
     public BlockLigniteOre() {
         super("lignite_ore", Material.ROCK, 4.0f, 5.0f,1);
     }
+
+
 }

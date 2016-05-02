@@ -2,7 +2,9 @@ package main;
 
 import blocks.*;
 import blocks.category.BasicBlockOreGlow;
-import items.ItemSlagiron;
+import items.ItemLignite;
+import items.ItemSlagironIngot;
+import main.util.LigniteFuelHandler;
 import main.world.ZWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -21,7 +23,8 @@ public class ZCompression {
     static final String MODID = "zcompression";
     static final String VERSION = "1.0";
     // Items
-    public static ItemSlagiron slagiron = new ItemSlagiron();
+    public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
+    public static ItemLignite lignite = new ItemLignite();
     //Blocks, esp. for tconstruct
     public static BlockAardiumOre aardiumOre = new BlockAardiumOre();
     public static BlockAdamantiteOre adamantiteOre = new BlockAdamantiteOre();
@@ -42,7 +45,7 @@ public class ZCompression {
     public static BlockSlagironOre slagironOre = new BlockSlagironOre();
     public static BlockSlaggoldOre slaggoldOre = new BlockSlaggoldOre();
     public static BlockTiberiumOre tiberiumOre = new BlockTiberiumOre();
-    public static BlockVibraniumre vibraniumOre = new BlockVibraniumre();
+    public static BlockVibraniumOre vibraniumOre = new BlockVibraniumOre();
     public static BlockYrdeanOre yrdeanOre = new BlockYrdeanOre();
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
@@ -59,7 +62,10 @@ public class ZCompression {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-        GameRegistry.register(slagiron);
+        //Items
+        GameRegistry.register(slagironIngot);
+        GameRegistry.register(lignite);
+        //Blocks
         registerBlock(aardiumOre);
         registerBlock(adamantiteOre);
         registerBlock(arcaniteOre);
@@ -82,13 +88,15 @@ public class ZCompression {
         registerBlock(vibraniumOre);
         registerBlock(yrdeanOre);
 
+
+
     }
 
     @EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.registerClientStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
-
+        GameRegistry.registerFuelHandler(new LigniteFuelHandler());
     }
 
     @EventHandler

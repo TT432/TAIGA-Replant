@@ -11,7 +11,8 @@ public class ClientProxy extends ServerProxy {
     @Override
     public void registerClientStuff() {
         // Items
-        registerItemModel(ZCompression.slagiron);
+        registerItemModel(ZCompression.slagironIngot);
+        registerItemModel(ZCompression.lignite);
 
         // Blocks
         registerBlockModel(ZCompression.aardiumOre);
