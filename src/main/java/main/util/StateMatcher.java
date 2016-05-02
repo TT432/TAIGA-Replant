@@ -54,12 +54,12 @@ public class StateMatcher implements Predicate<IBlockState> {
 
         for (int i = 0; i < maxI; i++) {
             if ((-X / 2 <= x) && (x <= X / 2) && (-Z / 2 <= z) && (z <= Z / 2)) {
-                System.out.println(x + "," + z);
                 if (new BlockPos(x, Y, z) == origin)
                     continue;
 
-                IBlockState bState = world.getBlockState(new BlockPos(x, Y, z));
+                IBlockState bState = world.getBlockState(new BlockPos(origin.getX() + x, origin.getY() + Y, origin.getZ() + z));
                 if (bState.getBlock() == this.state.getBlock() && bState.getValue(property) == value) {
+                    System.out.println(String.format("Found block with desired state! (%s)", new BlockPos(origin.getX() + x, origin.getY() + Y, origin.getZ() + z)));
                     return true;
                 }
             }
