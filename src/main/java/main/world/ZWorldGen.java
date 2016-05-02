@@ -30,8 +30,8 @@ public class ZWorldGen implements IWorldGenerator {
         
 
         Generator.generateOre(ZCompression.vibraniumOre.getDefaultState(), 	random, x, z, world, 18, 48, 64, 2, 4);
-        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 30, 16, 48, 2, 5);
-        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 30, 32, 64, 2, 4);
+        Generator.generateOre(ZCompression.karmesineOre.getDefaultState(), 	random, x, z, world, 30, 16, 48, 2, 5);
+        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 50, 50, 130, 2, 4);
         Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), 	random, x, z, world, 18, 16, 32, 2, 4);
         Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(),	random, x, z, world, 25, 0, 32, 3, 6);
         Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, 200, 16, 96, 2, 4);
