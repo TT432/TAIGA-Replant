@@ -13,6 +13,10 @@ tile.palladium_ore.name=Palladiumerz
 tile.prometheum_ore.name=Prometheumerz
 tile.rotten_ground.name=Verrottete Erde
 tile.slagiron_ore.name=Unreines Eisenerz
+tile.slaggold_ore.name=Unreines Golderz
 tile.tiberium_ore.name=Tiberiumerz
 tile.vibranium_ore.name=Vibraniumerz
-
+tile.yrdean_ore.name=Yrdeanerz
+tile.aardium_ore.name=Aardiumerz
+tile.ignitite_ore.name=Ignititerz
+tile.axiidian_ore.name=Axiidianerz

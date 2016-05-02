@@ -14,27 +14,38 @@ import java.util.Random;
 
 public class ZWorldGen implements IWorldGenerator {
     private void nether(Random random, int x, int z, World world) {
-        Generator.generateNetherOre(ZCompression.adamantiteOre.getDefaultState(), random, x, z, world, 24, 1, 32, 2, 5);
+        Generator.generateNetherOre(ZCompression.adamantiteOre.getDefaultState(), random, x, z, world, 25, 1, 32, 2, 5);
         Generator.generateNetherOre(ZCompression.tiberiumOre.getDefaultState(), random, x, z, world, 60, 1, 128, 2, 10);
-        Generator.generateNetherOre(ZCompression.palladiumOre.getDefaultState(), random, x, z, world, 15, 32, 64, 3, 6);
+        Generator.generateNetherOre(ZCompression.palladiumOre.getDefaultState(), random, x, z, world, 21, 32, 64, 3, 6);
         Generator.generateOre(ZCompression.prometheumOre.getDefaultState(), random, x, z, world, 20, 48, 64, 2, 4);
     }
 
     private void world(Random random, int x, int z, World world) {
         Generator.generateOre(ZCompression.slagironOre.getDefaultState(), random, x, z, world, 40, 8, 96, 5, 16);
+        Generator.generateOre(ZCompression.slaggoldOre.getDefaultState(), random, x, z, world, 20, 8, 48, 5, 9);
         Generator.generateOre(ZCompression.ligniteOre.getDefaultState(), random, x, z, world, 40, 8, 96, 5, 15);
-        Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), random, x, z, world, 40, 8, 96, 2, 10);
-        Generator.generateOre(ZCompression.basalt.getDefaultState(), Blocks.LAVA.getDefaultState(), random, x, z, world, 20, 8, 24, 2, 5);
+        Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), random, x, z, world, 40, 8, 96, 2, 14);
+        
+        Generator.generateOre(ZCompression.basalt.getDefaultState(), Blocks.LAVA.getDefaultState(), random, x, z, world, 100, 8, 24, 2, 5);
         Generator.generateOre(ZCompression.rottenGround.getDefaultState(), Blocks.DIRT.getDefaultState(), random, x, z, world, 25, 50, 70, 2, 15);
+        
 
-        Generator.generateOre(ZCompression.vibraniumOre.getDefaultState(), random, x, z, world, 16, 48, 64, 2, 4);
-        Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), random, x, z, world, 16, 16, 32, 2, 4);
-        Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(), random, x, z, world, 25, 0, 32, 3, 6);
-        Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 2450, 32, 96, 3, 6);
+        Generator.generateOre(ZCompression.vibraniumOre.getDefaultState(), 	random, x, z, world, 16, 48, 64, 2, 4);
+        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 30, 16, 48, 2, 5);
+        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 30, 32, 64, 2, 4);
+        Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), 	random, x, z, world, 16, 16, 32, 2, 4);
+        Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(),	random, x, z, world, 25, 0, 32, 3, 6);
+        Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, 500, 16, 96, 2, 4);
+        Generator.generateOre(ZCompression.arcaniteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.GRANITE, random, x, z, world, 500, 16, 96, 2, 4);
+        Generator.generateOre(ZCompression.eterniteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.ANDESITE, random, x, z, world, 500, 16, 96, 2, 4);
     }
 
     private void end(Random random, int x, int z, World world) {
-
+    	
+    	Generator.generateEndOre(ZCompression.yrdeanOre.getDefaultState(), random, x, z, world, 19, 10, 35, 2, 5);
+    	Generator.generateEndOre(ZCompression.ignititeOre.getDefaultState(), random, x, z, world, 19, 20, 45, 2, 5);
+    	Generator.generateEndOre(ZCompression.axiidianOre.getDefaultState(), random, x, z, world, 19, 30, 55, 2, 5);
+    	Generator.generateEndOre(ZCompression.aardiumOre.getDefaultState(), random, x, z, world, 19, 40, 65, 2, 5);
     }
 
 

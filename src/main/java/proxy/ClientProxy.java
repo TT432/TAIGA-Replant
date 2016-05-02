@@ -14,11 +14,14 @@ public class ClientProxy extends ServerProxy {
         registerItemModel(ZCompression.slagiron);
 
         // Blocks
+        registerBlockModel(ZCompression.aardiumOre);
         registerBlockModel(ZCompression.adamantiteOre);
         registerBlockModel(ZCompression.arcaniteOre);
+        registerBlockModel(ZCompression.axiidianOre);
         registerBlockModel(ZCompression.basalt);
         registerBlockModel(ZCompression.bismuthOre);
         registerBlockModel(ZCompression.eterniteOre);
+        registerBlockModel(ZCompression.ignititeOre);
         registerBlockModel(ZCompression.karmesineOre);
         registerBlockModel(ZCompression.ligniteOre);
         registerBlockModel(ZCompression.meteoriteOre);
@@ -28,8 +31,12 @@ public class ClientProxy extends ServerProxy {
         registerBlockModel(ZCompression.prometheumOre);
         registerBlockModel(ZCompression.rottenGround);
         registerBlockModel(ZCompression.slagironOre);
+        registerBlockModel(ZCompression.slaggoldOre);
         registerBlockModel(ZCompression.tiberiumOre);
         registerBlockModel(ZCompression.vibraniumOre);
+        registerBlockModel(ZCompression.yrdeanOre);
+        
+        
     }
 
     private static void registerBlockModel(Block block) {

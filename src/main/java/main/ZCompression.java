@@ -1,11 +1,13 @@
 package main;
 
-import blocks.BasicBlock;
+import blocks.BlockAardiumOre;
 import blocks.BlockAdamantiteOre;
 import blocks.BlockArcaniteOre;
+import blocks.BlockAxiidianOre;
 import blocks.BlockBasalt;
 import blocks.BlockBismuthOre;
 import blocks.BlockEterniteOre;
+import blocks.BlockIgnititeOre;
 import blocks.BlockKarmesineOre;
 import blocks.BlockLigniteOre;
 import blocks.BlockMeteoriteOre;
@@ -14,9 +16,13 @@ import blocks.BlockMythrilOre;
 import blocks.BlockPalladiumOre;
 import blocks.BlockPrometheumOre;
 import blocks.BlockRottenGround;
+import blocks.BlockSlaggoldOre;
 import blocks.BlockSlagironOre;
 import blocks.BlockTiberiumOre;
 import blocks.BlockVibraniumre;
+import blocks.BlockYrdeanOre;
+import blocks.category.BasicBlockOre;
+import blocks.category.BasicBlockOreGlow;
 import items.ItemSlagiron;
 import main.world.ZWorldGen;
 import net.minecraft.item.ItemBlock;
@@ -43,11 +49,14 @@ public class ZCompression {
 
 
     //Blocks, esp. for tconstruct
+    public static BlockAardiumOre aardiumOre = new BlockAardiumOre();
     public static BlockAdamantiteOre adamantiteOre = new BlockAdamantiteOre();
     public static BlockArcaniteOre arcaniteOre = new BlockArcaniteOre();
+    public static BlockAxiidianOre axiidianOre = new BlockAxiidianOre();
     public static BlockBasalt basalt = new BlockBasalt();
     public static BlockBismuthOre bismuthOre = new BlockBismuthOre();
     public static BlockEterniteOre eterniteOre = new BlockEterniteOre();
+    public static BlockIgnititeOre ignititeOre = new BlockIgnititeOre();
     public static BlockKarmesineOre karmesineOre = new BlockKarmesineOre();
     public static BlockLigniteOre ligniteOre = new BlockLigniteOre();
     public static BlockMeteoriteOre meteoriteOre = new BlockMeteoriteOre();
@@ -57,18 +66,23 @@ public class ZCompression {
     public static BlockPrometheumOre prometheumOre = new BlockPrometheumOre();
     public static BlockRottenGround rottenGround = new BlockRottenGround();
     public static BlockSlagironOre slagironOre = new BlockSlagironOre();
+    public static BlockSlaggoldOre slaggoldOre = new BlockSlaggoldOre();
     public static BlockTiberiumOre tiberiumOre = new BlockTiberiumOre();
     public static BlockVibraniumre vibraniumOre = new BlockVibraniumre();
+    public static BlockYrdeanOre yrdeanOre = new BlockYrdeanOre();
 
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         GameRegistry.register(slagiron);
+        registerBlock(aardiumOre);
         registerBlock(adamantiteOre);
         registerBlock(arcaniteOre);
+        registerBlock(axiidianOre);
         registerBlock(basalt);
         registerBlock(bismuthOre);
         registerBlock(eterniteOre);
+        registerBlock(ignititeOre);
         registerBlock(karmesineOre);
         registerBlock(ligniteOre);
         registerBlock(meteoriteOre);
@@ -78,8 +92,10 @@ public class ZCompression {
         registerBlock(prometheumOre);
         registerBlock(rottenGround);
         registerBlock(slagironOre);
+        registerBlock(slaggoldOre);
         registerBlock(tiberiumOre);
         registerBlock(vibraniumOre);
+        registerBlock(yrdeanOre);
 
     }
 
@@ -95,7 +111,12 @@ public class ZCompression {
 
     }
 
-    private static void registerBlock(BasicBlock block) {
+    private static void registerBlock(BasicBlockOre block) {
+        GameRegistry.register(block);
+        GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+    }
+    
+    private static void registerBlock(BasicBlockOreGlow block) {
         GameRegistry.register(block);
         GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
     }
