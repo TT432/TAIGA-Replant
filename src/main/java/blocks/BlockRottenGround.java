@@ -1,11 +1,11 @@
 package blocks;
 
-import blocks.category.BasicBlockOre;
+import blocks.category.BasicBlockGround;
 import net.minecraft.block.material.Material;
 
-public class BlockRottenGround extends BasicBlockOre {
+public class BlockRottenGround extends BasicBlockGround {
 
     public BlockRottenGround() {
-        super("rotten_ground", Material.GROUND, 1.0f, 1.0f);
+        super("rotten_ground", Material.GROUND, 2.0f, 2.0f,0);
     }
 }

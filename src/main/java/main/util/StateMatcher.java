@@ -64,7 +64,8 @@ public class StateMatcher implements Predicate<IBlockState> {
 
                 IBlockState bState = world.getBlockState(blockPos);
                 if (bState.getBlock() == this.state.getBlock() && bState.getValue(property) == value) {
-                    System.out.println(String.format("Found block with desired state! (%s), try #%s, y=%s", blockPos, i, Y));
+                    // Check if a replacable block is near origin block - show pos in console
+                    // System.out.println(String.format("Found block with desired state! (%s), Block: %s, try #%s, y=%s",  i, Y));
                     return true;
                 }
             }
