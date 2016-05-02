@@ -5,6 +5,8 @@ import blocks.category.BasicBlockOreGlow;
 import items.ItemLignite;
 import items.ItemSlagironIngot;
 import main.util.LigniteFuelHandler;
+import main.util.recipes.Crafting;
+import main.util.recipes.Smelting;
 import main.world.ZWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -97,6 +99,9 @@ public class ZCompression {
         proxy.registerClientStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
         GameRegistry.registerFuelHandler(new LigniteFuelHandler());
+        new Smelting();
+        new Crafting();
+
     }
 
     @EventHandler

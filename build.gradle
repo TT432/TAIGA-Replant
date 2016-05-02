@@ -22,7 +22,7 @@ repositories {
     }
 }
 
-version = "0.2"
+version = "0.2a"
 group = "com.sosnitzka.zcompression" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "zcompression"
 
