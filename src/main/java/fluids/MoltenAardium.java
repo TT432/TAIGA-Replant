@@ -13,6 +13,7 @@ public class MoltenAardium extends Fluid {
 
     @Override
     public int getColor() {
-        return super.getColor();
+        return 0x00FF15;
     }
+
 }

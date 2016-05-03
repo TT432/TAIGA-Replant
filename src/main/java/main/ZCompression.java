@@ -88,8 +88,6 @@ public class ZCompression {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-        //Fluid
-
 
         //Items
         GameRegistry.register(slagironIngot);
