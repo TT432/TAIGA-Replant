@@ -1,8 +1,8 @@
 package items;
 
-public class ItemMeteoriteIngot extends BasicItem{
+public class ItemMeteoriteIngot extends BasicItem {
 
-    public ItemMeteoriteIngot(){
+    public ItemMeteoriteIngot() {
         super("meteorite_ingot");
     }
 }

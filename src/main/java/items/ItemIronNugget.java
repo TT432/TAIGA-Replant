@@ -1,8 +1,8 @@
 package items;
 
-public class ItemIronNugget extends BasicItem{
+public class ItemIronNugget extends BasicItem {
 
-    public ItemIronNugget(){
+    public ItemIronNugget() {
         super("iron_nugget");
     }
 }

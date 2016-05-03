@@ -24,27 +24,25 @@ public class ZWorldGen implements IWorldGenerator {
         Generator.generateOre(ZCompression.slaggoldOre.getDefaultState(), random, x, z, world, 20, 8, 48, 5, 9);
         Generator.generateOre(ZCompression.ligniteOre.getDefaultState(), random, x, z, world, 40, 8, 96, 5, 15);
         Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), random, x, z, world, 40, 8, 96, 2, 14);
-        
         Generator.generateOre(ZCompression.basalt.getDefaultState(), Blocks.LAVA.getDefaultState(), random, x, z, world, 100, 8, 24, 2, 5);
         Generator.generateOre(ZCompression.rottenGround.getDefaultState(), Blocks.DIRT.getDefaultState(), random, x, z, world, 25, 50, 70, 2, 15);
-        
 
-        Generator.generateOre(ZCompression.vibraniumOre.getDefaultState(), 	random, x, z, world, 18, 48, 64, 2, 4);
-        Generator.generateOre(ZCompression.karmesineOre.getDefaultState(), 	random, x, z, world, 30, 16, 48, 2, 5);
-        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 50, 50, 130, 2, 4);
-        Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), 	random, x, z, world, 18, 16, 32, 2, 4);
-        Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(),	random, x, z, world, 12, 0, 32, 2, 10);
-        Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, 200, 16, 96, 2, 4);
-        Generator.generateOre(ZCompression.arcaniteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.GRANITE, random, x, z, world, 200, 16, 96, 2, 4);
-        Generator.generateOre(ZCompression.eterniteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.ANDESITE, random, x, z, world, 200, 16, 96, 2, 4);
+        Generator.generateOre(ZCompression.vibraniumOre.getDefaultState(), random, x, z, world, 18, 48, 64, 2, 4);
+        Generator.generateOre(ZCompression.karmesineOre.getDefaultState(), random, x, z, world, 30, 16, 48, 2, 5);
+        Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), random, x, z, world, 50, 50, 130, 2, 4);
+        Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), random, x, z, world, 18, 16, 32, 2, 4);
+        Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(), random, x, z, world, 12, 0, 32, 2, 10);
+        Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(), Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, 200, 16, 96, 2, 4);
+        Generator.generateOre(ZCompression.arcaniteOre.getDefaultState(), Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.GRANITE, random, x, z, world, 200, 16, 96, 2, 4);
+        Generator.generateOre(ZCompression.eterniteOre.getDefaultState(), Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.ANDESITE, random, x, z, world, 200, 16, 96, 2, 4);
     }
 
     private void end(Random random, int x, int z, World world) {
-    	
-    	Generator.generateEndOre(ZCompression.yrdeanOre.getDefaultState(), random, x, z, world, 16, 10, 35, 2, 6);
-    	Generator.generateEndOre(ZCompression.ignititeOre.getDefaultState(), random, x, z, world, 16, 20, 45, 2, 6);
-    	Generator.generateEndOre(ZCompression.axiidianOre.getDefaultState(), random, x, z, world, 16, 30, 55, 2, 6);
-    	Generator.generateEndOre(ZCompression.aardiumOre.getDefaultState(), random, x, z, world, 16, 40, 65, 2, 6);
+
+        Generator.generateEndOre(ZCompression.yrdeanOre.getDefaultState(), random, x, z, world, 16, 10, 35, 2, 6);
+        Generator.generateEndOre(ZCompression.ignititeOre.getDefaultState(), random, x, z, world, 16, 20, 45, 2, 6);
+        Generator.generateEndOre(ZCompression.axiidianOre.getDefaultState(), random, x, z, world, 16, 30, 55, 2, 6);
+        Generator.generateEndOre(ZCompression.aardiumOre.getDefaultState(), random, x, z, world, 16, 40, 65, 2, 6);
     }
 
 

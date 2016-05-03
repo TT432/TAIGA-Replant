@@ -1,8 +1,8 @@
 package items;
 
-public class ItemTiberiumIngot extends BasicItem{
+public class ItemTiberiumIngot extends BasicItem {
 
-    public ItemTiberiumIngot(){
+    public ItemTiberiumIngot() {
         super("tiberium_ingot");
     }
 }

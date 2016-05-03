@@ -6,6 +6,6 @@ import net.minecraft.block.material.Material;
 public class BlockAxiidianOre extends BasicBlockOre {
 
     public BlockAxiidianOre() {
-        super("axiidian_ore", Material.ROCK, 13.0f, 13.0f,3);
+        super("axiidian_ore", Material.ROCK, 13.0f, 13.0f, 3);
     }
 }

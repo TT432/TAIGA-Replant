@@ -1,8 +1,8 @@
 package items;
 
-public class ItemMythrilIngot extends BasicItem{
+public class ItemMythrilIngot extends BasicItem {
 
-    public ItemMythrilIngot(){
+    public ItemMythrilIngot() {
         super("mythril_ingot");
     }
 }

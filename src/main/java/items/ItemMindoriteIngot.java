@@ -1,8 +1,8 @@
 package items;
 
-public class ItemMindoriteIngot extends BasicItem{
+public class ItemMindoriteIngot extends BasicItem {
 
-    public ItemMindoriteIngot(){
+    public ItemMindoriteIngot() {
         super("mindorite_ingot");
     }
 }

@@ -8,6 +8,14 @@ import net.minecraft.item.Item;
 
 public class ClientProxy extends ServerProxy {
 
+    private static void registerBlockModel(Block block) {
+        registerItemModel(Item.getItemFromBlock(block));
+    }
+
+    private static void registerItemModel(Item item) {
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
+
     @Override
     public void registerClientStuff() {
         // Items
@@ -56,15 +64,5 @@ public class ClientProxy extends ServerProxy {
         registerBlockModel(ZCompression.tiberiumOre);
         registerBlockModel(ZCompression.vibraniumOre);
         registerBlockModel(ZCompression.yrdeanOre);
-        
-        
-    }
-
-    private static void registerBlockModel(Block block) {
-        registerItemModel(Item.getItemFromBlock(block));
-    }
-
-    private static void registerItemModel(Item item) {
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
 }

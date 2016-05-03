@@ -17,7 +17,7 @@ public class Generator {
     public static void generateNetherOre(IBlockState state, Random random, int x, int z, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
         generateOre(state, Blocks.NETHERRACK.getDefaultState(), null, null, random, x, z, world, chance, minY, maxY, minSize, maxSize);
     }
-    
+
     public static void generateEndOre(IBlockState state, Random random, int x, int z, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
         generateOre(state, Blocks.END_STONE.getDefaultState(), null, null, random, x, z, world, chance, minY, maxY, minSize, maxSize);
     }

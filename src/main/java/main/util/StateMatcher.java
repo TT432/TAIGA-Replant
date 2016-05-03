@@ -13,10 +13,10 @@ public class StateMatcher implements Predicate<IBlockState> {
     private final Comparable value;
 
     private StateMatcher(IBlockState state, IProperty property, Comparable value) {
-            this.state = state;
-            this.property = property;
-            this.value = value;
-        }
+        this.state = state;
+        this.property = property;
+        this.value = value;
+    }
 
     public static StateMatcher forState(IBlockState state, IProperty property, Comparable value) {
         return new StateMatcher(state, property, value);

@@ -1,8 +1,8 @@
 package items;
 
-public class ItemPrometheumIngot extends BasicItem{
+public class ItemPrometheumIngot extends BasicItem {
 
-    public ItemPrometheumIngot(){
+    public ItemPrometheumIngot() {
         super("prometheum_ingot");
     }
 }

@@ -1,8 +1,8 @@
 package items;
 
-public class ItemKarmesineIngot extends BasicItem{
+public class ItemKarmesineIngot extends BasicItem {
 
-    public ItemKarmesineIngot(){
+    public ItemKarmesineIngot() {
         super("karmesine_ingot");
     }
 }

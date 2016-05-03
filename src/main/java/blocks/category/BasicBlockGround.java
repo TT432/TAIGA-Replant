@@ -11,6 +11,6 @@ public class BasicBlockGround extends Block {
         setRegistryName(name);
         setHardness(hardness);
         setResistance(resistance);
-        setHarvestLevel("shovel",harvest);
+        setHarvestLevel("shovel", harvest);
     }
 }

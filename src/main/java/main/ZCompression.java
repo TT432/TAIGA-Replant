@@ -134,7 +134,6 @@ public class ZCompression {
         GameRegistry.registerFuelHandler(new FuelHandler());
         new Smelting();
         new Crafting();
-
     }
 
     @EventHandler
