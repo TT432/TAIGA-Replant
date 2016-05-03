@@ -1,5 +1,4 @@
-[
-{
+[{
   "modid": "zcompression",
   "name": "Zkaface Compression Mod",
   "description": "A modification to compress several items and blocks to a solid block with several features coming up on exponent five.",
@@ -12,5 +11,4 @@
   "logoFile": "",
   "screenshots": [],
   "dependencies": ["tconstruct"]
-}
-]
+}]

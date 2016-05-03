@@ -10,6 +10,7 @@ import main.world.ZWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -144,8 +145,8 @@ public class ZCompression {
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
         GameRegistry.registerFuelHandler(new FuelHandler());
         RegisterOres();
-        RegisterFluids();
-        RegisterTinker();
+        registerFluid(moltenAardium);
+        registerTinkerFluid("Aardium", moltenAardium, true);
         new Smelting();
         new Crafting();
     }
@@ -160,20 +161,18 @@ public class ZCompression {
         OreDictionary.registerOre("oreAardium", aardiumOre);
         OreDictionary.registerOre("oreAdamantite", adamantiteOre);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
-
-
     }
 
-    private void RegisterFluids() {
-        FluidRegistry.registerFluid(moltenAardium);
-        FluidRegistry.addBucketForFluid(moltenAardium);
+    private void registerFluid(Fluid fluid) {
+        FluidRegistry.registerFluid(fluid);
+        FluidRegistry.addBucketForFluid(fluid);
     }
 
-    private void RegisterTinker() {
+    private void registerTinkerFluid(String name, Fluid fluid, boolean toolForge) {
         NBTTagCompound tag = new NBTTagCompound();
-        tag.setString("molten_aardium", moltenAardium.getName());
-        tag.setString("ore", "Aardium");
-        tag.setBoolean("toolforge", true);
+        tag.setString("fluid", fluid.getName());
+        tag.setString("ore", name);
+        tag.setBoolean("toolforge", toolForge);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
 }
