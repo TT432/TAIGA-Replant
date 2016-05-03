@@ -12,7 +12,27 @@ public class ClientProxy extends ServerProxy {
     public void registerClientStuff() {
         // Items
         registerItemModel(ZCompression.slagironIngot);
+        registerItemModel(ZCompression.slaggoldIngot);
         registerItemModel(ZCompression.lignite);
+        registerItemModel(ZCompression.iron_nugget);
+        registerItemModel(ZCompression.fuel_brick);
+
+        registerItemModel(ZCompression.aardiumIngot);
+        registerItemModel(ZCompression.adamantiteIngot);
+        registerItemModel(ZCompression.arcaniteIngot);
+        registerItemModel(ZCompression.axiidianIngot);
+        registerItemModel(ZCompression.bismuthIngot);
+        registerItemModel(ZCompression.eterniteIngot);
+        registerItemModel(ZCompression.ignititeIngot);
+        registerItemModel(ZCompression.karmesineIngot);
+        registerItemModel(ZCompression.meteoriteIngot);
+        registerItemModel(ZCompression.mindoriteIngot);
+        registerItemModel(ZCompression.mythrilIngot);
+        registerItemModel(ZCompression.palladiumIngot);
+        registerItemModel(ZCompression.prometheumIngot);
+        registerItemModel(ZCompression.tiberiumIngot);
+        registerItemModel(ZCompression.vibraniumIngot);
+        registerItemModel(ZCompression.yrdeanIngot);
 
         // Blocks
         registerBlockModel(ZCompression.aardiumOre);

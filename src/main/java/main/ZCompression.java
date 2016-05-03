@@ -2,9 +2,8 @@ package main;
 
 import blocks.*;
 import blocks.category.BasicBlockOreGlow;
-import items.ItemLignite;
-import items.ItemSlagironIngot;
-import main.util.LigniteFuelHandler;
+import items.*;
+import main.util.FuelHandler;
 import main.util.recipes.Crafting;
 import main.util.recipes.Smelting;
 import main.world.ZWorldGen;
@@ -23,10 +22,31 @@ import proxy.ServerProxy;
 public class ZCompression {
 
     static final String MODID = "zcompression";
-    static final String VERSION = "1.0";
+    static final String VERSION = "0.3b";
     // Items
     public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
     public static ItemLignite lignite = new ItemLignite();
+    public static ItemIronNugget iron_nugget = new ItemIronNugget();
+    public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
+    public static ItemFuelBrick fuel_brick = new ItemFuelBrick();
+
+    public static ItemAardiumIngot aardiumIngot = new ItemAardiumIngot();
+    public static ItemAdamantiteIngot adamantiteIngot = new ItemAdamantiteIngot();
+    public static ItemArcaniteIngot arcaniteIngot = new ItemArcaniteIngot();
+    public static ItemAxiidianIngot axiidianIngot = new ItemAxiidianIngot();
+        public static ItemBismuthIngot bismuthIngot = new ItemBismuthIngot();
+    public static ItemEterniteIngot eterniteIngot = new ItemEterniteIngot();
+    public static ItemIgnititeIngot ignititeIngot = new ItemIgnititeIngot();
+    public static ItemKarmesineIngot karmesineIngot = new ItemKarmesineIngot();
+    public static ItemMeteoriteIngot meteoriteIngot = new ItemMeteoriteIngot();
+    public static ItemMindoriteIngot mindoriteIngot = new ItemMindoriteIngot();
+    public static ItemMythrilIngot mythrilIngot = new ItemMythrilIngot();
+    public static ItemPalladiumIngot palladiumIngot = new ItemPalladiumIngot();
+    public static ItemPrometheumIngot prometheumIngot = new ItemPrometheumIngot();
+    public static ItemTiberiumIngot tiberiumIngot = new ItemTiberiumIngot();
+    public static ItemVibraniumIngot vibraniumIngot = new ItemVibraniumIngot();
+    public static ItemYrdeanIngot yrdeanIngot = new ItemYrdeanIngot();
+
     //Blocks, esp. for tconstruct
     public static BlockAardiumOre aardiumOre = new BlockAardiumOre();
     public static BlockAdamantiteOre adamantiteOre = new BlockAdamantiteOre();
@@ -66,7 +86,30 @@ public class ZCompression {
     public void preInit(FMLPreInitializationEvent e) {
         //Items
         GameRegistry.register(slagironIngot);
+        GameRegistry.register(fuel_brick);
+        GameRegistry.register(slaggoldIngot);
+        GameRegistry.register(iron_nugget);
         GameRegistry.register(lignite);
+
+        GameRegistry.register(aardiumIngot);
+        GameRegistry.register(adamantiteIngot);
+        GameRegistry.register(arcaniteIngot);
+        GameRegistry.register(axiidianIngot);
+        GameRegistry.register(bismuthIngot);
+        GameRegistry.register(eterniteIngot);
+        GameRegistry.register(ignititeIngot);
+        GameRegistry.register(karmesineIngot);
+        GameRegistry.register(meteoriteIngot);
+        GameRegistry.register(mindoriteIngot);
+        GameRegistry.register(mythrilIngot);
+        GameRegistry.register(palladiumIngot);
+        GameRegistry.register(prometheumIngot);
+        GameRegistry.register(tiberiumIngot);
+        GameRegistry.register(vibraniumIngot);
+        GameRegistry.register(yrdeanIngot);
+
+
+
         //Blocks
         registerBlock(aardiumOre);
         registerBlock(adamantiteOre);
@@ -98,7 +141,7 @@ public class ZCompression {
     public void init(FMLInitializationEvent e) {
         proxy.registerClientStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
-        GameRegistry.registerFuelHandler(new LigniteFuelHandler());
+        GameRegistry.registerFuelHandler(new FuelHandler());
         new Smelting();
         new Crafting();
 

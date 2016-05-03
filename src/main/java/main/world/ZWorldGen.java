@@ -14,8 +14,8 @@ import java.util.Random;
 public class ZWorldGen implements IWorldGenerator {
     private void nether(Random random, int x, int z, World world) {
         Generator.generateNetherOre(ZCompression.adamantiteOre.getDefaultState(), random, x, z, world, 25, 1, 32, 2, 5);
-        Generator.generateNetherOre(ZCompression.tiberiumOre.getDefaultState(), random, x, z, world, 60, 1, 128, 2, 10);
-        Generator.generateNetherOre(ZCompression.palladiumOre.getDefaultState(), random, x, z, world, 21, 32, 64, 3, 6);
+        Generator.generateNetherOre(ZCompression.tiberiumOre.getDefaultState(), random, x, z, world, 60, 1, 128, 2, 7);
+        Generator.generateNetherOre(ZCompression.palladiumOre.getDefaultState(), random, x, z, world, 21, 32, 64, 2, 5);
         Generator.generateOre(ZCompression.prometheumOre.getDefaultState(), random, x, z, world, 21, 48, 64, 2, 4);
     }
 
@@ -33,7 +33,7 @@ public class ZWorldGen implements IWorldGenerator {
         Generator.generateOre(ZCompression.karmesineOre.getDefaultState(), 	random, x, z, world, 30, 16, 48, 2, 5);
         Generator.generateOre(ZCompression.bismuthOre.getDefaultState(), 	random, x, z, world, 50, 50, 130, 2, 4);
         Generator.generateOre(ZCompression.mythrilOre.getDefaultState(), 	random, x, z, world, 18, 16, 32, 2, 4);
-        Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(),	random, x, z, world, 25, 0, 32, 3, 6);
+        Generator.generateOre(ZCompression.meteoriteOre.getDefaultState(),	random, x, z, world, 12, 0, 32, 2, 10);
         Generator.generateOre(ZCompression.mindoriteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, 200, 16, 96, 2, 4);
         Generator.generateOre(ZCompression.arcaniteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.GRANITE, random, x, z, world, 200, 16, 96, 2, 4);
         Generator.generateOre(ZCompression.eterniteOre.getDefaultState(),	Blocks.STONE.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.ANDESITE, random, x, z, world, 200, 16, 96, 2, 4);
@@ -41,10 +41,10 @@ public class ZWorldGen implements IWorldGenerator {
 
     private void end(Random random, int x, int z, World world) {
     	
-    	Generator.generateEndOre(ZCompression.yrdeanOre.getDefaultState(), random, x, z, world, 20, 10, 35, 2, 6);
-    	Generator.generateEndOre(ZCompression.ignititeOre.getDefaultState(), random, x, z, world, 20, 20, 45, 2, 6);
-    	Generator.generateEndOre(ZCompression.axiidianOre.getDefaultState(), random, x, z, world, 20, 30, 55, 2, 6);
-    	Generator.generateEndOre(ZCompression.aardiumOre.getDefaultState(), random, x, z, world, 20, 40, 65, 2, 6);
+    	Generator.generateEndOre(ZCompression.yrdeanOre.getDefaultState(), random, x, z, world, 16, 10, 35, 2, 6);
+    	Generator.generateEndOre(ZCompression.ignititeOre.getDefaultState(), random, x, z, world, 16, 20, 45, 2, 6);
+    	Generator.generateEndOre(ZCompression.axiidianOre.getDefaultState(), random, x, z, world, 16, 30, 55, 2, 6);
+    	Generator.generateEndOre(ZCompression.aardiumOre.getDefaultState(), random, x, z, world, 16, 40, 65, 2, 6);
     }
 
 
