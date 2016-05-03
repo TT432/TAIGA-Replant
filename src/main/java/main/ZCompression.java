@@ -27,7 +27,7 @@ import proxy.ServerProxy;
 public class ZCompression {
 
     static final String MODID = "zcompression";
-    static final String VERSION = "0.3b";
+    static final String VERSION = "@VERSION@";
     // Items
     public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
     public static ItemLignite lignite = new ItemLignite();
