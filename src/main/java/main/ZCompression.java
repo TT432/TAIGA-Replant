@@ -1,6 +1,7 @@
 package main;
 
 import blocks.*;
+import fluids.MoltenAardium;
 import items.*;
 import main.util.FuelHandler;
 import main.util.recipes.Crafting;
@@ -8,13 +9,17 @@ import main.util.recipes.Smelting;
 import main.world.ZWorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import proxy.ServerProxy;
 
 @Mod(modid = ZCompression.MODID, version = ZCompression.VERSION)
@@ -68,6 +73,11 @@ public class ZCompression {
     public static BlockTiberiumOre tiberiumOre = new BlockTiberiumOre();
     public static BlockVibraniumOre vibraniumOre = new BlockVibraniumOre();
     public static BlockYrdeanOre yrdeanOre = new BlockYrdeanOre();
+
+    // Fluids
+    public static MoltenAardium moltenAardium = new MoltenAardium();
+
+
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
 
@@ -78,6 +88,9 @@ public class ZCompression {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
+        //Fluid
+
+
         //Items
         GameRegistry.register(slagironIngot);
         GameRegistry.register(fuel_brick);
@@ -132,12 +145,37 @@ public class ZCompression {
         proxy.registerClientStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
         GameRegistry.registerFuelHandler(new FuelHandler());
+        RegisterOres();
+        RegisterFluids();
+        RegisterTinker();
         new Smelting();
         new Crafting();
     }
 
+
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
 
+    }
+
+    private void RegisterOres() {
+        OreDictionary.registerOre("oreAardium", aardiumOre);
+        OreDictionary.registerOre("oreAdamantite", adamantiteOre);
+        OreDictionary.registerOre("oreArcanite", arcaniteOre);
+
+
+    }
+
+    private void RegisterFluids() {
+        FluidRegistry.registerFluid(moltenAardium);
+        FluidRegistry.addBucketForFluid(moltenAardium);
+    }
+
+    private void RegisterTinker() {
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setString("molten_aardium", moltenAardium.getName());
+        tag.setString("ore", "Aardium");
+        tag.setBoolean("toolforge", true);
+        FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
 }
