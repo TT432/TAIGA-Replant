@@ -1,7 +1,6 @@
 package main;
 
 import blocks.*;
-import blocks.category.BasicBlockOreGlow;
 import items.*;
 import main.util.FuelHandler;
 import main.util.recipes.Crafting;
@@ -34,7 +33,7 @@ public class ZCompression {
     public static ItemAdamantiteIngot adamantiteIngot = new ItemAdamantiteIngot();
     public static ItemArcaniteIngot arcaniteIngot = new ItemArcaniteIngot();
     public static ItemAxiidianIngot axiidianIngot = new ItemAxiidianIngot();
-        public static ItemBismuthIngot bismuthIngot = new ItemBismuthIngot();
+    public static ItemBismuthIngot bismuthIngot = new ItemBismuthIngot();
     public static ItemEterniteIngot eterniteIngot = new ItemEterniteIngot();
     public static ItemIgnititeIngot ignititeIngot = new ItemIgnititeIngot();
     public static ItemKarmesineIngot karmesineIngot = new ItemKarmesineIngot();
@@ -72,12 +71,7 @@ public class ZCompression {
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
 
-    private static void registerBlock(Block block) {
-        GameRegistry.register(block);
-        GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-    }
-
-    private static void registerBlock(BasicBlockOreGlow block) {
+    private static void registerBlockWithItem(Block block) {
         GameRegistry.register(block);
         GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
     }
@@ -109,32 +103,28 @@ public class ZCompression {
         GameRegistry.register(yrdeanIngot);
 
 
-
         //Blocks
-        registerBlock(aardiumOre);
-        registerBlock(adamantiteOre);
-        registerBlock(arcaniteOre);
-        registerBlock(axiidianOre);
-        registerBlock(basalt);
-        registerBlock(bismuthOre);
-        registerBlock(eterniteOre);
-        registerBlock(ignititeOre);
-        registerBlock(karmesineOre);
-        registerBlock(ligniteOre);
-        registerBlock(meteoriteOre);
-        registerBlock(mindoriteOre);
-        registerBlock(mythrilOre);
-        registerBlock(palladiumOre);
-        registerBlock(prometheumOre);
-        registerBlock(rottenGround);
-        registerBlock(slagironOre);
-        registerBlock(slaggoldOre);
-        registerBlock(tiberiumOre);
-        registerBlock(vibraniumOre);
-        registerBlock(yrdeanOre);
-
-
-
+        registerBlockWithItem(aardiumOre);
+        registerBlockWithItem(adamantiteOre);
+        registerBlockWithItem(arcaniteOre);
+        registerBlockWithItem(axiidianOre);
+        registerBlockWithItem(basalt);
+        registerBlockWithItem(bismuthOre);
+        registerBlockWithItem(eterniteOre);
+        registerBlockWithItem(ignititeOre);
+        registerBlockWithItem(karmesineOre);
+        registerBlockWithItem(ligniteOre);
+        registerBlockWithItem(meteoriteOre);
+        registerBlockWithItem(mindoriteOre);
+        registerBlockWithItem(mythrilOre);
+        registerBlockWithItem(palladiumOre);
+        registerBlockWithItem(prometheumOre);
+        registerBlockWithItem(rottenGround);
+        registerBlockWithItem(slagironOre);
+        registerBlockWithItem(slaggoldOre);
+        registerBlockWithItem(tiberiumOre);
+        registerBlockWithItem(vibraniumOre);
+        registerBlockWithItem(yrdeanOre);
     }
 
     @EventHandler
@@ -151,6 +141,4 @@ public class ZCompression {
     public void postInit(FMLPostInitializationEvent e) {
 
     }
-
-
 }
