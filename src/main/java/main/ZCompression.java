@@ -161,8 +161,9 @@ public class ZCompression {
 
     private void registerOreDict() {
         OreDictionary.registerOre("oreAardium", aardiumOre);
-        OreDictionary.registerOre("oreAdamantite", adamantiteOre);
+        OreDictionary.registerOre("ingotAardium", aardiumIngot);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
+
     }
 
     private void registerFluid(Fluid fluid) {
