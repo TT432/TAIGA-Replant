@@ -11,6 +11,6 @@ public class BasicBlockOre extends Block {
         setRegistryName(name);
         setHardness(hardness);
         setResistance(resistance);
-        setHarvestLevel("pickaxe",harvest);
+        setHarvestLevel("pickaxe", harvest);
     }
 }
