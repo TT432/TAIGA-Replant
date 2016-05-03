@@ -137,6 +137,11 @@ public class ZCompression {
         registerBlockWithItem(tiberiumOre);
         registerBlockWithItem(vibraniumOre);
         registerBlockWithItem(yrdeanOre);
+
+        // TConstruct registrations
+        registerOreDict();
+        registerFluid(moltenAardium);
+        registerTinkerFluid("Aardium", moltenAardium, true);
     }
 
     @EventHandler
@@ -144,9 +149,6 @@ public class ZCompression {
         proxy.registerClientStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
         GameRegistry.registerFuelHandler(new FuelHandler());
-        RegisterOres();
-        registerFluid(moltenAardium);
-        registerTinkerFluid("Aardium", moltenAardium, true);
         new Smelting();
         new Crafting();
     }
@@ -157,7 +159,7 @@ public class ZCompression {
 
     }
 
-    private void RegisterOres() {
+    private void registerOreDict() {
         OreDictionary.registerOre("oreAardium", aardiumOre);
         OreDictionary.registerOre("oreAdamantite", adamantiteOre);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
@@ -168,10 +170,10 @@ public class ZCompression {
         FluidRegistry.addBucketForFluid(fluid);
     }
 
-    private void registerTinkerFluid(String name, Fluid fluid, boolean toolForge) {
+    private void registerTinkerFluid(String oreDictSuffix, Fluid fluid, boolean toolForge) {
         NBTTagCompound tag = new NBTTagCompound();
         tag.setString("fluid", fluid.getName());
-        tag.setString("ore", name);
+        tag.setString("ore", oreDictSuffix);
         tag.setBoolean("toolforge", toolForge);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
