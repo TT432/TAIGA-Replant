@@ -1,7 +1,7 @@
 package main;
 
 import blocks.*;
-import fluids.MoltenAardium;
+import fluids.BasicFluid;
 import items.*;
 import main.util.FuelHandler;
 import main.util.recipes.Crafting;
@@ -11,7 +11,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -77,8 +76,6 @@ public class ZCompression {
     public static BlockVibraniumOre vibraniumOre = new BlockVibraniumOre();
     public static BlockYrdeanOre yrdeanOre = new BlockYrdeanOre();
 
-    // Fluids
-    public static MoltenAardium moltenAardium = new MoltenAardium();
 
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
@@ -141,16 +138,74 @@ public class ZCompression {
 
         // TConstruct registrations
         registerOreDict();
-        Fluid arcaniteFluid = new Fluid("arcaniteFluid", new ResourceLocation("tconstruct:blocks/fluids/molten_metal"), new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow"));
+        BasicFluid arcaniteFluid = new BasicFluid("arcaniteFluid", 0xFF272354);
+        BasicFluid aardiumFluid = new BasicFluid("aardiumFluid", 0xFFC3F93D);
+        BasicFluid adamantiteFluid = new BasicFluid("adamantiteFluid", 0xFFc45c82);
+        BasicFluid axiidianFluid = new BasicFluid("axiidianFluid", 0xFF77a19a);
+        BasicFluid bismuthFluid = new BasicFluid("bismuthFluid", 0xFF555555);
+        BasicFluid eterniteFluid = new BasicFluid("eterniteFluid", 0xFFfafa98);
+        BasicFluid ignititeFluid = new BasicFluid("ignititeFluid", 0xFFd29453);
+        BasicFluid karmesineFluid = new BasicFluid("karmesineFluid", 0xFFc16d6d);
+        BasicFluid meteoriteFluid = new BasicFluid("meteoriteFluid", 0xFF6e6a62);
+        BasicFluid mindoriteFluid = new BasicFluid("mindoriteFluid", 0xFF6bbbbf);
+        BasicFluid mythrilFluid = new BasicFluid("mythrilFluid", 0xFFa8c0ba);
+        BasicFluid palladiumFluid = new BasicFluid("palladiumFluid", 0xFFfe5c05);
+        BasicFluid prometheumFluid = new BasicFluid("prometheumFluid", 0xFF2b282f);
+        BasicFluid tiberiumFluid = new BasicFluid("tiberiumFluid", 0xFF174124);
+        BasicFluid vibraniumFluid = new BasicFluid("vibraniumFluid", 0xFFb6bba8);
+        BasicFluid yrdeanFluid = new BasicFluid("yrdeanFluid", 0xFF3e3c6f);
+
+
         registerFluid(arcaniteFluid);
+        registerFluid(aardiumFluid);
+        registerFluid(adamantiteFluid);
+        registerFluid(axiidianFluid);
+        registerFluid(bismuthFluid);
+        registerFluid(eterniteFluid);
+        registerFluid(ignititeFluid);
+        registerFluid(karmesineFluid);
+        registerFluid(meteoriteFluid);
+        registerFluid(mindoriteFluid);
+        registerFluid(mythrilFluid);
+        registerFluid(palladiumFluid);
+        registerFluid(prometheumFluid);
+        registerFluid(tiberiumFluid);
+        registerFluid(vibraniumFluid);
+        registerFluid(yrdeanFluid);
 
-
-        registerFluid(moltenAardium);
-        registerTinkerFluid("Aardium", moltenAardium, true);
-        moltenAardium.setTemperature(200).setRarity(EnumRarity.RARE);
 
         registerTinkerFluid("Arcanite", arcaniteFluid, true);
-        arcaniteFluid.setTemperature(2000);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Aardium", aardiumFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Adamantite", adamantiteFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Axiidian", axiidianFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Bismuth", bismuthFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Eternite", eterniteFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Ignitite", ignititeFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Karmesine", karmesineFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Meteorite", meteoriteFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Mindorite", mindoriteFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Mythril", mythrilFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Palladium", palladiumFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Prometheum", prometheumFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Tiberium", tiberiumFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Vibranium", vibraniumFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Yrdean", yrdeanFluid, true);
+        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
 
     }
 
@@ -174,6 +229,34 @@ public class ZCompression {
         OreDictionary.registerOre("ingotAardium", aardiumIngot);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
         OreDictionary.registerOre("ingotArcanite", arcaniteIngot);
+        OreDictionary.registerOre("oreAdamantite", adamantiteOre);
+        OreDictionary.registerOre("ingotAdamantite", adamantiteIngot);
+        OreDictionary.registerOre("oreAxiidian", axiidianOre);
+        OreDictionary.registerOre("ingotAxiidian", axiidianIngot);
+        OreDictionary.registerOre("oreBismuth", bismuthOre);
+        OreDictionary.registerOre("ingotBismuth", bismuthIngot);
+        OreDictionary.registerOre("oreEternite", eterniteOre);
+        OreDictionary.registerOre("ingotEternite", eterniteIngot);
+        OreDictionary.registerOre("oreIgnitite", ignititeOre);
+        OreDictionary.registerOre("ingotIgnitite", ignititeIngot);
+        OreDictionary.registerOre("oreKarmesine", karmesineOre);
+        OreDictionary.registerOre("ingotKarmesine", karmesineIngot);
+        OreDictionary.registerOre("oreMeteorite", meteoriteOre);
+        OreDictionary.registerOre("ingotMeteorite", meteoriteIngot);
+        OreDictionary.registerOre("oreMindorite", mindoriteOre);
+        OreDictionary.registerOre("ingotMindorite", mindoriteIngot);
+        OreDictionary.registerOre("oreMythril", mythrilOre);
+        OreDictionary.registerOre("ingotMythril", mythrilIngot);
+        OreDictionary.registerOre("orePalladium", palladiumOre);
+        OreDictionary.registerOre("ingotPalladium", palladiumIngot);
+        OreDictionary.registerOre("orePrometheum", prometheumOre);
+        OreDictionary.registerOre("ingotPrometheum", prometheumIngot);
+        OreDictionary.registerOre("oreTiberium", tiberiumOre);
+        OreDictionary.registerOre("ingotTiberium", tiberiumIngot);
+        OreDictionary.registerOre("oreVibranium", vibraniumOre);
+        OreDictionary.registerOre("ingotVibranium", vibraniumIngot);
+        OreDictionary.registerOre("oreYrdean", yrdeanOre);
+        OreDictionary.registerOre("ingotYrdean", yrdeanIngot);
 
 
     }
