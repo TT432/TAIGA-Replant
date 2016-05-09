@@ -8,7 +8,7 @@
     "moltenAardium": [
       {
         "custom": {
-          "fluid": "molten_aardium"
+          "fluid": "fluid_aardium"
         }
       }
     ]

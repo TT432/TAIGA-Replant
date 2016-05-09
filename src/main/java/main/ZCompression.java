@@ -8,8 +8,10 @@ import main.util.recipes.Crafting;
 import main.util.recipes.Smelting;
 import main.world.ZWorldGen;
 import net.minecraft.block.Block;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -78,7 +80,6 @@ public class ZCompression {
     // Fluids
     public static MoltenAardium moltenAardium = new MoltenAardium();
 
-
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
 
@@ -140,8 +141,17 @@ public class ZCompression {
 
         // TConstruct registrations
         registerOreDict();
+        Fluid arcaniteFluid = new Fluid("arcaniteFluid", new ResourceLocation("tconstruct:blocks/fluids/molten_metal"), new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow"));
+        registerFluid(arcaniteFluid);
+
+
         registerFluid(moltenAardium);
         registerTinkerFluid("Aardium", moltenAardium, true);
+        moltenAardium.setTemperature(200).setRarity(EnumRarity.RARE);
+
+        registerTinkerFluid("Arcanite", arcaniteFluid, true);
+        arcaniteFluid.setTemperature(2000);
+
     }
 
     @EventHandler
@@ -163,6 +173,8 @@ public class ZCompression {
         OreDictionary.registerOre("oreAardium", aardiumOre);
         OreDictionary.registerOre("ingotAardium", aardiumIngot);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
+        OreDictionary.registerOre("ingotArcanite", arcaniteIngot);
+
 
     }
 
