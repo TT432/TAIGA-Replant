@@ -8,7 +8,6 @@ import main.util.recipes.Crafting;
 import main.util.recipes.Smelting;
 import main.world.ZWorldGen;
 import net.minecraft.block.Block;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.Fluid;
@@ -89,6 +88,10 @@ public class ZCompression {
     public void preInit(FMLPreInitializationEvent e) {
 
         //Items
+        BasicItem tiberiumShardInstable = new BasicItem("tiberiumShardInstable");
+        GameRegistry.register(tiberiumShardInstable);
+
+
         GameRegistry.register(slagironIngot);
         GameRegistry.register(fuel_brick);
         GameRegistry.register(slaggoldIngot);
@@ -114,6 +117,7 @@ public class ZCompression {
 
 
         //Blocks
+
         registerBlockWithItem(aardiumOre);
         registerBlockWithItem(adamantiteOre);
         registerBlockWithItem(arcaniteOre);
@@ -175,37 +179,37 @@ public class ZCompression {
 
 
         registerTinkerFluid("Arcanite", arcaniteFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Aardium", aardiumFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Adamantite", adamantiteFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Axiidian", axiidianFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Bismuth", bismuthFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Eternite", eterniteFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Ignitite", ignititeFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Karmesine", karmesineFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Meteorite", meteoriteFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Mindorite", mindoriteFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Mythril", mythrilFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Palladium", palladiumFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Prometheum", prometheumFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Tiberium", tiberiumFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Vibranium", vibraniumFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Yrdean", yrdeanFluid, true);
-        aardiumFluid.setTemperature(200).setRarity(EnumRarity.RARE).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
 
     }
 
@@ -225,6 +229,7 @@ public class ZCompression {
     }
 
     private void registerOreDict() {
+
         OreDictionary.registerOre("oreAardium", aardiumOre);
         OreDictionary.registerOre("ingotAardium", aardiumIngot);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
@@ -257,7 +262,6 @@ public class ZCompression {
         OreDictionary.registerOre("ingotVibranium", vibraniumIngot);
         OreDictionary.registerOre("oreYrdean", yrdeanOre);
         OreDictionary.registerOre("ingotYrdean", yrdeanIngot);
-
 
     }
 
