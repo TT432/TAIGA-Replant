@@ -16,6 +16,8 @@ public class Smelting {
         GameRegistry.addSmelting(ZCompression.slagironOre, new ItemStack(ZCompression.slagironIngot),1.0F);
         GameRegistry.addSmelting(new ItemStack(ZCompression.slagironIngot, 3),new ItemStack(ZCompression.iron_nugget), 0);
         GameRegistry.addSmelting(new ItemStack(ZCompression.slaggoldIngot, 3),new ItemStack(Items.GOLD_NUGGET), 0);
+        GameRegistry.addSmelting(new ItemStack(ZCompression.tiberiumShardInstable), new ItemStack(ZCompression.tiberiumShardStable), 0.2F);
+
 
         GameRegistry.addSmelting(ZCompression.aardiumOre, new ItemStack(ZCompression.aardiumIngot), RandomUtils.nextFloat(0F, 2F));
         GameRegistry.addSmelting(ZCompression.arcaniteOre, new ItemStack(ZCompression.arcaniteIngot), RandomUtils.nextFloat(0F, 2F));
@@ -30,7 +32,7 @@ public class Smelting {
         GameRegistry.addSmelting(ZCompression.mythrilOre, new ItemStack(ZCompression.mythrilIngot), RandomUtils.nextFloat(0F, 2F));
         GameRegistry.addSmelting(ZCompression.palladiumOre, new ItemStack(ZCompression.palladiumIngot), RandomUtils.nextFloat(0F, 2F));
         GameRegistry.addSmelting(ZCompression.prometheumOre, new ItemStack(ZCompression.prometheumIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.tiberiumOre, new ItemStack(ZCompression.tiberiumIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZCompression.tiberiumOre, new ItemStack(ZCompression.tiberiumShardStable, 2), RandomUtils.nextFloat(0F, 2F));
         GameRegistry.addSmelting(ZCompression.vibraniumOre, new ItemStack(ZCompression.vibraniumIngot), RandomUtils.nextFloat(0F, 2F));
         GameRegistry.addSmelting(ZCompression.yrdeanOre, new ItemStack(ZCompression.yrdeanIngot), RandomUtils.nextFloat(0F, 2F));
 

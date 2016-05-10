@@ -24,6 +24,9 @@ public class ClientProxy extends ServerProxy {
         registerItemModel(ZCompression.lignite);
         registerItemModel(ZCompression.iron_nugget);
         registerItemModel(ZCompression.fuel_brick);
+        registerItemModel(ZCompression.tiberiumShardInstable);
+        registerItemModel(ZCompression.tiberiumShardStable);
+
 
         registerItemModel(ZCompression.aardiumIngot);
         registerItemModel(ZCompression.adamantiteIngot);

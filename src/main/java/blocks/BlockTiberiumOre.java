@@ -15,7 +15,7 @@ import java.util.Random;
 public class BlockTiberiumOre extends BasicBlockOreGlow {
 
     public BlockTiberiumOre() {
-        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 0.66f);
+        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 0.8f);
     }
 
     @Override
@@ -34,6 +34,6 @@ public class BlockTiberiumOre extends BasicBlockOreGlow {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ZCompression;
+        return ZCompression.tiberiumShardInstable;
     }
 }

@@ -1,6 +1,9 @@
 package main;
 
 import blocks.*;
+import blocks.category.BasicBlockGround;
+import blocks.category.BasicBlockOre;
+import blocks.category.BasicBlockOreGlow;
 import fluids.BasicFluid;
 import items.*;
 import main.util.FuelHandler;
@@ -8,6 +11,8 @@ import main.util.recipes.Crafting;
 import main.util.recipes.Smelting;
 import main.world.ZWorldGen;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.Fluid;
@@ -28,52 +33,60 @@ public class ZCompression {
 
     static final String MODID = "zcompression";
     static final String VERSION = "@VERSION@";
-    // Items
+
+    // ITEMS
     public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
     public static ItemLignite lignite = new ItemLignite();
     public static ItemIronNugget iron_nugget = new ItemIronNugget();
     public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
-    public static ItemFuelBrick fuel_brick = new ItemFuelBrick();
+    public static Item fuel_brick = new BasicItem("fuel_brick");
 
-    public static ItemAardiumIngot aardiumIngot = new ItemAardiumIngot();
-    public static ItemAdamantiteIngot adamantiteIngot = new ItemAdamantiteIngot();
-    public static ItemArcaniteIngot arcaniteIngot = new ItemArcaniteIngot();
-    public static ItemAxiidianIngot axiidianIngot = new ItemAxiidianIngot();
-    public static ItemBismuthIngot bismuthIngot = new ItemBismuthIngot();
-    public static ItemEterniteIngot eterniteIngot = new ItemEterniteIngot();
-    public static ItemIgnititeIngot ignititeIngot = new ItemIgnititeIngot();
-    public static ItemKarmesineIngot karmesineIngot = new ItemKarmesineIngot();
-    public static ItemMeteoriteIngot meteoriteIngot = new ItemMeteoriteIngot();
-    public static ItemMindoriteIngot mindoriteIngot = new ItemMindoriteIngot();
-    public static ItemMythrilIngot mythrilIngot = new ItemMythrilIngot();
-    public static ItemPalladiumIngot palladiumIngot = new ItemPalladiumIngot();
-    public static ItemPrometheumIngot prometheumIngot = new ItemPrometheumIngot();
-    public static ItemTiberiumIngot tiberiumIngot = new ItemTiberiumIngot();
-    public static ItemVibraniumIngot vibraniumIngot = new ItemVibraniumIngot();
-    public static ItemYrdeanIngot yrdeanIngot = new ItemYrdeanIngot();
+    public static Item aardiumIngot = new BasicItem("aardium_ingot");
+    public static Item adamantiteIngot = new BasicItem("adamantite_ingot");
+    public static Item arcaniteIngot = new BasicItem("arcanite_ingot");
+    public static Item axiidianIngot = new BasicItem("axiidian_ingot");
+    public static Item bismuthIngot = new BasicItem("bismuth_ingot");
+    public static Item eterniteIngot = new BasicItem("eternite_ingot");
+    public static Item ignititeIngot = new BasicItem("ignitite_ingot");
+    public static Item karmesineIngot = new BasicItem("karmesine_ingot");
+    public static Item meteoriteIngot = new BasicItem("meteorite_ingot");
+    public static Item mindoriteIngot = new BasicItem("mindorite_ingot");
+    public static Item mythrilIngot = new BasicItem("mythril_ingot");
+    public static Item palladiumIngot = new BasicItem("palladium_ingot");
+    public static Item prometheumIngot = new BasicItem("prometheum_ingot");
+    public static Item tiberiumIngot = new BasicItem("tiberium_ingot");
+    public static Item vibraniumIngot = new BasicItem("vibranium_ingot");
+    public static Item yrdeanIngot = new BasicItem("yrdean_ingot");
 
-    //Blocks, esp. for tconstruct
-    public static BlockAardiumOre aardiumOre = new BlockAardiumOre();
-    public static BlockAdamantiteOre adamantiteOre = new BlockAdamantiteOre();
-    public static BlockArcaniteOre arcaniteOre = new BlockArcaniteOre();
-    public static BlockAxiidianOre axiidianOre = new BlockAxiidianOre();
-    public static BlockBasalt basalt = new BlockBasalt();
-    public static BlockBismuthOre bismuthOre = new BlockBismuthOre();
-    public static BlockEterniteOre eterniteOre = new BlockEterniteOre();
-    public static BlockIgnititeOre ignititeOre = new BlockIgnititeOre();
-    public static BlockKarmesineOre karmesineOre = new BlockKarmesineOre();
-    public static BlockLigniteOre ligniteOre = new BlockLigniteOre();
-    public static BlockMeteoriteOre meteoriteOre = new BlockMeteoriteOre();
-    public static BlockMindoriteOre mindoriteOre = new BlockMindoriteOre();
-    public static BlockMythrilOre mythrilOre = new BlockMythrilOre();
-    public static BlockPalladiumOre palladiumOre = new BlockPalladiumOre();
-    public static BlockPrometheumOre prometheumOre = new BlockPrometheumOre();
-    public static BlockRottenGround rottenGround = new BlockRottenGround();
-    public static BlockSlagironOre slagironOre = new BlockSlagironOre();
-    public static BlockSlaggoldOre slaggoldOre = new BlockSlaggoldOre();
-    public static BlockTiberiumOre tiberiumOre = new BlockTiberiumOre();
-    public static BlockVibraniumOre vibraniumOre = new BlockVibraniumOre();
-    public static BlockYrdeanOre yrdeanOre = new BlockYrdeanOre();
+    public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
+    public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable");
+
+    // BLOCKS
+    public static Block basalt = new BasicBlockOre("basalt", Material.ROCK, 45.0f, 35.0f, 3);
+    public static Block rottenGround = new BasicBlockGround("rotten_ground", Material.GROUND, 2.0f, 2.0f, 0);
+    public static Block ligniteOre = new BlockLigniteOre();
+
+
+    public static Block aardiumOre = new BasicBlockOre("aardium_ore", Material.ROCK, 55.0f, 400.0f, 3);
+    public static Block adamantiteOre = new BasicBlockOre("adamantite_ore", Material.ROCK, 80.0f, 1000.0f, 4);
+    public static Block arcaniteOre = new BasicBlockOre("arcanite_ore", Material.ROCK, 23.0f, 25.0f, 2);
+    public static Block axiidianOre = new BasicBlockOre("axiidian_ore", Material.ROCK, 13.0f, 13.0f, 3);
+    public static Block bismuthOre = new BasicBlockOre("bismuth_ore", Material.ROCK, 8.0f, 8.0f, 1);
+    public static Block eterniteOre = new BasicBlockOre("eternite_ore", Material.ROCK, 24.0f, 25.0f, 3);
+    public static Block ignititeOre = new BasicBlockOre("ignitite_ore", Material.ROCK, 23.0f, 25.0f, 3);
+    public static Block karmesineOre = new BasicBlockOre("karmesine_ore", Material.ROCK, 13.0f, 15.0f, 1);
+    public static Block meteoriteOre = new BasicBlockOre("meteorite_ore", Material.ROCK, 60.0f, 500.0f, 4);
+    public static Block mindoriteOre = new BasicBlockOre("mindorite_ore", Material.ROCK, 12.0f, 12.0f, 2);
+    public static Block mythrilOre = new BasicBlockOre("mythril_ore", Material.ROCK, 25.0f, 25.0f, 4);
+    public static Block palladiumOre = new BasicBlockOre("palladium_ore", Material.ROCK, 25.0f, 25.0f, 3);
+    public static Block prometheumOre = new BasicBlockOreGlow("prometheum_ore", Material.ROCK, 35.0f, 35.0f, 4, 0.25f);
+    public static Block slagironOre = new BasicBlockOre("slagiron_ore", Material.ROCK, 3.0f, 5.0f, 1);
+    public static Block slaggoldOre = new BasicBlockOre("slaggold_ore", Material.ROCK, 3.0f, 5.0f, 1);
+    public static Block tiberiumOre = new BlockTiberiumOre();
+    public static Block vibraniumOre = new BasicBlockOre("vibranium_ore", Material.ROCK, 70.0f, 800.0f, 4);
+    public static Block yrdeanOre = new BasicBlockOre("yrdean_ore", Material.ROCK, 13.0f, 15.0f, 3);
+
+
 
 
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
@@ -88,9 +101,9 @@ public class ZCompression {
     public void preInit(FMLPreInitializationEvent e) {
 
         //Items
-        BasicItem tiberiumShardInstable = new BasicItem("tiberiumShardInstable");
-        GameRegistry.register(tiberiumShardInstable);
 
+        GameRegistry.register(tiberiumShardInstable);
+        GameRegistry.register(tiberiumShardStable);
 
         GameRegistry.register(slagironIngot);
         GameRegistry.register(fuel_brick);

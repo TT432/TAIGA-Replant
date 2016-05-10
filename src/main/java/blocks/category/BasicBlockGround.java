@@ -1,6 +1,7 @@
 package blocks.category;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
 public class BasicBlockGround extends Block {
@@ -12,5 +13,6 @@ public class BasicBlockGround extends Block {
         setHardness(hardness);
         setResistance(resistance);
         setHarvestLevel("shovel", harvest);
+        setSoundType(SoundType.GROUND);
     }
 }
