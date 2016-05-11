@@ -174,64 +174,27 @@ public class ZCompression {
         BasicFluid vibraniumFluid = new BasicFluid("vibraniumFluid", 0xFFb6bba8);
         BasicFluid yrdeanFluid = new BasicFluid("yrdeanFluid", 0xFF3e3c6f);
 
-        registerFluid(arcaniteFluid);
-        registerFluid(aardiumFluid);
-        registerFluid(adamantiteFluid);
-        registerFluid(axiidianFluid);
-        registerFluid(bismuthFluid);
-        registerFluid(eterniteFluid);
-        registerFluid(ignititeFluid);
-        registerFluid(karmesineFluid);
-        registerFluid(meteoriteFluid);
-        registerFluid(mindoriteFluid);
-        registerFluid(mythrilFluid);
-        registerFluid(palladiumFluid);
-        registerFluid(prometheumFluid);
-        registerFluid(tiberiumFluid);
-        registerFluid(vibraniumFluid);
-        registerFluid(yrdeanFluid);
-
-        registerTinkerFluid("Arcanite", arcaniteFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Aardium", aardiumFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Adamantite", adamantiteFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Axiidian", axiidianFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Bismuth", bismuthFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Eternite", eterniteFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Ignitite", ignititeFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Karmesine", karmesineFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Meteorite", meteoriteFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Mindorite", mindoriteFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Mythril", mythrilFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Palladium", palladiumFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Prometheum", prometheumFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Tiberium", tiberiumFluid, true);
-        aardiumFluid.setTemperature(2000).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Vibranium", vibraniumFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
-        registerTinkerFluid("Yrdean", yrdeanFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Arcanite", arcaniteFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Aardium", aardiumFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Adamantite", adamantiteFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Axiidian", axiidianFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Bismuth", bismuthFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Eternite", eterniteFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Ignitite", ignititeFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Karmesine", karmesineFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Meteorite", meteoriteFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Mindorite", mindoriteFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Mythril", mythrilFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Palladium", palladiumFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Prometheum", prometheumFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Tiberium", tiberiumFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Vibranium", vibraniumFluid, true, 200, 10, 4000);
+        registerTinkerFluid("Yrdean", yrdeanFluid, true, 200, 10, 4000);
 
         // TConstruct Alloys
 
         BasicFluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFF75BFEB);
-
-        registerFluid(fractoryteFluid);
-
-        registerTinkerFluid("Fractoryte", fractoryteFluid, true);
-        fractoryteFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
+        registerTinkerFluid("Fractoryte", fractoryteFluid, true, 200, 10, 4000);
 
         registerTinkerAlloys(fractoryteFluid, adamantiteFluid, arcaniteFluid);
 
@@ -250,7 +213,6 @@ public class ZCompression {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
-
     }
 
     private void registerOreDict() {
@@ -295,12 +257,17 @@ public class ZCompression {
         FluidRegistry.addBucketForFluid(fluid);
     }
 
-    private void registerTinkerFluid(String oreDictSuffix, Fluid fluid, boolean toolForge) {
+    private void registerTinkerFluid(String oreDictSuffix, Fluid fluid, boolean toolForge, int temperature, int lumen, int viscosity) {
+        FluidRegistry.registerFluid(fluid);
+        FluidRegistry.addBucketForFluid(fluid);
+
         NBTTagCompound tag = new NBTTagCompound();
         tag.setString("fluid", fluid.getName());
         tag.setString("ore", oreDictSuffix);
         tag.setBoolean("toolforge", toolForge);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
+
+        fluid.setTemperature(temperature).setLuminosity(lumen).setViscosity(viscosity);
     }
 
     private void registerTinkerAlloys(Fluid alloy, Fluid first, Fluid second) {
@@ -308,9 +275,11 @@ public class ZCompression {
         NBTTagCompound fluid = new NBTTagCompound();
         fluid.setString("FluidName", alloy.getName());
         fluid.setInteger("Amount", 144);
+        tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", first.getName());
         fluid.setInteger("Amount", 144);
+        tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", second.getName());
         fluid.setInteger("Amount", 288);
