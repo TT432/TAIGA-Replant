@@ -193,11 +193,54 @@ public class ZCompression {
 
         // TConstruct Alloys
 
+        BasicFluid astriteFluid = new BasicFluid("astriteFluid", 0xFF75BFEB);
+        registerTinkerFluid("Astrite", astriteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(astriteFluid, 1, arcaniteFluid, 3, karmesineFluid, 2);
+
+        BasicFluid instableNitroniteFluid = new BasicFluid("instableNitroniteFluid", 0xFF75BFEB);
+        registerTinkerFluid("InstableNitronite", instableNitroniteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(instableNitroniteFluid, 2, tiberiumFluid, 5, vibraniumFluid, 2);
+
+        BasicFluid proxideumFluid = new BasicFluid("proxideumFluid", 0xFF75BFEB);
+        registerTinkerFluid("Proxideum", proxideumFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(proxideumFluid, 1, prometheumFluid, 3, axiidianFluid, 2);
+
+        BasicFluid instablePolyniumFluid = new BasicFluid("instablePolyniumFluid", 0xFF75BFEB);
+        registerTinkerFluid("InstablePolynium", instablePolyniumFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(instablePolyniumFluid, 1, yrdeanFluid, 3, meteoriteFluid, 2);
+
+        BasicFluid imperomiteFluid = new BasicFluid("imperomiteFluid", 0xFF75BFEB);
+        registerTinkerFluid("Imperomite", imperomiteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(imperomiteFluid, 2, aardiumFluid, 3, prometheumFluid, 3);
+
+        BasicFluid cryptogenFluid = new BasicFluid("cryptogenFluid", 0xFF75BFEB);
+        registerTinkerFluid("Cryptogen", cryptogenFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(cryptogenFluid, 1, meteoriteFluid, 3, mythrilFluid, 2);
+
         BasicFluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFF75BFEB);
         registerTinkerFluid("Fractoryte", fractoryteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(fractoryteFluid, 1, adamantiteFluid, 4, arcaniteFluid, 2);
 
-        registerTinkerAlloys(fractoryteFluid, adamantiteFluid, arcaniteFluid);
+        BasicFluid seismodiumFluid = new BasicFluid("seismodiumFluid", 0xFF75BFEB);
+        registerTinkerFluid("Seismodium", seismodiumFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(seismodiumFluid, 1, vibraniumFluid, 4, palladiumFluid, 4);
 
+        BasicFluid terramiteFluid = new BasicFluid("terramiteFluid", 0xFF75BFEB);
+        registerTinkerFluid("Terramite", terramiteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(terramiteFluid, 2, axiidianFluid, 4, eterniteFluid, 2);
+
+        BasicFluid instablePrysociteFluid = new BasicFluid("instablePrysociteFluid", 0xFF75BFEB);
+        registerTinkerFluid("InstablePrysocite", instablePrysociteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(instablePrysociteFluid, 1, bismuthFluid, 3, yrdeanFluid, 2);
+
+        BasicFluid blazingXylititeFluid = new BasicFluid("instablePrysociteFluid", 0xFF75BFEB);
+        registerTinkerFluid("InstablePrysocite", instablePrysociteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(instablePrysociteFluid, 1, bismuthFluid, 3, yrdeanFluid, 2);
+
+
+        BasicFluid Fluid = new BasicFluid("Fluid", 0xFF75BFEB);
+        registerTinkerFluid("", fractoryteFluid, true, 200, 10, 4000);
+        registerTinkerAlloys(fractoryteFluid, 1, meteoriteFluid, 3, mythrilFluid, 2);
 
     }
 
@@ -249,7 +292,6 @@ public class ZCompression {
         OreDictionary.registerOre("ingotVibranium", vibraniumIngot);
         OreDictionary.registerOre("oreYrdean", yrdeanOre);
         OreDictionary.registerOre("ingotYrdean", yrdeanIngot);
-
     }
 
     private void registerFluid(Fluid fluid) {
@@ -270,19 +312,19 @@ public class ZCompression {
         fluid.setTemperature(temperature).setLuminosity(lumen).setViscosity(viscosity);
     }
 
-    private void registerTinkerAlloys(Fluid alloy, Fluid first, Fluid second) {
+    private void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo) {
         NBTTagList tagList = new NBTTagList();
         NBTTagCompound fluid = new NBTTagCompound();
         fluid.setString("FluidName", alloy.getName());
-        fluid.setInteger("Amount", 144);
+        fluid.setInteger("Amount", out);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", first.getName());
-        fluid.setInteger("Amount", 144);
+        fluid.setInteger("Amount", inOne);
         tagList.appendTag(fluid);
         fluid = new NBTTagCompound();
         fluid.setString("FluidName", second.getName());
-        fluid.setInteger("Amount", 288);
+        fluid.setInteger("Amount", inTwo);
         tagList.appendTag(fluid);
 
         NBTTagCompound message = new NBTTagCompound();

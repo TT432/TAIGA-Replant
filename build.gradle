@@ -32,7 +32,7 @@ group = "com.sosnitzka.zcompression" // http://maven.apache.org/guides/mini/guid
 archivesBaseName = "zcompression"
 
 minecraft {
-    version = "1.9-12.16.0.1867-1.9"
+    version = "1.9-12.16.1.1901"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -40,7 +40,7 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20160428"
+    mappings = "snapshot_20160511"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 
     replace "@VERSION@", project.version
@@ -50,9 +50,9 @@ dependencies {
     deobfCompile "codechicken:CodeChickenLib:1.9-2.0.1.21:deobf"
     deobfCompile "codechicken:CodeChickenCore:1.9-2.0.1.53:deobf"
     //deobfCompile "codechicken:NotEnoughItems:1.9-${nei_version}:dev"
-    //deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
+    deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
     deobfCompile "mezz.jei:jei_1.9:3.3.3.197"
-    // compile "tconstruct:TConstruct:1.9-2.2.2.jenkins159:deobf"
+    deobfCompile "slimeknights:TConstruct:1.9-2.3.0.jenkins193:deobf"
 }
 
 //noinspection GroovyAssignabilityCheck
