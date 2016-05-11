@@ -50,7 +50,7 @@ dependencies {
     deobfCompile "codechicken:CodeChickenLib:1.9-2.0.1.21:deobf"
     deobfCompile "codechicken:CodeChickenCore:1.9-2.0.1.53:deobf"
     //deobfCompile "codechicken:NotEnoughItems:1.9-${nei_version}:dev"
-    deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
+    //deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
     deobfCompile "mezz.jei:jei_1.9:3.3.3.197"
     // compile "tconstruct:TConstruct:1.9-2.2.2.jenkins159:deobf"
 }

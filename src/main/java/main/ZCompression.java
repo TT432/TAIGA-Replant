@@ -1,6 +1,7 @@
 package main;
 
-import blocks.*;
+import blocks.BlockLigniteOre;
+import blocks.BlockTiberiumOre;
 import blocks.category.BasicBlockGround;
 import blocks.category.BasicBlockOre;
 import blocks.category.BasicBlockOreGlow;
@@ -15,6 +16,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -87,8 +89,6 @@ public class ZCompression {
     public static Block yrdeanOre = new BasicBlockOre("yrdean_ore", Material.ROCK, 13.0f, 15.0f, 3);
 
 
-
-
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
 
@@ -153,8 +153,10 @@ public class ZCompression {
         registerBlockWithItem(vibraniumOre);
         registerBlockWithItem(yrdeanOre);
 
-        // TConstruct registrations
         registerOreDict();
+
+        // TConstruct Fluids
+
         BasicFluid arcaniteFluid = new BasicFluid("arcaniteFluid", 0xFF272354);
         BasicFluid aardiumFluid = new BasicFluid("aardiumFluid", 0xFFC3F93D);
         BasicFluid adamantiteFluid = new BasicFluid("adamantiteFluid", 0xFFc45c82);
@@ -172,7 +174,6 @@ public class ZCompression {
         BasicFluid vibraniumFluid = new BasicFluid("vibraniumFluid", 0xFFb6bba8);
         BasicFluid yrdeanFluid = new BasicFluid("yrdeanFluid", 0xFF3e3c6f);
 
-
         registerFluid(arcaniteFluid);
         registerFluid(aardiumFluid);
         registerFluid(adamantiteFluid);
@@ -189,7 +190,6 @@ public class ZCompression {
         registerFluid(tiberiumFluid);
         registerFluid(vibraniumFluid);
         registerFluid(yrdeanFluid);
-
 
         registerTinkerFluid("Arcanite", arcaniteFluid, true);
         aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
@@ -218,11 +218,23 @@ public class ZCompression {
         registerTinkerFluid("Prometheum", prometheumFluid, true);
         aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Tiberium", tiberiumFluid, true);
-        aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
+        aardiumFluid.setTemperature(2000).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Vibranium", vibraniumFluid, true);
         aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
         registerTinkerFluid("Yrdean", yrdeanFluid, true);
         aardiumFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
+
+        // TConstruct Alloys
+
+        BasicFluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFF75BFEB);
+
+        registerFluid(fractoryteFluid);
+
+        registerTinkerFluid("Fractoryte", fractoryteFluid, true);
+        fractoryteFluid.setTemperature(200).setLuminosity(10).setViscosity(4000);
+
+        registerTinkerAlloys(fractoryteFluid, adamantiteFluid, arcaniteFluid);
+
 
     }
 
@@ -290,4 +302,23 @@ public class ZCompression {
         tag.setBoolean("toolforge", toolForge);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
+
+    private void registerTinkerAlloys(Fluid alloy, Fluid first, Fluid second) {
+        NBTTagList tagList = new NBTTagList();
+        NBTTagCompound fluid = new NBTTagCompound();
+        fluid.setString("FluidName", alloy.getName());
+        fluid.setInteger("Amount", 144);
+        fluid = new NBTTagCompound();
+        fluid.setString("FluidName", first.getName());
+        fluid.setInteger("Amount", 144);
+        fluid = new NBTTagCompound();
+        fluid.setString("FluidName", second.getName());
+        fluid.setInteger("Amount", 288);
+        tagList.appendTag(fluid);
+
+        NBTTagCompound message = new NBTTagCompound();
+        message.setTag("alloy", tagList);
+        FMLInterModComms.sendMessage("tconstruct", "alloy", message);
+    }
+
 }
