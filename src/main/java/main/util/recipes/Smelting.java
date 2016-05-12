@@ -1,7 +1,7 @@
 package main.util.recipes;
 
 
-import main.ZCompression;
+import main.ZTiC;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -13,28 +13,28 @@ public class Smelting {
     }
 
     private void register(){
-        GameRegistry.addSmelting(ZCompression.slagironOre, new ItemStack(ZCompression.slagironIngot),1.0F);
-        GameRegistry.addSmelting(new ItemStack(ZCompression.slagironIngot, 3),new ItemStack(ZCompression.iron_nugget), 0);
-        GameRegistry.addSmelting(new ItemStack(ZCompression.slaggoldIngot, 3),new ItemStack(Items.GOLD_NUGGET), 0);
-        GameRegistry.addSmelting(new ItemStack(ZCompression.tiberiumShardInstable), new ItemStack(ZCompression.tiberiumShardStable), 0.2F);
+        GameRegistry.addSmelting(ZTiC.slagironOre, new ItemStack(ZTiC.slagironIngot), 1.0F);
+        GameRegistry.addSmelting(new ItemStack(ZTiC.slagironIngot, 3), new ItemStack(ZTiC.iron_nugget), 0);
+        GameRegistry.addSmelting(new ItemStack(ZTiC.slaggoldIngot, 3), new ItemStack(Items.GOLD_NUGGET), 0);
+        GameRegistry.addSmelting(new ItemStack(ZTiC.tiberiumShardInstable), new ItemStack(ZTiC.tiberiumShardStable), 0.2F);
 
 
-        GameRegistry.addSmelting(ZCompression.aardiumOre, new ItemStack(ZCompression.aardiumIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.arcaniteOre, new ItemStack(ZCompression.arcaniteIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.adamantiteOre, new ItemStack(ZCompression.adamantiteIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.axiidianOre, new ItemStack(ZCompression.axiidianIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.bismuthOre, new ItemStack(ZCompression.bismuthIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.eterniteOre, new ItemStack(ZCompression.eterniteIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.ignititeOre, new ItemStack(ZCompression.ignititeIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.karmesineOre, new ItemStack(ZCompression.karmesineIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.meteoriteOre, new ItemStack(ZCompression.meteoriteIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.mindoriteOre, new ItemStack(ZCompression.mindoriteIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.mythrilOre, new ItemStack(ZCompression.mythrilIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.palladiumOre, new ItemStack(ZCompression.palladiumIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.prometheumOre, new ItemStack(ZCompression.prometheumIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.tiberiumOre, new ItemStack(ZCompression.tiberiumShardStable, 2), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.vibraniumOre, new ItemStack(ZCompression.vibraniumIngot), RandomUtils.nextFloat(0F, 2F));
-        GameRegistry.addSmelting(ZCompression.yrdeanOre, new ItemStack(ZCompression.yrdeanIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.aardiumOre, new ItemStack(ZTiC.aardiumIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.arcaniteOre, new ItemStack(ZTiC.arcaniteIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.adamantiteOre, new ItemStack(ZTiC.adamantiteIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.axiidianOre, new ItemStack(ZTiC.axiidianIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.bismuthOre, new ItemStack(ZTiC.bismuthIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.eterniteOre, new ItemStack(ZTiC.eterniteIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.ignititeOre, new ItemStack(ZTiC.ignititeIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.karmesineOre, new ItemStack(ZTiC.karmesineIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.meteoriteOre, new ItemStack(ZTiC.meteoriteIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.mindoriteOre, new ItemStack(ZTiC.mindoriteIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.mythrilOre, new ItemStack(ZTiC.mythrilIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.palladiumOre, new ItemStack(ZTiC.palladiumIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.prometheumOre, new ItemStack(ZTiC.prometheumIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.tiberiumOre, new ItemStack(ZTiC.tiberiumShardStable, 2), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.vibraniumOre, new ItemStack(ZTiC.vibraniumIngot), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(ZTiC.yrdeanOre, new ItemStack(ZTiC.yrdeanIngot), RandomUtils.nextFloat(0F, 2F));
 
     }
 }

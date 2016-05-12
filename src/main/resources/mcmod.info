@@ -1,13 +1,13 @@
 [{
-  "modid": "zcompression",
-  "name": "Zkaface Compression Mod",
-  "description": "A modification to compress several items and blocks to a solid block with several features coming up on exponent five.",
-  "version": "0.3b",
+  "modid": "ztic_addon",
+  "name": "Zkaface Tinkers' Construct Addon",
+  "description": "A modification for Tinkers' Construct, adding several ores and materials",
+  "version": "0.4",
   "mcversion": "1.9",
   "url": "www.sosnitzka.com",
   "updateUrl": "",
   "authorList": ["Zkaface"],
-  "credits": "Chefe. He's there, if you need him.",
+  "credits": "Chefe. He's there, if you need him. Sometimes.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": ["tconstruct"]

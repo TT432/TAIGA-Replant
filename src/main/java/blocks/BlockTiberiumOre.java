@@ -1,7 +1,7 @@
 package blocks;
 
 import blocks.category.BasicBlockOreGlow;
-import main.ZCompression;
+import main.ZTiC;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -34,6 +34,6 @@ public class BlockTiberiumOre extends BasicBlockOreGlow {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ZCompression.tiberiumShardInstable;
+        return ZTiC.tiberiumShardInstable;
     }
 }

@@ -35,10 +35,10 @@ import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 
-@Mod(modid = ZCompression.MODID, version = ZCompression.VERSION)
-public class ZCompression {
+@Mod(modid = ZTiC.MODID, version = ZTiC.VERSION)
+public class ZTiC {
 
-    static final String MODID = "zcompression";
+    static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";
 
     // ITEMS
@@ -312,7 +312,7 @@ public class ZCompression {
         registerTinkerMaterial("Bismuth", bismuth, bismuthFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Karmesine", karmesine, karmesineFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Mindorite", mindorite, mindoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Aardium", aardium, aardiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Aardium", aardium, aardiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, true, true);
         registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Adamantite", adamantite, adamantiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
@@ -362,6 +362,7 @@ public class ZCompression {
 
         OreDictionary.registerOre("oreAardium", aardiumOre);
         OreDictionary.registerOre("ingotAardium", aardiumIngot);
+        OreDictionary.registerOre("ingotAstrite", astriteIngot);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
         OreDictionary.registerOre("ingotArcanite", arcaniteIngot);
         OreDictionary.registerOre("oreAdamantite", adamantiteOre);

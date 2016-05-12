@@ -27,9 +27,9 @@ repositories {
     }
 }
 
-version = "0.3b"
-group = "com.sosnitzka.zcompression" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "zcompression"
+version = "0.4"
+group = "com.sosnitzka.ztic_addon" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ztic_addon"
 
 minecraft {
     version = "1.9-12.16.1.1901"

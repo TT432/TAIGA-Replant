@@ -1,12 +1,12 @@
 package proxy;
 
-import main.ZCompression;
+import main.ZTiC;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
-import static main.ZCompression.*;
+import static main.ZTiC.*;
 
 public class ClientProxy extends ServerProxy {
 
@@ -64,26 +64,26 @@ public class ClientProxy extends ServerProxy {
         registerItemModel(refractiveBysumIngot);
 
         // Blocks
-        registerBlockModel(ZCompression.aardiumOre);
-        registerBlockModel(ZCompression.adamantiteOre);
-        registerBlockModel(ZCompression.arcaniteOre);
-        registerBlockModel(ZCompression.axiidianOre);
-        registerBlockModel(ZCompression.basalt);
-        registerBlockModel(ZCompression.bismuthOre);
-        registerBlockModel(ZCompression.eterniteOre);
-        registerBlockModel(ZCompression.ignititeOre);
-        registerBlockModel(ZCompression.karmesineOre);
-        registerBlockModel(ZCompression.ligniteOre);
-        registerBlockModel(ZCompression.meteoriteOre);
-        registerBlockModel(ZCompression.mindoriteOre);
-        registerBlockModel(ZCompression.mythrilOre);
-        registerBlockModel(ZCompression.palladiumOre);
-        registerBlockModel(ZCompression.prometheumOre);
-        registerBlockModel(ZCompression.rottenGround);
-        registerBlockModel(ZCompression.slagironOre);
-        registerBlockModel(ZCompression.slaggoldOre);
-        registerBlockModel(ZCompression.tiberiumOre);
-        registerBlockModel(ZCompression.vibraniumOre);
-        registerBlockModel(ZCompression.yrdeanOre);
+        registerBlockModel(ZTiC.aardiumOre);
+        registerBlockModel(ZTiC.adamantiteOre);
+        registerBlockModel(ZTiC.arcaniteOre);
+        registerBlockModel(ZTiC.axiidianOre);
+        registerBlockModel(ZTiC.basalt);
+        registerBlockModel(ZTiC.bismuthOre);
+        registerBlockModel(ZTiC.eterniteOre);
+        registerBlockModel(ZTiC.ignititeOre);
+        registerBlockModel(ZTiC.karmesineOre);
+        registerBlockModel(ZTiC.ligniteOre);
+        registerBlockModel(ZTiC.meteoriteOre);
+        registerBlockModel(ZTiC.mindoriteOre);
+        registerBlockModel(ZTiC.mythrilOre);
+        registerBlockModel(ZTiC.palladiumOre);
+        registerBlockModel(ZTiC.prometheumOre);
+        registerBlockModel(ZTiC.rottenGround);
+        registerBlockModel(ZTiC.slagironOre);
+        registerBlockModel(ZTiC.slaggoldOre);
+        registerBlockModel(ZTiC.tiberiumOre);
+        registerBlockModel(ZTiC.vibraniumOre);
+        registerBlockModel(ZTiC.yrdeanOre);
     }
 }
