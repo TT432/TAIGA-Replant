@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -29,6 +30,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import proxy.ServerProxy;
+import slimeknights.tconstruct.library.MaterialIntegration;
+import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
+import slimeknights.tconstruct.library.materials.HandleMaterialStats;
+import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 
 @Mod(modid = ZCompression.MODID, version = ZCompression.VERSION)
 public class ZCompression {
@@ -88,6 +93,40 @@ public class ZCompression {
     public static Block vibraniumOre = new BasicBlockOre("vibranium_ore", Material.ROCK, 70.0f, 800.0f, 4);
     public static Block yrdeanOre = new BasicBlockOre("yrdean_ore", Material.ROCK, 13.0f, 15.0f, 3);
 
+    public static slimeknights.tconstruct.library.materials.Material arcanite = new slimeknights.tconstruct.library.materials.Material("arcanite", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material tiberium = new slimeknights.tconstruct.library.materials.Material("tiberium", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material prometheum = new slimeknights.tconstruct.library.materials.Material("prometheum", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material yrdean = new slimeknights.tconstruct.library.materials.Material("yrdean", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material axiidian = new slimeknights.tconstruct.library.materials.Material("axiidian", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material bismuth = new slimeknights.tconstruct.library.materials.Material("bismuth", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material karmesine = new slimeknights.tconstruct.library.materials.Material("karmesine", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material mindorite = new slimeknights.tconstruct.library.materials.Material("mindorite", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material aardium = new slimeknights.tconstruct.library.materials.Material("aardium", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material meteorite = new slimeknights.tconstruct.library.materials.Material("meteorite", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material adamantite = new slimeknights.tconstruct.library.materials.Material("adamantite", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material vibranium = new slimeknights.tconstruct.library.materials.Material("vibranium", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material ignitite = new slimeknights.tconstruct.library.materials.Material("ignitite", TextFormatting.AQUA);
+    public static slimeknights.tconstruct.library.materials.Material palladium = new slimeknights.tconstruct.library.materials.Material("palladium", TextFormatting.AQUA);
+    public static slimeknights.tconstruct.library.materials.Material eternite = new slimeknights.tconstruct.library.materials.Material("eternite", TextFormatting.AQUA);
+    public static slimeknights.tconstruct.library.materials.Material mythril = new slimeknights.tconstruct.library.materials.Material("mythril", TextFormatting.AQUA);
+
+    public static slimeknights.tconstruct.library.materials.Material astrite = new slimeknights.tconstruct.library.materials.Material("astrite", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material instableNitronite = new slimeknights.tconstruct.library.materials.Material("instableNitronite", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material proxideum = new slimeknights.tconstruct.library.materials.Material("proxideum", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material instablePolynium = new slimeknights.tconstruct.library.materials.Material("instablePolynium", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material imperomite = new slimeknights.tconstruct.library.materials.Material("imperomite", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material cryptogen = new slimeknights.tconstruct.library.materials.Material("cryptogen", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material fractoryte = new slimeknights.tconstruct.library.materials.Material("fractoryte", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material seismodium = new slimeknights.tconstruct.library.materials.Material("seismodium", TextFormatting.DARK_GREEN);
+    public static slimeknights.tconstruct.library.materials.Material terramite = new slimeknights.tconstruct.library.materials.Material("terramite", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material instablePrysocite = new slimeknights.tconstruct.library.materials.Material("instablePrysocite", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material blazingXylitite = new slimeknights.tconstruct.library.materials.Material("blazingXylitite", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material instableDyonite = new slimeknights.tconstruct.library.materials.Material("instableDyonite", TextFormatting.GRAY);
+    public static slimeknights.tconstruct.library.materials.Material ultranite = new slimeknights.tconstruct.library.materials.Material("ultranite", TextFormatting.AQUA);
+    public static slimeknights.tconstruct.library.materials.Material radiantPlinium = new slimeknights.tconstruct.library.materials.Material("radiantPlinium", TextFormatting.AQUA);
+    public static slimeknights.tconstruct.library.materials.Material dysprosanium = new slimeknights.tconstruct.library.materials.Material("dysprosanium", TextFormatting.AQUA);
+    public static slimeknights.tconstruct.library.materials.Material refractiveBysmuid = new slimeknights.tconstruct.library.materials.Material("refractiveBysmuidFluid", TextFormatting.AQUA);
+
 
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
@@ -100,7 +139,9 @@ public class ZCompression {
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
 
+
         //Items
+
 
         GameRegistry.register(tiberiumShardInstable);
         GameRegistry.register(tiberiumShardStable);
@@ -193,54 +234,75 @@ public class ZCompression {
 
         // TConstruct Alloys
 
-        BasicFluid astriteFluid = new BasicFluid("astriteFluid", 0xFF75BFEB);
-        registerTinkerFluid("Astrite", astriteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(astriteFluid, 1, arcaniteFluid, 3, karmesineFluid, 2);
-
-        BasicFluid instableNitroniteFluid = new BasicFluid("instableNitroniteFluid", 0xFF75BFEB);
-        registerTinkerFluid("InstableNitronite", instableNitroniteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(instableNitroniteFluid, 2, tiberiumFluid, 5, vibraniumFluid, 2);
-
-        BasicFluid proxideumFluid = new BasicFluid("proxideumFluid", 0xFF75BFEB);
-        registerTinkerFluid("Proxideum", proxideumFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(proxideumFluid, 1, prometheumFluid, 3, axiidianFluid, 2);
-
-        BasicFluid instablePolyniumFluid = new BasicFluid("instablePolyniumFluid", 0xFF75BFEB);
-        registerTinkerFluid("InstablePolynium", instablePolyniumFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(instablePolyniumFluid, 1, yrdeanFluid, 3, meteoriteFluid, 2);
-
-        BasicFluid imperomiteFluid = new BasicFluid("imperomiteFluid", 0xFF75BFEB);
-        registerTinkerFluid("Imperomite", imperomiteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(imperomiteFluid, 2, aardiumFluid, 3, prometheumFluid, 3);
-
-        BasicFluid cryptogenFluid = new BasicFluid("cryptogenFluid", 0xFF75BFEB);
-        registerTinkerFluid("Cryptogen", cryptogenFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(cryptogenFluid, 1, meteoriteFluid, 3, mythrilFluid, 2);
-
-        BasicFluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFF75BFEB);
-        registerTinkerFluid("Fractoryte", fractoryteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(fractoryteFluid, 1, adamantiteFluid, 4, arcaniteFluid, 2);
-
-        BasicFluid seismodiumFluid = new BasicFluid("seismodiumFluid", 0xFF75BFEB);
-        registerTinkerFluid("Seismodium", seismodiumFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(seismodiumFluid, 1, vibraniumFluid, 4, palladiumFluid, 4);
-
-        BasicFluid terramiteFluid = new BasicFluid("terramiteFluid", 0xFF75BFEB);
-        registerTinkerFluid("Terramite", terramiteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(terramiteFluid, 2, axiidianFluid, 4, eterniteFluid, 2);
-
-        BasicFluid instablePrysociteFluid = new BasicFluid("instablePrysociteFluid", 0xFF75BFEB);
-        registerTinkerFluid("InstablePrysocite", instablePrysociteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(instablePrysociteFluid, 1, bismuthFluid, 3, yrdeanFluid, 2);
-
-        BasicFluid blazingXylititeFluid = new BasicFluid("instablePrysociteFluid", 0xFF75BFEB);
-        registerTinkerFluid("InstablePrysocite", instablePrysociteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(instablePrysociteFluid, 1, bismuthFluid, 3, yrdeanFluid, 2);
+        BasicFluid astriteFluid = new BasicFluid("astriteFluid", 0xFF7a3b74);
+        registerTinkerAlloys("Astrite", astriteFluid, true, 200, 10, 4000, 1, arcaniteFluid, 3, karmesineFluid, 2);
+        BasicFluid instableNitroniteFluid = new BasicFluid("instableNitroniteFluid", 0xFF659933);
+        registerTinkerAlloys("InstableNitronite", instableNitroniteFluid, true, 200, 10, 4000, 1, tiberiumFluid, 5, vibraniumFluid, 3);
+        BasicFluid proxideumFluid = new BasicFluid("proxideumFluid", 0xFF416565);
+        registerTinkerAlloys("Proxideum", proxideumFluid, true, 200, 10, 4000, 1, prometheumFluid, 3, axiidianFluid, 2);
+        BasicFluid instablePolyniumFluid = new BasicFluid("instablePolyniumFluid", 0xFF6c6aa3);
+        registerTinkerAlloys("InstablePolynium", instablePolyniumFluid, true, 200, 10, 4000, 1, yrdeanFluid, 3, meteoriteFluid, 2);
+        BasicFluid imperomiteFluid = new BasicFluid("imperomiteFluid", 0xFF339966);
+        registerTinkerAlloys("Imperomite", imperomiteFluid, true, 200, 10, 4000, 2, aardiumFluid, 3, prometheumFluid, 3);
+        BasicFluid cryptogenFluid = new BasicFluid("cryptogenFluid", 0xFF9f8a4a);
+        registerTinkerAlloys("Cryptogen", cryptogenFluid, true, 200, 10, 4000, 1, meteoriteFluid, 3, mythrilFluid, 2);
+        BasicFluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFFb44a14);
+        registerTinkerAlloys("Fractoryte", fractoryteFluid, true, 200, 10, 4000, 1, adamantiteFluid, 4, arcaniteFluid, 2);
+        BasicFluid seismodiumFluid = new BasicFluid("seismodiumFluid", 0xFF46131D);
+        registerTinkerAlloys("Seismodium", seismodiumFluid, true, 200, 10, 4000, 1, vibraniumFluid, 4, palladiumFluid, 4);
+        BasicFluid terramiteFluid = new BasicFluid("terramiteFluid", 0xFFa6b27a);
+        registerTinkerAlloys("Terramite", terramiteFluid, true, 200, 10, 4000, 2, axiidianFluid, 4, eterniteFluid, 2);
+        BasicFluid instablePrysociteFluid = new BasicFluid("instablePrysociteFluid", 0xFFbde398);
+        registerTinkerAlloys("InstablePrysocite", instablePrysociteFluid, true, 200, 10, 4000, 1, bismuthFluid, 3, yrdeanFluid, 2);
+        BasicFluid blazingXylititeFluid = new BasicFluid("blazingXylititeFluid", 0xFFffc81d);
+        registerTinkerAlloys("BlazingXylitite", blazingXylititeFluid, true, 200, 10, 4000, 1, karmesineFluid, 3, ignititeFluid, 2);
+        BasicFluid instableDyoniteFluid = new BasicFluid("instableDyoniteFluid", 0xFFff6743);
+        registerTinkerAlloys("InstableDyonite", instableDyoniteFluid, true, 200, 10, 4000, 1, mindoriteFluid, 4, tiberiumFluid, 2);
+        BasicFluid ultraniteFluid = new BasicFluid("ultraniteFluid", 0xFFfff69b);
+        registerTinkerAlloys("Ultranite", ultraniteFluid, true, 200, 10, 4000, 1, ignititeFluid, 5, adamantiteFluid, 3);
+        BasicFluid radiantPliniumFluid = new BasicFluid("radiantPliniumFluid", 0xFFc1ff68);
+        registerTinkerAlloys("RadiantPlinium", radiantPliniumFluid, true, 200, 10, 4000, 1, palladiumFluid, 3, mindoriteFluid, 3);
+        BasicFluid dysprosaniumFluid = new BasicFluid("dysprosaniumFluid", 0xFFb7a2bd);
+        registerTinkerAlloys("Dysprosanium", dysprosaniumFluid, true, 200, 10, 4000, 1, eterniteFluid, 3, aardiumFluid, 3);
+        BasicFluid refractiveBysmuidFluid = new BasicFluid("refractiveBysmuidFluid", 0xFF7b97b0);
+        registerTinkerAlloys("RefractiveBysmuid", refractiveBysmuidFluid, true, 200, 10, 4000, 1, mythrilFluid, 4, bismuthFluid, 2);
 
 
-        BasicFluid Fluid = new BasicFluid("Fluid", 0xFF75BFEB);
-        registerTinkerFluid("", fractoryteFluid, true, 200, 10, 4000);
-        registerTinkerAlloys(fractoryteFluid, 1, meteoriteFluid, 3, mythrilFluid, 2);
+        // Material from ores
+        registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Yrdean", yrdean, yrdeanFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Axiidian", axiidian, axiidianFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Bismuth", bismuth, bismuthFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Karmesine", karmesine, karmesineFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Mindorite", mindorite, mindoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Aardium", aardium, aardiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Adamantite", adamantite, adamantiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Ignitite", ignitite, ignititeFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Palladium", palladium, palladiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Eternite", eternite, eterniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Mythril", mythril, mythrilFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        // Material from alloys
+        registerTinkerMaterial("Astrite", astrite, astriteFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("InstableNitronite", instableNitronite, instableNitroniteFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("InstablePolynium", instablePolynium, instablePolyniumFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Imperomite", imperomite, imperomiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Seismodium", seismodium, seismodiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Terramite", terramite, terramiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("InstablePrysocite", instablePrysocite, instablePrysociteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("BlazingXylitite", blazingXylitite, blazingXylititeFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Ultranite", ultranite, ultraniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("RadiantPlinium", radiantPlinium, radiantPliniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Dysprosanium", dysprosanium, dysprosaniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("RefractiveBysmuid", refractiveBysmuid, refractiveBysmuidFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("InstableDyonite", instableDyonite, instableDyoniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+
 
     }
 
@@ -256,6 +318,8 @@ public class ZCompression {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
+
+
     }
 
     private void registerOreDict() {
@@ -292,6 +356,8 @@ public class ZCompression {
         OreDictionary.registerOre("ingotVibranium", vibraniumIngot);
         OreDictionary.registerOre("oreYrdean", yrdeanOre);
         OreDictionary.registerOre("ingotYrdean", yrdeanIngot);
+
+
     }
 
     private void registerFluid(Fluid fluid) {
@@ -312,7 +378,8 @@ public class ZCompression {
         fluid.setTemperature(temperature).setLuminosity(lumen).setViscosity(viscosity);
     }
 
-    private void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo) {
+    private void registerTinkerAlloys(String oreDictSuffix, Fluid alloy, boolean toolFoge, int temperature, int lumen, int viscosity, int out, Fluid first, int inOne, Fluid second, int inTwo) {
+        registerTinkerFluid(oreDictSuffix, alloy, toolFoge, temperature, lumen, viscosity);
         NBTTagList tagList = new NBTTagList();
         NBTTagCompound fluid = new NBTTagCompound();
         fluid.setString("FluidName", alloy.getName());
@@ -331,5 +398,11 @@ public class ZCompression {
         message.setTag("alloy", tagList);
         FMLInterModComms.sendMessage("tconstruct", "alloy", message);
     }
+
+    private void registerTinkerMaterial(String name, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, int headSpeed, int headAttack, int headLevel, float handleMod, int handleDura, int extra, boolean craft, boolean cast) {
+        material.addStats(new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel)).addStats(new HandleMaterialStats(handleMod, handleDura)).addStats(new ExtraMaterialStats(extra)).setFluid(fluid).setCraftable(craft).setCastable(cast).setRenderInfo(fluid.getColor());
+        new MaterialIntegration(material, fluid, name).integrate();
+    }
+
 
 }
