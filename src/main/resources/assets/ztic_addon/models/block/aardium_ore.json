@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "ztic_addon:blocks/aardium_ore"
+    }
+}
