@@ -5,6 +5,7 @@ import blocks.BlockTiberiumOre;
 import blocks.category.BasicBlockGround;
 import blocks.category.BasicBlockOre;
 import blocks.category.BasicBlockOreGlow;
+import com.google.common.collect.Lists;
 import fluids.BasicFluid;
 import items.*;
 import main.util.FuelHandler;
@@ -34,6 +35,8 @@ import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
+
+import java.util.List;
 
 @Mod(modid = ZTiC.MODID, version = ZTiC.VERSION)
 public class ZTiC {
@@ -144,10 +147,9 @@ public class ZTiC {
     public static slimeknights.tconstruct.library.materials.Material radiantPlinium = new slimeknights.tconstruct.library.materials.Material("radiantPlinium", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material dysprosanium = new slimeknights.tconstruct.library.materials.Material("dysprosanium", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material refractiveBysmuid = new slimeknights.tconstruct.library.materials.Material("refractiveBysmuidFluid", TextFormatting.AQUA);
-
-
     @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
     private static ServerProxy proxy;
+    private List<MaterialIntegration> integrateList = Lists.newArrayList();
 
     private static void registerBlockWithItem(Block block) {
         GameRegistry.register(block);
@@ -349,6 +351,10 @@ public class ZTiC {
         GameRegistry.registerFuelHandler(new FuelHandler());
         new Smelting();
         new Crafting();
+
+        for (MaterialIntegration m : integrateList) {
+            m.integrateRecipes();
+        }
     }
 
 
@@ -403,8 +409,7 @@ public class ZTiC {
     }
 
     private void registerTinkerFluid(String oreDictSuffix, Fluid fluid, boolean toolForge, int temperature, int lumen, int viscosity) {
-        FluidRegistry.registerFluid(fluid);
-        FluidRegistry.addBucketForFluid(fluid);
+        registerFluid(fluid);
 
         NBTTagCompound tag = new NBTTagCompound();
         tag.setString("fluid", fluid.getName());
@@ -438,7 +443,10 @@ public class ZTiC {
 
     private void registerTinkerMaterial(String name, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, int headSpeed, int headAttack, int headLevel, float handleMod, int handleDura, int extra, boolean craft, boolean cast) {
         material.addStats(new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel)).addStats(new HandleMaterialStats(handleMod, handleDura)).addStats(new ExtraMaterialStats(extra)).setFluid(fluid).setCraftable(craft).setCastable(cast).setRenderInfo(fluid.getColor());
-        new MaterialIntegration(material, fluid, name).integrate();
+        MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
+        integration.integrate();
+        integrateList.add(integration);
+
     }
 
 
