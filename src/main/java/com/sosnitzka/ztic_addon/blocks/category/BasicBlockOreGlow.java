@@ -1,4 +1,4 @@
-package blocks.category;
+package com.sosnitzka.ztic_addon.blocks.category;
 
 import net.minecraft.block.material.Material;
 

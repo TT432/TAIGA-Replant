@@ -1,4 +1,4 @@
-package main.util;
+package com.sosnitzka.ztic_addon.main.util;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;

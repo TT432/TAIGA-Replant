@@ -1,12 +1,12 @@
-package proxy;
+package com.sosnitzka.ztic_addon.proxy;
 
-import main.ZTiC;
+import com.sosnitzka.ztic_addon.main.ZTiC;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
-import static main.ZTiC.*;
+import static com.sosnitzka.ztic_addon.main.ZTiC.*;
 
 public class ClientProxy extends ServerProxy {
 

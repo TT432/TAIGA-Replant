@@ -1,7 +1,7 @@
-package blocks;
+package com.sosnitzka.ztic_addon.blocks;
 
-import blocks.category.BasicBlockOreGlow;
-import main.ZTiC;
+import com.sosnitzka.ztic_addon.blocks.category.BasicBlockOreGlow;
+import com.sosnitzka.ztic_addon.main.ZTiC;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;

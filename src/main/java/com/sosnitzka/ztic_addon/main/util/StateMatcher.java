@@ -1,4 +1,4 @@
-package main.util;
+package com.sosnitzka.ztic_addon.main.util;
 
 import com.google.common.base.Predicate;
 import net.minecraft.block.properties.IProperty;

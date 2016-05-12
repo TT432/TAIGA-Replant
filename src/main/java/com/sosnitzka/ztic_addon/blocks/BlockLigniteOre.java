@@ -1,7 +1,7 @@
-package blocks;
+package com.sosnitzka.ztic_addon.blocks;
 
-import blocks.category.BasicBlockOre;
-import main.ZTiC;
+import com.sosnitzka.ztic_addon.blocks.category.BasicBlockOre;
+import com.sosnitzka.ztic_addon.main.ZTiC;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;

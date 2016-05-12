@@ -1,7 +1,7 @@
-package main.util.recipes;
+package com.sosnitzka.ztic_addon.main.util.recipes;
 
 
-import main.ZTiC;
+import com.sosnitzka.ztic_addon.main.ZTiC;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;

@@ -1,4 +1,4 @@
-package items;
+package com.sosnitzka.ztic_addon.items;
 
 import net.minecraft.item.Item;
 

@@ -1,4 +1,4 @@
-package main.util;
+package com.sosnitzka.ztic_addon.main.util;
 
 import com.google.common.base.Predicate;
 import net.minecraft.block.state.IBlockState;
@@ -14,7 +14,7 @@ import java.util.Random;
 public class ZWorldGenMinable extends WorldGenMinable {
     private final IBlockState oreBlock;
     /**
-     * The number of blocks to generate.
+     * The number of com.sosnitzka.ztic_addon.blocks to generate.
      */
     private final int numberOfBlocks;
     private final Predicate<IBlockState> predicate;

@@ -1,17 +1,18 @@
-package main;
+package com.sosnitzka.ztic_addon.main;
 
-import blocks.BlockLigniteOre;
-import blocks.BlockTiberiumOre;
-import blocks.category.BasicBlockGround;
-import blocks.category.BasicBlockOre;
-import blocks.category.BasicBlockOreGlow;
 import com.google.common.collect.Lists;
-import fluids.BasicFluid;
-import items.*;
-import main.util.FuelHandler;
-import main.util.recipes.Crafting;
-import main.util.recipes.Smelting;
-import main.world.ZWorldGen;
+import com.sosnitzka.ztic_addon.blocks.BlockLigniteOre;
+import com.sosnitzka.ztic_addon.blocks.BlockTiberiumOre;
+import com.sosnitzka.ztic_addon.blocks.category.BasicBlockGround;
+import com.sosnitzka.ztic_addon.blocks.category.BasicBlockOre;
+import com.sosnitzka.ztic_addon.blocks.category.BasicBlockOreGlow;
+import com.sosnitzka.ztic_addon.fluids.BasicFluid;
+import com.sosnitzka.ztic_addon.items.*;
+import com.sosnitzka.ztic_addon.main.util.FuelHandler;
+import com.sosnitzka.ztic_addon.main.util.recipes.Crafting;
+import com.sosnitzka.ztic_addon.main.util.recipes.Smelting;
+import com.sosnitzka.ztic_addon.main.world.ZWorldGen;
+import com.sosnitzka.ztic_addon.proxy.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -30,7 +31,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import proxy.ServerProxy;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
@@ -147,7 +147,7 @@ public class ZTiC {
     public static slimeknights.tconstruct.library.materials.Material radiantPlinium = new slimeknights.tconstruct.library.materials.Material("radiantPlinium", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material dysprosanium = new slimeknights.tconstruct.library.materials.Material("dysprosanium", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material refractiveBysmuid = new slimeknights.tconstruct.library.materials.Material("refractiveBysmuidFluid", TextFormatting.AQUA);
-    @SidedProxy(clientSide = "proxy.ClientProxy", serverSide = "proxy.ServerProxy")
+    @SidedProxy(clientSide = "com.sosnitzka.ztic_addon.proxy.ClientProxy", serverSide = "com.sosnitzka.ztic_addon.proxy.ServerProxy")
     private static ServerProxy proxy;
     private List<MaterialIntegration> integrateList = Lists.newArrayList();
 

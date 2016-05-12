@@ -1,7 +1,7 @@
-package main.world;
+package com.sosnitzka.ztic_addon.main.world;
 
-import main.ZTiC;
-import main.util.Generator;
+import com.sosnitzka.ztic_addon.main.ZTiC;
+import com.sosnitzka.ztic_addon.main.util.Generator;
 import net.minecraft.block.BlockStone;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

@@ -1,6 +1,6 @@
-package main.util;
+package com.sosnitzka.ztic_addon.main.util;
 
-import main.ZTiC;
+import com.sosnitzka.ztic_addon.main.ZTiC;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.IFuelHandler;
 import org.apache.commons.lang3.RandomUtils;
