@@ -65,6 +65,24 @@ public class ZCompression {
     public static Item vibraniumIngot = new BasicItem("vibranium_ingot");
     public static Item yrdeanIngot = new BasicItem("yrdean_ingot");
 
+    public static Item astriteIngot = new BasicItem("astrite_ingot");
+    public static Item instableNitroniteIngot = new BasicItem("instable_nitronite_ingot");
+    public static Item proxideumIngot = new BasicItem("proxideum_ingot");
+    public static Item instablePolyniumIngot = new BasicItem("instable_polyniumingot");
+    public static Item imperomiteIngot = new BasicItem("imperomite_ingot");
+    public static Item cryptogenIngot = new BasicItem("cryptogen_ingot");
+    public static Item fractoryteIngot = new BasicItem("fractoryte_ingot");
+    public static Item seismodiumIngot = new BasicItem("seismodium_ingot");
+    public static Item terramiteIngot = new BasicItem("terramite_ingot");
+    public static Item instablePrysociteIngot = new BasicItem("instable_prysocite_ingot");
+    public static Item blazingXylititeIngot = new BasicItem("blazing_xylitite_ingot");
+    public static Item instableDyoniteIngot = new BasicItem("instable_dyonite_ingot");
+    public static Item ultraniteIngot = new BasicItem("ultranite_ingot");
+    public static Item radiantPliniumIngot = new BasicItem("radiant_plinium_ingot");
+    public static Item dysprosaniumIngot = new BasicItem("dysprosanium_ingot");
+    public static Item refractiveBysumIngot = new BasicItem("refractive_bysum_ingot");
+
+
     public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
     public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable");
 
@@ -169,6 +187,23 @@ public class ZCompression {
         GameRegistry.register(vibraniumIngot);
         GameRegistry.register(yrdeanIngot);
 
+        GameRegistry.register(astriteIngot);
+        GameRegistry.register(instableDyoniteIngot);
+        GameRegistry.register(instableNitroniteIngot);
+        GameRegistry.register(instablePolyniumIngot);
+        GameRegistry.register(instablePrysociteIngot);
+        GameRegistry.register(imperomiteIngot);
+        GameRegistry.register(cryptogenIngot);
+        GameRegistry.register(proxideumIngot);
+        GameRegistry.register(fractoryteIngot);
+        GameRegistry.register(seismodiumIngot);
+        GameRegistry.register(terramiteIngot);
+        GameRegistry.register(blazingXylititeIngot);
+        GameRegistry.register(radiantPliniumIngot);
+        GameRegistry.register(ultraniteIngot);
+        GameRegistry.register(dysprosaniumIngot);
+        GameRegistry.register(refractiveBysumIngot);
+
 
         //Blocks
 
@@ -198,22 +233,22 @@ public class ZCompression {
 
         // TConstruct Fluids
 
-        BasicFluid arcaniteFluid = new BasicFluid("arcaniteFluid", 0xFF272354);
-        BasicFluid aardiumFluid = new BasicFluid("aardiumFluid", 0xFFC3F93D);
-        BasicFluid adamantiteFluid = new BasicFluid("adamantiteFluid", 0xFFc45c82);
-        BasicFluid axiidianFluid = new BasicFluid("axiidianFluid", 0xFF77a19a);
-        BasicFluid bismuthFluid = new BasicFluid("bismuthFluid", 0xFF555555);
-        BasicFluid eterniteFluid = new BasicFluid("eterniteFluid", 0xFFfafa98);
-        BasicFluid ignititeFluid = new BasicFluid("ignititeFluid", 0xFFd29453);
-        BasicFluid karmesineFluid = new BasicFluid("karmesineFluid", 0xFFc16d6d);
-        BasicFluid meteoriteFluid = new BasicFluid("meteoriteFluid", 0xFF6e6a62);
-        BasicFluid mindoriteFluid = new BasicFluid("mindoriteFluid", 0xFF6bbbbf);
-        BasicFluid mythrilFluid = new BasicFluid("mythrilFluid", 0xFFa8c0ba);
-        BasicFluid palladiumFluid = new BasicFluid("palladiumFluid", 0xFFfe5c05);
-        BasicFluid prometheumFluid = new BasicFluid("prometheumFluid", 0xFF2b282f);
-        BasicFluid tiberiumFluid = new BasicFluid("tiberiumFluid", 0xFF174124);
-        BasicFluid vibraniumFluid = new BasicFluid("vibraniumFluid", 0xFFb6bba8);
-        BasicFluid yrdeanFluid = new BasicFluid("yrdeanFluid", 0xFF3e3c6f);
+        Fluid arcaniteFluid = new BasicFluid("arcaniteFluid", 0xFF272354);
+        Fluid aardiumFluid = new BasicFluid("aardiumFluid", 0xFFC3F93D);
+        Fluid adamantiteFluid = new BasicFluid("adamantiteFluid", 0xFFc45c82);
+        Fluid axiidianFluid = new BasicFluid("axiidianFluid", 0xFF77a19a);
+        Fluid bismuthFluid = new BasicFluid("bismuthFluid", 0xFF555555);
+        Fluid eterniteFluid = new BasicFluid("eterniteFluid", 0xFFfafa98);
+        Fluid ignititeFluid = new BasicFluid("ignititeFluid", 0xFFd29453);
+        Fluid karmesineFluid = new BasicFluid("karmesineFluid", 0xFFc16d6d);
+        Fluid meteoriteFluid = new BasicFluid("meteoriteFluid", 0xFF6e6a62);
+        Fluid mindoriteFluid = new BasicFluid("mindoriteFluid", 0xFF6bbbbf);
+        Fluid mythrilFluid = new BasicFluid("mythrilFluid", 0xFFa8c0ba);
+        Fluid palladiumFluid = new BasicFluid("palladiumFluid", 0xFFfe5c05);
+        Fluid prometheumFluid = new BasicFluid("prometheumFluid", 0xFF2b282f);
+        Fluid tiberiumFluid = new BasicFluid("tiberiumFluid", 0xFF86bd5a);
+        Fluid vibraniumFluid = new BasicFluid("vibraniumFluid", 0xFFb6bba8);
+        Fluid yrdeanFluid = new BasicFluid("yrdeanFluid", 0xFF3e3c6f);
 
         registerTinkerFluid("Arcanite", arcaniteFluid, true, 200, 10, 4000);
         registerTinkerFluid("Aardium", aardiumFluid, true, 200, 10, 4000);
@@ -234,37 +269,37 @@ public class ZCompression {
 
         // TConstruct Alloys
 
-        BasicFluid astriteFluid = new BasicFluid("astriteFluid", 0xFF7a3b74);
+        Fluid astriteFluid = new BasicFluid("astriteFluid", 0xFF7a3b74);
         registerTinkerAlloys("Astrite", astriteFluid, true, 200, 10, 4000, 1, arcaniteFluid, 3, karmesineFluid, 2);
-        BasicFluid instableNitroniteFluid = new BasicFluid("instableNitroniteFluid", 0xFF659933);
+        Fluid instableNitroniteFluid = new BasicFluid("instableNitroniteFluid", 0xFF659933);
         registerTinkerAlloys("InstableNitronite", instableNitroniteFluid, true, 200, 10, 4000, 1, tiberiumFluid, 5, vibraniumFluid, 3);
-        BasicFluid proxideumFluid = new BasicFluid("proxideumFluid", 0xFF416565);
+        Fluid proxideumFluid = new BasicFluid("proxideumFluid", 0xFF416565);
         registerTinkerAlloys("Proxideum", proxideumFluid, true, 200, 10, 4000, 1, prometheumFluid, 3, axiidianFluid, 2);
-        BasicFluid instablePolyniumFluid = new BasicFluid("instablePolyniumFluid", 0xFF6c6aa3);
+        Fluid instablePolyniumFluid = new BasicFluid("instablePolyniumFluid", 0xFF6c6aa3);
         registerTinkerAlloys("InstablePolynium", instablePolyniumFluid, true, 200, 10, 4000, 1, yrdeanFluid, 3, meteoriteFluid, 2);
-        BasicFluid imperomiteFluid = new BasicFluid("imperomiteFluid", 0xFF339966);
+        Fluid imperomiteFluid = new BasicFluid("imperomiteFluid", 0xFF339966);
         registerTinkerAlloys("Imperomite", imperomiteFluid, true, 200, 10, 4000, 2, aardiumFluid, 3, prometheumFluid, 3);
-        BasicFluid cryptogenFluid = new BasicFluid("cryptogenFluid", 0xFF9f8a4a);
+        Fluid cryptogenFluid = new BasicFluid("cryptogenFluid", 0xFF9f8a4a);
         registerTinkerAlloys("Cryptogen", cryptogenFluid, true, 200, 10, 4000, 1, meteoriteFluid, 3, mythrilFluid, 2);
-        BasicFluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFFb44a14);
+        Fluid fractoryteFluid = new BasicFluid("fractoryteFluid", 0xFFb44a14);
         registerTinkerAlloys("Fractoryte", fractoryteFluid, true, 200, 10, 4000, 1, adamantiteFluid, 4, arcaniteFluid, 2);
-        BasicFluid seismodiumFluid = new BasicFluid("seismodiumFluid", 0xFF46131D);
+        Fluid seismodiumFluid = new BasicFluid("seismodiumFluid", 0xFF46131D);
         registerTinkerAlloys("Seismodium", seismodiumFluid, true, 200, 10, 4000, 1, vibraniumFluid, 4, palladiumFluid, 4);
-        BasicFluid terramiteFluid = new BasicFluid("terramiteFluid", 0xFFa6b27a);
+        Fluid terramiteFluid = new BasicFluid("terramiteFluid", 0xFFa6b27a);
         registerTinkerAlloys("Terramite", terramiteFluid, true, 200, 10, 4000, 2, axiidianFluid, 4, eterniteFluid, 2);
-        BasicFluid instablePrysociteFluid = new BasicFluid("instablePrysociteFluid", 0xFFbde398);
+        Fluid instablePrysociteFluid = new BasicFluid("instablePrysociteFluid", 0xFFbde398);
         registerTinkerAlloys("InstablePrysocite", instablePrysociteFluid, true, 200, 10, 4000, 1, bismuthFluid, 3, yrdeanFluid, 2);
-        BasicFluid blazingXylititeFluid = new BasicFluid("blazingXylititeFluid", 0xFFffc81d);
+        Fluid blazingXylititeFluid = new BasicFluid("blazingXylititeFluid", 0xFFffc81d);
         registerTinkerAlloys("BlazingXylitite", blazingXylititeFluid, true, 200, 10, 4000, 1, karmesineFluid, 3, ignititeFluid, 2);
-        BasicFluid instableDyoniteFluid = new BasicFluid("instableDyoniteFluid", 0xFFff6743);
+        Fluid instableDyoniteFluid = new BasicFluid("instableDyoniteFluid", 0xFFff6743);
         registerTinkerAlloys("InstableDyonite", instableDyoniteFluid, true, 200, 10, 4000, 1, mindoriteFluid, 4, tiberiumFluid, 2);
-        BasicFluid ultraniteFluid = new BasicFluid("ultraniteFluid", 0xFFfff69b);
+        Fluid ultraniteFluid = new BasicFluid("ultraniteFluid", 0xFFfff69b);
         registerTinkerAlloys("Ultranite", ultraniteFluid, true, 200, 10, 4000, 1, ignititeFluid, 5, adamantiteFluid, 3);
-        BasicFluid radiantPliniumFluid = new BasicFluid("radiantPliniumFluid", 0xFFc1ff68);
+        Fluid radiantPliniumFluid = new BasicFluid("radiantPliniumFluid", 0xFFc1ff68);
         registerTinkerAlloys("RadiantPlinium", radiantPliniumFluid, true, 200, 10, 4000, 1, palladiumFluid, 3, mindoriteFluid, 3);
-        BasicFluid dysprosaniumFluid = new BasicFluid("dysprosaniumFluid", 0xFFb7a2bd);
+        Fluid dysprosaniumFluid = new BasicFluid("dysprosaniumFluid", 0xFFb7a2bd);
         registerTinkerAlloys("Dysprosanium", dysprosaniumFluid, true, 200, 10, 4000, 1, eterniteFluid, 3, aardiumFluid, 3);
-        BasicFluid refractiveBysmuidFluid = new BasicFluid("refractiveBysmuidFluid", 0xFF7b97b0);
+        Fluid refractiveBysmuidFluid = new BasicFluid("refractiveBysmuidFluid", 0xFF7b97b0);
         registerTinkerAlloys("RefractiveBysmuid", refractiveBysmuidFluid, true, 200, 10, 4000, 1, mythrilFluid, 4, bismuthFluid, 2);
 
 
@@ -285,6 +320,7 @@ public class ZCompression {
         registerTinkerMaterial("Palladium", palladium, palladiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Eternite", eternite, eterniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Mythril", mythril, mythrilFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+
         // Material from alloys
         registerTinkerMaterial("Astrite", astrite, astriteFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("InstableNitronite", instableNitronite, instableNitroniteFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);

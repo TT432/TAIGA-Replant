@@ -6,6 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
+import static main.ZCompression.*;
+
 public class ClientProxy extends ServerProxy {
 
     private static void registerBlockModel(Block block) {
@@ -19,31 +21,47 @@ public class ClientProxy extends ServerProxy {
     @Override
     public void registerClientStuff() {
         // Items
-        registerItemModel(ZCompression.slagironIngot);
-        registerItemModel(ZCompression.slaggoldIngot);
-        registerItemModel(ZCompression.lignite);
-        registerItemModel(ZCompression.iron_nugget);
-        registerItemModel(ZCompression.fuel_brick);
-        registerItemModel(ZCompression.tiberiumShardInstable);
-        registerItemModel(ZCompression.tiberiumShardStable);
+        registerItemModel(slagironIngot);
+        registerItemModel(slaggoldIngot);
+        registerItemModel(lignite);
+        registerItemModel(iron_nugget);
+        registerItemModel(fuel_brick);
+        registerItemModel(tiberiumShardInstable);
+        registerItemModel(tiberiumShardStable);
 
 
-        registerItemModel(ZCompression.aardiumIngot);
-        registerItemModel(ZCompression.adamantiteIngot);
-        registerItemModel(ZCompression.arcaniteIngot);
-        registerItemModel(ZCompression.axiidianIngot);
-        registerItemModel(ZCompression.bismuthIngot);
-        registerItemModel(ZCompression.eterniteIngot);
-        registerItemModel(ZCompression.ignititeIngot);
-        registerItemModel(ZCompression.karmesineIngot);
-        registerItemModel(ZCompression.meteoriteIngot);
-        registerItemModel(ZCompression.mindoriteIngot);
-        registerItemModel(ZCompression.mythrilIngot);
-        registerItemModel(ZCompression.palladiumIngot);
-        registerItemModel(ZCompression.prometheumIngot);
-        registerItemModel(ZCompression.tiberiumIngot);
-        registerItemModel(ZCompression.vibraniumIngot);
-        registerItemModel(ZCompression.yrdeanIngot);
+        registerItemModel(aardiumIngot);
+        registerItemModel(adamantiteIngot);
+        registerItemModel(arcaniteIngot);
+        registerItemModel(axiidianIngot);
+        registerItemModel(bismuthIngot);
+        registerItemModel(eterniteIngot);
+        registerItemModel(ignititeIngot);
+        registerItemModel(karmesineIngot);
+        registerItemModel(meteoriteIngot);
+        registerItemModel(mindoriteIngot);
+        registerItemModel(mythrilIngot);
+        registerItemModel(palladiumIngot);
+        registerItemModel(tiberiumIngot);
+        registerItemModel(vibraniumIngot);
+        registerItemModel(yrdeanIngot);
+
+        registerItemModel(astriteIngot);
+        registerItemModel(instableDyoniteIngot);
+        registerItemModel(instableNitroniteIngot);
+        registerItemModel(instablePolyniumIngot);
+        registerItemModel(instablePrysociteIngot);
+        registerItemModel(imperomiteIngot);
+        registerItemModel(cryptogenIngot);
+        registerItemModel(proxideumIngot);
+        registerItemModel(fractoryteIngot);
+        registerItemModel(seismodiumIngot);
+        registerItemModel(terramiteIngot);
+        registerItemModel(blazingXylititeIngot);
+        registerItemModel(radiantPliniumIngot);
+        registerItemModel(ultraniteIngot);
+        registerItemModel(dysprosaniumIngot);
+        registerItemModel(refractiveBysumIngot);
 
         // Blocks
         registerBlockModel(ZCompression.aardiumOre);
