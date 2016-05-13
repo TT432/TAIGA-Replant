@@ -1,7 +1,6 @@
 package com.sosnitzka.ztic_addon.blocks;
 
-import com.sosnitzka.ztic_addon.blocks.category.BasicBlockOre;
-import com.sosnitzka.ztic_addon.main.ZTiC;
+import com.sosnitzka.ztic_addon.generic.BasicBlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -12,10 +11,12 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+import static com.sosnitzka.ztic_addon.Items.lignite;
+
 public class BlockLigniteOre extends BasicBlockOre {
 
     public BlockLigniteOre() {
-        super("lignite_ore", Material.ROCK, 4.0f, 5.0f, 1);
+        super("lignite_ore", Material.ROCK, 4.0f, 5.0f, 1, null);
     }
 
     @Override
@@ -34,6 +35,6 @@ public class BlockLigniteOre extends BasicBlockOre {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ZTiC.lignite;
+        return lignite;
     }
 }

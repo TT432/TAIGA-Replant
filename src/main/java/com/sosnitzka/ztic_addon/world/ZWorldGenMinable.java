@@ -1,6 +1,7 @@
-package com.sosnitzka.ztic_addon.main.util;
+package com.sosnitzka.ztic_addon.world;
 
 import com.google.common.base.Predicate;
+import com.sosnitzka.ztic_addon.util.StateMatcher;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;

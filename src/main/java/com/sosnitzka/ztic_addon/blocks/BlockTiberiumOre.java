@@ -1,7 +1,7 @@
 package com.sosnitzka.ztic_addon.blocks;
 
-import com.sosnitzka.ztic_addon.blocks.category.BasicBlockOreGlow;
-import com.sosnitzka.ztic_addon.main.ZTiC;
+import com.sosnitzka.ztic_addon.Items;
+import com.sosnitzka.ztic_addon.generic.BasicBlockOreGlow;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -15,7 +15,7 @@ import java.util.Random;
 public class BlockTiberiumOre extends BasicBlockOreGlow {
 
     public BlockTiberiumOre() {
-        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 0.8f);
+        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 0.8f, "oreTiberium");
     }
 
     @Override
@@ -34,6 +34,6 @@ public class BlockTiberiumOre extends BasicBlockOreGlow {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ZTiC.tiberiumShardInstable;
+        return Items.tiberiumShardInstable;
     }
 }

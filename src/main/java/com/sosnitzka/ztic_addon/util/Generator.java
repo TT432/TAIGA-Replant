@@ -1,5 +1,6 @@
-package com.sosnitzka.ztic_addon.main.util;
+package com.sosnitzka.ztic_addon.util;
 
+import com.sosnitzka.ztic_addon.world.ZWorldGenMinable;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
