@@ -1,6 +1,7 @@
 package com.sosnitzka.ztic_addon.blocks;
 
-import com.sosnitzka.ztic_addon.generic.BasicBlockOre;
+import com.sosnitzka.ztic_addon.Items;
+import com.sosnitzka.ztic_addon.generic.BasicBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -11,12 +12,12 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-import static com.sosnitzka.ztic_addon.Items.lignite;
+import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_ORE;
 
-public class BlockLigniteOre extends BasicBlockOre {
+public class BlockTiberium extends BasicBlock {
 
-    public BlockLigniteOre() {
-        super("lignite_ore", Material.ROCK, 4.0f, 5.0f, 1);
+    public BlockTiberium() {
+        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 1.0F, PREFIX_ORE);
     }
 
     @Override
@@ -30,11 +31,11 @@ public class BlockLigniteOre extends BasicBlockOre {
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return MathHelper.getRandomIntegerInRange(random, 1, 3 + fortune);
+        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 1, 3 + fortune));
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return lignite;
+        return Items.tiberiumShardInstable;
     }
 }

@@ -61,7 +61,7 @@ public class Items {
     public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
     public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable");
 
-    static void register() {
+    public static void register() {
         Field[] declaredFields = Items.class.getDeclaredFields();
         for (Field field : declaredFields) {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
