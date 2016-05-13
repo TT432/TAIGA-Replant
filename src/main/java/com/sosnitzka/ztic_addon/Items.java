@@ -16,6 +16,7 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_INGOT;
+import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_NUGGET;
 
 public class Items {
     public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
@@ -42,24 +43,24 @@ public class Items {
     public static Item yrdeanIngot = new BasicItem("yrdean_ingot", PREFIX_INGOT);
 
     public static Item astriumIngot = new BasicItem("astrium_ingot", PREFIX_INGOT);
-    public static Item instableNitroniteIngot = new BasicItem("instable_nitronite_ingot");
-    public static Item proxideumIngot = new BasicItem("proxideum_ingot");
-    public static Item instablePolyniumIngot = new BasicItem("instable_polyniumingot");
-    public static Item imperomiteIngot = new BasicItem("imperomite_ingot");
-    public static Item cryptogenIngot = new BasicItem("cryptogen_ingot");
-    public static Item fractoryteIngot = new BasicItem("fractoryte_ingot");
-    public static Item seismodiumIngot = new BasicItem("seismodium_ingot");
-    public static Item terramiteIngot = new BasicItem("terramite_ingot");
-    public static Item instablePrysociteIngot = new BasicItem("instable_prysocite_ingot");
-    public static Item blazingXylititeIngot = new BasicItem("blazing_xylitite_ingot");
-    public static Item instableDyoniteIngot = new BasicItem("instable_dyonite_ingot");
-    public static Item ultraniteIngot = new BasicItem("ultranite_ingot");
-    public static Item radiantPliniumIngot = new BasicItem("radiant_plinium_ingot");
-    public static Item dysprosaniumIngot = new BasicItem("dysprosanium_ingot");
-    public static Item refractiveBysumIngot = new BasicItem("refractive_bysum_ingot");
+    public static Item instableNitroniteIngot = new BasicItem("instable_nitronite_ingot", PREFIX_INGOT);
+    public static Item proxideumIngot = new BasicItem("proxideum_ingot", PREFIX_INGOT);
+    public static Item instablePolyniumIngot = new BasicItem("instable_polyniumingot", PREFIX_INGOT);
+    public static Item imperomiteIngot = new BasicItem("imperomite_ingot", PREFIX_INGOT);
+    public static Item cryptogenIngot = new BasicItem("cryptogen_ingot", PREFIX_INGOT);
+    public static Item fractoryteIngot = new BasicItem("fractoryte_ingot", PREFIX_INGOT);
+    public static Item seismodiumIngot = new BasicItem("seismodium_ingot", PREFIX_INGOT);
+    public static Item terramiteIngot = new BasicItem("terramite_ingot", PREFIX_INGOT);
+    public static Item instablePrysociteIngot = new BasicItem("instable_prysocite_ingot", PREFIX_INGOT);
+    public static Item blazingXylititeIngot = new BasicItem("blazing_xylitite_ingot", PREFIX_INGOT);
+    public static Item instableDyoniteIngot = new BasicItem("instable_dyonite_ingot", PREFIX_INGOT);
+    public static Item ultraniteIngot = new BasicItem("ultranite_ingot", PREFIX_INGOT);
+    public static Item radiantPliniumIngot = new BasicItem("radiant_plinium_ingot", PREFIX_INGOT);
+    public static Item dysprosaniumIngot = new BasicItem("dysprosanium_ingot", PREFIX_INGOT);
+    public static Item refractiveBysumIngot = new BasicItem("refractive_bysum_ingot", PREFIX_INGOT);
 
-    public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
-    public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable");
+    public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable", PREFIX_NUGGET);
+    public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable", PREFIX_NUGGET);
 
     public static void register() {
         Field[] declaredFields = Items.class.getDeclaredFields();
