@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "ztic_addon:refractive_bysmuid_block"
+    }
+  }
+}
