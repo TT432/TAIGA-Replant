@@ -46,7 +46,7 @@ public class ClientProxy extends ServerProxy {
         registerItemModel(vibraniumIngot);
         registerItemModel(yrdeanIngot);
 
-        registerItemModel(astriteIngot);
+        registerItemModel(astriumIngot);
         registerItemModel(instableDyoniteIngot);
         registerItemModel(instableNitroniteIngot);
         registerItemModel(instablePolyniumIngot);

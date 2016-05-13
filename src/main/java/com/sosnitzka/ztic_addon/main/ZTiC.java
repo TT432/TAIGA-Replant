@@ -68,7 +68,7 @@ public class ZTiC {
     public static Item vibraniumIngot = new BasicItem("vibranium_ingot");
     public static Item yrdeanIngot = new BasicItem("yrdean_ingot");
 
-    public static Item astriteIngot = new BasicItem("astrite_ingot");
+    public static Item astriumIngot = new BasicItem("astrium_ingot");
     public static Item instableNitroniteIngot = new BasicItem("instable_nitronite_ingot");
     public static Item proxideumIngot = new BasicItem("proxideum_ingot");
     public static Item instablePolyniumIngot = new BasicItem("instable_polyniumingot");
@@ -131,7 +131,7 @@ public class ZTiC {
     public static slimeknights.tconstruct.library.materials.Material eternite = new slimeknights.tconstruct.library.materials.Material("eternite", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material mythril = new slimeknights.tconstruct.library.materials.Material("mythril", TextFormatting.AQUA);
 
-    public static slimeknights.tconstruct.library.materials.Material astrite = new slimeknights.tconstruct.library.materials.Material("astrite", TextFormatting.LIGHT_PURPLE);
+    public static slimeknights.tconstruct.library.materials.Material astrium = new slimeknights.tconstruct.library.materials.Material("astrium", TextFormatting.LIGHT_PURPLE);
     public static slimeknights.tconstruct.library.materials.Material instableNitronite = new slimeknights.tconstruct.library.materials.Material("instableNitronite", TextFormatting.LIGHT_PURPLE);
     public static slimeknights.tconstruct.library.materials.Material proxideum = new slimeknights.tconstruct.library.materials.Material("proxideum", TextFormatting.LIGHT_PURPLE);
     public static slimeknights.tconstruct.library.materials.Material instablePolynium = new slimeknights.tconstruct.library.materials.Material("instablePolynium", TextFormatting.LIGHT_PURPLE);
@@ -147,6 +147,7 @@ public class ZTiC {
     public static slimeknights.tconstruct.library.materials.Material radiantPlinium = new slimeknights.tconstruct.library.materials.Material("radiantPlinium", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material dysprosanium = new slimeknights.tconstruct.library.materials.Material("dysprosanium", TextFormatting.AQUA);
     public static slimeknights.tconstruct.library.materials.Material refractiveBysmuid = new slimeknights.tconstruct.library.materials.Material("refractiveBysmuidFluid", TextFormatting.AQUA);
+
     @SidedProxy(clientSide = "com.sosnitzka.ztic_addon.proxy.ClientProxy", serverSide = "com.sosnitzka.ztic_addon.proxy.ServerProxy")
     private static ServerProxy proxy;
     private List<MaterialIntegration> integrateList = Lists.newArrayList();
@@ -189,7 +190,7 @@ public class ZTiC {
         GameRegistry.register(vibraniumIngot);
         GameRegistry.register(yrdeanIngot);
 
-        GameRegistry.register(astriteIngot);
+        GameRegistry.register(astriumIngot);
         GameRegistry.register(instableDyoniteIngot);
         GameRegistry.register(instableNitroniteIngot);
         GameRegistry.register(instablePolyniumIngot);
@@ -271,8 +272,8 @@ public class ZTiC {
 
         // TConstruct Alloys
 
-        Fluid astriteFluid = new BasicFluid("astriteFluid", 0xFF7a3b74);
-        registerTinkerAlloys("Astrite", astriteFluid, true, 200, 10, 4000, 1, arcaniteFluid, 3, karmesineFluid, 2);
+        Fluid astriumFluid = new BasicFluid("astriumFluid", 0xFF7a3b74);
+        registerTinkerAlloys("Astrium", astriumFluid, true, 200, 10, 4000, 1, arcaniteFluid, 3, karmesineFluid, 2);
         Fluid instableNitroniteFluid = new BasicFluid("instableNitroniteFluid", 0xFF659933);
         registerTinkerAlloys("InstableNitronite", instableNitroniteFluid, true, 200, 10, 4000, 1, tiberiumFluid, 5, vibraniumFluid, 3);
         Fluid proxideumFluid = new BasicFluid("proxideumFluid", 0xFF416565);
@@ -324,7 +325,7 @@ public class ZTiC {
         registerTinkerMaterial("Mythril", mythril, mythrilFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
 
         // Material from alloys
-        registerTinkerMaterial("Astrite", astrite, astriteFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Astrium", astrium, astriumFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("InstableNitronite", instableNitronite, instableNitroniteFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("InstablePolynium", instablePolynium, instablePolyniumFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
@@ -368,7 +369,7 @@ public class ZTiC {
 
         OreDictionary.registerOre("oreAardium", aardiumOre);
         OreDictionary.registerOre("ingotAardium", aardiumIngot);
-        OreDictionary.registerOre("ingotAstrite", astriteIngot);
+        OreDictionary.registerOre("ingotAstrium", astriumIngot);
         OreDictionary.registerOre("oreArcanite", arcaniteOre);
         OreDictionary.registerOre("ingotArcanite", arcaniteIngot);
         OreDictionary.registerOre("oreAdamantite", adamantiteOre);
