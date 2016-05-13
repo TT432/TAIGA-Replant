@@ -9,8 +9,10 @@ import com.sosnitzka.ztic_addon.items.ItemSlagironIngot;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class Items {
     public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
@@ -19,24 +21,24 @@ public class Items {
     public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
     public static Item fuel_brick = new BasicItem("fuel_brick");
 
-    public static Item aardiumIngot = new BasicItem("aardium_ingot", "ingotAardium");
-    public static Item adamantiteIngot = new BasicItem("adamantite_ingot", "ingotAdamantite");
-    public static Item arcaniteIngot = new BasicItem("arcanite_ingot", "ingotArcanite");
-    public static Item axiidianIngot = new BasicItem("axiidian_ingot", "ingotAxiidian");
-    public static Item bismuthIngot = new BasicItem("bismuth_ingot", "ingotBismuth");
-    public static Item eterniteIngot = new BasicItem("eternite_ingot", "ingotEternite");
-    public static Item ignititeIngot = new BasicItem("ignitite_ingot", "ingotIgnitite");
-    public static Item karmesineIngot = new BasicItem("karmesine_ingot", "ingotKarmesine");
-    public static Item meteoriteIngot = new BasicItem("meteorite_ingot", "ingotMeteorite");
-    public static Item mindoriteIngot = new BasicItem("mindorite_ingot", "ingotMindorite");
-    public static Item mythrilIngot = new BasicItem("mythril_ingot", "ingotMythril");
-    public static Item palladiumIngot = new BasicItem("palladium_ingot", "ingotPalladium");
-    public static Item prometheumIngot = new BasicItem("prometheum_ingot", "ingotPrometheum");
-    public static Item tiberiumIngot = new BasicItem("tiberium_ingot", "ingotTiberium");
-    public static Item vibraniumIngot = new BasicItem("vibranium_ingot", "ingotVibranium");
-    public static Item yrdeanIngot = new BasicItem("yrdean_ingot", "ingotYrdean");
+    public static Item aardiumIngot = new BasicItem("aardium_ingot", true);
+    public static Item adamantiteIngot = new BasicItem("adamantite_ingot", true);
+    public static Item arcaniteIngot = new BasicItem("arcanite_ingot", true);
+    public static Item axiidianIngot = new BasicItem("axiidian_ingot", true);
+    public static Item bismuthIngot = new BasicItem("bismuth_ingot", true);
+    public static Item eterniteIngot = new BasicItem("eternite_ingot", true);
+    public static Item ignititeIngot = new BasicItem("ignitite_ingot", true);
+    public static Item karmesineIngot = new BasicItem("karmesine_ingot", true);
+    public static Item meteoriteIngot = new BasicItem("meteorite_ingot", true);
+    public static Item mindoriteIngot = new BasicItem("mindorite_ingot", true);
+    public static Item mythrilIngot = new BasicItem("mythril_ingot", true);
+    public static Item palladiumIngot = new BasicItem("palladium_ingot", true);
+    public static Item prometheumIngot = new BasicItem("prometheum_ingot", true);
+    public static Item tiberiumIngot = new BasicItem("tiberium_ingot", true);
+    public static Item vibraniumIngot = new BasicItem("vibranium_ingot", true);
+    public static Item yrdeanIngot = new BasicItem("yrdean_ingot", true);
 
-    public static Item astriumIngot = new BasicItem("astrium_ingot", "ingotAstrium");
+    public static Item astriumIngot = new BasicItem("astrium_ingot", true);
     public static Item instableNitroniteIngot = new BasicItem("instable_nitronite_ingot");
     public static Item proxideumIngot = new BasicItem("proxideum_ingot");
     public static Item instablePolyniumIngot = new BasicItem("instable_polyniumingot");
@@ -68,7 +70,16 @@ public class Items {
 
                     if (item instanceof BasicItem) {
                         if (((BasicItem) item).isOreDict()) {
-                            OreDictionary.registerOre(((BasicItem) item).getOreDictName(), item);
+                            String oreDictName;
+                            String[] nameParts = item.getUnlocalizedName().split("_");
+
+                            if (nameParts.length > 2) {
+                                oreDictName = Arrays.toString(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
+                            } else {
+                                oreDictName = nameParts[0];
+                            }
+
+                            OreDictionary.registerOre("ingot" + StringUtils.capitalize(oreDictName), item);
                         }
                     }
                 } catch (IllegalAccessException e) {

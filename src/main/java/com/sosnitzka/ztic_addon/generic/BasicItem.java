@@ -3,23 +3,19 @@ package com.sosnitzka.ztic_addon.generic;
 import net.minecraft.item.Item;
 
 public class BasicItem extends Item {
-    private String oreDictName;
+    private boolean oreDict;
 
-    public BasicItem(String name, String oreDictName) {
+    public BasicItem(String name, boolean oreDict) {
         setUnlocalizedName(name);
         setRegistryName(name);
-        this.oreDictName = oreDictName;
+        this.oreDict = oreDict;
     }
 
     public BasicItem(String name) {
-        this(name, null);
+        this(name, false);
     }
 
     public boolean isOreDict() {
-        return this.oreDictName != null;
-    }
-
-    public String getOreDictName() {
-        return oreDictName;
+        return this.oreDict;
     }
 }
