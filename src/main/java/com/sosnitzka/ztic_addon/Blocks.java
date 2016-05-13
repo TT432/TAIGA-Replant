@@ -1,5 +1,6 @@
 package com.sosnitzka.ztic_addon;
 
+import com.google.common.base.Joiner;
 import com.sosnitzka.ztic_addon.blocks.BlockLigniteOre;
 import com.sosnitzka.ztic_addon.blocks.BlockTiberiumOre;
 import com.sosnitzka.ztic_addon.generic.BasicBlockGround;
@@ -53,7 +54,7 @@ public class Blocks {
                         System.out.println();
 
                         if (nameParts.length > 2) {
-                            oreDictName = Arrays.toString(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
+                            oreDictName = Joiner.on("_").join(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
                         } else {
                             oreDictName = nameParts[0];
                         }

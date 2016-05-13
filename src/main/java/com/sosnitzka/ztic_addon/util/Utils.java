@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class Utils {
+    public static String PREFIX_INGOT = "ingot";
+
     public static void registerBlockWithItem(Block block) {
         System.out.println(String.format("Register Block: %s", block.getUnlocalizedName()));
         GameRegistry.register(block);
