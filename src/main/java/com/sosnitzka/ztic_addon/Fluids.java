@@ -52,7 +52,7 @@ public class Fluids {
                 Class<?> targetType = field.getType();
                 try {
                     Object newInstance = targetType.newInstance();
-                    BasicTinkerFluid fluid = (BasicTinkerFluid) newInstance;
+                    BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(newInstance);
                     Utils.registerTinkerFluid(StringUtils.capitalize(field.getName().replace("Fluid", "")), fluid, fluid.isToolForge());
                 } catch (InstantiationException e) {
                     e.printStackTrace();
