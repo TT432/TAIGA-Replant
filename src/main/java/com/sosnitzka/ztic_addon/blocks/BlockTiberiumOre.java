@@ -1,7 +1,7 @@
 package com.sosnitzka.ztic_addon.blocks;
 
 import com.sosnitzka.ztic_addon.Items;
-import com.sosnitzka.ztic_addon.generic.BasicBlockOreGlow;
+import com.sosnitzka.ztic_addon.generic.BasicBlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -12,10 +12,10 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class BlockTiberiumOre extends BasicBlockOreGlow {
+public class BlockTiberiumOre extends BasicBlockOre {
 
     public BlockTiberiumOre() {
-        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 0.8f, "oreTiberium");
+        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, "oreTiberium", 1.0F);
     }
 
     @Override

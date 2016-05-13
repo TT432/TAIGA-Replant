@@ -6,6 +6,17 @@ import net.minecraft.block.material.Material;
 public class BasicBlockOre extends Block {
     public String oreDictName;
 
+    public BasicBlockOre(String name, Material material, float hardness, float resistance, int harvest, String oreDictName, float lightlevel) {
+        super(material);
+        setUnlocalizedName(name);
+        setRegistryName(name);
+        setHardness(hardness);
+        setResistance(resistance);
+        setHarvestLevel("pickaxe", harvest);
+        setLightLevel(lightlevel);
+        this.oreDictName = oreDictName;
+    }
+
     public BasicBlockOre(String name, Material material, float hardness, float resistance, int harvest, String oreDictName) {
         super(material);
         setUnlocalizedName(name);
@@ -15,6 +26,7 @@ public class BasicBlockOre extends Block {
         setHarvestLevel("pickaxe", harvest);
         this.oreDictName = oreDictName;
     }
+
 
     public boolean isOreDict() {
         return this.oreDictName != null;

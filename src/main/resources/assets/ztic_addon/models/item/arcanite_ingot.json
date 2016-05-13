@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ztic_addon:items/ingots/arcanite_ingot"
+        "layer0": "ztic_addon:items/tic/arcanite_ingot"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ztic_addon:items/ingots/mythril_ingot"
+        "layer0": "ztic_addon:items/tic/mythril_ingot"
     }
 }

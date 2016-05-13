@@ -4,7 +4,6 @@ import com.sosnitzka.ztic_addon.blocks.BlockLigniteOre;
 import com.sosnitzka.ztic_addon.blocks.BlockTiberiumOre;
 import com.sosnitzka.ztic_addon.generic.BasicBlockGround;
 import com.sosnitzka.ztic_addon.generic.BasicBlockOre;
-import com.sosnitzka.ztic_addon.generic.BasicBlockOreGlow;
 import com.sosnitzka.ztic_addon.util.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -29,7 +28,7 @@ public class Blocks {
     public static Block mindoriteOre = new BasicBlockOre("mindorite_ore", Material.ROCK, 12.0f, 12.0f, 2, "oreMindorite");
     public static Block mythrilOre = new BasicBlockOre("mythril_ore", Material.ROCK, 25.0f, 25.0f, 4, "oreMythril");
     public static Block palladiumOre = new BasicBlockOre("palladium_ore", Material.ROCK, 25.0f, 25.0f, 3, "orePalladium");
-    public static Block prometheumOre = new BasicBlockOreGlow("prometheum_ore", Material.ROCK, 35.0f, 35.0f, 4, 0.25f, null);
+    public static Block prometheumOre = new BasicBlockOre("prometheum_ore", Material.ROCK, 35.0f, 35.0f, 4, "orePrometheum", 0.8F);
     public static Block slagironOre = new BasicBlockOre("slagiron_ore", Material.ROCK, 3.0f, 5.0f, 1, "orePrometheum");
     public static Block slaggoldOre = new BasicBlockOre("slaggold_ore", Material.ROCK, 3.0f, 5.0f, 1, null);
     public static Block tiberiumOre = new BlockTiberiumOre();
