@@ -15,7 +15,7 @@ import java.util.Random;
 public class BlockTiberiumOre extends BasicBlockOre {
 
     public BlockTiberiumOre() {
-        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, "oreTiberium", 1.0F);
+        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 1.0F);
     }
 
     @Override
