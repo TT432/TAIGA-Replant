@@ -99,6 +99,7 @@ public class ZTiC {
 
     @EventHandler
     public void init(FMLInitializationEvent e) {
+        proxy.registerClientStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
         GameRegistry.registerFuelHandler(new FuelHandler());
         Smelting.register();

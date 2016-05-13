@@ -28,7 +28,6 @@ public class ClientProxy {
         registerItemModel(tiberiumShardInstable);
         registerItemModel(tiberiumShardStable);
 
-
         registerItemModel(aardiumIngot);
         registerItemModel(adamantiteIngot);
         registerItemModel(arcaniteIngot);
