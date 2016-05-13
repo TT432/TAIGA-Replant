@@ -49,7 +49,7 @@ public class Blocks {
 
                     if (block instanceof BasicBlockOre) {
                         String oreDictName;
-                        String[] nameParts = block.getUnlocalizedName().split("_");
+                        String[] nameParts = block.getUnlocalizedName().replace("tile.", "").split("_");
 
                         if (nameParts.length > 2) {
                             oreDictName = Arrays.toString(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));

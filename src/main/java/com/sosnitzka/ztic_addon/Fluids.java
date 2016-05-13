@@ -54,7 +54,7 @@ public class Fluids {
                     BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType);
 
                     String oreDictName;
-                    String[] nameParts = fluid.getUnlocalizedName().split("_");
+                    String[] nameParts = fluid.getName().split("_");
 
                     if (nameParts.length > 2) {
                         oreDictName = Arrays.toString(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
@@ -62,7 +62,7 @@ public class Fluids {
                         oreDictName = nameParts[0];
                     }
 
-                    Utils.registerTinkerFluid("fluid" + StringUtils.capitalize(nameParts[0]), fluid, fluid.isToolForge());
+                    Utils.registerTinkerFluid("fluid" + StringUtils.capitalize(oreDictName), fluid, fluid.isToolForge());
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

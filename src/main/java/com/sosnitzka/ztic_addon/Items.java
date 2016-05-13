@@ -71,7 +71,7 @@ public class Items {
                     if (item instanceof BasicItem) {
                         if (((BasicItem) item).isOreDict()) {
                             String oreDictName;
-                            String[] nameParts = item.getUnlocalizedName().split("_");
+                            String[] nameParts = item.getUnlocalizedName().replace("item.", "").split("_");
 
                             if (nameParts.length > 2) {
                                 oreDictName = Arrays.toString(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
