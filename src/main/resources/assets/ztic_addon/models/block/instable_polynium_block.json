@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "ztic_addon:blocks/instable_polynium_block"
-  }
-}

@@ -29,7 +29,7 @@ public class Fluids {
     public static BasicTinkerFluid astriumFluid = new BasicTinkerFluid("astrium", 0xFF7a3b74, true, 200, 10, 4000);
     public static BasicTinkerFluid instableNitroniteFluid = new BasicTinkerFluid("instable_nitronite", 0xFF659933, true, 200, 10, 4000);
     public static BasicTinkerFluid proxideumFluid = new BasicTinkerFluid("proxideum", 0xFF416565, true, 200, 10, 4000);
-    public static BasicTinkerFluid instablePolyniumFluid = new BasicTinkerFluid("instable_polynium", 0xFF6c6aa3, true, 200, 10, 4000);
+    public static BasicTinkerFluid instablePolyniumFluid = new BasicTinkerFluid("instablePolynium", 0xFF6c6aa3, true, 200, 10, 4000);
     public static BasicTinkerFluid imperomiteFluid = new BasicTinkerFluid("imperomite", 0xFF339966, true, 200, 10, 4000);
     public static BasicTinkerFluid cryptogenFluid = new BasicTinkerFluid("cryptogen", 0xFF9f8a4a, true, 200, 10, 4000);
     public static BasicTinkerFluid fractoryteFluid = new BasicTinkerFluid("fractoryte", 0xFFb44a14, true, 200, 10, 4000);

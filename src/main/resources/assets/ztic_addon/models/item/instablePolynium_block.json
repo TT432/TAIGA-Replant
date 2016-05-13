@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/instable_polynium_block",
+  "parent": "ztic_addon:block/instablePolynium_block",
   "display": {
     "thirdperson": {
       "rotation": [

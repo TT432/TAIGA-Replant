@@ -3,8 +3,8 @@ package com.sosnitzka.ztic_addon;
 import com.google.common.base.Joiner;
 import com.sosnitzka.ztic_addon.blocks.BlockLignite;
 import com.sosnitzka.ztic_addon.blocks.BlockTiberium;
-import com.sosnitzka.ztic_addon.generic.BasicBlockGround;
 import com.sosnitzka.ztic_addon.generic.BasicBlock;
+import com.sosnitzka.ztic_addon.generic.BasicBlockGround;
 import com.sosnitzka.ztic_addon.util.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -66,7 +66,7 @@ public class Blocks {
     public static Block imperomiteBlock = new BasicBlock("imperomite_block", Material.ROCK, 24.0f, 25.0f, 3, PREFIX_BLOCK);
     public static Block instableDyoniteBlock = new BasicBlock("instable_dyonite_block", Material.ROCK, 23.0f, 25.0f, 3, PREFIX_BLOCK);
     public static Block instableNitroniteBlock = new BasicBlock("instable_nitronite_block", Material.ROCK, 13.0f, 15.0f, 1, PREFIX_BLOCK);
-    public static Block instablePolyniumBlock = new BasicBlock("instable_polynium_block", Material.ROCK, 60.0f, 500.0f, 4, PREFIX_BLOCK);
+    public static Block instablePolyniumBlock = new BasicBlock("instablePolynium_block", Material.ROCK, 60.0f, 500.0f, 4, PREFIX_BLOCK);
     public static Block instablePrysociteBlock = new BasicBlock("instable_prysocite_block", Material.ROCK, 12.0f, 12.0f, 2, PREFIX_BLOCK);
     public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
     public static Block radiantPliniumBlock = new BasicBlock("radiant_plinium_block", Material.ROCK, 25.0f, 25.0f, 3, PREFIX_BLOCK);
@@ -89,7 +89,6 @@ public class Blocks {
                         if (((BasicBlock) block).isOreDict()) {
                             String oreDictName;
                             String[] nameParts = block.getUnlocalizedName().replace("tile.", "").split("_");
-                            System.out.println();
 
                             if (nameParts.length > 2) {
                                 oreDictName = Joiner.on("_").join(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
@@ -98,7 +97,7 @@ public class Blocks {
                             }
 
                             OreDictionary.registerOre(((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName), block);
-                            System.out.println(String.format("Registered OreDict: %s", "ore" + StringUtils.capitalize(oreDictName)));
+                            System.out.println(String.format("Registered OreDict: %s", ((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName)));
                         }
                     }
                 } catch (IllegalAccessException e) {
