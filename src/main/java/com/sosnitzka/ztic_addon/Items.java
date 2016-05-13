@@ -65,7 +65,6 @@ public class Items {
                 Class<?> targetType = field.getType();
                 try {
                     Item item = (Item) field.get(targetType);
-
                     GameRegistry.register(item);
 
                     if (item instanceof BasicItem) {
@@ -80,6 +79,7 @@ public class Items {
                             }
 
                             OreDictionary.registerOre("ingot" + StringUtils.capitalize(oreDictName), item);
+                            System.out.println(String.format("Registered OreDict: %s", "ingot" + StringUtils.capitalize(oreDictName)));
                         }
                     }
                 } catch (IllegalAccessException e) {

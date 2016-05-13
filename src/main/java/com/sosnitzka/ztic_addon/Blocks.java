@@ -50,6 +50,7 @@ public class Blocks {
                     if (block instanceof BasicBlockOre) {
                         String oreDictName;
                         String[] nameParts = block.getUnlocalizedName().replace("tile.", "").split("_");
+                        System.out.println();
 
                         if (nameParts.length > 2) {
                             oreDictName = Arrays.toString(Arrays.copyOfRange(nameParts, 0, nameParts.length - 1));
@@ -58,6 +59,7 @@ public class Blocks {
                         }
 
                         OreDictionary.registerOre("ore" + StringUtils.capitalize(oreDictName), block);
+                        System.out.println(String.format("Registered OreDict: %s", "ore" + StringUtils.capitalize(oreDictName)));
                     }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

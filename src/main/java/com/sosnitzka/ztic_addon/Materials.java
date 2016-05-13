@@ -37,5 +37,5 @@ public class Materials {
     public static Material ultranite = new Material("ultranite", TextFormatting.AQUA);
     public static Material radiantPlinium = new Material("radiantPlinium", TextFormatting.AQUA);
     public static Material dysprosanium = new Material("dysprosanium", TextFormatting.AQUA);
-    public static Material refractiveBysmuid = new Material("refractiveBysmuidFluid", TextFormatting.AQUA);
+    public static Material refractiveBysmuid = new Material("refractiveBysmuid", TextFormatting.AQUA);
 }
