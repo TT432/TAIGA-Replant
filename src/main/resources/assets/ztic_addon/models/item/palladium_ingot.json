@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ztic_addon:items/palladium_ingot"
+        "layer0": "ztic_addon:items/ingots/palladium_ingot"
     }
 }
