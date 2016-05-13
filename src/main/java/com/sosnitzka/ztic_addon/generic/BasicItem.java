@@ -3,7 +3,7 @@ package com.sosnitzka.ztic_addon.generic;
 import net.minecraft.item.Item;
 
 public class BasicItem extends Item {
-    public String oreDictName;
+    private String oreDictName;
 
     public BasicItem(String name, String oreDictName) {
         setUnlocalizedName(name);
@@ -17,5 +17,9 @@ public class BasicItem extends Item {
 
     public boolean isOreDict() {
         return this.oreDictName != null;
+    }
+
+    public String getOreDictName() {
+        return oreDictName;
     }
 }

@@ -19,4 +19,8 @@ public class BasicBlockOre extends Block {
     public boolean isOreDict() {
         return this.oreDictName != null;
     }
+
+    public String getOreDictName() {
+        return oreDictName;
+    }
 }

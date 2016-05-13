@@ -8,6 +8,7 @@ import com.sosnitzka.ztic_addon.items.ItemSlaggoldIngot;
 import com.sosnitzka.ztic_addon.items.ItemSlagironIngot;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 import java.lang.reflect.Field;
 
@@ -61,10 +62,15 @@ public class Items {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
                 Class<?> targetType = field.getType();
                 try {
-                    Object newInstance = targetType.newInstance();
-                    GameRegistry.register(((Item) field.get(newInstance)));
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
+                    Item item = (Item) field.get(targetType);
+
+                    GameRegistry.register(item);
+
+                    if (item instanceof BasicItem) {
+                        if (((BasicItem) item).isOreDict()) {
+                            OreDictionary.registerOre(((BasicItem) item).getOreDictName(), item);
+                        }
+                    }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

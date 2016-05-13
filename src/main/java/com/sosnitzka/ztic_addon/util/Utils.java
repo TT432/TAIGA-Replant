@@ -12,12 +12,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class Utils {
     public static void registerBlockWithItem(Block block) {
+        System.out.println(String.format("Register Block: %s", block.getUnlocalizedName()));
         GameRegistry.register(block);
         GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+        System.out.println(String.format("Registered: %s", block));
     }
 
 
     public static void registerTinkerFluid(String oreDictSuffix, Fluid fluid, boolean toolForge) {
+        System.out.println(String.format("Register TinkerFluid with oreDictSuffix: %s", oreDictSuffix));
         registerFluid(fluid);
 
         NBTTagCompound tag = new NBTTagCompound();

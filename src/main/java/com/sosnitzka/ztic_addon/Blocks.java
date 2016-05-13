@@ -43,15 +43,14 @@ public class Blocks {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
                 Class<?> targetType = field.getType();
                 try {
-                    Object newInstance = targetType.newInstance();
-                    BasicBlockOre block = (BasicBlockOre) field.get(newInstance);
+                    Block block = (Block) field.get(targetType);
                     Utils.registerBlockWithItem(block);
 
-                    if (block.isOreDict()) {
-                        OreDictionary.registerOre(block.oreDictName, block);
+                    if (block instanceof BasicBlockOre) {
+                        if (((BasicBlockOre) block).isOreDict()) {
+                            OreDictionary.registerOre(((BasicBlockOre) block).getOreDictName(), block);
+                        }
                     }
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
