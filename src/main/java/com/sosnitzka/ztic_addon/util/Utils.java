@@ -12,6 +12,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class Utils {
     public static String PREFIX_INGOT = "ingot";
+    public static String PREFIX_NUGGET = "nugget";
+    public static String PREFIX_ORE = "ore";
+    public static String PREFIX_BLOCK = "block";
+
 
     public static void registerBlockWithItem(Block block) {
         System.out.println(String.format("Register Block: %s", block.getUnlocalizedName()));

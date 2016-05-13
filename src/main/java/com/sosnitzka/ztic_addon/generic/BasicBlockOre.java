@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 
 public class BasicBlockOre extends Block {
 
+
     public BasicBlockOre(String name, Material material, float hardness, float resistance, int harvest, float lightLevel) {
         super(material);
         setUnlocalizedName(name);
@@ -13,6 +14,7 @@ public class BasicBlockOre extends Block {
         setResistance(resistance);
         setHarvestLevel("pickaxe", harvest);
         setLightLevel(lightLevel);
+
     }
 
     public BasicBlockOre(String name, Material material, float hardness, float resistance, int harvest) {
