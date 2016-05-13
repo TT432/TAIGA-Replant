@@ -1,12 +1,13 @@
 package com.sosnitzka.ztic_addon.proxy;
 
+import com.sosnitzka.ztic_addon.Blocks;
+import com.sosnitzka.ztic_addon.Items;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 
-import static com.sosnitzka.ztic_addon.Blocks.*;
-import static com.sosnitzka.ztic_addon.Items.*;
+import java.lang.reflect.Field;
 
 public class ClientProxy {
 
@@ -19,69 +20,32 @@ public class ClientProxy {
     }
 
     public void registerClientStuff() {
-        // Items
-        registerItemModel(slagironIngot);
-        registerItemModel(slaggoldIngot);
-        registerItemModel(lignite);
-        registerItemModel(iron_nugget);
-        registerItemModel(fuel_brick);
-        registerItemModel(tiberiumShardInstable);
-        registerItemModel(tiberiumShardStable);
+        Field[] itemFields = Items.class.getDeclaredFields();
+        for (Field field : itemFields) {
+            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
+                Class<?> targetType = field.getType();
+                try {
+                    Item item = (Item) field.get(targetType);
 
-        registerItemModel(aardiumIngot);
-        registerItemModel(adamantiteIngot);
-        registerItemModel(arcaniteIngot);
-        registerItemModel(axiidianIngot);
-        registerItemModel(bismuthIngot);
-        registerItemModel(eterniteIngot);
-        registerItemModel(ignititeIngot);
-        registerItemModel(karmesineIngot);
-        registerItemModel(meteoriteIngot);
-        registerItemModel(mindoriteIngot);
-        registerItemModel(mythrilIngot);
-        registerItemModel(palladiumIngot);
-        registerItemModel(tiberiumIngot);
-        registerItemModel(vibraniumIngot);
-        registerItemModel(yrdeanIngot);
+                    registerItemModel(item);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-        registerItemModel(astriumIngot);
-        registerItemModel(instableDyoniteIngot);
-        registerItemModel(instableNitroniteIngot);
-        registerItemModel(instablePolyniumIngot);
-        registerItemModel(instablePrysociteIngot);
-        registerItemModel(imperomiteIngot);
-        registerItemModel(cryptogenIngot);
-        registerItemModel(proxideumIngot);
-        registerItemModel(fractoryteIngot);
-        registerItemModel(seismodiumIngot);
-        registerItemModel(terramiteIngot);
-        registerItemModel(blazingXylititeIngot);
-        registerItemModel(radiantPliniumIngot);
-        registerItemModel(ultraniteIngot);
-        registerItemModel(dysprosaniumIngot);
-        registerItemModel(refractiveBysumIngot);
+        Field[] blockFields = Blocks.class.getDeclaredFields();
+        for (Field field : blockFields) {
+            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
+                Class<?> targetType = field.getType();
+                try {
+                    Block block = (Block) field.get(targetType);
 
-        // Blocks
-        registerBlockModel(aardiumOre);
-        registerBlockModel(adamantiteOre);
-        registerBlockModel(arcaniteOre);
-        registerBlockModel(axiidianOre);
-        registerBlockModel(basalt);
-        registerBlockModel(bismuthOre);
-        registerBlockModel(eterniteOre);
-        registerBlockModel(ignititeOre);
-        registerBlockModel(karmesineOre);
-        registerBlockModel(ligniteOre);
-        registerBlockModel(meteoriteOre);
-        registerBlockModel(mindoriteOre);
-        registerBlockModel(mythrilOre);
-        registerBlockModel(palladiumOre);
-        registerBlockModel(prometheumOre);
-        registerBlockModel(rottenGround);
-        registerBlockModel(slagironOre);
-        registerBlockModel(slaggoldOre);
-        registerBlockModel(tiberiumOre);
-        registerBlockModel(vibraniumOre);
-        registerBlockModel(yrdeanOre);
+                    registerBlockModel(block);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
