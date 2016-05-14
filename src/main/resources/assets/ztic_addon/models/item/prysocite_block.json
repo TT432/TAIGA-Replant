@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/radiant_plinium_block",
+  "parent": "ztic_addon:block/prysocite_block",
   "display": {
     "thirdperson": {
       "rotation": [

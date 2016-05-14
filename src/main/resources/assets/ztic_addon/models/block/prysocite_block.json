@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/instablePolynium_block"
+    "all": "ztic_addon:blocks/prysocite_block"
   }
 }

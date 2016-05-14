@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "ztic_addon:dyonite_block"
+    }
+  }
+}

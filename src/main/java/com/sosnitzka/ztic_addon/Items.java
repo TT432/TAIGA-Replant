@@ -43,21 +43,21 @@ public class Items {
     public static Item yrdeanIngot = new BasicItem("yrdean_ingot", PREFIX_INGOT);
 
     public static Item astriumIngot = new BasicItem("astrium_ingot", PREFIX_INGOT);
-    public static Item instableNitroniteIngot = new BasicItem("instableNitronite_ingot", PREFIX_INGOT);
+    public static Item nitroniteIngot = new BasicItem("nitronite_ingot", PREFIX_INGOT);
     public static Item proxideumIngot = new BasicItem("proxideum_ingot", PREFIX_INGOT);
-    public static Item instablePolyniumIngot = new BasicItem("instablePolynium_ingot", PREFIX_INGOT);
+    public static Item polyniumIngot = new BasicItem("polynium_ingot", PREFIX_INGOT);
     public static Item imperomiteIngot = new BasicItem("imperomite_ingot", PREFIX_INGOT);
     public static Item cryptogenIngot = new BasicItem("cryptogen_ingot", PREFIX_INGOT);
     public static Item fractoryteIngot = new BasicItem("fractoryte_ingot", PREFIX_INGOT);
     public static Item seismodiumIngot = new BasicItem("seismodium_ingot", PREFIX_INGOT);
     public static Item terramiteIngot = new BasicItem("terramite_ingot", PREFIX_INGOT);
-    public static Item instablePrysociteIngot = new BasicItem("instablePrysocite_ingot", PREFIX_INGOT);
-    public static Item blazingXylititeIngot = new BasicItem("blazingXylitite_ingot", PREFIX_INGOT);
-    public static Item instableDyoniteIngot = new BasicItem("instableDyonite_ingot", PREFIX_INGOT);
+    public static Item prysociteIngot = new BasicItem("prysocite_ingot", PREFIX_INGOT);
+    public static Item xylititeIngot = new BasicItem("xylitite_ingot", PREFIX_INGOT);
+    public static Item dyoniteIngot = new BasicItem("dyonite_ingot", PREFIX_INGOT);
     public static Item ultraniteIngot = new BasicItem("ultranite_ingot", PREFIX_INGOT);
-    public static Item radiantPliniumIngot = new BasicItem("radiantPlinium_ingot", PREFIX_INGOT);
+    public static Item pliniumIngot = new BasicItem("plinium_ingot", PREFIX_INGOT);
     public static Item dysprosaniumIngot = new BasicItem("dysprosanium_ingot", PREFIX_INGOT);
-    public static Item refractiveBysumIngot = new BasicItem("refractive_bysum_ingot", PREFIX_INGOT);
+    public static Item bysmuidIngot = new BasicItem("bysmuid_ingot", PREFIX_INGOT);
 
     public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable", PREFIX_NUGGET);
     public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable", PREFIX_NUGGET);

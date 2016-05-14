@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/refractive_bysmuid_block",
+  "parent": "ztic_addon:block/nitronite_block",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/blazing_xylitite_block",
+  "parent": "ztic_addon:block/polynium_block",
   "display": {
     "thirdperson": {
       "rotation": [
