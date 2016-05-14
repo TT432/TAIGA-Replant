@@ -4,6 +4,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -20,8 +21,16 @@ public class TraitInstable extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (player.getHealth() > 2) {
-            world.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 3, true, true);
+        if (MathHelper.getRandomIntegerInRange(random, 0, 100) < 2) {
+            world.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2, true, true);
+        }
+    }
+
+    @Override
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+        BlockPos pos = target.getPosition();
+        if (MathHelper.getRandomIntegerInRange(random, 0, 100) < 2) {
+            target.getEntityWorld().newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2, true, true);
         }
     }
 

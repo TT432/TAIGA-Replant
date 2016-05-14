@@ -25,10 +25,10 @@ public class Items {
     public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
     public static Item fuel_brick = new BasicItem("fuel_brick");
 
-    public static Item aardiumIngot = new BasicItem("aardium_ingot", PREFIX_INGOT);
+    public static Item titaniteIngot = new BasicItem("titanite_ingot", PREFIX_INGOT);
     public static Item adamantiteIngot = new BasicItem("adamantite_ingot", PREFIX_INGOT);
     public static Item arcaniteIngot = new BasicItem("arcanite_ingot", PREFIX_INGOT);
-    public static Item axiidianIngot = new BasicItem("axiidian_ingot", PREFIX_INGOT);
+    public static Item violiumIngot = new BasicItem("violium_ingot", PREFIX_INGOT);
     public static Item bismuthIngot = new BasicItem("bismuth_ingot", PREFIX_INGOT);
     public static Item eterniteIngot = new BasicItem("eternite_ingot", PREFIX_INGOT);
     public static Item ignititeIngot = new BasicItem("ignitite_ingot", PREFIX_INGOT);
@@ -40,23 +40,23 @@ public class Items {
     public static Item prometheumIngot = new BasicItem("prometheum_ingot", PREFIX_INGOT);
     public static Item tiberiumIngot = new BasicItem("tiberium_ingot", PREFIX_INGOT);
     public static Item vibraniumIngot = new BasicItem("vibranium_ingot", PREFIX_INGOT);
-    public static Item yrdeanIngot = new BasicItem("yrdean_ingot", PREFIX_INGOT);
+    public static Item rubiumIngot = new BasicItem("rubium_ingot", PREFIX_INGOT);
 
     public static Item astriumIngot = new BasicItem("astrium_ingot", PREFIX_INGOT);
     public static Item nitroniteIngot = new BasicItem("nitronite_ingot", PREFIX_INGOT);
     public static Item proxideumIngot = new BasicItem("proxideum_ingot", PREFIX_INGOT);
-    public static Item polyniumIngot = new BasicItem("polynium_ingot", PREFIX_INGOT);
+    public static Item noctunyxIngot = new BasicItem("noctunyx_ingot", PREFIX_INGOT);
     public static Item imperomiteIngot = new BasicItem("imperomite_ingot", PREFIX_INGOT);
     public static Item cryptogenIngot = new BasicItem("cryptogen_ingot", PREFIX_INGOT);
     public static Item fractoryteIngot = new BasicItem("fractoryte_ingot", PREFIX_INGOT);
     public static Item seismodiumIngot = new BasicItem("seismodium_ingot", PREFIX_INGOT);
     public static Item terramiteIngot = new BasicItem("terramite_ingot", PREFIX_INGOT);
-    public static Item prysociteIngot = new BasicItem("prysocite_ingot", PREFIX_INGOT);
-    public static Item xylititeIngot = new BasicItem("xylitite_ingot", PREFIX_INGOT);
+    public static Item lumixylIngot = new BasicItem("lumixyl_ingot", PREFIX_INGOT);
+    public static Item solariumIngot = new BasicItem("solarium_ingot", PREFIX_INGOT);
     public static Item dyoniteIngot = new BasicItem("dyonite_ingot", PREFIX_INGOT);
     public static Item ultraniteIngot = new BasicItem("ultranite_ingot", PREFIX_INGOT);
-    public static Item pliniumIngot = new BasicItem("plinium_ingot", PREFIX_INGOT);
-    public static Item dysprosaniumIngot = new BasicItem("dysprosanium_ingot", PREFIX_INGOT);
+    public static Item nucleumIngot = new BasicItem("nucleum_ingot", PREFIX_INGOT);
+    public static Item aegisaltIngot = new BasicItem("aegisalt_ingot", PREFIX_INGOT);
     public static Item bysmuidIngot = new BasicItem("bysmuid_ingot", PREFIX_INGOT);
 
     public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable", PREFIX_NUGGET);

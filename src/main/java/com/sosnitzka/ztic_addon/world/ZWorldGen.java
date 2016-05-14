@@ -40,10 +40,10 @@ public class ZWorldGen implements IWorldGenerator {
 
     private void end(Random random, int x, int z, World world) {
 
-        Generator.generateEndOre(yrdeanOre.getDefaultState(), random, x, z, world, 16, 10, 35, 2, 6);
+        Generator.generateEndOre(rubiumOre.getDefaultState(), random, x, z, world, 16, 10, 35, 2, 6);
         Generator.generateEndOre(ignititeOre.getDefaultState(), random, x, z, world, 16, 20, 45, 2, 6);
-        Generator.generateEndOre(axiidianOre.getDefaultState(), random, x, z, world, 16, 30, 55, 2, 6);
-        Generator.generateEndOre(aardiumOre.getDefaultState(), random, x, z, world, 16, 40, 65, 2, 6);
+        Generator.generateEndOre(violiumOre.getDefaultState(), random, x, z, world, 16, 30, 55, 2, 6);
+        Generator.generateEndOre(titaniteOre.getDefaultState(), random, x, z, world, 16, 40, 65, 2, 6);
     }
 
 

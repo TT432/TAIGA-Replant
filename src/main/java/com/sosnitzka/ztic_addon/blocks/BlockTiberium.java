@@ -17,7 +17,7 @@ import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_ORE;
 public class BlockTiberium extends BasicBlock {
 
     public BlockTiberium() {
-        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 3, 1.0F, PREFIX_ORE);
+        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 6, 1.0F, PREFIX_ORE);
     }
 
     @Override

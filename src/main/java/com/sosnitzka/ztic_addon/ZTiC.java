@@ -56,19 +56,19 @@ public class ZTiC {
         // TConstruct Alloys
         registerTinkerAlloys(astriumFluid, 1, arcaniteFluid, 3, karmesineFluid, 2);
         registerTinkerAlloys(nitroniteFluid, 1, tiberiumFluid, 5, vibraniumFluid, 3);
-        registerTinkerAlloys(proxideumFluid, 1, prometheumFluid, 3, axiidianFluid, 2);
-        registerTinkerAlloys(polyniumFluid, 1, yrdeanFluid, 3, meteoriteFluid, 2);
-        registerTinkerAlloys(imperomiteFluid, 2, aardiumFluid, 3, prometheumFluid, 3);
+        registerTinkerAlloys(proxideumFluid, 1, prometheumFluid, 3, violiumFluid, 2);
+        registerTinkerAlloys(noctunyxFluid, 1, rubiumFluid, 3, meteoriteFluid, 2);
+        registerTinkerAlloys(imperomiteFluid, 2, titaniteFluid, 3, prometheumFluid, 3);
         registerTinkerAlloys(cryptogenFluid, 1, meteoriteFluid, 3, mythrilFluid, 2);
         registerTinkerAlloys(fractoryteFluid, 1, adamantiteFluid, 4, arcaniteFluid, 2);
         registerTinkerAlloys(seismodiumFluid, 1, vibraniumFluid, 4, palladiumFluid, 4);
-        registerTinkerAlloys(terramiteFluid, 2, axiidianFluid, 4, eterniteFluid, 2);
-        registerTinkerAlloys(prysociteFluid, 1, bismuthFluid, 3, yrdeanFluid, 2);
-        registerTinkerAlloys(xylititeFluid, 1, karmesineFluid, 3, ignititeFluid, 2);
+        registerTinkerAlloys(terramiteFluid, 2, violiumFluid, 4, eterniteFluid, 2);
+        registerTinkerAlloys(lumixylFluid, 1, bismuthFluid, 3, rubiumFluid, 2);
+        registerTinkerAlloys(solariumFluid, 1, karmesineFluid, 3, ignititeFluid, 2);
         registerTinkerAlloys(dyoniteFluid, 1, mindoriteFluid, 4, tiberiumFluid, 2);
         registerTinkerAlloys(ultraniteFluid, 1, ignititeFluid, 5, adamantiteFluid, 3);
-        registerTinkerAlloys(pliniumFluid, 1, palladiumFluid, 3, mindoriteFluid, 3);
-        registerTinkerAlloys(dysprosaniumFluid, 1, eterniteFluid, 3, aardiumFluid, 3);
+        registerTinkerAlloys(nucleumFluid, 1, palladiumFluid, 3, mindoriteFluid, 3);
+        registerTinkerAlloys(aegisaltFluid, 1, eterniteFluid, 3, titaniteFluid, 3);
         registerTinkerAlloys(bysmuidFluid, 1, mythrilFluid, 4, bismuthFluid, 2);
 
 
@@ -76,12 +76,12 @@ public class ZTiC {
         registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Yrdean", yrdean, yrdeanFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Axiidian", axiidian, axiidianFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Rubium", rubium, rubiumFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Violium", violium, violiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Bismuth", bismuth, bismuthFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Karmesine", karmesine, karmesineFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Mindorite", mindorite, mindoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Aardium", aardium, aardiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, true, true);
+        registerTinkerMaterial("Titanite", titanite, titaniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, true, true);
         registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Adamantite", adamantite, adamantiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
@@ -94,17 +94,17 @@ public class ZTiC {
         registerTinkerMaterial("Astrium", astrium, astriumFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("InstableNitronite", nitronite, nitroniteFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("InstablePolynium", polynium, polyniumFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("InstableNoctunyx", noctunyx, noctunyxFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Imperomite", imperomite, imperomiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Seismodium", seismodium, seismodiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Terramite", terramite, terramiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("InstablePrysocite", prysocite, prysociteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("BlazingXylitite", xylitite, xylititeFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("InstableLumixyl", lumixyl, lumixylFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("BlazingSolarium", solarium, solariumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Ultranite", ultranite, ultraniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("RadiantPlinium", plinium, pliniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Dysprosanium", dysprosanium, dysprosaniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("RadiantNucleum", nucleum, nucleumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Aegisalt", aegisalt, aegisaltFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("RefractiveBysmuid", bysmuid, bysmuidFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("InstableDyonite", dyonite, dyoniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
 

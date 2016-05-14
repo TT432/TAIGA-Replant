@@ -10,9 +10,9 @@ import java.lang.reflect.Field;
 public class Fluids {
 
     public static BasicTinkerFluid arcaniteFluid = new BasicTinkerFluid("arcanite", 0xFF272354, true, 200, 10, 4000);
-    public static BasicTinkerFluid aardiumFluid = new BasicTinkerFluid("aardium", 0xFFC3F93D, true, 200, 10, 4000);
+    public static BasicTinkerFluid titaniteFluid = new BasicTinkerFluid("titanite", 0xFFC3F93D, true, 200, 10, 4000);
     public static BasicTinkerFluid adamantiteFluid = new BasicTinkerFluid("adamantite", 0xFFc45c82, true, 200, 10, 4000);
-    public static BasicTinkerFluid axiidianFluid = new BasicTinkerFluid("axiidian", 0xFF77a19a, true, 200, 10, 4000);
+    public static BasicTinkerFluid violiumFluid = new BasicTinkerFluid("violium", 0xFF77a19a, true, 200, 10, 4000);
     public static BasicTinkerFluid bismuthFluid = new BasicTinkerFluid("bismuth", 0xFF555555, true, 200, 10, 4000);
     public static BasicTinkerFluid eterniteFluid = new BasicTinkerFluid("eternite", 0xFFfafa98, true, 200, 10, 4000);
     public static BasicTinkerFluid ignititeFluid = new BasicTinkerFluid("ignitite", 0xFFd29453, true, 200, 10, 4000);
@@ -24,23 +24,23 @@ public class Fluids {
     public static BasicTinkerFluid prometheumFluid = new BasicTinkerFluid("prometheum", 0xFF2b282f, true, 200, 10, 4000);
     public static BasicTinkerFluid tiberiumFluid = new BasicTinkerFluid("tiberium", 0xFF86bd5a, true, 200, 10, 4000);
     public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium", 0xFFb6bba8, true, 200, 10, 4000);
-    public static BasicTinkerFluid yrdeanFluid = new BasicTinkerFluid("yrdean", 0xFF3e3c6f, true, 200, 10, 4000);
+    public static BasicTinkerFluid rubiumFluid = new BasicTinkerFluid("rubium", 0xFF3e3c6f, true, 200, 10, 4000);
 
     public static BasicTinkerFluid astriumFluid = new BasicTinkerFluid("astrium", 0xFF7a3b74, true, 200, 10, 4000);
     public static BasicTinkerFluid nitroniteFluid = new BasicTinkerFluid("nitronite", 0xFF659933, true, 200, 10, 4000);
     public static BasicTinkerFluid proxideumFluid = new BasicTinkerFluid("proxideum", 0xFF416565, true, 200, 10, 4000);
-    public static BasicTinkerFluid polyniumFluid = new BasicTinkerFluid("polynium", 0xFF6c6aa3, true, 200, 10, 4000);
+    public static BasicTinkerFluid noctunyxFluid = new BasicTinkerFluid("noctunyx", 0xFF6c6aa3, true, 200, 10, 4000);
     public static BasicTinkerFluid imperomiteFluid = new BasicTinkerFluid("imperomite", 0xFF339966, true, 200, 10, 4000);
     public static BasicTinkerFluid cryptogenFluid = new BasicTinkerFluid("cryptogen", 0xFF9f8a4a, true, 200, 10, 4000);
     public static BasicTinkerFluid fractoryteFluid = new BasicTinkerFluid("fractoryte", 0xFFb44a14, true, 200, 10, 4000);
     public static BasicTinkerFluid seismodiumFluid = new BasicTinkerFluid("seismodium", 0xFF46131D, true, 200, 10, 4000);
     public static BasicTinkerFluid terramiteFluid = new BasicTinkerFluid("terramite", 0xFFa6b27a, true, 200, 10, 4000);
-    public static BasicTinkerFluid prysociteFluid = new BasicTinkerFluid("prysocite", 0xFFbde398, true, 200, 10, 4000);
-    public static BasicTinkerFluid xylititeFluid = new BasicTinkerFluid("xylitite", 0xFFffc81d, true, 200, 10, 4000);
+    public static BasicTinkerFluid lumixylFluid = new BasicTinkerFluid("lumixyl", 0xFFbde398, true, 200, 10, 4000);
+    public static BasicTinkerFluid solariumFluid = new BasicTinkerFluid("solarium", 0xFFffc81d, true, 200, 10, 4000);
     public static BasicTinkerFluid dyoniteFluid = new BasicTinkerFluid("dyonite", 0xFFff6743, true, 200, 10, 4000);
     public static BasicTinkerFluid ultraniteFluid = new BasicTinkerFluid("ultranite", 0xFFfff69b, true, 200, 10, 4000);
-    public static BasicTinkerFluid pliniumFluid = new BasicTinkerFluid("plinium", 0xFFc1ff68, true, 200, 10, 4000);
-    public static BasicTinkerFluid dysprosaniumFluid = new BasicTinkerFluid("dysprosanium", 0xFFb7a2bd, true, 200, 10, 4000);
+    public static BasicTinkerFluid nucleumFluid = new BasicTinkerFluid("nucleum", 0xFFc1ff68, true, 200, 10, 4000);
+    public static BasicTinkerFluid aegisaltFluid = new BasicTinkerFluid("aegisalt", 0xFFb7a2bd, true, 200, 10, 4000);
     public static BasicTinkerFluid bysmuidFluid = new BasicTinkerFluid("bysmuid", 0xFF7b97b0, true, 200, 10, 4000);
 
 
