@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -17,7 +18,7 @@ import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_ORE;
 public class BlockTiberium extends BasicBlock {
 
     public BlockTiberium() {
-        super("tiberium_ore", Material.ROCK, 30.0f, 30.0f, 6, 1.0F, PREFIX_ORE);
+        super("tiberium_ore", Material.ROCK, 15.0f, 2.0f, 6, 1.0F, PREFIX_ORE);
     }
 
     @Override
@@ -31,11 +32,26 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 1, 3 + fortune));
+        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 1, 31 + fortune));
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Items.tiberiumShardInstable;
     }
+
+    @Override
+    public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
+        if (new Random().nextBoolean() || new Random().nextBoolean()) {
+            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1f, true, true);
+        }
+    }
+
+    @Override
+    public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
+        if (new Random().nextBoolean() && new Random().nextBoolean() && new Random().nextBoolean()) {
+            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1f, true, true);
+        }
+    }
+
 }
