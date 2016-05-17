@@ -1,7 +1,7 @@
 package com.sosnitzka.ztic_addon;
 
 import com.google.common.collect.Lists;
-import com.sosnitzka.ztic_addon.proxy.ClientProxy;
+import com.sosnitzka.ztic_addon.proxy.ServerProxy;
 import com.sosnitzka.ztic_addon.recipes.Crafting;
 import com.sosnitzka.ztic_addon.recipes.Smelting;
 import com.sosnitzka.ztic_addon.util.FuelHandler;
@@ -33,18 +33,15 @@ import static slimeknights.tconstruct.library.utils.HarvestLevels.harvestLevelNa
 @Mod(modid = ZTiC.MODID, version = ZTiC.VERSION)
 public class ZTiC {
 
-    static final String MODID = "ztic_addon";
-    static final String VERSION = "@VERSION@";
-
     public static final int METEORITE = 5;
     public static final int VIBRANIUM = 6;
     public static final int ADAMANTITE = 7;
-
     public static final AbstractTrait instable = new TraitInstable();
     public static final AbstractTrait resonance = new TraitResonance();
-
+    static final String MODID = "ztic_addon";
+    static final String VERSION = "@VERSION@";
     @SidedProxy(clientSide = "com.sosnitzka.ztic_addon.proxy.ClientProxy", serverSide = "com.sosnitzka.ztic_addon.proxy.ServerProxy")
-    private static ClientProxy proxy;
+    private static ServerProxy proxy;
     private List<MaterialIntegration> integrateList = Lists.newArrayList();
 
     @EventHandler
@@ -107,26 +104,23 @@ public class ZTiC {
         registerTinkerMaterial("Aegisalt", aegisalt, aegisaltFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("RefractiveBysmuid", bysmuid, bysmuidFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("InstableDyonite", dyonite, dyoniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-
-
-        for (MaterialIntegration m : integrateList) {
-            m.integrateRecipes();
-        }
     }
 
     @EventHandler
     public void init(FMLInitializationEvent e) {
-        proxy.registerClientStuff();
+        proxy.registerStuff();
         GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
         GameRegistry.registerFuelHandler(new FuelHandler());
         Smelting.register();
         Crafting.register();
 
-
         harvestLevelNames.put(METEORITE, TinkerMaterials.bone.getTextColor() + "Meteorite");
         harvestLevelNames.put(VIBRANIUM, TinkerMaterials.silver.getTextColor() + "Vibranium");
         harvestLevelNames.put(ADAMANTITE, TinkerMaterials.ardite.getTextColor() + "Adamantite");
 
+        for (MaterialIntegration m : integrateList) {
+            m.integrateRecipes();
+        }
     }
 
 
@@ -136,7 +130,12 @@ public class ZTiC {
     }
 
     private void registerTinkerMaterial(String name, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, int headSpeed, int headAttack, int headLevel, float handleMod, int handleDura, int extra, boolean craft, boolean cast) {
-        material.addStats(new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel)).addStats(new HandleMaterialStats(handleMod, handleDura)).addStats(new ExtraMaterialStats(extra)).setFluid(fluid).setCraftable(craft).setCastable(cast).setRenderInfo(fluid.getColor());
+        material.addStats(new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel))
+                .addStats(new HandleMaterialStats(handleMod, handleDura))
+                .addStats(new ExtraMaterialStats(extra)).setFluid(fluid)
+                .setCraftable(craft).setCastable(cast);
+
+        proxy.setRenderInfo(material, fluid);
         MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
         integration.integrate();
         integrateList.add(integration);

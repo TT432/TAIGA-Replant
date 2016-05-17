@@ -6,10 +6,12 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.fluids.Fluid;
+import slimeknights.tconstruct.library.materials.Material;
 
 import java.lang.reflect.Field;
 
-public class ClientProxy {
+public class ClientProxy extends ServerProxy {
 
     private static void registerBlockModel(Block block) {
         registerItemModel(Item.getItemFromBlock(block));
@@ -19,7 +21,8 @@ public class ClientProxy {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
 
-    public void registerClientStuff() {
+    @Override
+    public void registerStuff() {
         Field[] itemFields = Items.class.getDeclaredFields();
         for (Field field : itemFields) {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
@@ -47,5 +50,9 @@ public class ClientProxy {
                 }
             }
         }
+    }
+
+    public void setRenderInfo(Material material, Fluid fluid) {
+        material.setRenderInfo(fluid.getColor());
     }
 }

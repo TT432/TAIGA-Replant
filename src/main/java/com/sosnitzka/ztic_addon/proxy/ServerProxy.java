@@ -1,8 +1,15 @@
 package com.sosnitzka.ztic_addon.proxy;
 
-public class ServerProxy extends ClientProxy {
+import net.minecraftforge.fluids.Fluid;
+import slimeknights.tconstruct.library.materials.Material;
 
-    public void registerServerStuff() {
+public class ServerProxy {
+
+    public void registerStuff() {
+
+    }
+
+    public void setRenderInfo(Material material, Fluid fluid) {
 
     }
 }
