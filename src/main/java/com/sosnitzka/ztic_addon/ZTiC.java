@@ -109,7 +109,9 @@ public class ZTiC {
         registerTinkerMaterial("InstableDyonite", dyonite, dyoniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
 
 
-
+        for (MaterialIntegration m : integrateList) {
+            m.integrateRecipes();
+        }
     }
 
     @EventHandler

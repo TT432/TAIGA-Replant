@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_ORE;
+import static slimeknights.tconstruct.TConstruct.random;
 
 public class BlockTiberium extends BasicBlock {
 
@@ -32,7 +33,7 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 1, 31 + fortune));
+        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 1, 5 + fortune));
     }
 
     @Override
@@ -42,15 +43,15 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
-        if (new Random().nextBoolean() || new Random().nextBoolean()) {
-            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1f, true, true);
+        if (MathHelper.getRandomIntegerInRange(random, 1, 15) > 10) {
+            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1.3f, true, true);
         }
     }
 
     @Override
     public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
-        if (new Random().nextBoolean() && new Random().nextBoolean() && new Random().nextBoolean()) {
-            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1f, true, true);
+        if (MathHelper.getRandomIntegerInRange(random, 1, 30) < 3) {
+            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1.0f, true, true);
         }
     }
 

@@ -59,8 +59,8 @@ public class Items {
     public static Item aegisaltIngot = new BasicItem("aegisalt_ingot", PREFIX_INGOT);
     public static Item bysmuidIngot = new BasicItem("bysmuid_ingot", PREFIX_INGOT);
 
-    public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable", PREFIX_NUGGET);
-    public static Item tiberiumShardStable = new BasicItem("tiberium_shard_stable", PREFIX_NUGGET);
+    public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
+    public static Item tiberiumShardStable = new BasicItem("tiberium_nugget", PREFIX_NUGGET);
 
     public static void register() {
         Field[] declaredFields = Items.class.getDeclaredFields();

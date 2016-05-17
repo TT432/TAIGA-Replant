@@ -12,8 +12,8 @@ import static com.sosnitzka.ztic_addon.Items.*;
 public class Smelting {
     public static void register() {
         GameRegistry.addSmelting(slagironOre, new ItemStack(slagironIngot), 1.0F);
-        GameRegistry.addSmelting(new ItemStack(slagironIngot, 3), new ItemStack(iron_nugget), 0);
-        GameRegistry.addSmelting(new ItemStack(slaggoldIngot, 3), new ItemStack(Items.GOLD_NUGGET), 0);
+        GameRegistry.addSmelting(new ItemStack(slagironIngot), new ItemStack(iron_nugget), 0);
+        GameRegistry.addSmelting(new ItemStack(slaggoldIngot), new ItemStack(Items.GOLD_NUGGET), 0);
         GameRegistry.addSmelting(new ItemStack(tiberiumShardInstable), new ItemStack(tiberiumShardStable), 0.2F);
 
         GameRegistry.addSmelting(titaniteOre, new ItemStack(titaniteIngot), RandomUtils.nextFloat(0F, 2F));
