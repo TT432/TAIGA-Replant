@@ -43,15 +43,19 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
-        if (MathHelper.getRandomIntegerInRange(random, 1, 15) > 10) {
-            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1.3f, true, true);
+        if (!worldIn.isRemote) {
+            if (MathHelper.getRandomIntegerInRange(random, 1, 15) > 10) {
+                worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1.6f, true, true);
+            }
         }
     }
 
     @Override
     public void onBlockDestroyedByPlayer(World worldIn, BlockPos pos, IBlockState state) {
         if (MathHelper.getRandomIntegerInRange(random, 1, 30) < 3) {
-            worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 1.0f, true, true);
+            if (!worldIn.isRemote) {
+                worldIn.newExplosion(null, pos.getX(), pos.getY() + 1 / 16f, pos.getZ(), 1.1f, true, true);
+            }
         }
     }
 

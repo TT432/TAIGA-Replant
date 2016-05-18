@@ -7,9 +7,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
+import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.materials.Material;
 
 import java.lang.reflect.Field;
+
+import static com.sosnitzka.ztic_addon.Materials.bismuth;
 
 public class ClientProxy extends ServerProxy {
 
@@ -53,6 +56,10 @@ public class ClientProxy extends ServerProxy {
     }
 
     public void setRenderInfo(Material material, Fluid fluid) {
-        material.setRenderInfo(fluid.getColor());
+        if (material != bismuth) {
+            material.setRenderInfo(new MaterialRenderInfo.Metal(fluid.getColor(), 0.8f, 0.2f, 0f));
+        } else bismuth.setRenderInfo(new MaterialRenderInfo.BlockTexture("ztic_addon:blocks/bismuth_block"));
+
+
     }
 }
