@@ -28,7 +28,7 @@ import java.util.List;
 import static com.sosnitzka.ztic_addon.Fluids.*;
 import static com.sosnitzka.ztic_addon.Materials.*;
 import static com.sosnitzka.ztic_addon.util.Utils.registerTinkerAlloys;
-import static slimeknights.tconstruct.library.utils.HarvestLevels.harvestLevelNames;
+import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = ZTiC.MODID, version = ZTiC.VERSION)
 public class ZTiC {
@@ -70,40 +70,40 @@ public class ZTiC {
 
 
         // Material from ores
-        registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Rubium", rubium, rubiumFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Violium", violium, violiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Bismuth", bismuth, bismuthFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Karmesine", karmesine, karmesineFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Mindorite", mindorite, mindoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Titanite", titanite, titaniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, true, true);
-        registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Adamantite", adamantite, adamantiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Ignitite", ignitite, ignititeFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Palladium", palladium, palladiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Eternite", eternite, eterniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Mythril", mythril, mythrilFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 1, 5, 6, ADAMANTITE, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 1, 5, 6, VIBRANIUM, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 1, 5, 6, METEORITE, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Rubium", rubium, rubiumFluid, 1, 5, 6, COBALT, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Violium", violium, violiumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Bismuth", bismuth, bismuthFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Karmesine", karmesine, karmesineFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Mindorite", mindorite, mindoriteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Titanite", titanite, titaniteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, true, true);
+        registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Adamantite", adamantite, adamantiteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Ignitite", ignitite, ignititeFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Palladium", palladium, palladiumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Eternite", eternite, eterniteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Mythril", mythril, mythrilFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
 
         // Material from alloys
-        registerTinkerMaterial("Astrium", astrium, astriumFluid, 1, 5, 6, 7, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Nitronite", nitronite, nitroniteFluid, 1, 5, 6, 6, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 1, 5, 6, 5, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Noctunyx", noctunyx, noctunyxFluid, 1, 5, 6, 4, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Imperomite", imperomite, imperomiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Seismodium", seismodium, seismodiumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Terramite", terramite, terramiteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Lumixyl", lumixyl, lumixylFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Solarium", solarium, solariumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Ultranite", ultranite, ultraniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Nucleum", nucleum, nucleumFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Aegisalt", aegisalt, aegisaltFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Bysmuid", bysmuid, bysmuidFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Dyonite", dyonite, dyoniteFluid, 1, 5, 6, 3, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Astrium", astrium, astriumFluid, 1, 5, 6, ADAMANTITE, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Nitronite", nitronite, nitroniteFluid, 1, 5, 6, VIBRANIUM, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 1, 5, 6, METEORITE, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Nitronite", noctunyx, noctunyxFluid, 1, 5, 6, COBALT, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Imperomite", imperomite, imperomiteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Seismodium", seismodium, seismodiumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Terramite", terramite, terramiteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Lumixyl", lumixyl, lumixylFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Solarium", solarium, solariumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Ultranite", ultranite, ultraniteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Nucleum", nucleum, nucleumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Aegisalt", aegisalt, aegisaltFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Bysmuid", bysmuid, bysmuidFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Dyonite", dyonite, dyoniteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
     }
 
     @EventHandler
@@ -129,14 +129,14 @@ public class ZTiC {
 
     }
 
-    private void registerTinkerMaterial(String name, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, int headSpeed, int headAttack, int headLevel, float handleMod, int handleDura, int extra, boolean craft, boolean cast) {
+    private void registerTinkerMaterial(String oreSuffix, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, int headSpeed, int headAttack, int headLevel, float handleMod, int handleDura, int extra, boolean craft, boolean cast) {
         material.addStats(new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel))
                 .addStats(new HandleMaterialStats(handleMod, handleDura))
                 .addStats(new ExtraMaterialStats(extra)).setFluid(fluid)
                 .setCraftable(craft).setCastable(cast);
 
         proxy.setRenderInfo(material, fluid);
-        MaterialIntegration integration = new MaterialIntegration(material, fluid, name);
+        MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
         integration.integrate();
         integrateList.add(integration);
     }
