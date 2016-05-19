@@ -20,6 +20,7 @@ import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
+import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 
@@ -70,8 +71,8 @@ public class ZTiC {
 
 
         // Material from ores
-        registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 1, 5, 6, ADAMANTITE, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 1, 5, 6, VIBRANIUM, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 205, 25, 3, ADAMANTITE, 0.7f, 150, -100, false, true);
+        registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 1, 5, 6, VIBRANIUM, 0.8f, 0, 100, true, true);
         registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 1, 5, 6, METEORITE, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Rubium", rubium, rubiumFluid, 1, 5, 6, COBALT, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Violium", violium, violiumFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
@@ -134,6 +135,10 @@ public class ZTiC {
                 .addStats(new HandleMaterialStats(handleMod, handleDura))
                 .addStats(new ExtraMaterialStats(extra)).setFluid(fluid)
                 .setCraftable(craft).setCastable(cast);
+        if (material.isCraftable()) {
+            material.addItem(Blocks.tiberiumBlock, Material.VALUE_Block);
+            material.setRepresentativeItem(Blocks.tiberiumBlock);
+        }
 
         proxy.setRenderInfo(material, fluid);
         MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
