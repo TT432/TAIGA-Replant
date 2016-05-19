@@ -91,7 +91,7 @@ public class ZTiC {
         registerTinkerMaterial("Astrium", astrium, astriumFluid, 1, 5, 6, ADAMANTITE, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Nitronite", nitronite, nitroniteFluid, 1, 5, 6, VIBRANIUM, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 1, 5, 6, METEORITE, 0.8f, 0, 100, false, true);
-        registerTinkerMaterial("Nitronite", noctunyx, noctunyxFluid, 1, 5, 6, COBALT, 0.8f, 0, 100, false, true);
+        registerTinkerMaterial("Noctunyx", noctunyx, noctunyxFluid, 1, 5, 6, COBALT, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Imperomite", imperomite, imperomiteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
         registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, 1, 5, 6, OBSIDIAN, 0.8f, 0, 100, false, true);
