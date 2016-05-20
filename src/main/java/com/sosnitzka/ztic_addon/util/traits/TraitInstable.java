@@ -22,7 +22,8 @@ public class TraitInstable extends AbstractTrait {
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         if (MathHelper.getRandomIntegerInRange(random, 0, 100) < 2) {
-            world.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2, true, true);
+            if (!world.isRemote)
+                world.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2f, true, true);
         }
     }
 
@@ -30,7 +31,7 @@ public class TraitInstable extends AbstractTrait {
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
         BlockPos pos = target.getPosition();
         if (MathHelper.getRandomIntegerInRange(random, 0, 100) < 2) {
-            target.getEntityWorld().newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2, true, true);
+            target.getEntityWorld().newExplosion(target, pos.getX(), pos.getY(), pos.getZ(), 1.5f, true, true);
         }
     }
 
