@@ -3,9 +3,15 @@ package com.sosnitzka.ztic_addon;
 
 import com.sosnitzka.ztic_addon.generic.BasicTinkerFluid;
 import com.sosnitzka.ztic_addon.util.Utils;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
+
+import static slimeknights.tconstruct.library.TinkerRegistry.registerMelting;
 
 public class Fluids {
 
@@ -46,7 +52,7 @@ public class Fluids {
     // Additional Fluid without traits / materials
     public static BasicTinkerFluid endstoneFluid = new BasicTinkerFluid("endstone", 0xFFdddd22, false, 800, 10, 2500);
     public static BasicTinkerFluid enderFluid = new BasicTinkerFluid("ender", 0xFF227777, false, 600, 5, 1000);
-    public static BasicTinkerFluid nitroFluid = new BasicTinkerFluid("nitro", 0xBBBBBB, false, 300, 2, 5000);
+    public static BasicTinkerFluid nitroFluid = new BasicTinkerFluid("nitro", 0xFFBBBBBB, false, 300, 2, 5000);
     public static BasicTinkerFluid obsidianFluid = new BasicTinkerFluid("obsidian", 0xFF660044, false, 1200, 3, 5000);
     public static BasicTinkerFluid redstoneFluid = new BasicTinkerFluid("redstone", 0xFFFF0000, false, 350, 3, 900);
     public static BasicTinkerFluid glowstoneFluid = new BasicTinkerFluid("glowstone", 0xFFEEEE00, false, 400, 10, 1000);
@@ -68,5 +74,16 @@ public class Fluids {
                 }
             }
         }
+    }
+
+    static void registerToo() {
+        registerMelting(new ItemStack(Items.ENDER_PEARL), enderFluid, 144);
+        registerMelting(new ItemStack(Items.REDSTONE), redstoneFluid, 144);
+        registerMelting(new ItemStack(Items.GUNPOWDER), nitroFluid, 144);
+        registerMelting(Blocks.OBSIDIAN, obsidianFluid, 144);
+        registerMelting(Blocks.NETHERRACK, netherFluid, 4);
+        registerMelting(new ItemStack(Items.DYE, 1, 4), lapisFluid, 144);
+        registerMelting(new ItemStack(Items.GLOWSTONE_DUST), glowstoneFluid, 144);
+        registerMelting(Blocks.STONE, FluidRegistry.LAVA, 4);
     }
 }

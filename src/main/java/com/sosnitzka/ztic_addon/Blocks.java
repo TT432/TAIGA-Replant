@@ -21,6 +21,7 @@ import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_ORE;
 public class Blocks {
 
     //regular Ores / Blocks without extra abilites
+
     public static Block basalt = new BasicBlock("basalt", Material.ROCK, 45.0f, 35.0f, 3);
     public static Block rottenGround = new BasicBlockGround("rotten_ground", Material.GROUND, 2.0f, 2.0f, 0);
     public static Block ligniteOre = new BlockLignite();

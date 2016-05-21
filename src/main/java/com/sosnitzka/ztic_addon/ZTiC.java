@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
+import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
@@ -51,6 +52,7 @@ public class ZTiC {
         Items.register();
         Blocks.register();
         Fluids.register();
+        Fluids.registerToo();
 
         // TConstruct Alloys
         registerTinkerAlloys(astriumFluid, 1, arcaniteFluid, 3, karmesineFluid, 2);
@@ -136,10 +138,10 @@ public class ZTiC {
     }
 
     private void registerTinkerMaterial(String oreSuffix, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, boolean craft, boolean cast) {
-        material.addStats(new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel))
-                .addStats(new HandleMaterialStats(handleMod, handleDura))
-                .addStats(new ExtraMaterialStats(extra)).setFluid(fluid)
-                .setCraftable(craft).setCastable(cast);
+        TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
+        TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
+        TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
+        material.setFluid(fluid).setCraftable(craft).setCastable(cast);
         if (material.isCraftable()) {
             material.addItem(Blocks.tiberiumBlock, Material.VALUE_Block);
             material.setRepresentativeItem(Blocks.tiberiumBlock);
@@ -149,5 +151,6 @@ public class ZTiC {
         MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
         integration.integrate();
         integrateList.add(integration);
+
     }
 }
