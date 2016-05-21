@@ -16,6 +16,7 @@ public class Utils {
     public static String PREFIX_ORE = "ore";
     public static String PREFIX_BLOCK = "block";
 
+
     public static void registerBlockWithItem(Block block) {
         System.out.println(String.format("Register Block: %s", block.getUnlocalizedName()));
         GameRegistry.register(block);

@@ -43,6 +43,16 @@ public class Fluids {
     public static BasicTinkerFluid aegisaltFluid = new BasicTinkerFluid("aegisalt", 0xFFb6af74, true, 200, 10, 4000);
     public static BasicTinkerFluid bysmuidFluid = new BasicTinkerFluid("bysmuid", 0xFF7b97b0, true, 200, 10, 4000);
 
+    // Additional Fluid without traits / materials
+    public static BasicTinkerFluid endstoneFluid = new BasicTinkerFluid("endstone", 0xFFdddd22, false, 800, 10, 2500);
+    public static BasicTinkerFluid enderFluid = new BasicTinkerFluid("ender", 0xFF227777, false, 600, 5, 1000);
+    public static BasicTinkerFluid nitroFluid = new BasicTinkerFluid("nitro", 0xBBBBBB, false, 300, 2, 5000);
+    public static BasicTinkerFluid obsidianFluid = new BasicTinkerFluid("obsidian", 0xFF660044, false, 1200, 3, 5000);
+    public static BasicTinkerFluid redstoneFluid = new BasicTinkerFluid("redstone", 0xFFFF0000, false, 350, 3, 900);
+    public static BasicTinkerFluid glowstoneFluid = new BasicTinkerFluid("glowstone", 0xFFEEEE00, false, 400, 10, 1000);
+    public static BasicTinkerFluid lapisFluid = new BasicTinkerFluid("lapis", 0xFF1005FF, false, 400, 2, 1000);
+    public static BasicTinkerFluid netherFluid = new BasicTinkerFluid("nether", 0xFF881111, false, 900, 5, 1500);
+
 
     static void register() {
         Field[] declaredFields = Fluids.class.getDeclaredFields();

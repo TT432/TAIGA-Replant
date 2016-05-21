@@ -26,12 +26,12 @@ public class Materials {
     public static Material mythril = new Material("mythril", TextFormatting.AQUA);
 
     public static Material astrium = new Material("astrium", TextFormatting.LIGHT_PURPLE);
-    public static Material nitronite = new Material("nitronite", TextFormatting.LIGHT_PURPLE);
+    public static Material nitronite = new Material("nitronite", TextFormatting.LIGHT_PURPLE).addTrait(instable, HeadMaterialStats.TYPE);
     public static Material proxideum = new Material("proxideum", TextFormatting.LIGHT_PURPLE);
     public static Material noctunyx = new Material("noctunyx", TextFormatting.LIGHT_PURPLE);
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_GREEN);
     public static Material cryptogen = new Material("cryptogen", TextFormatting.DARK_GREEN);
-    public static Material fractoryte = new Material("fractoryte", TextFormatting.DARK_RED).addTrait(instable, HeadMaterialStats.TYPE);
+    public static Material fractoryte = new Material("fractoryte", TextFormatting.DARK_RED);
     public static Material seismodium = new Material("seismodium", TextFormatting.DARK_GREEN);
     public static Material terramite = new Material("terramite", TextFormatting.GRAY);
     public static Material lumixyl = new Material("lumixyl", TextFormatting.GRAY);
