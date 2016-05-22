@@ -25,6 +25,17 @@ public class Items {
     public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
     public static Item fuel_brick = new BasicItem("fuel_brick");
 
+    public static Item glimmercoal = new BasicItem("glimmercoal");
+    public static Item radiant_pearl = new BasicItem("radiant_pearl");
+    public static Item glimmer_pearl = new BasicItem("glimmer_pearl");
+    public static Item energy_pearl = new BasicItem("energy_pearl");
+    public static Item glimmerstone_dust = new BasicItem("glimmerstone_dust");
+    public static Item luminar_dust = new BasicItem("luminar_dust");
+    public static Item spectrum_dust = new BasicItem("spectrum_dust");
+    public static Item anthracite_dust = new BasicItem("anthracite_dust");
+    public static Item nitro_brick = new BasicItem("nitro_brick");
+
+
     public static Item titaniteIngot = new BasicItem("titanite_ingot", PREFIX_INGOT);
     public static Item adamantiteIngot = new BasicItem("adamantite_ingot", PREFIX_INGOT);
     public static Item arcaniteIngot = new BasicItem("arcanite_ingot", PREFIX_INGOT);

@@ -4,13 +4,12 @@ package com.sosnitzka.ztic_addon;
 import com.sosnitzka.ztic_addon.generic.BasicTinkerFluid;
 import com.sosnitzka.ztic_addon.util.Utils;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
 
+import static com.sosnitzka.ztic_addon.Items.*;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerMelting;
 
 public class Fluids {
@@ -50,14 +49,14 @@ public class Fluids {
     public static BasicTinkerFluid bysmuidFluid = new BasicTinkerFluid("bysmuid", 0xFF7b97b0, true, 200, 10, 4000);
 
     // Additional Fluid without traits / materials
-    public static BasicTinkerFluid endstoneFluid = new BasicTinkerFluid("endstone", 0xFFdddd22, false, 800, 10, 2500);
-    public static BasicTinkerFluid enderFluid = new BasicTinkerFluid("ender", 0xFF227777, false, 600, 5, 1000);
-    public static BasicTinkerFluid nitroFluid = new BasicTinkerFluid("nitro", 0xFFBBBBBB, false, 300, 2, 5000);
-    public static BasicTinkerFluid obsidianFluid = new BasicTinkerFluid("obsidian", 0xFF660044, false, 1200, 3, 5000);
-    public static BasicTinkerFluid redstoneFluid = new BasicTinkerFluid("redstone", 0xFFFF0000, false, 350, 3, 900);
-    public static BasicTinkerFluid glowstoneFluid = new BasicTinkerFluid("glowstone", 0xFFEEEE00, false, 400, 10, 1000);
-    public static BasicTinkerFluid lapisFluid = new BasicTinkerFluid("lapis", 0xFF1005FF, false, 400, 2, 1000);
-    public static BasicTinkerFluid netherFluid = new BasicTinkerFluid("nether", 0xFF881111, false, 900, 5, 1500);
+    public static BasicTinkerFluid radiant_enderium = new BasicTinkerFluid("radiant_enderium", 0xFFbcea5d, false, 850, 10, 800);
+    public static BasicTinkerFluid glimming_enderium = new BasicTinkerFluid("glimming_enderium", 0xFFfffc98, false, 800, 10, 2500);
+    public static BasicTinkerFluid energy_enderium = new BasicTinkerFluid("energy_enderium", 0xFFffb498, false, 600, 10, 5000);
+    public static BasicTinkerFluid glimmercoalFluid = new BasicTinkerFluid("glimmercoal", 0xFFee7c28, false, 600, 10, 5000);
+    public static BasicTinkerFluid nitroFluid = new BasicTinkerFluid("nitro", 0xFF223512, false, 700, 5, 900);
+    public static BasicTinkerFluid anthraciteFluid = new BasicTinkerFluid("anthracite", 0xFF111111, false, 900, 0, 1000);
+    public static BasicTinkerFluid spectrumFluid = new BasicTinkerFluid("spectrum", 0xFF64748f, false, 900, 0, 1000);
+
 
 
     static void register() {
@@ -77,13 +76,15 @@ public class Fluids {
     }
 
     static void registerToo() {
-        registerMelting(new ItemStack(Items.ENDER_PEARL), enderFluid, 144);
-        registerMelting(new ItemStack(Items.REDSTONE), redstoneFluid, 144);
-        registerMelting(new ItemStack(Items.GUNPOWDER), nitroFluid, 144);
-        registerMelting(Blocks.OBSIDIAN, obsidianFluid, 144);
-        registerMelting(Blocks.NETHERRACK, netherFluid, 4);
-        registerMelting(new ItemStack(Items.DYE, 1, 4), lapisFluid, 144);
-        registerMelting(new ItemStack(Items.GLOWSTONE_DUST), glowstoneFluid, 144);
-        registerMelting(Blocks.STONE, FluidRegistry.LAVA, 4);
+        registerMelting(radiant_pearl, radiant_enderium, 72);
+        registerMelting(glimmer_pearl, glimming_enderium, 72);
+        registerMelting(energy_pearl, energy_enderium, 72);
+        registerMelting(glimmercoal, glimmercoalFluid, 72);
+        registerMelting(nitro_brick, nitroFluid, 72);
+        registerMelting(anthracite_dust, anthraciteFluid, 72);
+        registerMelting(spectrum_dust, spectrumFluid, 72);
+        registerMelting(Blocks.OBSIDIAN, FluidRegistry.LAVA, 432);
+        registerMelting(Blocks.NETHERRACK, FluidRegistry.LAVA, 48);
+        registerMelting(Blocks.STONE, FluidRegistry.LAVA, 144);
     }
 }

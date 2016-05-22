@@ -60,4 +60,28 @@ public class Utils {
         message.setTag("alloy", tagList);
         FMLInterModComms.sendMessage("tconstruct", "alloy", message);
     }
+
+    public static void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo, Fluid third, int inThree) {
+        NBTTagList tagList = new NBTTagList();
+        NBTTagCompound fluid = new NBTTagCompound();
+        fluid.setString("FluidName", alloy.getName());
+        fluid.setInteger("Amount", out);
+        tagList.appendTag(fluid);
+        fluid = new NBTTagCompound();
+        fluid.setString("FluidName", first.getName());
+        fluid.setInteger("Amount", inOne);
+        tagList.appendTag(fluid);
+        fluid = new NBTTagCompound();
+        fluid.setString("FluidName", second.getName());
+        fluid.setInteger("Amount", inTwo);
+        tagList.appendTag(fluid);
+        fluid = new NBTTagCompound();
+        fluid.setString("FluidName", third.getName());
+        fluid.setInteger("Amount", inThree);
+        tagList.appendTag(fluid);
+
+        NBTTagCompound message = new NBTTagCompound();
+        message.setTag("alloy", tagList);
+        FMLInterModComms.sendMessage("tconstruct", "alloy", message);
+    }
 }

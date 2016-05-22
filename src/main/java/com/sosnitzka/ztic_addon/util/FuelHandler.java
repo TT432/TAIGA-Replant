@@ -5,6 +5,7 @@ import net.minecraftforge.fml.common.IFuelHandler;
 import org.apache.commons.lang3.RandomUtils;
 
 import static com.sosnitzka.ztic_addon.Items.fuel_brick;
+import static com.sosnitzka.ztic_addon.Items.glimmercoal;
 import static com.sosnitzka.ztic_addon.Items.lignite;
 
 public class FuelHandler implements IFuelHandler {
@@ -15,7 +16,10 @@ public class FuelHandler implements IFuelHandler {
             return 200 * 2;
         }
         if (fuel.getItem().equals(fuel_brick)) {
-            return RandomUtils.nextInt(1, RandomUtils.nextInt(1, RandomUtils.nextInt(1, 64))) * 200;
+            return RandomUtils.nextInt(1, RandomUtils.nextInt(1, RandomUtils.nextInt(1, 32))) * 100;
+        }
+        if (fuel.getItem().equals(glimmercoal)) {
+            return RandomUtils.nextInt(1, RandomUtils.nextInt(1, RandomUtils.nextInt(16, 64))) * 200;
         }
         return 0;
     }

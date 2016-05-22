@@ -29,7 +29,6 @@ import java.util.List;
 
 import static com.sosnitzka.ztic_addon.Fluids.*;
 import static com.sosnitzka.ztic_addon.Materials.*;
-import static com.sosnitzka.ztic_addon.util.Utils.registerTinkerAlloys;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = ZTiC.MODID, version = ZTiC.VERSION)
@@ -53,24 +52,8 @@ public class ZTiC {
         Blocks.register();
         Fluids.register();
         Fluids.registerToo();
+        Alloys.register();
 
-        // TConstruct Alloys
-        registerTinkerAlloys(astriumFluid, 1, arcaniteFluid, 3, karmesineFluid, 2);
-        registerTinkerAlloys(nitroniteFluid, 1, tiberiumFluid, 5, vibraniumFluid, 3);
-        registerTinkerAlloys(proxideumFluid, 1, prometheumFluid, 3, violiumFluid, 2);
-        registerTinkerAlloys(noctunyxFluid, 1, rubiumFluid, 3, meteoriteFluid, 2);
-        registerTinkerAlloys(imperomiteFluid, 2, titaniteFluid, 3, prometheumFluid, 3);
-        registerTinkerAlloys(cryptogenFluid, 1, meteoriteFluid, 3, mythrilFluid, 2);
-        registerTinkerAlloys(fractoryteFluid, 1, adamantiteFluid, 4, arcaniteFluid, 2);
-        registerTinkerAlloys(seismodiumFluid, 1, vibraniumFluid, 4, palladiumFluid, 4);
-        registerTinkerAlloys(terramiteFluid, 2, violiumFluid, 4, eterniteFluid, 2);
-        registerTinkerAlloys(lumixylFluid, 1, bismuthFluid, 3, rubiumFluid, 2);
-        registerTinkerAlloys(solariumFluid, 1, karmesineFluid, 3, ignititeFluid, 2);
-        registerTinkerAlloys(dyoniteFluid, 1, mindoriteFluid, 4, tiberiumFluid, 2);
-        registerTinkerAlloys(ultraniteFluid, 1, ignititeFluid, 5, adamantiteFluid, 3);
-        registerTinkerAlloys(nucleumFluid, 1, palladiumFluid, 3, mindoriteFluid, 3);
-        registerTinkerAlloys(aegisaltFluid, 1, eterniteFluid, 3, titaniteFluid, 3);
-        registerTinkerAlloys(bysmuidFluid, 1, mythrilFluid, 4, bismuthFluid, 2);
 
         // # Head Durability, Speed, Attack, Modifier, Handle Durability, Extra Durability
         // ARCANE ORES
