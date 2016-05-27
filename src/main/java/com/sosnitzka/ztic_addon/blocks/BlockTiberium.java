@@ -15,11 +15,12 @@ import java.util.Random;
 
 import static com.sosnitzka.ztic_addon.util.Utils.PREFIX_ORE;
 import static slimeknights.tconstruct.TConstruct.random;
+import static slimeknights.tconstruct.library.utils.HarvestLevels.OBSIDIAN;
 
 public class BlockTiberium extends BasicBlock {
 
     public BlockTiberium() {
-        super("tiberium_ore", Material.ROCK, 15.0f, 2.0f, 6, 1.0F, PREFIX_ORE);
+        super("tiberium_ore", Material.ROCK, 15.0f, 2.0f, OBSIDIAN, 1.0F, PREFIX_ORE);
     }
 
     @Override
