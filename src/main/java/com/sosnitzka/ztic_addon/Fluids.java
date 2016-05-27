@@ -2,14 +2,13 @@ package com.sosnitzka.ztic_addon;
 
 
 import com.sosnitzka.ztic_addon.generic.BasicTinkerFluid;
-import com.sosnitzka.ztic_addon.util.Utils;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.FluidRegistry;
-import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
 
 import static com.sosnitzka.ztic_addon.Items.*;
+import static com.sosnitzka.ztic_addon.util.Utils.registerFluid;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerMelting;
 
 public class Fluids {
@@ -67,7 +66,7 @@ public class Fluids {
                 try {
                     BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType);
 
-                    Utils.registerTinkerFluid(StringUtils.capitalize(fluid.getName()), fluid, fluid.isToolForge());
+                    registerFluid(fluid);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

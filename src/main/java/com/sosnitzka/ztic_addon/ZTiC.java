@@ -21,7 +21,6 @@ import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
-import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 
@@ -93,8 +92,6 @@ public class ZTiC {
         registerTinkerMaterial("Terramite", terramite, terramiteFluid, 419, 7.25f, 2.85f, 1.03f, 208, 150, TITANITE, false, true);
         registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 504, 5.71f, 6.93f, 0.88f, 58, 117, METEORITE, false, true);
         registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 535, 10.55f, 4.21f, 0.99f, -60, 200, METEORITE, false, true);
-
-
     }
 
     @EventHandler
@@ -126,10 +123,12 @@ public class ZTiC {
         TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
         TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
         material.setFluid(fluid).setCraftable(craft).setCastable(cast);
+        /*
         if (material.isCraftable()) {
             material.addItem(Blocks.tiberiumBlock, Material.VALUE_Block);
             material.setRepresentativeItem(Blocks.tiberiumBlock);
         }
+        */
 
         proxy.setRenderInfo(material, fluid);
         MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);

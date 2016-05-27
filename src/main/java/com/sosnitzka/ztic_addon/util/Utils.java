@@ -24,18 +24,6 @@ public class Utils {
         System.out.println(String.format("Registered: %s", block));
     }
 
-
-    public static void registerTinkerFluid(String oreDictSuffix, Fluid fluid, boolean toolForge) {
-        System.out.println(String.format("Register TinkerFluid with oreDictSuffix: %s", oreDictSuffix));
-        registerFluid(fluid);
-
-        NBTTagCompound tag = new NBTTagCompound();
-        tag.setString("fluid", fluid.getName());
-        tag.setString("ore", oreDictSuffix);
-        tag.setBoolean("toolforge", toolForge);
-        FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
-    }
-
     public static void registerFluid(Fluid fluid) {
         FluidRegistry.registerFluid(fluid);
         FluidRegistry.addBucketForFluid(fluid);
