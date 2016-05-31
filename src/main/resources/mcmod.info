@@ -1,8 +1,8 @@
 [{
   "modid": "ztic_addon",
-  "name": "Zkaface Tinkers' Construct Addon",
+  "name": "Tinkers ",
   "description": "A modification for Tinkers' Construct, adding several ores and materials",
-  "version": "0.4",
+  "version": "0.5",
   "mcversion": "1.9",
   "url": "www.sosnitzka.com",
   "updateUrl": "",

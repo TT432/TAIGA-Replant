@@ -28,7 +28,5 @@ public class Alloys {
         registerTinkerAlloys(terramiteFluid, 2, violiumFluid, 4, eterniteFluid, 2, energy_enderium, 3);
         registerTinkerAlloys(cryptogenFluid, 1, mindoriteFluid, 4, arcaniteFluid, 2, anthraciteFluid, 3);
         registerTinkerAlloys(proxideumFluid, 1, karmesineFluid, 3, mythrilFluid, 2, glimmercoalFluid, 3);
-
     }
-
 }
