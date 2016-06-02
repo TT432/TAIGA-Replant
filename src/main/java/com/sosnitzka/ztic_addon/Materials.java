@@ -6,10 +6,11 @@ import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 
 import static com.sosnitzka.ztic_addon.ZTiC.instable;
+import static com.sosnitzka.ztic_addon.ZTiC.resonance;
 
 public class Materials {
     public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE);
-    public static Material tiberium = new Material("tiberium", TextFormatting.LIGHT_PURPLE);
+    public static Material tiberium = new Material("tiberium", TextFormatting.LIGHT_PURPLE).addTrait(instable, HeadMaterialStats.TYPE);
     public static Material prometheum = new Material("prometheum", TextFormatting.LIGHT_PURPLE);
     public static Material rubium = new Material("rubium", TextFormatting.LIGHT_PURPLE);
     public static Material violium = new Material("violium", TextFormatting.DARK_GREEN);
@@ -19,14 +20,14 @@ public class Materials {
     public static Material titanite = new Material("titanite", TextFormatting.GRAY);
     public static Material meteorite = new Material("meteorite", TextFormatting.GRAY);
     public static Material adamantite = new Material("adamantite", TextFormatting.GRAY);
-    public static Material vibranium = new Material("vibranium", TextFormatting.GRAY);
+    public static Material vibranium = new Material("vibranium", TextFormatting.GRAY).addTrait(resonance, HeadMaterialStats.TYPE);
     public static Material ignitite = new Material("ignitite", TextFormatting.AQUA);
     public static Material palladium = new Material("palladium", TextFormatting.AQUA);
     public static Material eternite = new Material("eternite", TextFormatting.AQUA);
     public static Material mythril = new Material("mythril", TextFormatting.AQUA);
 
     public static Material astrium = new Material("astrium", TextFormatting.LIGHT_PURPLE);
-    public static Material nitronite = new Material("nitronite", TextFormatting.LIGHT_PURPLE).addTrait(instable, HeadMaterialStats.TYPE);
+    public static Material nitronite = new Material("nitronite", TextFormatting.LIGHT_PURPLE);
     public static Material proxideum = new Material("proxideum", TextFormatting.LIGHT_PURPLE);
     public static Material noctunyx = new Material("noctunyx", TextFormatting.LIGHT_PURPLE);
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_GREEN);

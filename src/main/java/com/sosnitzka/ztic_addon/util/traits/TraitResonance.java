@@ -1,10 +1,9 @@
 package com.sosnitzka.ztic_addon.util.traits;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 /**
@@ -18,11 +17,11 @@ public class TraitResonance extends AbstractTrait {
     }
 
     @Override
-    public void onBlock(ItemStack tool, EntityPlayer player, LivingHurtEvent event) {
-        player.addChatComponentMessage(new TextComponentString(event.getEntity() + " " + event.getEntityLiving()));
-
-        // event.getEntityLiving().knockBack(event.getEntityLiving(), 20f, 20f, 20f);
-        //  event.getSource().getEntity()
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+        if (random.nextBoolean()) {
+            target.knockBack(target, random.nextFloat() * random.nextFloat() * 10, player.posX - target.posX, player.posZ - target.posZ);
+            if (random.nextBoolean()) player.addChatMessage(new TextComponentString("Boinggg!"));
+        }
     }
 }
 
