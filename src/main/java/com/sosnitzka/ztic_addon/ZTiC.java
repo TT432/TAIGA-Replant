@@ -5,8 +5,7 @@ import com.sosnitzka.ztic_addon.proxy.ServerProxy;
 import com.sosnitzka.ztic_addon.recipes.Crafting;
 import com.sosnitzka.ztic_addon.recipes.Smelting;
 import com.sosnitzka.ztic_addon.util.FuelHandler;
-import com.sosnitzka.ztic_addon.util.traits.TraitInstable;
-import com.sosnitzka.ztic_addon.util.traits.TraitResonance;
+import com.sosnitzka.ztic_addon.util.traits.*;
 import com.sosnitzka.ztic_addon.world.ZWorldGen;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +38,10 @@ public class ZTiC {
     public static final int ADAMANTITE = 8;
     public static final AbstractTrait instable = new TraitInstable();
     public static final AbstractTrait resonance = new TraitResonance();
+    public static final AbstractTrait frature = new TraitFracture();
+    public static final AbstractTrait glimmer = new TraitGlimmer();
+    public static final AbstractTrait garishly = new TraitGarishly();
+
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";
     @SidedProxy(clientSide = "com.sosnitzka.ztic_addon.proxy.ClientProxy", serverSide = "com.sosnitzka.ztic_addon.proxy.ServerProxy")

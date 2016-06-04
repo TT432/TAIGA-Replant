@@ -18,11 +18,13 @@ public class TraitResonance extends AbstractTrait {
 
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
-        if (random.nextBoolean()) {
+        if (random.nextBoolean() && random.nextBoolean()) {
             target.knockBack(target, random.nextFloat() * random.nextFloat() * 10, player.posX - target.posX, player.posZ - target.posZ);
             if (random.nextBoolean()) player.addChatMessage(new TextComponentString("Boinggg!"));
         }
     }
+
+
 }
 
 
