@@ -23,7 +23,7 @@ public class Materials {
     public static Material ignitite = new Material("ignitite", TextFormatting.AQUA);
     public static Material palladium = new Material("palladium", TextFormatting.AQUA);
     public static Material eternite = new Material("eternite", TextFormatting.AQUA);
-    public static Material mythril = new Material("mythril", TextFormatting.AQUA);
+    public static Material mythril = new Material("mythril", TextFormatting.AQUA).addTrait(pulverizing, HeadMaterialStats.TYPE);
 
     public static Material astrium = new Material("astrium", TextFormatting.LIGHT_PURPLE);
     public static Material nitronite = new Material("nitronite", TextFormatting.LIGHT_PURPLE);

@@ -41,6 +41,7 @@ public class ZTiC {
     public static final AbstractTrait frature = new TraitFracture();
     public static final AbstractTrait glimmer = new TraitGlimmer();
     public static final AbstractTrait garishly = new TraitGarishly();
+    public static final AbstractTrait pulverizing = new TraitPulverizing();
 
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";
