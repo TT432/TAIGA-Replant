@@ -4,8 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
@@ -30,14 +29,15 @@ public class TraitPulverizing extends AbstractTrait {
         int durability = ToolHelper.getCurrentDurability(tool);
         int maxDurability = ToolHelper.getMaxDurability(tool);
         float speed = ToolHelper.getMiningSpeedStat(tool);
-        return (speed / 3) / (maxDurability - 100) * (durability) + 0.5f;
+        return speed * (maxDurability - maxDurability / 10) / (durability);
     }
 
 
-    @SubscribeEvent
-    public void onBlockBreak(HarvestDropsEvent event) {
-        event.getDrops().clear();
+    @Override
+    public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
+        if (random.nextFloat() < 0.9) {
+            event.getDrops().clear();
+        }
     }
-
 
 }
