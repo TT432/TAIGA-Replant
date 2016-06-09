@@ -7,6 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 /**
@@ -17,6 +18,7 @@ public class TraitInstable extends AbstractTrait {
 
     public TraitInstable() {
         super("instable", TextFormatting.DARK_RED);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
@@ -34,6 +36,16 @@ public class TraitInstable extends AbstractTrait {
             target.getEntityWorld().newExplosion(target, pos.getX(), pos.getY(), pos.getZ(), 1.5f, true, true);
         }
     }
+
+    /* @SubscribeEvent
+    public void onInstableExplosionDamage(LivingHurtEvent e){
+        if(e.getEntityLiving() instanceof EntityPlayer){
+            EntityPlayer p = (EntityPlayer) e.getEntityLiving();
+            p.addChatComponentMessage(new TextComponentString("E: " + e.getSource().getEntity() + " D: " + e.getSource().getDamageType() + " C: " + e.getSource().getSourceOfDamage()));
+
+        }
+    } */
+
 
 
 }

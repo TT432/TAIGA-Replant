@@ -12,7 +12,7 @@ public class Materials {
     public static Material tiberium = new Material("tiberium", TextFormatting.LIGHT_PURPLE).addTrait(instable);
     public static Material prometheum = new Material("prometheum", TextFormatting.LIGHT_PURPLE);
     public static Material rubium = new Material("rubium", TextFormatting.LIGHT_PURPLE);
-    public static Material violium = new Material("violium", TextFormatting.DARK_GREEN);
+    public static Material violium = new Material("violium", TextFormatting.DARK_GREEN).addTrait(analysing);
     public static Material bismuth = new Material("bismuth", TextFormatting.DARK_GREEN);
     public static Material karmesine = new Material("karmesine", TextFormatting.DARK_GREEN);
     public static Material mindorite = new Material("mindorite", TextFormatting.DARK_GREEN);

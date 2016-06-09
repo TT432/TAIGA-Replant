@@ -42,12 +42,14 @@ public class ZTiC {
     public static final AbstractTrait glimmer = new TraitGlimmer();
     public static final AbstractTrait garishly = new TraitGarishly();
     public static final AbstractTrait pulverizing = new TraitPulverizing();
+    public static final AbstractTrait analysing = new TraitAnalysing();
 
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";
     @SidedProxy(clientSide = "com.sosnitzka.ztic_addon.proxy.ClientProxy", serverSide = "com.sosnitzka.ztic_addon.proxy.ServerProxy")
     private static ServerProxy proxy;
     private List<MaterialIntegration> integrateList = Lists.newArrayList();
+
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
