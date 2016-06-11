@@ -1,5 +1,6 @@
 package com.sosnitzka.ztic_addon.util.traits;
 
+import com.sosnitzka.ztic_addon.util.ZWorld;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -23,9 +24,12 @@ public class TraitInstable extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (MathHelper.getRandomIntegerInRange(random, 0, 100) < 2) {
+        ZWorld world2 = (ZWorld) world;
+        if (MathHelper.getRandomIntegerInRange(random, 0, 100) > 2) {
             if (!world.isRemote)
-                world.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2f, true, true);
+
+                world2.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2f, true, true);
+
         }
     }
 
