@@ -41,15 +41,6 @@ public class TraitInstable extends AbstractTrait {
         }
     }
 
-    /* @SubscribeEvent
-    public void onInstableExplosionDamage(LivingHurtEvent e){
-        if(e.getEntityLiving() instanceof EntityPlayer){
-            EntityPlayer p = (EntityPlayer) e.getEntityLiving();
-            p.addChatComponentMessage(new TextComponentString("E: " + e.getSource().getEntity() + " D: " + e.getSource().getDamageType() + " C: " + e.getSource().getSourceOfDamage()));
-
-        }
-    } */
-
     private ZExplosion newZExplosion(Entity entityIn, double x, double y, double z, float strength, boolean isFlaming, boolean isSmoking) {
         ZExplosion explosion = new ZExplosion(entityIn.worldObj, entityIn, x, y, z, strength, isFlaming, isSmoking);
         if (net.minecraftforge.event.ForgeEventFactory.onExplosionStart(entityIn.worldObj, explosion)) return explosion;
