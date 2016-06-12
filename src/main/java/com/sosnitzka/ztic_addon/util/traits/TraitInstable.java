@@ -1,7 +1,8 @@
 package com.sosnitzka.ztic_addon.util.traits;
 
-import com.sosnitzka.ztic_addon.util.ZWorld;
+import com.sosnitzka.ztic_addon.util.ZExplosion;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -24,11 +25,10 @@ public class TraitInstable extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        ZWorld world2 = (ZWorld) world;
         if (MathHelper.getRandomIntegerInRange(random, 0, 100) > 2) {
             if (!world.isRemote)
 
-                world2.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), 2f, true, true);
+                newZExplosion(player, pos.getX(), pos.getY(), pos.getZ(), 2f, true, true);
 
         }
     }
@@ -37,7 +37,7 @@ public class TraitInstable extends AbstractTrait {
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
         BlockPos pos = target.getPosition();
         if (MathHelper.getRandomIntegerInRange(random, 0, 100) < 2) {
-            target.getEntityWorld().newExplosion(target, pos.getX(), pos.getY(), pos.getZ(), 1.5f, true, true);
+            newZExplosion(target, pos.getX(), pos.getY(), pos.getZ(), 2f, true, true);
         }
     }
 
@@ -49,6 +49,14 @@ public class TraitInstable extends AbstractTrait {
 
         }
     } */
+
+    private ZExplosion newZExplosion(Entity entityIn, double x, double y, double z, float strength, boolean isFlaming, boolean isSmoking) {
+        ZExplosion explosion = new ZExplosion(entityIn.worldObj, entityIn, x, y, z, strength, isFlaming, isSmoking);
+        if (net.minecraftforge.event.ForgeEventFactory.onExplosionStart(entityIn.worldObj, explosion)) return explosion;
+        explosion.doExplosionA();
+        explosion.doExplosionB(true);
+        return explosion;
+    }
 
 
 

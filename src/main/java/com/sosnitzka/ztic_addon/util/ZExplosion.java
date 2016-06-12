@@ -1,4 +1,4 @@
-package com.sosnitzka.ztic_addon.util.traits;
+package com.sosnitzka.ztic_addon.util;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -16,15 +16,14 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-/**
- * Created by Robert on 11.06.2016.
- */
 public class ZExplosion extends Explosion {
 
     /**
@@ -46,12 +45,14 @@ public class ZExplosion extends Explosion {
     private final Map<EntityPlayer, Vec3d> playerKnockbackMap;
     private final Vec3d position;
 
+    @SideOnly(Side.CLIENT)
     public ZExplosion(World worldIn, Entity entityIn, double x, double y, double z, float size, boolean flaming, boolean smoking) {
         super(worldIn, entityIn, x, y, z, size, flaming, smoking);
+
         this.explosionRNG = new Random();
         this.affectedBlockPositions = Lists.<BlockPos>newArrayList();
         this.playerKnockbackMap = Maps.<EntityPlayer, Vec3d>newHashMap();
-        this.worldObj = worldIn;
+        this.worldObj = entityIn.getEntityWorld();
         this.exploder = entityIn;
         this.explosionSize = size;
         this.explosionX = x;
@@ -135,8 +136,7 @@ public class ZExplosion extends Explosion {
                         d9 = d9 / d13;
                         double d14 = (double) this.worldObj.getBlockDensity(vec3d, entity.getEntityBoundingBox());
                         double d10 = (1.0D - d12) * d14;
-                        if (!(entity instanceof EntityPlayer))
-                            entity.attackEntityFrom(DamageSource.causeExplosionDamage(this), (float) ((int) ((d10 * d10 + d10) / 2.0D * 7.0D * (double) f3 + 1.0D)));
+                        entity.attackEntityFrom(DamageSource.causeExplosionDamage(this), (float) ((int) ((d10 * d10 + d10) / 2.0D * 7.0D * (double) f3 + 1.0D)));
                         double d11 = 1.0D;
 
                         if (entity instanceof EntityLivingBase) {
@@ -159,4 +159,5 @@ public class ZExplosion extends Explosion {
             }
         }
     }
+
 }
