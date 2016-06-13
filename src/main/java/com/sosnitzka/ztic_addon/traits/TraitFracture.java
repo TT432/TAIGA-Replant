@@ -1,4 +1,4 @@
-package com.sosnitzka.ztic_addon.util.traits;
+package com.sosnitzka.ztic_addon.traits;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
