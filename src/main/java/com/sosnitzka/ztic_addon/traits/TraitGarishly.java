@@ -69,11 +69,12 @@ public class TraitGarishly extends AbstractTrait {
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         int i = random.nextInt(10);
         if (i == 9) event.getDrops().clear();
-        else if (i == 2 || i == 1 || i == 3) {
+        else if (i == 1 || i == 2 || i == 3) {
             ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), i);
             event.getDrops().add(0, stack);
             ToolHelper.damageTool(tool, i * 2, event.getHarvester());
-        } else if (i == 0) event.getWorld().setBlockState(event.getPos(), Blocks.LAVA.getDefaultState());
+        } else if (i == 0 && random.nextBoolean())
+            event.getWorld().setBlockState(event.getPos(), Blocks.LAVA.getDefaultState());
     }
 
 
