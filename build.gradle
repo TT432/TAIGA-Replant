@@ -8,7 +8,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
@@ -32,7 +32,7 @@ group = "com.sosnitzka.ztic_addon" // http://maven.apache.org/guides/mini/guide-
 archivesBaseName = "ztic_addon"
 
 minecraft {
-    version = "1.9-12.16.1.1907"
+    version = "1.9.4-12.17.0.1968"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -40,21 +40,21 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "stable_24"
+    mappings = "snapshot_20160531"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 
     replace "@VERSION@", project.version
 }
 
 dependencies {
-    deobfCompile "codechicken:CodeChickenLib:1.9-2.0.1.32:deobf"
-    deobfCompile "codechicken:CodeChickenCore:1.9-2.0.1.60:deobf"
+    deobfCompile "codechicken:CodeChickenLib:1.9.4-2.0.2.39:deobf"
+    deobfCompile "codechicken:CodeChickenCore:1.9.4-2.0.3.65:deobf"
     //deobfCompile "codechicken:NotEnoughItems:1.9-${nei_version}:dev"
-    deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.1.jenkins140:deobf"
+    deobfCompile "slimeknights.mantle:Mantle:1.9.4-0.10.2.jenkins149:deobf"
     //Old: deobfCompile "slimeknights.mantle:Mantle:1.9-0.10.0.jenkins132:deobf"
-    deobfCompile "mezz.jei:jei_1.9:3.3.3.197"
-    //deobfCompile "slimeknights:TConstruct:1.9-2.3.0.jenkins193:deobf"
-    compile files('libs/TConstruct-1.9-2.3.1.DEV.1d4c1de-deobf.jar')
+    deobfCompile "mezz.jei:jei_1.9.4:3.6.7.216"
+    deobfCompile "slimeknights:TConstruct:1.9.4-2.3.2.jenkins255:deobf"
+    //compile files('libs/TConstruct-1.9-2.3.1.DEV.1d4c1de-deobf.jar')
 }
 
 //noinspection GroovyAssignabilityCheck

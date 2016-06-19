@@ -28,7 +28,7 @@ public class TraitFracture extends AbstractTrait {
         if (!world.isRemote && tool.canHarvestBlock(state) && f >= b) {
             RayTraceResult mop = ((ToolCore) tool.getItem()).rayTrace(world, (EntityPlayer) player, false);
             if (mop == null) return;
-            for (int i = random.nextInt(5) + 1; i >= 0; i--) {
+            for (int i = random.nextInt(9) + 1; i >= 0; i--) {
                 switch (mop.sideHit) {
                     case UP:
                         BlockPos next1 = new BlockPos(pos.getX(), pos.getY() - i, pos.getZ());

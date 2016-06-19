@@ -41,10 +41,10 @@ public class TraitGarishly extends AbstractTrait {
                 ItemStack i = null;
                 switch (r) {
                     case 0:
-                        i = new ItemStack(Items.BLAZE_POWDER, random.nextInt(3) + 1);
+                        i = new ItemStack(Items.BLAZE_POWDER, random.nextInt(3));
                         break;
                     case 1:
-                        i = new ItemStack(Items.BLAZE_ROD, random.nextInt(2) + 1);
+                        i = new ItemStack(Items.BLAZE_ROD, random.nextInt(3));
                         break;
                     case 2:
                         i = new ItemStack(glimmerstone_dust, random.nextInt(3));
@@ -53,10 +53,10 @@ public class TraitGarishly extends AbstractTrait {
                         i = new ItemStack(luminar_dust, random.nextInt(3));
                         break;
                     case 4:
-                        i = new ItemStack(Items.COAL, random.nextInt(3) + 1);
+                        i = new ItemStack(Items.COAL, random.nextInt(3));
                         break;
                     case 5:
-                        i = new ItemStack(lignite, random.nextInt(3) + 1);
+                        i = new ItemStack(lignite, random.nextInt(3));
                         break;
                 }
 
