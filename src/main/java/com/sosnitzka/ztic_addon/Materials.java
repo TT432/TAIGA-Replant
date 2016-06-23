@@ -36,7 +36,7 @@ public class Materials {
     public static Material terramite = new Material("terramite", TextFormatting.GRAY);
     public static Material lumixyl = new Material("lumixyl", TextFormatting.YELLOW).addTrait(glimmer);
     public static Material solarium = new Material("solarium", TextFormatting.RED).addTrait(garishly);
-    public static Material dyonite = new Material("dyonite", TextFormatting.GRAY);
+    public static Material dyonite = new Material("dyonite", TextFormatting.GRAY).addTrait(slaughtering, HeadMaterialStats.TYPE);
     public static Material ultranite = new Material("ultranite", TextFormatting.AQUA);
     public static Material nucleum = new Material("nucleum", TextFormatting.AQUA);
     public static Material aegisalt = new Material("aegisalt", TextFormatting.AQUA);

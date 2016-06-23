@@ -23,10 +23,11 @@ public class TraitCascade extends AbstractTrait {
         float f = random.nextFloat();
         float b = 0.99F * calcBonus(tool);
         if (!world.isRemote && tool.canHarvestBlock(state) && f <= b) {
-            double x = pos.getX();
-            double y = pos.getY();
-            double z = pos.getZ();
-            for (int i = random.nextInt(50); i > 0; i--) {
+            double x, y, z, sx, sy, sz;
+            sx = x = pos.getX();
+            sy = y = pos.getY();
+            sz = z = pos.getZ();
+            for (int i = random.nextInt(ToolHelper.getCurrentDurability(tool)); i > 0; i--) {
                 int r = random.nextInt(3);
                 int d = random.nextBoolean() ? 1 : -1;
                 if (r == 0) x += d;
@@ -35,10 +36,14 @@ public class TraitCascade extends AbstractTrait {
                 BlockPos nextBlock = new BlockPos(x, y, z);
                 if (world.getBlockState(nextBlock) == world.getBlockState(pos)) {
                     world.destroyBlock(nextBlock, true);
-                    x = nextBlock.getX();
-                    y = nextBlock.getY();
-                    z = nextBlock.getZ();
+                    sx = x = nextBlock.getX();
+                    sy = y = nextBlock.getY();
+                    sz = z = nextBlock.getZ();
                     ToolHelper.damageTool(tool, random.nextInt(2), player);
+                } else {
+                    x = sx;
+                    y = sy;
+                    z = sz;
                 }
 
             }
