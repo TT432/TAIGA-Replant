@@ -8,7 +8,7 @@ import slimeknights.tconstruct.library.materials.Material;
 import static com.sosnitzka.ztic_addon.ZTiC.*;
 
 public class Materials {
-    public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE);
+    public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(haunted);
     public static Material tiberium = new Material("tiberium", TextFormatting.LIGHT_PURPLE).addTrait(instable);
     public static Material prometheum = new Material("prometheum", TextFormatting.LIGHT_PURPLE).addTrait(dark);
     public static Material rubium = new Material("rubium", TextFormatting.LIGHT_PURPLE);

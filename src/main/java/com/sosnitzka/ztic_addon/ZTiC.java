@@ -46,6 +46,7 @@ public class ZTiC {
     public static final AbstractTrait cascade = new TraitCascade();
     public static final AbstractTrait dark = new TraitDark();
     public static final AbstractTrait slaughtering = new TraitSlaughtering();
+    public static final AbstractTrait haunted = new TraitHaunted();
 
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";
