@@ -8,7 +8,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
@@ -19,7 +18,6 @@ public class TraitDark extends AbstractTrait {
 
     public TraitDark() {
         super("dark", TextFormatting.DARK_GRAY);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
