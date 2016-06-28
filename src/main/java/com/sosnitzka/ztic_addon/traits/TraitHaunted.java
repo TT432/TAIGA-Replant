@@ -4,6 +4,8 @@ import com.sosnitzka.ztic_addon.util.EntityAIPermanentPanic;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.*;
+import net.minecraft.entity.passive.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,9 +20,16 @@ public class TraitHaunted extends AbstractTrait {
 
     @Override
     public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
-        if (target instanceof EntityLiving) {
-            //((EntityLiving) target).tasks.addTask(0, new EntityAIAvoidEntity((EntityCreature) target, EntityPlayer.class,16f, 2.0d, 2.4D));
-            ((EntityLiving) target).tasks.addTask(0, new EntityAIPermanentPanic((EntityCreature) target, 2.0D));
+        if (random.nextFloat() < 0.1)
+            if (target instanceof EntityCow || target instanceof EntityZombie || target instanceof EntityWolf || target instanceof EntityPig || target instanceof EntitySpider ||
+                    target instanceof EntityVillager || target instanceof EntitySheep || target instanceof EntityEnderman || target instanceof EntityEndermite ||
+                    target instanceof EntityBlaze || target instanceof EntitySkeleton || target instanceof EntityWitch || target instanceof EntityHorse) {
+                ((EntityLiving) target).tasks.taskEntries.clear();
+                ((EntityLiving) target).tasks.taskEntries.clear();
+                ((EntityLiving) target).targetTasks.taskEntries.clear();
+                ((EntityLiving) target).targetTasks.taskEntries.clear();
+                ((EntityLiving) target).tasks.addTask(0, new EntityAIPermanentPanic((EntityCreature) target, target.getAIMoveSpeed() + 2.0D));
+
         }
     }
 }

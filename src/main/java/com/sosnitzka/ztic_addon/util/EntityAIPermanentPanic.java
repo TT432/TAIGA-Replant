@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EntityAIPermanentPanic extends EntityAIBase {
     private EntityCreature theEntityCreature;
-    private double speed;
+    protected double speed;
     private double randPosX;
     private double randPosY;
     private double randPosZ;
@@ -21,13 +21,13 @@ public class EntityAIPermanentPanic extends EntityAIBase {
     public EntityAIPermanentPanic(EntityCreature creature, double speedIn) {
         this.theEntityCreature = creature;
         this.speed = speedIn;
-        this.setMutexBits(1);
     }
 
     /**
      * Returns whether the EntityAIBase should begin execution.
      */
     public boolean shouldExecute() {
+
         Vec3d vec3d = RandomPositionGenerator.findRandomTarget(this.theEntityCreature, 5, 4);
 
         if (vec3d == null) {
@@ -45,10 +45,11 @@ public class EntityAIPermanentPanic extends EntityAIBase {
                     this.randPosY = (double) blockpos.getY();
                     this.randPosZ = (double) blockpos.getZ();
                 }
-            }
+                }
 
             return true;
-        }
+            }
+
     }
 
     /**
@@ -67,7 +68,7 @@ public class EntityAIPermanentPanic extends EntityAIBase {
 
     private BlockPos getRandPos(World worldIn, Entity entityIn, int horizontalRange, int verticalRange) {
         BlockPos blockpos = new BlockPos(entityIn);
-        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         int i = blockpos.getX();
         int j = blockpos.getY();
         int k = blockpos.getZ();
@@ -77,8 +78,8 @@ public class EntityAIPermanentPanic extends EntityAIBase {
         for (int l = i - horizontalRange; l <= i + horizontalRange; ++l) {
             for (int i1 = j - verticalRange; i1 <= j + verticalRange; ++i1) {
                 for (int j1 = k - horizontalRange; j1 <= k + horizontalRange; ++j1) {
-                    mutableBlockPos.setPos(l, i1, j1);
-                    IBlockState iblockstate = worldIn.getBlockState(mutableBlockPos);
+                    blockpos$mutableblockpos.setPos(l, i1, j1);
+                    IBlockState iblockstate = worldIn.getBlockState(blockpos$mutableblockpos);
                     Block block = iblockstate.getBlock();
 
                     if (block == Blocks.WATER || block == Blocks.FLOWING_WATER) {
@@ -86,7 +87,7 @@ public class EntityAIPermanentPanic extends EntityAIBase {
 
                         if (f1 < f) {
                             f = f1;
-                            blockpos1 = new BlockPos(mutableBlockPos);
+                            blockpos1 = new BlockPos(blockpos$mutableblockpos);
                         }
                     }
                 }
