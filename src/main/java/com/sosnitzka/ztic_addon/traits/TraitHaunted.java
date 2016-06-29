@@ -18,18 +18,27 @@ public class TraitHaunted extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+
+    // Just several tested Vanilla-Mobs, e.g. no ghasts, bats or skeletons
     @Override
     public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
-        if (random.nextFloat() < 0.1)
+        int time = (int) player.getEntityWorld().getWorldTime();
+        if (random.nextFloat() <= 0.1 || (random.nextFloat() <= 0.3 && isNight(time)))
             if (target instanceof EntityCow || target instanceof EntityZombie || target instanceof EntityWolf || target instanceof EntityPig || target instanceof EntitySpider ||
                     target instanceof EntityVillager || target instanceof EntitySheep || target instanceof EntityEnderman || target instanceof EntityEndermite ||
-                    target instanceof EntityBlaze || target instanceof EntitySkeleton || target instanceof EntityWitch || target instanceof EntityHorse) {
+                    target instanceof EntityBlaze || target instanceof EntityWitch || target instanceof EntityHorse) {
                 ((EntityLiving) target).tasks.taskEntries.clear();
-                ((EntityLiving) target).tasks.taskEntries.clear();
-                ((EntityLiving) target).targetTasks.taskEntries.clear();
                 ((EntityLiving) target).targetTasks.taskEntries.clear();
                 ((EntityLiving) target).tasks.addTask(0, new EntityAIPermanentPanic((EntityCreature) target, target.getAIMoveSpeed() + 2.0D));
 
+            }
+    }
+
+    public boolean isNight(int time) {
+        if (time > 12500) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

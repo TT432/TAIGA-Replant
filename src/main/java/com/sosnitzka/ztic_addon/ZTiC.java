@@ -47,6 +47,10 @@ public class ZTiC {
     public static final AbstractTrait dark = new TraitDark();
     public static final AbstractTrait slaughtering = new TraitSlaughtering();
     public static final AbstractTrait haunted = new TraitHaunted();
+    public static final AbstractTrait fragile = new TraitFragile();
+    public static final AbstractTrait dissolving = new TraitDissolving();
+    public static final AbstractTrait bentonite = new TraitBentonite();
+    public static final AbstractTrait arcane = new TraitArcane();
 
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";

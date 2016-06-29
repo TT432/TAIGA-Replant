@@ -20,7 +20,7 @@ public class TraitResonance extends AbstractTrait {
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
         if (random.nextFloat() <= .33) {
-            target.knockBack(target, random.nextFloat() * random.nextFloat() * 10, player.posX - target.posX, player.posZ - target.posZ);
+            target.knockBack(target, random.nextFloat() * random.nextFloat() * 12, player.posX - target.posX, player.posZ - target.posZ);
         }
     }
 
