@@ -1,5 +1,6 @@
 package com.sosnitzka.ztic_addon.traits;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -67,13 +68,13 @@ public class TraitGarishly extends AbstractTrait {
 
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
-        int i = random.nextInt(10);
-        if (i == 9) event.getDrops().clear();
-        else if (i == 1 || i == 2 || i == 3) {
-            ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), i);
+        float r = random.nextFloat();
+        if (r > 0.9f) event.getDrops().clear();
+        else if (r < 0.5f && r > 0.4f && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
+            ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(5));
             event.getDrops().add(0, stack);
-            ToolHelper.damageTool(tool, i * 2, event.getHarvester());
-        } else if (i == 0 && random.nextBoolean())
+            ToolHelper.damageTool(tool, random.nextInt(6) + 1, event.getHarvester());
+        } else if (r < 1 && random.nextBoolean())
             event.getWorld().setBlockState(event.getPos(), Blocks.LAVA.getDefaultState());
     }
 

@@ -29,6 +29,7 @@ public class TraitPulverizing extends AbstractTrait {
         int durability = ToolHelper.getCurrentDurability(tool);
         int maxDurability = ToolHelper.getMaxDurability(tool);
         float speed = ToolHelper.getMiningSpeedStat(tool);
+        tool.setItemDamage(tool.getItemDamage() + 1);
         return speed * (maxDurability - maxDurability / 10) / (durability);
     }
 

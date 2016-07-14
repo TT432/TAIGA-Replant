@@ -19,11 +19,16 @@ public class TraitDissolving extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    // high chance to remove XP, low chance to double,triple or quatruple dropped Experience
     @SubscribeEvent
     public void onXpDrop(LivingExperienceDropEvent event) {
         EntityPlayer player = event.getAttackingPlayer();
-        if (random.nextFloat() < 0.3 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        float r = random.nextFloat();
+        if (r <= 0.75 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
             event.setDroppedExperience(0);
+        }
+        if (r > 0.95 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+            event.setDroppedExperience(event.getDroppedExperience() * (random.nextInt(3) + 2));
         }
     }
 }

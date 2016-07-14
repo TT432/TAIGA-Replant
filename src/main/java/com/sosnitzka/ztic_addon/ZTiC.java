@@ -44,6 +44,7 @@ public class ZTiC {
     public static final AbstractTrait pulverizing = new TraitPulverizing();
     public static final AbstractTrait analysing = new TraitAnalysing();
     public static final AbstractTrait cascade = new TraitCascade();
+    public static final AbstractTrait blind = new TraitBlind();
     public static final AbstractTrait dark = new TraitDark();
     public static final AbstractTrait slaughtering = new TraitSlaughtering();
     public static final AbstractTrait haunted = new TraitHaunted();
@@ -51,6 +52,7 @@ public class ZTiC {
     public static final AbstractTrait dissolving = new TraitDissolving();
     public static final AbstractTrait bentonite = new TraitBentonite();
     public static final AbstractTrait arcane = new TraitArcane();
+    public static final AbstractTrait heroic = new TraitHeroic();
 
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";

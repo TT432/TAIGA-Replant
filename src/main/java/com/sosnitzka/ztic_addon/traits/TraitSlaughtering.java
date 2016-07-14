@@ -9,7 +9,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -25,14 +24,6 @@ public class TraitSlaughtering extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @SubscribeEvent
-    public void onXpDrop(LivingExperienceDropEvent event) {
-        EntityPlayer player = event.getAttackingPlayer();
-        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
-            event.setDroppedExperience(0);
-        }
-
-    }
 
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
