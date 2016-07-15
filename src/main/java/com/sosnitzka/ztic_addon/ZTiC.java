@@ -37,8 +37,12 @@ public class ZTiC {
     public static final int VIBRANIUM = 7;
     public static final int ADAMANTITE = 8;
     public static final AbstractTrait instable = new TraitInstable();
+    public static final AbstractTrait naturebound = new TraitNatureBound();
+    public static final AbstractTrait uncertain = new TraitUncertain();
+    public static final AbstractTrait softy = new TraitSofty();
+    public static final AbstractTrait curvature = new TraitCurvature();
     public static final AbstractTrait resonance = new TraitResonance();
-    public static final AbstractTrait frature = new TraitFracture();
+    public static final AbstractTrait fracture = new TraitFracture();
     public static final AbstractTrait glimmer = new TraitGlimmer();
     public static final AbstractTrait garishly = new TraitGarishly();
     public static final AbstractTrait pulverizing = new TraitPulverizing();
@@ -46,6 +50,7 @@ public class ZTiC {
     public static final AbstractTrait cascade = new TraitCascade();
     public static final AbstractTrait blind = new TraitBlind();
     public static final AbstractTrait dark = new TraitDark();
+    public static final AbstractTrait bright = new TraitBright();
     public static final AbstractTrait slaughtering = new TraitSlaughtering();
     public static final AbstractTrait haunted = new TraitHaunted();
     public static final AbstractTrait fragile = new TraitFragile();
@@ -53,6 +58,9 @@ public class ZTiC {
     public static final AbstractTrait bentonite = new TraitBentonite();
     public static final AbstractTrait arcane = new TraitArcane();
     public static final AbstractTrait heroic = new TraitHeroic();
+    public static final AbstractTrait hollow = new TraitHollow();
+    public static final AbstractTrait diffuse = new TraitDiffuse();
+    public static final AbstractTrait randomize = new TraitRandomize();
 
     static final String MODID = "ztic_addon";
     static final String VERSION = "@VERSION@";
@@ -101,7 +109,7 @@ public class ZTiC {
         registerTinkerMaterial("Solarium", solarium, solariumFluid, 1020, 13.78f, 4.64f, 1.15f, 0, 150, ADAMANTITE, false, true);
         registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, 1071, 7.65f, 7.75f, 1.15f, -250, 283, METEORITE, false, true);
         registerTinkerMaterial("Aegisalt", aegisalt, aegisaltFluid, 355, 8.88f, 3.18f, 1.00f, 175, 125, TITANITE, false, true);
-        registerTinkerMaterial("Nocturnyx", noctunyx, noctunyxFluid, 713, 10.43f, 3.25f, 0.99f, -125, 183, METEORITE, false, true);
+        registerTinkerMaterial("Noctunyx", noctunyx, noctunyxFluid, 713, 10.43f, 3.25f, 0.99f, -125, 183, METEORITE, false, true);
         registerTinkerMaterial("Nucleum", nucleum, nucleumFluid, 503, 11.30f, 3.22f, 1.05f, 100, 125, TITANITE, false, true);
         registerTinkerMaterial("Seismodium", seismodium, seismodiumFluid, 879, 13.85f, 4.19f, 1.17f, -75, 169, VIBRANIUM, false, true);
         registerTinkerMaterial("Lumixyl", lumixyl, lumixylFluid, 357, 4.64f, 5.92f, 1.05f, 15, 130, COBALT, false, true);

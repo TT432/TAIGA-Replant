@@ -17,10 +17,10 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 /**
  * Created by Robert on 09.06.2016.
  */
-public class TraitAnalysing extends AbstractTrait {
+public class TraitDiffuse extends AbstractTrait {
 
-    public TraitAnalysing() {
-        super("analysing", TextFormatting.GREEN);
+    public TraitDiffuse() {
+        super("diffuse", TextFormatting.DARK_GRAY);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -28,7 +28,7 @@ public class TraitAnalysing extends AbstractTrait {
     public void onXpDrop(LivingExperienceDropEvent event) {
         EntityPlayer player = event.getAttackingPlayer();
         if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
-            event.setDroppedExperience(this.getUpdateXP(event.getDroppedExperience()));
+            event.setDroppedExperience(0);
         }
 
     }
@@ -54,8 +54,10 @@ public class TraitAnalysing extends AbstractTrait {
     }
 
     private int getUpdateXP(int xp) {
-        float exp = (float) random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + 18) * 50;
-        return Math.round(exp);
+        float exp = (float) random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextInt(10));
+        if (random.nextBoolean())
+            return Math.round(exp);
+        else return 0;
     }
 
     @Override

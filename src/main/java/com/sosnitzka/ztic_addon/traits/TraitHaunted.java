@@ -29,7 +29,7 @@ public class TraitHaunted extends AbstractTrait {
                     target instanceof EntityBlaze || target instanceof EntityWitch || target instanceof EntityHorse) {
                 ((EntityLiving) target).tasks.taskEntries.clear();
                 ((EntityLiving) target).targetTasks.taskEntries.clear();
-                ((EntityLiving) target).tasks.addTask(0, new EntityAIPermanentPanic((EntityCreature) target, target.getAIMoveSpeed() + 2.0D));
+                ((EntityLiving) target).tasks.addTask(0, new EntityAIPermanentPanic((EntityCreature) target, target.getAIMoveSpeed() + 3.5D));
 
             }
     }

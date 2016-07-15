@@ -19,10 +19,10 @@ public class TraitHeroic extends AbstractTrait {
     public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
         int durability = ToolHelper.getCurrentDurability(tool);
         int durabilitymax = ToolHelper.getMaxDurability(tool);
-        float bonus = (float) (0.01f + ((2.5f - 0.2f) / (durability - durabilitymax - 1)) * (durability - durabilitymax));
-        System.out.println("Dura: " + durability + " DuraMax: " + durabilitymax);
-        System.out.println("Modifier: " + bonus);
-        return super.damage(tool, player, target, damage, newDamage * bonus, isCritical);
+        float calc = (float) (newDamage + (newDamage / 2) / (durability * durabilitymax / (durabilitymax - durability)));
+        if ((float) durability < (float) (0.12 * durabilitymax)) {
+            return super.damage(tool, player, target, damage, calc, isCritical);
+        } else return super.damage(tool, player, target, damage, newDamage, isCritical);
     }
 
 
