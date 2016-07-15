@@ -27,6 +27,7 @@ import java.util.List;
 
 import static com.sosnitzka.ztic_addon.Fluids.*;
 import static com.sosnitzka.ztic_addon.Materials.*;
+import static com.sosnitzka.ztic_addon.Materials.arcanite;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = ZTiC.MODID, version = ZTiC.VERSION)

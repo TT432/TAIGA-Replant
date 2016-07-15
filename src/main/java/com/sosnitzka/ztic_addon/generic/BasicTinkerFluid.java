@@ -14,6 +14,7 @@ public class BasicTinkerFluid extends Fluid {
         this.setTemperature(temp);
         this.setLuminosity(lumen);
         this.setViscosity(visk);
+        this.setDensity(2000);
         this.toolForge = toolForge;
     }
 
