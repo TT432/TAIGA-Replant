@@ -9,7 +9,10 @@ public class ServerProxy {
 
     }
 
-    public void setRenderInfo(Material material, Fluid fluid) {
+    public void setRenderInfo(Material material) {
 
+    }
+
+    public void registerFluidModels(Fluid fluid) {
     }
 }

@@ -2,8 +2,10 @@ package com.sosnitzka.ztic_addon;
 
 
 import com.sosnitzka.ztic_addon.generic.BasicTinkerFluid;
+import com.sosnitzka.ztic_addon.util.Utils;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.FluidRegistry;
+import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import java.lang.reflect.Field;
 
@@ -66,6 +68,13 @@ public class Fluids {
                 try {
                     BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType);
                     registerFluid(fluid);
+
+                    BlockMolten block = new BlockMolten(fluid);
+                    block.setUnlocalizedName("molten_" + fluid.getName());
+                    block.setRegistryName(ZTiC.MODID, "molten_" + fluid.getName());
+                    Utils.registerBlockWithItem(block);
+
+                    ZTiC.proxy.registerFluidModels(fluid);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

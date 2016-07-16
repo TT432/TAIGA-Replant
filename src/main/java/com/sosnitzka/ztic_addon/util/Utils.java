@@ -18,15 +18,13 @@ public class Utils {
 
 
     public static void registerBlockWithItem(Block block) {
-        System.out.println(String.format("Register Block: %s", block.getUnlocalizedName()));
         GameRegistry.register(block);
         GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-        System.out.println(String.format("Registered: %s", block));
     }
 
     public static void registerFluid(Fluid fluid) {
         FluidRegistry.registerFluid(fluid);
-        FluidRegistry.addBucketForFluid(fluid);
+        //FluidRegistry.addBucketForFluid(fluid);
     }
 
     public static void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo) {

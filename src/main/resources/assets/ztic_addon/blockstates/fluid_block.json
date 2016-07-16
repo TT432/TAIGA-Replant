@@ -25,5 +25,12 @@
         }
       }
     ]
+    "astrium": [
+      {
+        "custom": {
+          "fluid": "astrium"
+        }
+      }
+    ]
   }
 }

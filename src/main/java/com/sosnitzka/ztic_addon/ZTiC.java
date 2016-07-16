@@ -63,18 +63,18 @@ public class ZTiC {
     public static final AbstractTrait diffuse = new TraitDiffuse();
     public static final AbstractTrait randomize = new TraitRandomize();
 
-    static final String MODID = "ztic_addon";
-    static final String VERSION = "@VERSION@";
+    public static final String MODID = "ztic_addon";
+    public static final String VERSION = "@VERSION@";
     @SidedProxy(clientSide = "com.sosnitzka.ztic_addon.proxy.ClientProxy", serverSide = "com.sosnitzka.ztic_addon.proxy.ServerProxy")
-    private static ServerProxy proxy;
+    public static ServerProxy proxy;
     private List<MaterialIntegration> integrateList = Lists.newArrayList();
 
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         Items.register();
-        Blocks.register();
         Fluids.register();
+        Blocks.register();
         Fluids.registerfromItem();
         Alloys.register();
 
@@ -155,10 +155,9 @@ public class ZTiC {
         }
         */
 
-        proxy.setRenderInfo(material, fluid);
+        proxy.setRenderInfo(material);
         MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
         integration.integrate();
         integrateList.add(integration);
-
     }
 }

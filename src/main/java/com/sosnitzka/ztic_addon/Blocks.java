@@ -98,6 +98,8 @@ public class Blocks {
     public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
     public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 55.0f, 400.0f, 7, PREFIX_BLOCK);
 
+    //public static Block fluidBlock = new BlockMolten(Fluids.astriumFluid);
+
 
     public static void register() {
         Field[] declaredFields = Blocks.class.getDeclaredFields();
@@ -120,7 +122,6 @@ public class Blocks {
                             }
 
                             OreDictionary.registerOre(((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName), block);
-                            System.out.println(String.format("Registered OreDict: %s", ((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName)));
                         }
                     }
                 } catch (IllegalAccessException e) {

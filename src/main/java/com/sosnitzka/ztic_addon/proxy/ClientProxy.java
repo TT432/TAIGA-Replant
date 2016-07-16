@@ -2,16 +2,24 @@ package com.sosnitzka.ztic_addon.proxy;
 
 import com.sosnitzka.ztic_addon.Blocks;
 import com.sosnitzka.ztic_addon.Items;
+import com.sosnitzka.ztic_addon.ZTiC;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.texture.MetalTextureTexture;
 import slimeknights.tconstruct.library.materials.Material;
 
+import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 
 import static com.sosnitzka.ztic_addon.Materials.*;
@@ -57,7 +65,7 @@ public class ClientProxy extends ServerProxy {
         }
     }
 
-    public void setRenderInfo(final Material material, Fluid fluid) {
+    public void setRenderInfo(final Material material) {
         /* if (material != bismuth) {
             material.setRenderInfo(new MaterialRenderInfo.Metal(fluid.getColor(), 0.4f, 0.2f, 0f));
         }  else bismuth.setRenderInfo(new MaterialRenderInfo.BlockTexture("ztic_addon:blocks/bismuth_block")); */
@@ -80,5 +88,51 @@ public class ClientProxy extends ServerProxy {
                 return new MetalTextureTexture("ztic_addon:blocks/materials/adamantite", baseTexture, location, f, shine, brightness, hueshift);
             }
         });
+    }
+
+    @Override
+    public void registerFluidModels(Fluid fluid) {
+        if (fluid == null) {
+            return;
+        }
+
+        Block block = fluid.getBlock();
+        if (block != null) {
+            Item item = Item.getItemFromBlock(block);
+            FluidStateMapper mapper = new FluidStateMapper(fluid);
+
+            // item-model
+            if (item != null) {
+                ModelLoader.registerItemVariants(item);
+                ModelLoader.setCustomMeshDefinition(item, mapper);
+            }
+            // block-model
+            ModelLoader.setCustomStateMapper(block, mapper);
+        }
+    }
+
+    public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {
+
+        public final Fluid fluid;
+        public final ModelResourceLocation location;
+
+        public FluidStateMapper(Fluid fluid) {
+            this.fluid = fluid;
+
+            // have each block hold its fluid per nbt? hm
+            this.location = new ModelResourceLocation(new ResourceLocation(ZTiC.MODID, "fluid_block"), fluid.getName());
+        }
+
+        @Nonnull
+        @Override
+        protected ModelResourceLocation getModelResourceLocation(@Nonnull IBlockState state) {
+            return location;
+        }
+
+        @Nonnull
+        @Override
+        public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack) {
+            return location;
+        }
     }
 }
