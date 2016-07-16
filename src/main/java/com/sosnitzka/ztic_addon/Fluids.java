@@ -3,14 +3,12 @@ package com.sosnitzka.ztic_addon;
 
 import com.sosnitzka.ztic_addon.generic.BasicTinkerFluid;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import slimeknights.tconstruct.library.Util;
-import slimeknights.tconstruct.library.fluid.FluidMolten;
 
 import java.lang.reflect.Field;
 
 import static com.sosnitzka.ztic_addon.Items.*;
+import static com.sosnitzka.ztic_addon.util.Utils.registerFluid;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerMelting;
 
 public class Fluids {
@@ -67,7 +65,6 @@ public class Fluids {
                 Class<?> targetType = field.getType();
                 try {
                     BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType);
-
                     registerFluid(fluid);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -87,18 +84,5 @@ public class Fluids {
         registerMelting(Blocks.OBSIDIAN, FluidRegistry.LAVA, 432);
         registerMelting(Blocks.NETHERRACK, FluidRegistry.LAVA, 48);
         registerMelting(Blocks.STONE, FluidRegistry.LAVA, 144);
-    }
-
-
-    private static FluidMolten fluidMetal(String name, int color) {
-        FluidMolten fluid = new FluidMolten(name, color);
-        return registerFluid(fluid);
-    }
-
-    protected static <T extends Fluid> T registerFluid(T fluid) {
-        fluid.setUnlocalizedName(Util.prefix(fluid.getName()));
-        FluidRegistry.registerFluid(fluid);
-
-        return fluid;
     }
 }

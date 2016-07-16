@@ -1,0 +1,29 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "forge:fluid"
+  },
+  "variants": {
+    "arcanite": [
+      {
+        "custom": {
+          "fluid": "arcanite"
+        }
+      }
+    ],
+    "titanite": [
+      {
+        "custom": {
+          "fluid": "titanite"
+        }
+      }
+    ],
+    "dyonite": [
+      {
+        "custom": {
+          "fluid": "dyonite"
+        }
+      }
+    ]
+  }
+}
