@@ -14,9 +14,7 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
-/**
- * Created by Robert on 09.06.2016.
- */
+
 public class TraitAnalysing extends AbstractTrait {
 
     public TraitAnalysing() {

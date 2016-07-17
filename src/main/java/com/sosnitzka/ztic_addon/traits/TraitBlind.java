@@ -10,9 +10,6 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-/**
- * Created by Robert on 03.06.2016.
- */
 public class TraitBlind extends AbstractTrait {
 
     public TraitBlind() {

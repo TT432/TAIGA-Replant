@@ -6,9 +6,6 @@ import net.minecraft.util.text.TextFormatting;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-/**
- * Created by Robert on 30.06.2016.
- */
 public class TraitHeroic extends AbstractTrait {
 
     public TraitHeroic() {
@@ -24,11 +21,4 @@ public class TraitHeroic extends AbstractTrait {
             return super.damage(tool, player, target, damage, calc, isCritical);
         } else return super.damage(tool, player, target, damage, newDamage, isCritical);
     }
-
-
-    @Override
-    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
-        System.out.println("Damage: " + damage);
-    }
-
 }

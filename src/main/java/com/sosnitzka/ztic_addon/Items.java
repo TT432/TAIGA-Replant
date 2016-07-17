@@ -94,7 +94,6 @@ public class Items {
                             }
 
                             OreDictionary.registerOre(((BasicItem) item).getOreDictPrefix() + StringUtils.capitalize(oreDictName), item);
-                            System.out.println(String.format("Registered OreDict: %s", ((BasicItem) item).getOreDictPrefix() + StringUtils.capitalize(oreDictName)));
                         }
                     }
                 } catch (IllegalAccessException e) {

@@ -20,9 +20,6 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import static com.sosnitzka.ztic_addon.Items.*;
 
-/**
- * Created by Robert on 03.06.2016.
- */
 public class TraitGarishly extends AbstractTrait {
 
     public TraitGarishly() {

@@ -22,9 +22,6 @@ import static com.sosnitzka.ztic_addon.Blocks.*;
 import static slimeknights.tconstruct.shared.TinkerCommons.oreArdite;
 import static slimeknights.tconstruct.shared.TinkerCommons.oreCobalt;
 
-/**
- * Created by Robert on 03.06.2016.
- */
 public class TraitRandomize extends AbstractTrait {
 
     public TraitRandomize() {

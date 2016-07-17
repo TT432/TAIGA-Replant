@@ -11,9 +11,6 @@ import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-/**
- * Created by Robert on 14.05.2016.
- */
 public class TraitSofty extends AbstractTrait {
     private static final float chance = 0.2f;
 

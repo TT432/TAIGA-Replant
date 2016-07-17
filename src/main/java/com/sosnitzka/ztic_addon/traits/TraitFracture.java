@@ -12,9 +12,6 @@ import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-/**
- * Created by Robert on 03.06.2016.
- */
 public class TraitFracture extends AbstractTrait {
 
     public TraitFracture() {

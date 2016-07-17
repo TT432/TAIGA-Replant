@@ -5,9 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-/**
- * Created by Robert on 03.06.2016.
- */
+
 public class TraitDark extends AbstractTrait {
 
     public TraitDark() {
