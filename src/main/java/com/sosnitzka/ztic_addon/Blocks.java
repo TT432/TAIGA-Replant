@@ -14,14 +14,14 @@ import org.apache.commons.lang3.StringUtils;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-import static com.sosnitzka.ztic_addon.ZTiC.*;
+import static com.sosnitzka.ztic_addon.MaterialTraits.*;
 import static com.sosnitzka.ztic_addon.util.Utils.*;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 public class Blocks {
 
-    //regular Ores / Blocks without extra abilites
 
+    /// /regular Ores / Blocks without extra abilites
     public static Block basalt = new BasicBlock("basalt", Material.ROCK, 45.0f, 35.0f, OBSIDIAN);
     public static Block rottenGround = new BasicBlockGround("rotten_ground", Material.GROUND, 2.0f, 2.0f, STONE);
     public static Block ligniteOre = new BlockLignite();
@@ -72,29 +72,21 @@ public class Blocks {
     public static Block mindoriteBlock = new BasicBlock("mindorite_block", Material.ROCK, 12.0f, 12.0f, 2, PREFIX_BLOCK);
     public static Block karmesineBlock = new BasicBlock("karmesine_block", Material.ROCK, 13.0f, 15.0f, 3, PREFIX_BLOCK);
 
-    // LVL 1 Alloys
-    // Solide + Arcane  -> Fracturing
+
     public static Block imperomiteBlock = new BasicBlock("imperomite_block", Material.ROCK, 24.0f, 25.0f, 5, PREFIX_BLOCK);
     public static Block fractoryteBlock = new BasicBlock("fractoryte_block", Material.ROCK, 8.0f, 8.0f, 8, PREFIX_BLOCK);
-    // Arcane + Solide  -> Instable
     public static Block noctunyxBlock = new BasicBlock("noctunyx_block", Material.ROCK, 60.0f, 500.0f, 6, PREFIX_BLOCK);
     public static Block nitroniteBlock = new BasicBlock("nitronite_block", Material.ROCK, 13.0f, 15.0f, 7, PREFIX_BLOCK);
-    // Solide + Etheri  -> Core
     public static Block cryptogenBlock = new BasicBlock("cryptogen_block", Material.ROCK, 23.0f, 25.0f, 6, PREFIX_BLOCK);
     public static Block seismodiumBlock = new BasicBlock("seismodium_block", Material.ROCK, 30.0f, 30.0f, 7, 1f, PREFIX_BLOCK);
-    // Etheri + Solide  -> Striking
     public static Block aegisaltBlock = new BasicBlock("aegisalt_block", Material.ROCK, 13.0f, 13.0f, 5, PREFIX_BLOCK);
     public static Block ultraniteBlock = new BasicBlock("ultranite_block", Material.ROCK, 13.0f, 15.0f, 8, PREFIX_BLOCK);
-    // Etheri + Ratio   -> Radiating
     public static Block bysmuidBlock = new BasicBlock("bysmuid_block", Material.ROCK, 35.0f, 35.0f, 5, 0.25f, PREFIX_BLOCK);
     public static Block nucleumBlock = new BasicBlock("nucleum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
-    // Ratio + Etheri   -> Changing
     public static Block terramiteBlock = new BasicBlock("terramite_block", Material.ROCK, 70.0f, 800.0f, 4, PREFIX_BLOCK);
     public static Block solariumBlock = new BasicBlock("solarium_block", Material.ROCK, 80.0f, 1000.0f, 5, PREFIX_BLOCK);
-    // Ratio + Arcane   -> Teleporting
     public static Block lumixylBlock = new BasicBlock("lumixyl_block", Material.ROCK, 12.0f, 12.0f, 5, PREFIX_BLOCK);
     public static Block dyoniteBlock = new BasicBlock("dyonite_block", Material.ROCK, 23.0f, 25.0f, 4, PREFIX_BLOCK);
-    // Arcane + Ratio   -> Voidale
     public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
     public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 55.0f, 400.0f, 7, PREFIX_BLOCK);
 
@@ -120,7 +112,6 @@ public class Blocks {
                             } else {
                                 oreDictName = nameParts[0];
                             }
-
                             OreDictionary.registerOre(((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName), block);
                         }
                     }

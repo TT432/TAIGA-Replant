@@ -7,6 +7,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
@@ -31,6 +32,7 @@ public class TraitCurvature extends AbstractTrait {
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         if (random.nextFloat() <= 0.05 && world.provider.getDimension() != -1) {
             teleport(player, world);
+            player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
         }
     }
 
@@ -40,7 +42,9 @@ public class TraitCurvature extends AbstractTrait {
         if (random.nextFloat() <= 0.1 && w.provider.getDimension() != -1) {
             if (random.nextBoolean()) {
                 teleport(player, w);
+                target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             } else {
+                target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
                 teleport(target, w);
             }
         }
@@ -68,6 +72,7 @@ public class TraitCurvature extends AbstractTrait {
         while (w.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.AIR) {
             y--;
         }
+
         e.setPosition(x, y, z);
     }
 

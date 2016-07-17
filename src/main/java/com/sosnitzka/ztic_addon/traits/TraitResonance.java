@@ -3,7 +3,6 @@ package com.sosnitzka.ztic_addon.traits;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 /**
@@ -14,7 +13,6 @@ public class TraitResonance extends AbstractTrait {
 
     public TraitResonance() {
         super("resonance", TextFormatting.AQUA);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override

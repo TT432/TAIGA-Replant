@@ -10,7 +10,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
@@ -23,7 +22,6 @@ public class TraitGlimmer extends AbstractTrait {
 
     public TraitGlimmer() {
         super("glimmer", TextFormatting.DARK_GRAY);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
@@ -39,14 +37,14 @@ public class TraitGlimmer extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (random.nextFloat() <= 0.05) {
+        if (random.nextFloat() <= 0.08) {
             player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, random.nextInt(600) + 300));
         }
     }
 
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
-        if (random.nextFloat() <= 0.05) {
+        if (random.nextFloat() <= 0.08) {
             player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, random.nextInt(600) + 300));
         }
     }

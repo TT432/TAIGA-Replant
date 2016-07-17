@@ -60,7 +60,7 @@ public class TraitAnalysing extends AbstractTrait {
 
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
-        if (random.nextFloat() < 0.75) {
+        if (random.nextFloat() < 0.85) {
             event.getDrops().clear();
         }
     }

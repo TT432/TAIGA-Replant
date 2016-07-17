@@ -1,8 +1,8 @@
 [{
   "modid": "ztic_addon",
   "name": "Tinkers ",
-  "description": "A modification for Tinkers' Construct, adding several ores and materials",
-  "version": "0.5",
+  "description": "A modification for Tinkers' Construct! 32 New Materials including a special alloy system",
+  "version": "0.9",
   "mcversion": "1.9",
   "url": "www.sosnitzka.com",
   "updateUrl": "",

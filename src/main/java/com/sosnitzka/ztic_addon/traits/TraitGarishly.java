@@ -4,7 +4,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -69,13 +68,12 @@ public class TraitGarishly extends AbstractTrait {
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         float r = random.nextFloat();
-        if (r > 0.9f) event.getDrops().clear();
-        else if (r < 0.5f && r > 0.4f && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
+        if (r > 0.5f) event.getDrops().clear();
+        else if (r < 0.1 && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
             ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(5));
             event.getDrops().add(0, stack);
             ToolHelper.damageTool(tool, random.nextInt(6) + 1, event.getHarvester());
-        } else if (r < 1 && random.nextBoolean())
-            event.getWorld().setBlockState(event.getPos(), Blocks.LAVA.getDefaultState());
+        }
     }
 
 

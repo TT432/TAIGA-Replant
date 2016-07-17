@@ -27,7 +27,7 @@ repositories {
     }
 }
 
-version = "0.5"
+version = "0.9"
 group = "com.sosnitzka.ztic_addon" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ztic_addon"
 

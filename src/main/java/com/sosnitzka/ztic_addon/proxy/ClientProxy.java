@@ -22,7 +22,7 @@ import slimeknights.tconstruct.library.materials.Material;
 import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 
-import static com.sosnitzka.ztic_addon.Materials.*;
+import static com.sosnitzka.ztic_addon.MaterialTraits.*;
 
 public class ClientProxy extends ServerProxy {
 

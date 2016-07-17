@@ -34,6 +34,7 @@ public class TraitArcane extends AbstractTrait {
         }
     }
 
+
     public boolean isNight(int time) {
         if (time > 12500) {
             return true;

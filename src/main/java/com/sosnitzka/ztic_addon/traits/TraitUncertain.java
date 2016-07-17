@@ -19,6 +19,9 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import static com.sosnitzka.ztic_addon.Items.glimmerstone_dust;
+import static com.sosnitzka.ztic_addon.Items.tiberiumShardStable;
+
 
 public class TraitUncertain extends AbstractTrait {
 
@@ -32,11 +35,11 @@ public class TraitUncertain extends AbstractTrait {
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         if (random.nextFloat() <= 0.05) {
             if (!world.isRemote) {
-                if (random.nextFloat() > 0.15f) {
+                if (random.nextFloat() > 0.1f) {
                     explode(world, player, pos.getX(), pos.getY(), pos.getZ());
                 } else explode(world, null, pos.getX(), pos.getY(), pos.getZ());
             }
-            ToolHelper.damageTool(tool, 5 + random.nextInt(10), null);
+            ToolHelper.damageTool(tool, random.nextInt(5) + 1, null);
         }
     }
 
@@ -46,13 +49,30 @@ public class TraitUncertain extends AbstractTrait {
         if (event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
             if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
-                ItemStack i = new ItemStack(Items.GUNPOWDER, random.nextInt(4));
+                ItemStack i = new ItemStack(Items.COAL, random.nextInt(4));
+                if (random.nextBoolean()) {
+                    int r = random.nextInt(4);
+                    switch (r) {
+                        case 0:
+                            i = new ItemStack(Items.GUNPOWDER, random.nextInt(4));
+                            break;
+                        case 1:
+                            i = new ItemStack(tiberiumShardStable, random.nextInt(4));
+                            break;
+                        case 2:
+                            i = new ItemStack(tiberiumShardStable, random.nextInt(4));
+                            break;
+                        case 3:
+                            i = new ItemStack(glimmerstone_dust, random.nextInt(4));
+                            break;
+                    }
+                }
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }
         }
     }
 
     private void explode(World w, Entity e, double x, double y, double z) {
-        w.newExplosion(e, x, y, z, 1.2f + random.nextFloat() * 35, random.nextBoolean(), true);
+        w.newExplosion(e, x, y, z, 1.2f + random.nextFloat() * 5, random.nextBoolean(), true);
     }
 }

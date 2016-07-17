@@ -2,7 +2,6 @@ package com.sosnitzka.ztic_addon.traits;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -15,7 +14,6 @@ public class TraitPulverizing extends AbstractTrait {
 
     public TraitPulverizing() {
         super("pulverizing", TextFormatting.DARK_GRAY);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override

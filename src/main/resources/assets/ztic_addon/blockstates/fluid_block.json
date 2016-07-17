@@ -11,10 +11,185 @@
         }
       }
     ],
+    "tiberium": [
+      {
+        "custom": {
+          "fluid": "tiberium"
+        }
+      }
+    ],
+    "prometheum": [
+      {
+        "custom": {
+          "fluid": "prometheum"
+        }
+      }
+    ],
+    "rubium": [
+      {
+        "custom": {
+          "fluid": "rubium"
+        }
+      }
+    ],
+    "violium": [
+      {
+        "custom": {
+          "fluid": "violium"
+        }
+      }
+    ],
+    "bismuth": [
+      {
+        "custom": {
+          "fluid": "bismuth"
+        }
+      }
+    ],
+    "karmesine": [
+      {
+        "custom": {
+          "fluid": "karmesine"
+        }
+      }
+    ],
+    "mindorite": [
+      {
+        "custom": {
+          "fluid": "mindorite"
+        }
+      }
+    ],
     "titanite": [
       {
         "custom": {
           "fluid": "titanite"
+        }
+      }
+    ],
+    "meteorite": [
+      {
+        "custom": {
+          "fluid": "meteorite"
+        }
+      }
+    ],
+    "adamantite": [
+      {
+        "custom": {
+          "fluid": "adamantite"
+        }
+      }
+    ],
+    "vibranium": [
+      {
+        "custom": {
+          "fluid": "vibranium"
+        }
+      }
+    ],
+    "ignitite": [
+      {
+        "custom": {
+          "fluid": "ignitite"
+        }
+      }
+    ],
+    "palladium": [
+      {
+        "custom": {
+          "fluid": "palladium"
+        }
+      }
+    ],
+    "eternite": [
+      {
+        "custom": {
+          "fluid": "eternite"
+        }
+      }
+    ],
+    "mythril": [
+      {
+        "custom": {
+          "fluid": "mythril"
+        }
+      }
+    ],
+    "astrium": [
+      {
+        "custom": {
+          "fluid": "astrium"
+        }
+      }
+    ],
+    "nitronite": [
+      {
+        "custom": {
+          "fluid": "nitronite"
+        }
+      }
+    ],
+    "proxideum": [
+      {
+        "custom": {
+          "fluid": "proxideum"
+        }
+      }
+    ],
+    "noctunyx": [
+      {
+        "custom": {
+          "fluid": "noctunyx"
+        }
+      }
+    ],
+    "imperomite": [
+      {
+        "custom": {
+          "fluid": "imperomite"
+        }
+      }
+    ],
+    "cryptogen": [
+      {
+        "custom": {
+          "fluid": "cryptogen"
+        }
+      }
+    ],
+    "fractoryte": [
+      {
+        "custom": {
+          "fluid": "fractoryte"
+        }
+      }
+    ],
+    "seismodium": [
+      {
+        "custom": {
+          "fluid": "seismodium"
+        }
+      }
+    ],
+    "terramite": [
+      {
+        "custom": {
+          "fluid": "terramite"
+        }
+      }
+    ],
+    "lumixyl": [
+      {
+        "custom": {
+          "fluid": "lumixyl"
+        }
+      }
+    ],
+    "solarium": [
+      {
+        "custom": {
+          "fluid": "solarium"
         }
       }
     ],
@@ -25,10 +200,80 @@
         }
       }
     ],
-    "astrium": [
+    "ultranite": [
       {
         "custom": {
-          "fluid": "astrium"
+          "fluid": "ultranite"
+        }
+      }
+    ],
+    "nucleum": [
+      {
+        "custom": {
+          "fluid": "nucleum"
+        }
+      }
+    ],
+    "aegisalt": [
+      {
+        "custom": {
+          "fluid": "aegisalt"
+        }
+      }
+    ],
+    "bysmuid": [
+      {
+        "custom": {
+          "fluid": "bysmuid"
+        }
+      }
+    ],
+    "radiant_enderium": [
+      {
+        "custom": {
+          "fluid": "radiant_enderium"
+        }
+      }
+    ],
+    "glimming_enderium": [
+      {
+        "custom": {
+          "fluid": "glimming_enderium"
+        }
+      }
+    ],
+    "energy_enderium": [
+      {
+        "custom": {
+          "fluid": "energy_enderium"
+        }
+      }
+    ],
+    "glimmercoal_fluid": [
+      {
+        "custom": {
+          "fluid": "glimmercoal_fluid"
+        }
+      }
+    ],
+    "nitro_fluid": [
+      {
+        "custom": {
+          "fluid": "nitro_fluid"
+        }
+      }
+    ],
+    "anthracite_fluid": [
+      {
+        "custom": {
+          "fluid": "anthracite_fluid"
+        }
+      }
+    ],
+    "spectrum_fluid": [
+      {
+        "custom": {
+          "fluid": "spectrum_fluid"
         }
       }
     ]

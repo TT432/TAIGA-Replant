@@ -24,7 +24,7 @@ public class Utils {
 
     public static void registerFluid(Fluid fluid) {
         FluidRegistry.registerFluid(fluid);
-        //FluidRegistry.addBucketForFluid(fluid);
+        FluidRegistry.addBucketForFluid(fluid);
     }
 
     public static void registerTinkerAlloys(Fluid alloy, int out, Fluid first, int inOne, Fluid second, int inTwo) {

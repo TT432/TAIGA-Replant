@@ -7,11 +7,11 @@ import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -29,7 +29,6 @@ public class TraitRandomize extends AbstractTrait {
 
     public TraitRandomize() {
         super("randomize", TextFormatting.DARK_RED);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
@@ -44,6 +43,7 @@ public class TraitRandomize extends AbstractTrait {
         if (random.nextFloat() <= .15 && target instanceof EntityLiving) {
             World w = player.getEntityWorld();
             Entity e = new EntityCow(w);
+            target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             if (!w.isRemote) {
                 int i = random.nextInt(22);
                 switch (i) {
@@ -128,9 +128,9 @@ public class TraitRandomize extends AbstractTrait {
         float r = random.nextFloat();
         if (r > 0.95f) event.getDrops().clear();
         if (event.getDrops() != null) {
-            if (r < 0.4f && event.getDrops().get(0).getItem() == Item.getItemFromBlock(Blocks.IRON_ORE)) {
+            if (r < 0.4f && (event.getDrops().get(0).getItem() == Item.getItemFromBlock(Blocks.IRON_ORE) || event.getDrops().get(0).getItem() == Item.getItemFromBlock(Blocks.GOLD_ORE))) {
                 ItemStack change = new ItemStack(Item.getItemFromBlock(Blocks.IRON_ORE));
-                int i = random.nextInt(11);
+                int i = random.nextInt(12);
                 switch (i) {
                     case 0:
                         change = new ItemStack(Item.getItemFromBlock(Blocks.GOLD_ORE));
@@ -164,6 +164,9 @@ public class TraitRandomize extends AbstractTrait {
                         break;
                     case 10:
                         change = new ItemStack(eterniteOre);
+                        break;
+                    case 11:
+                        change = new ItemStack(Item.getItemFromBlock(Blocks.IRON_ORE));
                         break;
                 }
                 event.getDrops().set(0, change);
