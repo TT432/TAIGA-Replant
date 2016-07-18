@@ -37,7 +37,6 @@ public class Items {
     public static Item anthracite_dust = new BasicItem("anthracite_dust");
     public static Item nitro_brick = new BasicItem("nitro_brick");
 
-
     public static Item titaniteIngot = new BasicItem("titanite_ingot", PREFIX_INGOT);
     public static Item adamantiteIngot = new BasicItem("adamantite_ingot", PREFIX_INGOT);
     public static Item arcaniteIngot = new BasicItem("arcanite_ingot", PREFIX_INGOT);
@@ -103,7 +102,10 @@ public class Items {
                 }
             }
         }
-        OreDictionary.registerOre("ironNugget", iron_nugget);
+        OreDictionary.registerOre("nuggetIron", iron_nugget);
+        OreDictionary.registerOre("ingotIron", slagironIngot);
+        OreDictionary.registerOre("ingotGold", slaggoldIngot);
+
     }
 
 }
