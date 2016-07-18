@@ -20,7 +20,9 @@ import static com.sosnitzka.taiga.util.Utils.PREFIX_NUGGET;
 
 public class Items {
     public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
-    public static ItemLignite lignite = new ItemLignite();
+    public static Item lignite = new ItemLignite("lignite", "lignite");
+    public static Item lignite2 = new ItemLignite("lignite", "lignite2");
+    public static Item lignite3 = new ItemLignite("lignite", "lignite3");
     public static ItemIronNugget iron_nugget = new ItemIronNugget();
     public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
     public static Item fuel_brick = new BasicItem("fuel_brick");

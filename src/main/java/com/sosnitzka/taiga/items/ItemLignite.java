@@ -4,8 +4,8 @@ import com.sosnitzka.taiga.generic.BasicItem;
 
 public class ItemLignite extends BasicItem {
 
-    public ItemLignite() {
-        super("lignite");
+    public ItemLignite(String name, String registry) {
+        super(name, null, registry);
     }
 
 }
