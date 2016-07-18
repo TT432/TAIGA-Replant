@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "taiga:mindorite_block"
+    }
+  }
+}

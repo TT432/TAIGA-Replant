@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "taiga:palladium_block"
+    }
+  }
+}

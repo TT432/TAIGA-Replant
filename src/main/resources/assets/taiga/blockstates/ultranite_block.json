@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "taiga:ultranite_block"
+    }
+  }
+}
