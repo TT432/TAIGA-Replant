@@ -1,3 +1,4 @@
+![TAIGA IMAGE](http://www.sosnitzka.com/alt/files/taiga256.jpg)
 
 Tinkers Alloying Addon(TAIGA)
 ===============
@@ -18,9 +19,14 @@ Download
 
 Dependencies
 ===============
-Just the newest Version of Tinkers Construct (actual for 1.10.2)
+Necessary:
+* Tinkers Construct for 1.10.2 + associated version of mantle
+* Minecraft Forge 1.10.2
 
-[Get it here](http://minecraft.curseforge.com/projects/tinkers-construct/files)
+Recommended Versions
+
+[Tinkers Construct 1.10-2.3.3a](http://minecraft.curseforge.com/projects/tinkers-construct/files)
+[Minecraft Forge 12.18.1.2011](http://files.minecraftforge.net/)
 
 Whats going on?
 ===
