@@ -103,5 +103,7 @@ public class Items {
                 }
             }
         }
+        OreDictionary.registerOre("ironNugget", iron_nugget);
     }
+
 }
