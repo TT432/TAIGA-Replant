@@ -46,6 +46,7 @@ public class TAIGA {
         Blocks.register();
         Fluids.registerfromItem();
         Alloys.register();
+        ConfigHandler.init(e.getSuggestedConfigurationFile());
 
         // ARCANE ORES
         registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 223, 6.2f, 8.35f, 0.63f, 50, 50, OBSIDIAN, false, true);
