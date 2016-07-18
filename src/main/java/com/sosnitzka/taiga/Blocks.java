@@ -25,8 +25,8 @@ public class Blocks {
     public static Block basalt = new BasicBlock("basalt", Material.ROCK, 45.0f, 35.0f, OBSIDIAN);
     public static Block rottenGround = new BasicBlockGround("rotten_ground", Material.GROUND, 2.0f, 2.0f, STONE);
     public static Block ligniteOre = new BlockLignite();
-    public static Block slagironOre = new BasicBlock("slagiron_ore", Material.ROCK, 3.0f, 5.0f, IRON, PREFIX_NUGGET);
-    public static Block slaggoldOre = new BasicBlock("slaggold_ore", Material.ROCK, 3.0f, 5.0f, IRON, PREFIX_NUGGET);
+    public static Block slagironOre = new BasicBlock("slagiron_ore", Material.ROCK, 3.0f, 5.0f, IRON);
+    public static Block slaggoldOre = new BasicBlock("slaggold_ore", Material.ROCK, 3.0f, 5.0f, IRON);
 
     // Ores
     // Group: Solide
@@ -102,7 +102,7 @@ public class Blocks {
                     Block block = (Block) field.get(targetType);
                     Utils.registerBlockWithItem(block);
 
-                    if (block instanceof BasicBlock) {
+                    if (block instanceof BasicBlock && ((BasicBlock) block).getOreDictPrefix() != null) {
                         if (((BasicBlock) block).isOreDict()) {
                             String oreDictName;
                             String[] nameParts = block.getUnlocalizedName().replace("tile.", "").split("_");
@@ -120,5 +120,8 @@ public class Blocks {
                 }
             }
         }
+
+        OreDictionary.registerOre("nuggetIron", slagironOre);
+        OreDictionary.registerOre("nuggetGold", slaggoldOre);
     }
 }
