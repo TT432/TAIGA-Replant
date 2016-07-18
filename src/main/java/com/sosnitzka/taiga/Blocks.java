@@ -102,7 +102,7 @@ public class Blocks {
                     Block block = (Block) field.get(targetType);
                     Utils.registerBlockWithItem(block);
 
-                    if (block instanceof BasicBlock && ((BasicBlock) block).getOreDictPrefix() != null) {
+                    if (block instanceof BasicBlock) {
                         if (((BasicBlock) block).isOreDict()) {
                             String oreDictName;
                             String[] nameParts = block.getUnlocalizedName().replace("tile.", "").split("_");
