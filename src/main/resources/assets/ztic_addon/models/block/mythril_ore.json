@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "ztic_addon:blocks/mythril_ore"
+        "all": "taiga:blocks/mythril_ore"
     }
 }

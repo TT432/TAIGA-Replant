@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/terramite_block",
+  "parent": "taiga:block/terramite_block",
   "display": {
     "thirdperson": {
       "rotation": [

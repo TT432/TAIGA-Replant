@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/nitronite_block"
+    "all": "taiga:blocks/nitronite_block"
   }
 }

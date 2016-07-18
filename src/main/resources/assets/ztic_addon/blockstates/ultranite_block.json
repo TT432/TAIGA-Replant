@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:ultranite_block"
+      "model": "taiga:ultranite_block"
     }
   }
 }

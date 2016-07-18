@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/vibranium_block",
+  "parent": "taiga:block/vibranium_block",
   "display": {
     "thirdperson": {
       "rotation": [

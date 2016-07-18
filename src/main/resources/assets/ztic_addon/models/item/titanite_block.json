@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/titanite_block",
+  "parent": "taiga:block/titanite_block",
   "display": {
     "thirdperson": {
       "rotation": [

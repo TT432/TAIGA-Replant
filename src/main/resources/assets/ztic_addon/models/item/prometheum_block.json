@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/prometheum_block",
+  "parent": "taiga:block/prometheum_block",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/palladium_block",
+  "parent": "taiga:block/palladium_block",
   "display": {
     "thirdperson": {
       "rotation": [

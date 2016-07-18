@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ztic_addon:items/tiberium_shard_instable"
+    "layer0": "taiga:items/tiberium_shard_instable"
   }
 }

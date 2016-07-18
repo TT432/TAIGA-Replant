@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:prometheum_block"
+      "model": "taiga:prometheum_block"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/bismuth_ore",
+    "parent": "taiga:block/bismuth_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

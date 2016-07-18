@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:cryptogen_block"
+      "model": "taiga:cryptogen_block"
     }
   }
 }

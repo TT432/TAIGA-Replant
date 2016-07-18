@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/adamantite_block",
+  "parent": "taiga:block/adamantite_block",
   "display": {
     "thirdperson": {
       "rotation": [

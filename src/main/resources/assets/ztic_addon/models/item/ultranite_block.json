@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/ultranite_block",
+  "parent": "taiga:block/ultranite_block",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/palladium_ore",
+    "parent": "taiga:block/palladium_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

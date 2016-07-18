@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:titanite_ore"
+            "model": "taiga:titanite_ore"
         }
     }
 }

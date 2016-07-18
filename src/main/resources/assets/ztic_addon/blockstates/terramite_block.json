@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:terramite_block"
+      "model": "taiga:terramite_block"
     }
   }
 }

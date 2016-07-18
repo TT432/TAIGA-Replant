@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:violium_ore"
+            "model": "taiga:violium_ore"
         }
     }
 }

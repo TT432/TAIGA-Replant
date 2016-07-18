@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:lignite_ore"
+            "model": "taiga:lignite_ore"
         }
     }
 }

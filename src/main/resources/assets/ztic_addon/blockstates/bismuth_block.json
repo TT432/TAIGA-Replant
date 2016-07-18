@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:bismuth_block"
+      "model": "taiga:bismuth_block"
     }
   }
 }

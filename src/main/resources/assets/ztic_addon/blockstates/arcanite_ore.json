@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:arcanite_ore"
+            "model": "taiga:arcanite_ore"
         }
     }
 }

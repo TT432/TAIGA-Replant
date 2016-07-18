@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:titanite_block"
+      "model": "taiga:titanite_block"
     }
   }
 }

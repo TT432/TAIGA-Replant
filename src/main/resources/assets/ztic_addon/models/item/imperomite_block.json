@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/imperomite_block",
+  "parent": "taiga:block/imperomite_block",
   "display": {
     "thirdperson": {
       "rotation": [

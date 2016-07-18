@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/cryptogen_block",
+  "parent": "taiga:block/cryptogen_block",
   "display": {
     "thirdperson": {
       "rotation": [

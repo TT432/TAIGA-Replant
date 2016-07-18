@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/aegisalt_block",
+  "parent": "taiga:block/aegisalt_block",
   "display": {
     "thirdperson": {
       "rotation": [

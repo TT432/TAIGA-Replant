@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:karmesine_ore"
+            "model": "taiga:karmesine_ore"
         }
     }
 }

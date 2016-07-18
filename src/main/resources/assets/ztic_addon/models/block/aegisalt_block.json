@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/aegisalt_block"
+    "all": "taiga:blocks/aegisalt_block"
   }
 }

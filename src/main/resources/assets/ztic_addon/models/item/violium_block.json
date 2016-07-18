@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/violium_block",
+  "parent": "taiga:block/violium_block",
   "display": {
     "thirdperson": {
       "rotation": [

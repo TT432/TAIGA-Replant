@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:meteorite_block"
+      "model": "taiga:meteorite_block"
     }
   }
 }

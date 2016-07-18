@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/karmesine_block",
+  "parent": "taiga:block/karmesine_block",
   "display": {
     "thirdperson": {
       "rotation": [

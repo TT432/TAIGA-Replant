@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/karmesine_ore",
+    "parent": "taiga:block/karmesine_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

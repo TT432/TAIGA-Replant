@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/meteorite_block",
+  "parent": "taiga:block/meteorite_block",
   "display": {
     "thirdperson": {
       "rotation": [

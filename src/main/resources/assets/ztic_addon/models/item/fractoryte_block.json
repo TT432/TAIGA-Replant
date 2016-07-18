@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/fractoryte_block",
+  "parent": "taiga:block/fractoryte_block",
   "display": {
     "thirdperson": {
       "rotation": [

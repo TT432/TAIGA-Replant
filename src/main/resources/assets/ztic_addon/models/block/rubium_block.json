@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/rubium_block"
+    "all": "taiga:blocks/rubium_block"
   }
 }

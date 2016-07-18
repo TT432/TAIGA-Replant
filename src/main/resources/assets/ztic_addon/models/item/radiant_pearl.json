@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ztic_addon:items/radiant_pearl"
+    "layer0": "taiga:items/radiant_pearl"
   }
 }

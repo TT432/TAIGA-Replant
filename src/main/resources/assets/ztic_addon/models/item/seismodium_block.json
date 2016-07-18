@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/seismodium_block",
+  "parent": "taiga:block/seismodium_block",
   "display": {
     "thirdperson": {
       "rotation": [

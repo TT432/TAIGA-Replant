@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "ztic_addon:blocks/violium_ore"
+        "all": "taiga:blocks/violium_ore"
     }
 }

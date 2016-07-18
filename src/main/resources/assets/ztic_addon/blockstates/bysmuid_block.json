@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:bysmuid_block"
+      "model": "taiga:bysmuid_block"
     }
   }
 }

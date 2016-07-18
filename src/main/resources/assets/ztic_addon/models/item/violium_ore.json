@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/violium_ore",
+    "parent": "taiga:block/violium_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

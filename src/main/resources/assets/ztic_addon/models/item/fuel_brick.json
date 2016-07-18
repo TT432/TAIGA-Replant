@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ztic_addon:items/fuel_brick"
+        "layer0": "taiga:items/fuel_brick"
     }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:nucleum_block"
+      "model": "taiga:nucleum_block"
     }
   }
 }

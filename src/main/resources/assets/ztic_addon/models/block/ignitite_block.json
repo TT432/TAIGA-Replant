@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/ignitite_block"
+    "all": "taiga:blocks/ignitite_block"
   }
 }

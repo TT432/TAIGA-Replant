@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:ignitite_ore"
+            "model": "taiga:ignitite_ore"
         }
     }
 }

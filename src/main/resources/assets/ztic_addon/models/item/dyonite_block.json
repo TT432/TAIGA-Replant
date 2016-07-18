@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/dyonite_block",
+  "parent": "taiga:block/dyonite_block",
   "display": {
     "thirdperson": {
       "rotation": [

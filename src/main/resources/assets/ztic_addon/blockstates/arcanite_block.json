@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:arcanite_block"
+      "model": "taiga:arcanite_block"
     }
   }
 }

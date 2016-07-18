@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:fractoryte_block"
+      "model": "taiga:fractoryte_block"
     }
   }
 }

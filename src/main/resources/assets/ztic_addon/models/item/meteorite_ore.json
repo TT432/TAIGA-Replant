@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/meteorite_ore",
+    "parent": "taiga:block/meteorite_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

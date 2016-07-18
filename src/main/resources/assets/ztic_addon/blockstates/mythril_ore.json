@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:mythril_ore"
+            "model": "taiga:mythril_ore"
         }
     }
 }

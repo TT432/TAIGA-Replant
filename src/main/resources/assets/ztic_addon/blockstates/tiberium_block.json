@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:tiberium_block"
+      "model": "taiga:tiberium_block"
     }
   }
 }

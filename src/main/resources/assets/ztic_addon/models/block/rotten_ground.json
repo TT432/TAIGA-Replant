@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "ztic_addon:blocks/rotten_ground"
+        "all": "taiga:blocks/rotten_ground"
     }
 }

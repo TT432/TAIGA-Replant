@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:meteorite_ore"
+            "model": "taiga:meteorite_ore"
         }
     }
 }

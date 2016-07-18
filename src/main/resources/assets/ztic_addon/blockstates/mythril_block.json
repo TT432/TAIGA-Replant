@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:mythril_block"
+      "model": "taiga:mythril_block"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/noctunyx_block",
+  "parent": "taiga:block/noctunyx_block",
   "display": {
     "thirdperson": {
       "rotation": [

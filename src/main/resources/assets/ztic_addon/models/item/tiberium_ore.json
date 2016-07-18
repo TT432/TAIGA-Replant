@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/tiberium_ore",
+    "parent": "taiga:block/tiberium_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

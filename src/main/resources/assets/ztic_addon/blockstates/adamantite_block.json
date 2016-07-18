@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:adamantite_block"
+      "model": "taiga:adamantite_block"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:vibranium_block"
+      "model": "taiga:vibranium_block"
     }
   }
 }

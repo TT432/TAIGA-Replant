@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/lumixyl_block",
+  "parent": "taiga:block/lumixyl_block",
   "display": {
     "thirdperson": {
       "rotation": [

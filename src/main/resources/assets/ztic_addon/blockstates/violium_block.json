@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:violium_block"
+      "model": "taiga:violium_block"
     }
   }
 }

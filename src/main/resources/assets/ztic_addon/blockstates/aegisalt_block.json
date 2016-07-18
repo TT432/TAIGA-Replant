@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:aegisalt_block"
+      "model": "taiga:aegisalt_block"
     }
   }
 }

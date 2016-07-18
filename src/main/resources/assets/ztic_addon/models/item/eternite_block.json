@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/eternite_block",
+  "parent": "taiga:block/eternite_block",
   "display": {
     "thirdperson": {
       "rotation": [

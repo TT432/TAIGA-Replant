@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:palladium_block"
+      "model": "taiga:palladium_block"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/arcanite_block",
+  "parent": "taiga:block/arcanite_block",
   "display": {
     "thirdperson": {
       "rotation": [

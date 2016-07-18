@@ -28,8 +28,8 @@ repositories {
 }
 
 version = "0.9"
-group = "com.sosnitzka.ztic_addon" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "ztic_addon"
+group = "com.sosnitzka.taiga" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "taiga"
 
 minecraft {
     version = "1.10.2-12.18.1.2011"

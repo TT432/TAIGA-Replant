@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:rotten_ground"
+            "model": "taiga:rotten_ground"
         }
     }
 }

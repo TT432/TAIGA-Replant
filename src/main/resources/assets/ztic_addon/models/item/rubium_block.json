@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/rubium_block",
+  "parent": "taiga:block/rubium_block",
   "display": {
     "thirdperson": {
       "rotation": [

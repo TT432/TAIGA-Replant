@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ztic_addon:items/glimmerstone_dust"
+    "layer0": "taiga:items/glimmerstone_dust"
   }
 }

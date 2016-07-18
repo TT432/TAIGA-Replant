@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/solarium_block",
+  "parent": "taiga:block/solarium_block",
   "display": {
     "thirdperson": {
       "rotation": [

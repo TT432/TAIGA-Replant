@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:mindorite_ore"
+            "model": "taiga:mindorite_ore"
         }
     }
 }

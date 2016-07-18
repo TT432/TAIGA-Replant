@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:dyonite_block"
+      "model": "taiga:dyonite_block"
     }
   }
 }

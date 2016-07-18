@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:bismuth_ore"
+            "model": "taiga:bismuth_ore"
         }
     }
 }

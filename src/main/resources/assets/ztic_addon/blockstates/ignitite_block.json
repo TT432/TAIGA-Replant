@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:ignitite_block"
+      "model": "taiga:ignitite_block"
     }
   }
 }

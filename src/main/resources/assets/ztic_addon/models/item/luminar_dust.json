@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ztic_addon:items/luminar_dust"
+    "layer0": "taiga:items/luminar_dust"
   }
 }

@@ -1,7 +1,7 @@
 {
     "variants": {
         "normal": {
-            "model": "ztic_addon:prometheum_ore"
+            "model": "taiga:prometheum_ore"
         }
     }
 }

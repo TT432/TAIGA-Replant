@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/proxideum_block"
+    "all": "taiga:blocks/proxideum_block"
   }
 }

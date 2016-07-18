@@ -1,5 +1,5 @@
 {
-    "parent": "ztic_addon:block/mindorite_ore",
+    "parent": "taiga:block/mindorite_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

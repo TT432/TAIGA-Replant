@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "ztic_addon:seismodium_block"
+      "model": "taiga:seismodium_block"
     }
   }
 }

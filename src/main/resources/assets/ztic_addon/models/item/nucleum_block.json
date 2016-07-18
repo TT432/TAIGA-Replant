@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/nucleum_block",
+  "parent": "taiga:block/nucleum_block",
   "display": {
     "thirdperson": {
       "rotation": [

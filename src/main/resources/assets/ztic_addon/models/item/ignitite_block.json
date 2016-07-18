@@ -1,5 +1,5 @@
 {
-  "parent": "ztic_addon:block/ignitite_block",
+  "parent": "taiga:block/ignitite_block",
   "display": {
     "thirdperson": {
       "rotation": [

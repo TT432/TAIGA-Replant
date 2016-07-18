@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ztic_addon:blocks/cryptogen_block"
+    "all": "taiga:blocks/cryptogen_block"
   }
 }
