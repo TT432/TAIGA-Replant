@@ -27,9 +27,7 @@ import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
-@Mod(modid = TAIGA.MODID, version = TAIGA.VERSION)
-
-
+@Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)")
 public class TAIGA {
 
     public static final String MODID = "taiga";
