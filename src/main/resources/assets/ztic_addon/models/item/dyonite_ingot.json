@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "taiga:items/tic/dyonite_ingot"
-  }
-}
