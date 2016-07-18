@@ -23,9 +23,9 @@ Necessary:
 * Tinkers Construct for 1.10.2 + associated version of mantle
 * Minecraft Forge 1.10.2
 
-Recommended Versions
+Tested with:
 
-[Tinkers Construct 1.10-2.3.3a](http://minecraft.curseforge.com/projects/tinkers-construct/files)
+[Tinkers Construct 2.3.3a](http://minecraft.curseforge.com/projects/tinkers-construct/files)
 [Minecraft Forge 12.18.1.2011](http://files.minecraftforge.net/)
 
 Whats going on?
