@@ -27,7 +27,7 @@ repositories {
     }
 }
 
-version = "0.9"
+version = "1.0"
 group = "com.sosnitzka.taiga" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "taiga"
 
