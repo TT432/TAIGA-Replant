@@ -15,7 +15,8 @@ import java.lang.reflect.Field;
 import java.util.Arrays;
 
 import static com.sosnitzka.taiga.MaterialTraits.*;
-import static com.sosnitzka.taiga.util.Utils.*;
+import static com.sosnitzka.taiga.util.Utils.PREFIX_BLOCK;
+import static com.sosnitzka.taiga.util.Utils.PREFIX_ORE;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 public class Blocks {
@@ -89,8 +90,6 @@ public class Blocks {
     public static Block dyoniteBlock = new BasicBlock("dyonite_block", Material.ROCK, 23.0f, 25.0f, 4, PREFIX_BLOCK);
     public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
     public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 55.0f, 400.0f, 7, PREFIX_BLOCK);
-
-    //public static Block fluidBlock = new BlockMolten(Fluids.astriumFluid);
 
 
     public static void register() {

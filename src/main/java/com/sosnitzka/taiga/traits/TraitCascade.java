@@ -19,11 +19,13 @@ public class TraitCascade extends AbstractTrait {
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         float f = random.nextFloat();
         float b = 0.99F * calcBonus(tool);
+
         if (!world.isRemote && tool.canHarvestBlock(state) && f <= b) {
             double x, y, z, sx, sy, sz;
             sx = x = pos.getX();
             sy = y = pos.getY();
             sz = z = pos.getZ();
+
             for (int i = random.nextInt(ToolHelper.getCurrentDurability(tool)); i > 0; i--) {
                 int r = random.nextInt(3);
                 int d = random.nextBoolean() ? 1 : -1;
@@ -42,11 +44,8 @@ public class TraitCascade extends AbstractTrait {
                     y = sy;
                     z = sz;
                 }
-
             }
-
         }
-
     }
 
     private float calcBonus(ItemStack tool) {
