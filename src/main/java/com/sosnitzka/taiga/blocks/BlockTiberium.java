@@ -34,7 +34,7 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 1, 5 + fortune));
+        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 2, 4 + fortune));
     }
 
     @Override

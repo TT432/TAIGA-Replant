@@ -33,7 +33,7 @@ public class TraitFragile extends AbstractTrait {
                 sx = x = pos.getX();
                 sy = y = pos.getY();
                 sz = z = pos.getZ();
-                for (int i = random.nextInt(50) + 50; i > 0; i--) {
+                for (int i = random.nextInt(10) + 9; i > 0; i--) {
                     int r = random.nextInt(3);
                     int d = random.nextBoolean() ? 1 : -1;
                     if (r == 0) x += d;
