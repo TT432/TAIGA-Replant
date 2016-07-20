@@ -6,12 +6,18 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'com.matthewprenger:CurseGradle:1.0.7'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: "com.matthewprenger.cursegradle"
 
 repositories {
     mavenLocal()
@@ -27,8 +33,7 @@ repositories {
     }
 }
 
-version = "1.0.1"
-group = "com.sosnitzka.taiga" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "taiga"
 
 minecraft {
@@ -57,6 +62,41 @@ dependencies {
     //compile files('libs/TConstruct-1.9-2.3.1.DEV.1d4c1de-deobf.jar')
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir 'resources'
+        }
+    }
+}
+
+task buildInfo {
+    def cmd = "git name-rev --tags --name-only \$(git rev-parse HEAD)"
+    def proc = cmd.execute()
+    proc.waitFor()
+    if (proc.exitValue() == 0) {
+        ext.tag = proc.text.trim()
+    }
+
+    if (System.getenv().BUILD_NUMBER != null) {
+        ext.buildNum = System.getenv().BUILD_NUMBER
+    }
+
+    ext.mc_version = ext.minecraft.version.split('-')[0]
+
+    def cmd_changes = "git log `git describe --tags \$(git rev-list --tags --max-count=2) | sed -n '2p'`..`git describe --tags --abbrev=0` --oneline"
+    def proc_changes = cmd_changes.execute()
+    proc_changes.waitFor()
+    if (proc_changes.exitValue() == 0) {
+        ext.changes = proc_changes.text.trim()
+    } else {
+        ext.changes = ""
+    }
+
+}
+
+version = "${mc_version}-${tag}"
+
 //noinspection GroovyAssignabilityCheck
 processResources {
     // this will ensure that this task is redone when the versions change.
@@ -74,5 +114,23 @@ processResources {
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+artifacts {
+    archives deobfJar
+}
+
+curseforge {
+    apiKey = System.getenv().CURSE_API_KEY
+    project {
+        id = '247661'
+        changelog = changes // A file can also be set using: changelog = file('changelog.txt')
+        releaseType = 'release'
     }
 }
