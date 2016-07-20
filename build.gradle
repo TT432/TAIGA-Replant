@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-        classpath 'com.matthewprenger:CurseGradle:1.0.7'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.7'
     }
 }
 
@@ -48,7 +48,7 @@ minecraft {
     mappings = "snapshot_20160701"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 
-    replace "@VERSION@", project.version
+    replace "${version}", project.version
 }
 
 dependencies {
@@ -75,27 +75,27 @@ task buildInfo {
     def proc = cmd.execute()
     proc.waitFor()
     if (proc.exitValue() == 0) {
-        ext.tag = proc.text.trim()
+        project.ext.tag = proc.text.trim()
     }
 
     if (System.getenv().BUILD_NUMBER != null) {
         ext.buildNum = System.getenv().BUILD_NUMBER
     }
 
-    ext.mc_version = ext.minecraft.version.split('-')[0]
+    project.ext.mc_version = project.minecraft.version.split('-')[0]
 
     def cmd_changes = "git log `git describe --tags \$(git rev-list --tags --max-count=2) | sed -n '2p'`..`git describe --tags --abbrev=0` --oneline"
     def proc_changes = cmd_changes.execute()
     proc_changes.waitFor()
     if (proc_changes.exitValue() == 0) {
-        ext.changes = proc_changes.text.trim()
+        project.ext.changes = proc_changes.text.trim()
     } else {
-        ext.changes = ""
+        project.ext.changes = ""
     }
 
 }
 
-version = "${mc_version}-${tag}"
+version = tag ? "${mc_version}-${tag}" : "${mc_version}-snapshot"
 
 //noinspection GroovyAssignabilityCheck
 processResources {
@@ -127,10 +127,16 @@ artifacts {
 }
 
 curseforge {
-    apiKey = System.getenv().CURSE_API_KEY
+    apiKey = System.getenv().CURSE_API_KEY ? System.getenv().CURSE_API_KEY : "devBuild"
     project {
         id = '247661'
-        changelog = changes // A file can also be set using: changelog = file('changelog.txt')
+        changelog = project.changes // A file can also be set using: changelog = file('changelog.txt')
         releaseType = 'release'
+
+        mainArtifact(jar) {
+            displayName = "taiga-$project.tag"
+        }
     }
 }
+
+

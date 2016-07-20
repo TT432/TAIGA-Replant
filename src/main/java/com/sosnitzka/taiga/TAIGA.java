@@ -31,7 +31,7 @@ import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 public class TAIGA {
 
     public static final String MODID = "taiga";
-    public static final String VERSION = "@VERSION@";
+    public static final String VERSION = "${version}";
 
     @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.ServerProxy")
     public static ServerProxy proxy;
