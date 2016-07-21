@@ -35,11 +35,8 @@ repositories {
 
 group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "taiga"
-
-ext {
-    tag = "snapshot"
-    changes = ""
-}
+ext.tag = "snapshot"
+ext.changes = ""
 
 minecraft {
     version = "1.10.2-12.18.1.2011"
@@ -97,7 +94,7 @@ task buildInfo {
     }
 }
 
-version = "${mc_version}-${ext.tag}"
+version = "${mc_version}-${tag}"
 
 //noinspection GroovyAssignabilityCheck
 processResources {
@@ -132,11 +129,11 @@ curseforge {
     apiKey = System.getenv().CURSE_API_KEY ? System.getenv().CURSE_API_KEY : "devBuild"
     project {
         id = '247661'
-        changelog = project.ext.changes // A file can also be set using: changelog = file('changelog.txt')
+        changelog = project.changes // A file can also be set using: changelog = file('changelog.txt')
         releaseType = 'release'
 
         mainArtifact(jar) {
-            displayName = "taiga-${project.ext.tag}"
+            displayName = "taiga-${project.tag}"
         }
     }
 }
