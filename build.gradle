@@ -95,7 +95,7 @@ task buildInfo {
 
 }
 
-version = project.tag ? "${mc_version}-${project.tag}" : "${mc_version}-snapshot"
+version = project.ext.tag ? "${mc_version}-${project.ext.tag}" : "${mc_version}-snapshot"
 
 //noinspection GroovyAssignabilityCheck
 processResources {
@@ -130,11 +130,11 @@ curseforge {
     apiKey = System.getenv().CURSE_API_KEY ? System.getenv().CURSE_API_KEY : "devBuild"
     project {
         id = '247661'
-        changelog = project.changes // A file can also be set using: changelog = file('changelog.txt')
+        changelog = project.ext.changes // A file can also be set using: changelog = file('changelog.txt')
         releaseType = 'release'
 
         mainArtifact(jar) {
-            displayName = "taiga-${project.tag}"
+            displayName = "taiga-${project.ext.tag}"
         }
     }
 }
