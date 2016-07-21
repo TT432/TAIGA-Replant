@@ -20,7 +20,8 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 import static com.sosnitzka.taiga.Items.glimmerstone_dust;
-import static com.sosnitzka.taiga.Items.tiberiumShardStable;
+import static com.sosnitzka.taiga.Items.tiberiumShardInstable;
+import static com.sosnitzka.taiga.Items.tiberium_nugget;
 
 
 public class TraitUncertain extends AbstractTrait {
@@ -57,10 +58,10 @@ public class TraitUncertain extends AbstractTrait {
                             i = new ItemStack(Items.GUNPOWDER, random.nextInt(4));
                             break;
                         case 1:
-                            i = new ItemStack(tiberiumShardStable, random.nextInt(4));
+                            i = new ItemStack(tiberiumShardInstable, random.nextInt(4));
                             break;
                         case 2:
-                            i = new ItemStack(tiberiumShardStable, random.nextInt(4));
+                            i = new ItemStack(tiberium_nugget, random.nextInt(12));
                             break;
                         case 3:
                             i = new ItemStack(glimmerstone_dust, random.nextInt(4));

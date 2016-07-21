@@ -4,7 +4,6 @@ package com.sosnitzka.taiga.recipes;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import org.apache.commons.lang3.RandomUtils;
 
 import static com.sosnitzka.taiga.Blocks.*;
 import static com.sosnitzka.taiga.Items.*;
@@ -15,8 +14,8 @@ public class Smelting {
         GameRegistry.addSmelting(slaggoldOre, new ItemStack(slaggoldIngot), 1.0F);
         GameRegistry.addSmelting(slagironIngot, new ItemStack(iron_nugget), 0);
         GameRegistry.addSmelting(slaggoldIngot, new ItemStack(Items.GOLD_NUGGET), 0);
-        GameRegistry.addSmelting(tiberiumShardInstable, new ItemStack(tiberiumShardStable), 0.2F);
-        GameRegistry.addSmelting(tiberiumOre, new ItemStack(tiberiumShardStable, 3), RandomUtils.nextFloat(0F, 2F));
+        GameRegistry.addSmelting(tiberiumOre, new ItemStack(tiberiumShardInstable, 6), (2F));
+        GameRegistry.addSmelting(tiberiumShardInstable, new ItemStack(tiberiumIngot), (.1F));
 
         // Removed until TiC put its own ores back in.
         /* GameRegistry.addSmelting(titaniteOre, new ItemStack(titaniteIngot), RandomUtils.nextFloat(0F, 2F));

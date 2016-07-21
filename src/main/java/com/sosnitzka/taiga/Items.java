@@ -48,6 +48,7 @@ public class Items {
     public static Item cryptogen_nugget = new BasicItem("cryptogen_nugget", PREFIX_NUGGET);
     public static Item fractoryte_nugget = new BasicItem("fractoryte_nugget", PREFIX_NUGGET);
     public static Item seismodium_nugget = new BasicItem("seismodium_nugget", PREFIX_NUGGET);
+    public static Item tiberium_nugget = new BasicItem("tiberium_nugget", PREFIX_NUGGET);
     public static Item terramite_nugget = new BasicItem("terramite_nugget", PREFIX_NUGGET);
     public static Item lumixyl_nugget = new BasicItem("lumixyl_nugget", PREFIX_NUGGET);
     public static Item solarium_nugget = new BasicItem("solarium_nugget", PREFIX_NUGGET);
@@ -102,7 +103,7 @@ public class Items {
     public static Item bysmuidIngot = new BasicItem("bysmuid_ingot", PREFIX_INGOT);
 
     public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
-    public static Item tiberiumShardStable = new BasicItem("tiberium_nugget", PREFIX_NUGGET);
+
 
     public static void register() {
         Field[] declaredFields = Items.class.getDeclaredFields();

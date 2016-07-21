@@ -119,8 +119,5 @@ public class Blocks {
                 }
             }
         }
-
-        OreDictionary.registerOre("nuggetIron", slagironOre);
-        OreDictionary.registerOre("nuggetGold", slaggoldOre);
     }
 }

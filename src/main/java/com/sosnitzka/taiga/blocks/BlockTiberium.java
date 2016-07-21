@@ -26,15 +26,14 @@ public class BlockTiberium extends BasicBlock {
     @Override
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
         Random rand = world instanceof World ? ((World) world).rand : new Random();
-        int r = RANDOM.nextInt(11);
-        if (r > 7) {
-            return MathHelper.getRandomIntegerInRange(rand, 0, 10) + fortune;
+        if (random.nextBoolean()) {
+            return random.nextInt(10) + fortune;
         } else return 0;
     }
 
     @Override
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return MathHelper.getRandomIntegerInRange(random, 1, MathHelper.getRandomIntegerInRange(random, 2, 4 + fortune));
+        return (random.nextInt(3 + fortune) + 1);
     }
 
     @Override
