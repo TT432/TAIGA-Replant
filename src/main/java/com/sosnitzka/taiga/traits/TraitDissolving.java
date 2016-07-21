@@ -20,13 +20,15 @@ public class TraitDissolving extends AbstractTrait {
     // high chance to remove XP, low chance to double,triple or quatruple dropped Experience
     @SubscribeEvent
     public void onXpDrop(LivingExperienceDropEvent event) {
-        EntityPlayer player = event.getAttackingPlayer();
-        float r = random.nextFloat();
-        if (r <= 0.75 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
-            event.setDroppedExperience(0);
-        }
-        if (r > 0.95 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
-            event.setDroppedExperience(event.getDroppedExperience() * (random.nextInt(3) + 2));
+        if (!event.getEntity().getEntityWorld().isRemote) {
+            EntityPlayer player = event.getAttackingPlayer();
+            float r = random.nextFloat();
+            if (r <= 0.75 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+                event.setDroppedExperience(0);
+            }
+            if (r > 0.95 && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+                event.setDroppedExperience(event.getDroppedExperience() * (random.nextInt(3) + 2));
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ public class TraitSofty extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (!world.isRemote && state.getMaterial() != Material.ROCK && state.getMaterial() != Material.GROUND && random.nextFloat() < chance) {
+        if (!world.isRemote && state.getMaterial().equals(Material.GROUND) && random.nextFloat() < chance) {
             ToolHelper.healTool(tool, random.nextInt(10), player);
         }
     }

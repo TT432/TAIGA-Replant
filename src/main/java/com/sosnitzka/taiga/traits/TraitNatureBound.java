@@ -13,12 +13,14 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
 public class TraitNatureBound extends AbstractTrait {
     public static DamageSource splinter = new DamageSource("splinter").setDamageBypassesArmor();
-    private static int chance = 10;
+    private static int chance = 20;
 
     public TraitNatureBound() {
         super("naturebound", TextFormatting.GREEN);
@@ -34,8 +36,8 @@ public class TraitNatureBound extends AbstractTrait {
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         // *20 because 20 ticks in a second
-        if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(20 * chance) == 0) {
-            ToolHelper.healTool(tool, 1, (EntityLivingBase) entity);
+        if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(30 * chance) == 0) {
+            ToolHelper.healTool(tool, random.nextInt(9) + 1, (EntityLivingBase) entity);
         }
 
     }
@@ -43,7 +45,7 @@ public class TraitNatureBound extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent e) {
         Block b = e.getWorld().getBlockState(e.getPos()).getBlock();
-        if (random.nextFloat() <= .07 && (b == Blocks.DIRT || b == Blocks.GRASS || b == Blocks.LOG || b == Blocks.LOG2 || b == Blocks.STONE)) {
+        if (!e.getWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(e.getPlayer().getHeldItemMainhand()), identifier) && random.nextFloat() <= .07 && (b == Blocks.DIRT || b == Blocks.GRASS || b == Blocks.LOG || b == Blocks.LOG2 || b == Blocks.STONE)) {
             e.setCanceled(true);
             e.getPlayer().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
         }

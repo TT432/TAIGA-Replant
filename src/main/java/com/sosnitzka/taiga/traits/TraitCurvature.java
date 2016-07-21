@@ -23,6 +23,8 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 public class TraitCurvature extends AbstractTrait {
 
 
+    private static BlockPos pos = new BlockPos(0, 0, 0);
+
     public TraitCurvature() {
         super("curvature", TextFormatting.BLACK);
         MinecraftForge.EVENT_BUS.register(this);
@@ -30,39 +32,39 @@ public class TraitCurvature extends AbstractTrait {
 
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (random.nextFloat() <= 0.05 && world.provider.getDimension() != -1) {
-            teleport(player, world);
+        if (player.worldObj.isRemote) {
+            return;
+        }
+        if (random.nextFloat() <= 0.01 && world.provider.getDimension() != -1) {
+            teleport(player, world, 5);
             player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
         }
     }
 
+
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
         World w = player.getEntityWorld();
-        if (random.nextFloat() <= 0.1 && w.provider.getDimension() != -1) {
-            if (random.nextBoolean()) {
-                teleport(player, w);
-                target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-            } else {
-                target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-                teleport(target, w);
-            }
+        if (random.nextFloat() <= 0.3) {
+            target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+            changepos(player, target);
         }
     }
+
 
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (event.getSource().getEntity() instanceof EntityPlayer) {
+        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
-            if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(3));
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }
         }
     }
 
-    private void teleport(EntityLivingBase e, World w) {
+    private void teleport(EntityLivingBase e, World w, int max) {
         int x = e.getPosition().getX() + random.nextInt(250) - 125;
         int y = e.getPosition().getY();
         int z = e.getPosition().getZ() + random.nextInt(250) - 125;
@@ -74,6 +76,13 @@ public class TraitCurvature extends AbstractTrait {
         }
 
         e.setPosition(x, y, z);
+    }
+
+    private void changepos(EntityLivingBase player, EntityLivingBase target) {
+        BlockPos pp = new BlockPos(player.getPosition());
+        BlockPos tp = new BlockPos(target.getPosition());
+        player.setPosition(tp.getX(), tp.getY(), tp.getZ());
+        target.setPosition(pp.getX(), pp.getY(), pp.getZ());
     }
 
 }

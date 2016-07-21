@@ -46,9 +46,9 @@ public class TraitUncertain extends AbstractTrait {
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (event.getSource().getEntity() instanceof EntityPlayer) {
+        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
-            if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 ItemStack i = new ItemStack(Items.COAL, random.nextInt(4));
                 if (random.nextBoolean()) {
                     int r = random.nextInt(4);

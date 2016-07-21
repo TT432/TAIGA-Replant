@@ -13,7 +13,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class TraitOrganizing extends AbstractTrait {
 
-    private static final float chance = 0.1f;
+    private static final float chance = 0.02f;
 
     public TraitOrganizing() {
         super("organizing", TextFormatting.GREEN);

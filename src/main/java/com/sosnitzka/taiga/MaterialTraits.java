@@ -46,6 +46,7 @@ public class MaterialTraits {
     public static final AbstractTrait randomize = new TraitRandomize();
     public static final AbstractTrait reviving = new TraitReviving();
     public static final AbstractTrait melting = new TraitMelting();
+    public static final AbstractTrait traditional = new TraitTraditional();
 
 
     public static Material arcanite = new Material("arcanite", TextFormatting.LIGHT_PURPLE).addTrait(arcane, HeadMaterialStats.TYPE).addTrait(blind, HandleMaterialStats.TYPE);
@@ -62,15 +63,16 @@ public class MaterialTraits {
     public static Material vibranium = new Material("vibranium", TextFormatting.GRAY).addTrait(resonance);
     public static Material ignitite = new Material("ignitite", TextFormatting.RED).addTrait(melting, HandleMaterialStats.TYPE).addTrait(flammable, HeadMaterialStats.TYPE);
     public static Material palladium = new Material("palladium", TextFormatting.DARK_GRAY).addTrait(dark);
-    public static Material eternite = new Material("eternite", TextFormatting.AQUA).addTrait(writable2);
+    public static Material eternite = new Material("eternite", TextFormatting.AQUA).addTrait(writable2); //.addTrait(traditional)
     public static Material mythril = new Material("mythril", TextFormatting.GRAY).addTrait(holy, HeadMaterialStats.TYPE).addTrait(hellish, HandleMaterialStats.TYPE);
 
-    public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(cascade, HeadMaterialStats.TYPE).addTrait(fragile);
-    public static Material fractoryte = new Material("fractoryte", TextFormatting.DARK_RED).addTrait(fracture, HeadMaterialStats.TYPE).addTrait(fragile);
+    public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(cascade);
+    public static Material fractoryte = new Material("fractoryte", TextFormatting.DARK_RED).addTrait(fracture);
     public static Material noctunyx = new Material("noctunyx", TextFormatting.LIGHT_PURPLE).addTrait(hollow, HeadMaterialStats.TYPE).addTrait(reviving, HandleMaterialStats.TYPE);
     public static Material nitronite = new Material("nitronite", TextFormatting.YELLOW).addTrait(uncertain);
     public static Material cryptogen = new Material("cryptogen", TextFormatting.DARK_GREEN).addTrait(randomize);
-    public static Material seismodium = new Material("seismodium", TextFormatting.WHITE).addTrait(heroic);
+    public static Material seismodium = new Material("seismodium", TextFormatting.WHITE).addTrait(heroic).addTrait(fragile);
+    ;
     public static Material aegisalt = new Material("aegisalt", TextFormatting.AQUA).addTrait(analysing);
     public static Material ultranite = new Material("ultranite", TextFormatting.AQUA).addTrait(pulverizing);
     public static Material bysmuid = new Material("bysmuid", TextFormatting.AQUA).addTrait(organizing, HandleMaterialStats.TYPE).addTrait(melting, HeadMaterialStats.TYPE);

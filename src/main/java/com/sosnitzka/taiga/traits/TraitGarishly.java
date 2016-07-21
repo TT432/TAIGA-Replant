@@ -30,9 +30,9 @@ public class TraitGarishly extends AbstractTrait {
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (event.getSource().getEntity() instanceof EntityPlayer) {
+        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
-            if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
 
                 int r = random.nextInt(5);
                 ItemStack i = null;

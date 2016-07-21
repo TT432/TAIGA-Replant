@@ -34,7 +34,7 @@ public class TraitAnalysing extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        if (!event.getWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
             event.setExpToDrop(this.getUpdateXP(event.getExpToDrop()));
         }
 

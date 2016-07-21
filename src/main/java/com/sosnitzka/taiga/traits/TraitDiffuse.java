@@ -24,7 +24,7 @@ public class TraitDiffuse extends AbstractTrait {
     @SubscribeEvent
     public void onXpDrop(LivingExperienceDropEvent event) {
         EntityPlayer player = event.getAttackingPlayer();
-        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        if (!event.getEntity().getEntityWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
             event.setDroppedExperience(0);
         }
 
@@ -33,7 +33,7 @@ public class TraitDiffuse extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        if (!player.getEntityWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
             event.setExpToDrop(this.getUpdateXP(event.getExpToDrop()));
         }
 
@@ -42,9 +42,9 @@ public class TraitDiffuse extends AbstractTrait {
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (event.getSource().getEntity() instanceof EntityPlayer) {
+        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
-            if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 event.getDrops().clear();
             }
         }
