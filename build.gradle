@@ -38,6 +38,30 @@ archivesBaseName = "taiga"
 ext.tag = "snapshot"
 ext.changes = ""
 
+task buildInfo {
+    def cmd = "git describe --tags \$(git rev-list --tags --max-count=1)"
+    def proc = cmd.execute()
+    proc.waitFor()
+    if (proc.exitValue() == 0) {
+        project.ext.tag = proc.text.trim()
+    }
+
+    if (System.getenv().BUILD_NUMBER != null) {
+        ext.buildNum = System.getenv().BUILD_NUMBER
+    }
+
+    project.ext.mc_version = project.minecraft.version.split('-')[0]
+
+    def cmd_changes = "git log \$(git describe --tags --abbrev=0)..\$(git describe --tags \$(git rev-list --tags --max-count=1)) --oneline"
+    def proc_changes = cmd_changes.execute()
+    proc_changes.waitFor()
+    if (proc_changes.exitValue() == 0) {
+        project.ext.changes = proc_changes.text.trim()
+    }
+}
+
+version = "${mc_version}-${tag}"
+
 minecraft {
     version = "1.10.2-12.18.1.2011"
     runDir = "run"
@@ -71,30 +95,6 @@ sourceSets {
         }
     }
 }
-
-task buildInfo {
-    def cmd = "git describe --tags \$(git rev-list --tags --max-count=1)"
-    def proc = cmd.execute()
-    proc.waitFor()
-    if (proc.exitValue() == 0) {
-        project.ext.tag = proc.text.trim()
-    }
-
-    if (System.getenv().BUILD_NUMBER != null) {
-        ext.buildNum = System.getenv().BUILD_NUMBER
-    }
-
-    project.ext.mc_version = project.minecraft.version.split('-')[0]
-
-    def cmd_changes = "git log \$(git describe --tags --abbrev=0)..\$(git describe --tags \$(git rev-list --tags --max-count=1)) --oneline"
-    def proc_changes = cmd_changes.execute()
-    proc_changes.waitFor()
-    if (proc_changes.exitValue() == 0) {
-        project.ext.changes = proc_changes.text.trim()
-    }
-}
-
-version = "${mc_version}-${tag}"
 
 //noinspection GroovyAssignabilityCheck
 processResources {
