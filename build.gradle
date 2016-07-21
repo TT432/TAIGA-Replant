@@ -37,26 +37,18 @@ group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conv
 archivesBaseName = "taiga"
 
 task buildInfo {
-    def cmd = "git describe --tags \$(git rev-list --tags --max-count=1)"
-    def proc = cmd.execute()
-    proc.waitFor()
-    if (proc.exitValue() == 0) {
-        logger.info("Found tag for current version: ${proc.text.trim()}")
-        ext.revision = proc.text.trim()
+    if (System.getenv().TAG != null) {
+        ext.revision = System.getenv().TAG
     } else {
         ext.revision = "snapshot"
-        logger.info("Could not find tag infos, assume snapshot build")
     }
 
     if (System.getenv().BUILD_NUMBER != null) {
         ext.buildNum = System.getenv().BUILD_NUMBER
     }
 
-    def cmd_changes = "git log \$(git describe --tags --abbrev=0)..\$(git describe --tags \$(git rev-list --tags --max-count=1)) --oneline"
-    def proc_changes = cmd_changes.execute()
-    proc_changes.waitFor()
-    if (proc_changes.exitValue() == 0) {
-        ext.changes = proc_changes.text.trim()
+    if (System.getenv().CHANGES != null) {
+        ext.changes = System.getenv().CHANGES
     } else {
         ext.changes = ""
     }
