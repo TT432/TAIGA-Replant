@@ -36,6 +36,11 @@ repositories {
 group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "taiga"
 
+ext {
+    tag = "snapshot"
+    changes = ""
+}
+
 minecraft {
     version = "1.10.2-12.18.1.2011"
     runDir = "run"
@@ -89,13 +94,10 @@ task buildInfo {
     proc_changes.waitFor()
     if (proc_changes.exitValue() == 0) {
         project.ext.changes = proc_changes.text.trim()
-    } else {
-        project.ext.changes = ""
     }
-
 }
 
-version = project.ext.tag ? "${mc_version}-${project.ext.tag}" : "${mc_version}-snapshot"
+version = "${mc_version}-${ext.tag}"
 
 //noinspection GroovyAssignabilityCheck
 processResources {
