@@ -43,7 +43,10 @@ task buildInfo {
     def proc = cmd.execute()
     proc.waitFor()
     if (proc.exitValue() == 0) {
+        logger.info("Found tag for current version: ${proc.text.trim()}")
         project.ext.tag = proc.text.trim()
+    } else {
+        logger.info("Could not find tag infos, assume snapshot build")
     }
 
     if (System.getenv().BUILD_NUMBER != null) {
