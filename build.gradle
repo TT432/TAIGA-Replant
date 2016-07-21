@@ -71,7 +71,7 @@ sourceSets {
 }
 
 task buildInfo {
-    def cmd = "git name-rev --tags --name-only \$(git rev-parse HEAD)"
+    def cmd = "git describe --tags \$(git rev-list --tags --max-count=1)"
     def proc = cmd.execute()
     proc.waitFor()
     if (proc.exitValue() == 0) {
@@ -84,7 +84,7 @@ task buildInfo {
 
     project.ext.mc_version = project.minecraft.version.split('-')[0]
 
-    def cmd_changes = "git log `git describe --tags \$(git rev-list --tags --max-count=2) | sed -n '2p'`..`git describe --tags --abbrev=0` --oneline"
+    def cmd_changes = "git log \$(git describe --tags --abbrev=0)..\$(git describe --tags \$(git rev-list --tags --max-count=1)) --oneline"
     def proc_changes = cmd_changes.execute()
     proc_changes.waitFor()
     if (proc_changes.exitValue() == 0) {
@@ -95,7 +95,7 @@ task buildInfo {
 
 }
 
-version = tag ? "${mc_version}-${tag}" : "${mc_version}-snapshot"
+version = project.tag ? "${mc_version}-${project.tag}" : "${mc_version}-snapshot"
 
 //noinspection GroovyAssignabilityCheck
 processResources {
@@ -134,7 +134,7 @@ curseforge {
         releaseType = 'release'
 
         mainArtifact(jar) {
-            displayName = "taiga-$project.tag"
+            displayName = "taiga-${project.tag}"
         }
     }
 }
