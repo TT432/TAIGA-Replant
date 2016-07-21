@@ -35,8 +35,6 @@ repositories {
 
 group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "taiga"
-ext.tag = "snapshot"
-ext.changes = ""
 
 task buildInfo {
     def cmd = "git describe --tags \$(git rev-list --tags --max-count=1)"
@@ -44,8 +42,9 @@ task buildInfo {
     proc.waitFor()
     if (proc.exitValue() == 0) {
         logger.info("Found tag for current version: ${proc.text.trim()}")
-        project.ext.tag = proc.text.trim()
+        ext.revision = proc.text.trim()
     } else {
+        ext.revision = "snapshot"
         logger.info("Could not find tag infos, assume snapshot build")
     }
 
@@ -57,11 +56,13 @@ task buildInfo {
     def proc_changes = cmd_changes.execute()
     proc_changes.waitFor()
     if (proc_changes.exitValue() == 0) {
-        project.ext.changes = proc_changes.text.trim()
+        ext.changes = proc_changes.text.trim()
+    } else {
+        ext.changes = ""
     }
 }
 
-version = tag
+version = project.buildInfo.revision
 
 minecraft {
     version = "1.10.2-12.18.1.2011"
@@ -79,7 +80,7 @@ minecraft {
 }
 
 ext.mc_version = project.minecraft.version.split('-')[0]
-version = "${mc_version}-${tag}"
+version = "${mc_version}-${project.buildInfo.revision}"
 
 dependencies {
     //deobfCompile "codechicken:CodeChickenLib:1.9.4-2.0.2.39:deobf"
@@ -133,13 +134,11 @@ curseforge {
     apiKey = System.getenv().CURSE_API_KEY ? System.getenv().CURSE_API_KEY : "devBuild"
     project {
         id = '247661'
-        changelog = project.changes // A file can also be set using: changelog = file('changelog.txt')
+        changelog = project.buildInfo.changes // A file can also be set using: changelog = file('changelog.txt')
         releaseType = 'release'
 
         mainArtifact(jar) {
-            displayName = "taiga-${project.tag}"
+            displayName = "taiga-${project.buildInfo.revision}"
         }
     }
 }
-
-jar.dependsOn buildInfo
