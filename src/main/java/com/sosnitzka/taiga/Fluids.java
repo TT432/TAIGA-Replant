@@ -5,10 +5,13 @@ import com.sosnitzka.taiga.generic.BasicTinkerFluid;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fluids.FluidRegistry;
+import slimeknights.tconstruct.shared.TinkerFluids;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 import java.lang.reflect.Field;
 
+import static com.sosnitzka.taiga.Blocks.slaggoldOre;
+import static com.sosnitzka.taiga.Blocks.slagironOre;
 import static com.sosnitzka.taiga.Items.*;
 import static com.sosnitzka.taiga.util.Utils.registerFluid;
 import static slimeknights.tconstruct.library.TinkerRegistry.registerMelting;
@@ -81,6 +84,7 @@ public class Fluids {
         }
     }
 
+
     static void registerfromItem() {
         registerMelting(radiant_pearl, radiant_enderium, 72);
         registerMelting(glimmer_pearl, glimming_enderium, 72);
@@ -92,5 +96,9 @@ public class Fluids {
         registerMelting(Blocks.OBSIDIAN, FluidRegistry.LAVA, 432);
         registerMelting(Blocks.NETHERRACK, FluidRegistry.LAVA, 48);
         registerMelting(Blocks.STONE, FluidRegistry.LAVA, 144);
+        registerMelting(slaggoldOre, TinkerFluids.gold, 16);
+        registerMelting(slagironOre, TinkerFluids.iron, 16);
+        registerMelting(slagironIngot, TinkerFluids.iron, 24);
+        registerMelting(slaggoldIngot, TinkerFluids.gold, 24);
     }
 }

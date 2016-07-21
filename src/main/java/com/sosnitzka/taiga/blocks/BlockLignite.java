@@ -12,8 +12,6 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 import static com.sosnitzka.taiga.Items.lignite;
-import static com.sosnitzka.taiga.Items.lignite2;
-import static com.sosnitzka.taiga.Items.lignite3;
 
 public class BlockLignite extends BasicBlock {
 
@@ -37,12 +35,6 @@ public class BlockLignite extends BasicBlock {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        int r = RANDOM.nextInt(3);
-        if (r == 0) {
             return lignite;
-        } else if (r == 1) {
-            return lignite2;
-        } else
-            return lignite3;
     }
 }

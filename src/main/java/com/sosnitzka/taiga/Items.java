@@ -3,10 +3,7 @@ package com.sosnitzka.taiga;
 
 import com.google.common.base.Joiner;
 import com.sosnitzka.taiga.generic.BasicItem;
-import com.sosnitzka.taiga.items.ItemIronNugget;
 import com.sosnitzka.taiga.items.ItemLignite;
-import com.sosnitzka.taiga.items.ItemSlaggoldIngot;
-import com.sosnitzka.taiga.items.ItemSlagironIngot;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -19,13 +16,46 @@ import static com.sosnitzka.taiga.util.Utils.PREFIX_INGOT;
 import static com.sosnitzka.taiga.util.Utils.PREFIX_NUGGET;
 
 public class Items {
-    public static ItemSlagironIngot slagironIngot = new ItemSlagironIngot();
+
     public static Item lignite = new ItemLignite("lignite", "lignite");
-    public static Item lignite2 = new ItemLignite("lignite", "lignite2");
-    public static Item lignite3 = new ItemLignite("lignite", "lignite3");
-    public static ItemIronNugget iron_nugget = new ItemIronNugget();
-    public static ItemSlaggoldIngot slaggoldIngot = new ItemSlaggoldIngot();
+    public static Item iron_nugget = new BasicItem("iron_nugget", PREFIX_NUGGET);
+    public static Item slaggoldIngot = new BasicItem("slaggold_ingot");
+    public static Item slagironIngot = new BasicItem("slagiron_ingot");
     public static Item fuel_brick = new BasicItem("fuel_brick");
+
+    //Nuggets
+    public static Item titanite_nugget = new BasicItem("titanite_nugget", PREFIX_NUGGET);
+    public static Item adamantite_nugget = new BasicItem("adamantite_nugget", PREFIX_NUGGET);
+    public static Item arcanite_nugget = new BasicItem("arcanite_nugget", PREFIX_NUGGET);
+    public static Item violium_nugget = new BasicItem("violium_nugget", PREFIX_NUGGET);
+    public static Item bismuth_nugget = new BasicItem("bismuth_nugget", PREFIX_NUGGET);
+    public static Item eternite_nugget = new BasicItem("eternite_nugget", PREFIX_NUGGET);
+    public static Item ignitite_nugget = new BasicItem("ignitite_nugget", PREFIX_NUGGET);
+    public static Item karmesine_nugget = new BasicItem("karmesine_nugget", PREFIX_NUGGET);
+    public static Item meteorite_nugget = new BasicItem("meteorite_nugget", PREFIX_NUGGET);
+    public static Item mindorite_nugget = new BasicItem("mindorite_nugget", PREFIX_NUGGET);
+    public static Item mythril_nugget = new BasicItem("mythril_nugget", PREFIX_NUGGET);
+    public static Item palladium_nugget = new BasicItem("palladium_nugget", PREFIX_NUGGET);
+    public static Item prometheum_nugget = new BasicItem("prometheum_nugget", PREFIX_NUGGET);
+    // NAH! public static Item tiberium_nugget = new BasicItem("tiberium_nugget", PREFIX_NUGGET);
+    public static Item vibranium_nugget = new BasicItem("vibranium_nugget", PREFIX_NUGGET);
+    public static Item rubium_nugget = new BasicItem("rubium_nugget", PREFIX_NUGGET);
+    public static Item astrium_nugget = new BasicItem("astrium_nugget", PREFIX_NUGGET);
+    public static Item nitronite_nugget = new BasicItem("nitronite_nugget", PREFIX_NUGGET);
+    public static Item proxideum_nugget = new BasicItem("proxideum_nugget", PREFIX_NUGGET);
+    public static Item noctunyx_nugget = new BasicItem("noctunyx_nugget", PREFIX_NUGGET);
+    public static Item imperomite_nugget = new BasicItem("imperomite_nugget", PREFIX_NUGGET);
+    public static Item cryptogen_nugget = new BasicItem("cryptogen_nugget", PREFIX_NUGGET);
+    public static Item fractoryte_nugget = new BasicItem("fractoryte_nugget", PREFIX_NUGGET);
+    public static Item seismodium_nugget = new BasicItem("seismodium_nugget", PREFIX_NUGGET);
+    public static Item terramite_nugget = new BasicItem("terramite_nugget", PREFIX_NUGGET);
+    public static Item lumixyl_nugget = new BasicItem("lumixyl_nugget", PREFIX_NUGGET);
+    public static Item solarium_nugget = new BasicItem("solarium_nugget", PREFIX_NUGGET);
+    public static Item dyonite_nugget = new BasicItem("dyonite_nugget", PREFIX_NUGGET);
+    public static Item ultranite_nugget = new BasicItem("ultranite_nugget", PREFIX_NUGGET);
+    public static Item nucleum_nugget = new BasicItem("nucleum_nugget", PREFIX_NUGGET);
+    public static Item aegisalt_nugget = new BasicItem("aegisalt_nugget", PREFIX_NUGGET);
+    public static Item bysmuid_nugget = new BasicItem("bysmuid_nugget", PREFIX_NUGGET);
 
     public static Item glimmercoal = new BasicItem("glimmercoal");
     public static Item radiant_pearl = new BasicItem("radiant_pearl");
@@ -82,7 +112,6 @@ public class Items {
                 try {
                     Item item = (Item) field.get(targetType);
                     GameRegistry.register(item);
-
                     if (item instanceof BasicItem) {
                         if (((BasicItem) item).isOreDict()) {
                             String oreDictName;
@@ -102,10 +131,6 @@ public class Items {
                 }
             }
         }
-
-        OreDictionary.registerOre("nuggetIron", iron_nugget);
-        OreDictionary.registerOre("ingotIron", slagironIngot);
-        OreDictionary.registerOre("ingotGold", slaggoldIngot);
     }
 
 }

@@ -13,17 +13,11 @@ public class FuelHandler implements IFuelHandler {
         if (fuel.getItem().equals(lignite)) {
             return 200 * 6;
         }
-        if (fuel.getItem().equals(lignite2)) {
-            return 200 * 4;
-        }
-        if (fuel.getItem().equals(lignite3)) {
-            return 200 * 8;
-        }
         if (fuel.getItem().equals(fuel_brick)) {
-            return 200 * 16;
+            return 200 * 50;
         }
         if (fuel.getItem().equals(glimmercoal)) {
-            return (random.nextInt(32) + 32) * 200;
+            return (random.nextInt(20) + 40) * 200;
         }
         return 0;
     }

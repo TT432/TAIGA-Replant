@@ -25,8 +25,6 @@ public class TraitSofty extends AbstractTrait {
             ToolHelper.healTool(tool, random.nextInt(10), player);
         }
     }
-
-
 }
 
 

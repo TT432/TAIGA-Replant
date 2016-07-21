@@ -40,17 +40,19 @@ public class TAIGA {
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         Items.register();
-        Fluids.register();
         Blocks.register();
+        Fluids.register();
         Fluids.registerfromItem();
         Alloys.register();
 
         // ARCANE ORES
         registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 223, 6.2f, 8.35f, 0.63f, 50, 50, OBSIDIAN, false, true);
+
         registerTinkerMaterial("Rubium", rubium, rubiumFluid, 351, 5.15f, 7.00f, 1.05f, -100, 250, COBALT, false, true);
         registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 539, 3.6f, 6.60f, 0.90f, 0, 150, TITANITE, false, true);
         registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 698, 4.3f, 7.88f, 0.85f, -50, 150, METEORITE, false, true);
         // SOLIDE ORES
+
         registerTinkerMaterial("Titanite", titanite, titaniteFluid, 811, 4.8f, 6.40f, 1.00f, -50, 150, TITANITE, false, true);
         registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 823, 6.1f, 6.83f, 1.20f, -50, 200, METEORITE, false, true);
         registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 917, 7.45f, 7.17f, 1.15f, 50, 150, VIBRANIUM, false, true);
@@ -111,6 +113,7 @@ public class TAIGA {
         TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
         TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
         TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
+
         material.setFluid(fluid).setCraftable(craft).setCastable(cast);
 
         proxy.setRenderInfo(material);
