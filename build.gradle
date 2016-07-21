@@ -37,8 +37,8 @@ group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conv
 archivesBaseName = "taiga"
 
 task buildInfo {
-    if (System.getenv().TAG != null) {
-        ext.revision = System.getenv().TAG
+    if (System.getenv().TAIGA_TAG != null) {
+        ext.revision = System.getenv().TAIGA_TAG
     } else {
         ext.revision = "snapshot"
     }
@@ -47,8 +47,8 @@ task buildInfo {
         ext.buildNum = System.getenv().BUILD_NUMBER
     }
 
-    if (System.getenv().CHANGES != null) {
-        ext.changes = System.getenv().CHANGES
+    if (System.getenv().TAIGA_CHANGES != null) {
+        ext.changes = System.getenv().TAIGA_CHANGES
     } else {
         ext.changes = ""
     }
