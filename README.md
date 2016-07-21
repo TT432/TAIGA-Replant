@@ -46,7 +46,7 @@ Hardness of each new ore in case you gonna ask...
 * Titanite (5): Titanite, Rubium, Mythril, Mindorite
 * Meteorite (6): Meteorite, Arcanite, Palladium, Karmesine
 * Vibranium (7): Vibranium, Ignitite
-* Adamantiute (8): Adamantite
+* Adamantite (8): Adamantite
 * It is up to you to find out which alloy you need to get to highest tier.
 
 Balancing, more traits, more alloys, more ores:
