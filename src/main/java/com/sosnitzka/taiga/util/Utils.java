@@ -16,12 +16,20 @@ public class Utils {
     public static String PREFIX_ORE = "ore";
     public static String PREFIX_BLOCK = "block";
 
-
+    /**
+     * Registers the block and its corresponding item (block as item in inventory)
+     *
+     * @param block the associated block
+     */
     public static void registerBlockWithItem(Block block) {
         GameRegistry.register(block);
         GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
     }
 
+    /**
+     * Registers the fluid and its bucket item
+     * @param fluid the fluid
+     */
     public static void registerFluid(Fluid fluid) {
         FluidRegistry.registerFluid(fluid);
         FluidRegistry.addBucketForFluid(fluid);

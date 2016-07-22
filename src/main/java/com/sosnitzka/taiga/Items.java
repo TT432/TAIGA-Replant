@@ -104,17 +104,22 @@ public class Items {
 
     public static Item tiberiumShardInstable = new BasicItem("tiberium_shard_instable");
 
-
+    /**
+     * Registers all materials' ingots and nuggets <br>
+     * Detailed summary: <br>
+     * Gets the ingots declared in the class (fields and reflection) and iterates through them: <br>
+     * Checks that the field is static, registers the field (item), and adds an oreDict entry if needed
+     */
     public static void register() {
-        Field[] declaredFields = Items.class.getDeclaredFields();
-        for (Field field : declaredFields) {
-            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
+        Field[] declaredFields = Items.class.getDeclaredFields(); // Gets the fields (ingots) declared above
+        for (Field field : declaredFields) { // Iterates through the fields declared above
+            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) { // Checks that the fields are static
                 Class<?> targetType = field.getType();
                 try {
-                    Item item = (Item) field.get(targetType);
-                    GameRegistry.register(item);
-                    if (item instanceof BasicItem) {
-                        if (((BasicItem) item).isOreDict()) {
+                    Item item = (Item) field.get(targetType); // Gets the field as a BasicItem which is then casted to an Item
+                    GameRegistry.register(item); // Registers the item into the game
+                    if (item instanceof BasicItem) {  // Checks that the item is a BasicItem
+                        if (((BasicItem) item).isOreDict()) { // Checks if this item should be registered into the oreDict and registers it
                             String oreDictName;
                             String[] nameParts = item.getUnlocalizedName().replace("item.", "").split("_");
 
@@ -124,7 +129,7 @@ public class Items {
                                 oreDictName = nameParts[0];
                             }
 
-                            OreDictionary.registerOre(((BasicItem) item).getOreDictPrefix() + StringUtils.capitalize(oreDictName), item);
+                            OreDictionary.registerOre(((BasicItem) item).getOreDictPrefix() + StringUtils.capitalize(oreDictName), item); // Registers into oreDict
                         }
                     }
                 } catch (IllegalAccessException e) {

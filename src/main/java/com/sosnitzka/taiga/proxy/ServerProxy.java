@@ -5,7 +5,7 @@ import slimeknights.tconstruct.library.materials.Material;
 
 public class ServerProxy {
 
-    public void registerStuff() {
+    public void registerModels() {
 
     }
 

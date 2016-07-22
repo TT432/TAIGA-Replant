@@ -6,6 +6,7 @@ import com.sosnitzka.taiga.recipes.Crafting;
 import com.sosnitzka.taiga.recipes.Smelting;
 import com.sosnitzka.taiga.util.FuelHandler;
 import com.sosnitzka.taiga.world.ZWorldGen;
+import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -14,13 +15,16 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.commons.lang3.StringUtils;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
+import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import static com.sosnitzka.taiga.Fluids.*;
@@ -35,19 +39,99 @@ public class TAIGA {
 
     @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.ServerProxy")
     public static ServerProxy proxy;
-    private List<MaterialIntegration> integrateList = Lists.newArrayList();
+
+    private List<MaterialIntegration> integrateList = Lists.newArrayList(); // List of materials needed to be integrated
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-        Items.register();
-        Blocks.register();
-        Fluids.register();
-        Fluids.registerfromItem();
-        Alloys.register();
+        Items.register(); // Registers items and its oreDict
+        Blocks.register(); // Registers blocks and its items form a long with its oreDict
+        Fluids.register(); // Registers all fluids and its buckets
+        Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
+        Alloys.register(); // Registers alloying recipes
 
+        registerTinkerMaterials(); // Registers materials and associated fluids and stats into tconstruct
+    }
+
+    @EventHandler
+    public void init(FMLInitializationEvent e) {
+        proxy.registerModels(); // Registers models on the client side
+        GameRegistry.registerWorldGenerator(new ZWorldGen(), 100); // Generates ores
+        GameRegistry.registerFuelHandler(new FuelHandler()); // Registeres fuels' burn times
+        Smelting.register(); // Registers smelting recipes
+        Crafting.register(); // Registers crafting recipes
+
+        // Adds new harvest levels' names
+        harvestLevelNames.put(METEORITE, TinkerMaterials.bone.getTextColor() + "Meteorite");
+        harvestLevelNames.put(VIBRANIUM, TinkerMaterials.blueslime.getTextColor() + "Vibranium");
+        harvestLevelNames.put(ADAMANTITE, TinkerMaterials.ardite.getTextColor() + "Adamantite");
+        harvestLevelNames.put(TITANITE, TinkerMaterials.silver.getTextColor() + "Titanite");
+
+        for (MaterialIntegration m : integrateList) {
+            m.integrateRecipes();
+        }
+
+
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent e) {
+
+    }
+
+    /**
+     * @param oreSuffix  Suffix in the oreDict, also the name. ex) the "Iron" in "ingotIron"
+     * @param material   TConstruct material
+     * @param fluid      material's fluid
+     * @param headDura   Durability (head)
+     * @param headSpeed  Mining speed (head)
+     * @param headAttack Attack speed (head)
+     * @param handleMod  Durability multiplier (handle)
+     * @param handleDura Extra durability (handle)
+     * @param extra      Extra durability (binding and more)
+     * @param headLevel  Mining level (head)
+     * @param craft      Can craft parts in part builder
+     * @param cast       Can craft parts by casting with fluid (smeltery)
+     */
+    private void registerTinkerMaterial(String oreSuffix, Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, boolean craft, boolean cast) {
+        TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
+        TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
+        TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
+
+        System.out.println(material.getRepresentativeItem());
+        Item item = null;
+        Field[] items = Items.class.getDeclaredFields();
+        for (Field i : items) {
+            if (i.getName().equals(StringUtils.uncapitalize(oreSuffix) + "Ingot")) {
+                Item r = null;
+                try {
+                    r = (Item) i.get(i.getType());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                item = r;
+            }
+        }
+
+
+        material.setFluid(fluid).setCraftable(craft).setCastable(cast).addItem(item, 1, Material.VALUE_Ingot);
+        material.setRepresentativeItem(item);
+
+        System.out.println(material.getRepresentativeItem());
+
+        proxy.setRenderInfo(material);
+        MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
+        integration.integrate();
+        integrateList.add(integration);
+    }
+
+
+    /**
+     * Registers materials and associated fluids and stats into tconstruct
+     */
+    private void registerTinkerMaterials() {
         // ARCANE ORES
         registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, 223, 6.2f, 8.35f, 0.63f, 50, 50, OBSIDIAN, false, true);
-
         registerTinkerMaterial("Rubium", rubium, rubiumFluid, 351, 5.15f, 7.00f, 1.05f, -100, 250, COBALT, false, true);
         registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 539, 3.6f, 6.60f, 0.90f, 0, 150, TITANITE, false, true);
         registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 698, 4.3f, 7.88f, 0.85f, -50, 150, METEORITE, false, true);
@@ -84,41 +168,5 @@ public class TAIGA {
         registerTinkerMaterial("Terramite", terramite, terramiteFluid, 482, 7.25f, 2.85f, 1.03f, 208, 150, TITANITE, false, true);
         registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, 538, 5.71f, 6.93f, 0.88f, 58, 117, METEORITE, false, true);
         registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, 597, 10.55f, 4.21f, 0.99f, -60, 200, METEORITE, false, true);
-    }
-
-    @EventHandler
-    public void init(FMLInitializationEvent e) {
-        proxy.registerStuff();
-        GameRegistry.registerWorldGenerator(new ZWorldGen(), 100);
-        GameRegistry.registerFuelHandler(new FuelHandler());
-        Smelting.register();
-        Crafting.register();
-
-        harvestLevelNames.put(METEORITE, TinkerMaterials.bone.getTextColor() + "Meteorite");
-        harvestLevelNames.put(VIBRANIUM, TinkerMaterials.blueslime.getTextColor() + "Vibranium");
-        harvestLevelNames.put(ADAMANTITE, TinkerMaterials.ardite.getTextColor() + "Adamantite");
-        harvestLevelNames.put(TITANITE, TinkerMaterials.silver.getTextColor() + "Titanite");
-
-        for (MaterialIntegration m : integrateList) {
-            m.integrateRecipes();
-        }
-    }
-
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-
-    }
-
-    private void registerTinkerMaterial(String oreSuffix, slimeknights.tconstruct.library.materials.Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, boolean craft, boolean cast) {
-        TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
-        TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
-        TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
-
-        material.setFluid(fluid).setCraftable(craft).setCastable(cast);
-
-        proxy.setRenderInfo(material);
-        MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
-        integration.integrate();
-        integrateList.add(integration);
     }
 }
