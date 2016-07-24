@@ -93,12 +93,12 @@ public class TAIGA {
      * @param craft      Can craft parts in part builder
      * @param cast       Can craft parts by casting with fluid (smeltery)
      */
+
     private void registerTinkerMaterial(String oreSuffix, Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, boolean craft, boolean cast) {
         TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
         TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
         TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
 
-        System.out.println(material.getRepresentativeItem());
         Item item = null;
         Field[] items = Items.class.getDeclaredFields();
         for (Field i : items) {
@@ -113,11 +113,8 @@ public class TAIGA {
             }
         }
 
-
         material.setFluid(fluid).setCraftable(craft).setCastable(cast).addItem(item, 1, Material.VALUE_Ingot);
         material.setRepresentativeItem(item);
-
-        System.out.println(material.getRepresentativeItem());
 
         proxy.setRenderInfo(material);
         MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
@@ -136,7 +133,6 @@ public class TAIGA {
         registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, 539, 3.6f, 6.60f, 0.90f, 0, 150, TITANITE, false, true);
         registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, 698, 4.3f, 7.88f, 0.85f, -50, 150, METEORITE, false, true);
         // SOLIDE ORES
-
         registerTinkerMaterial("Titanite", titanite, titaniteFluid, 811, 4.8f, 6.40f, 1.00f, -50, 150, TITANITE, false, true);
         registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, 823, 6.1f, 6.83f, 1.20f, -50, 200, METEORITE, false, true);
         registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, 917, 7.45f, 7.17f, 1.15f, 50, 150, VIBRANIUM, false, true);

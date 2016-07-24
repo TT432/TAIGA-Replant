@@ -64,26 +64,24 @@ public class ClientProxy extends ServerProxy {
     }
 
     public void setRenderInfo(final Material material) {
-        /* if (material != bismuth) {
-            material.setRenderInfo(new MaterialRenderInfo.Metal(fluid.getColor(), 0.4f, 0.2f, 0f));
-        }  else bismuth.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/bismuth_block")); */
 
-        if (material == adamantite) renderTo(material, 0xd55cdf, 0.5f, 0.8f, 0.2f);
-        else if (material == solarium) renderTo(material, 0xffff00, 0.6f, 1.8f, 0.0f);
-        else if (material == proxideum) renderTo(material, 0x2d8f8b, 0.4f, 0.3f, 0.1f);
-        else if (material == tiberium) renderTo(material, 0x33ff33, 0.5f, 0.2f, 0.1f);
-        else if (material == bismuth) renderTo(material, 0xffffff, 0.4f, 0.2f, 0.0f);
-        else if (material == dyonite) renderTo(material, 0xffe240, 0.6f, 0.8f, 0.2f);
+        if (material == adamantite) specialRender(material, 0xd55cdf, 0.5f, 2.0f, 0.2f);
+        else if (material == solarium) specialRender(material, 0xffff00, 0.3f, 1.0f, 0.0f);
+        else if (material == proxideum) specialRender(material, 0x2d8f8b, 0.4f, 0.3f, 0.1f);
+        else if (material == tiberium) specialRender(material, 0x33ff33, 0.5f, 0.2f, 0.1f);
+        else if (material == bismuth) specialRender(material, 0xffffff, 0.3f, 0.0f, 0.0f);
+        else if (material == dyonite) specialRender(material, 0xffe240, 0.6f, 1.8f, 0.2f);
+        else if (material == arcanite) specialRender(material, 0xBBBBBB, 0.6f, 1.8f, 0.2f); // TODO: Fix Textures
         else {
-            material.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/" + material.getFluid().getName() + "_block"));
+            material.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/" + material.getIdentifier() + "_block"));
         }
     }
 
-    private void renderTo(Material material, final int f, final float shine, final float brightness, final float hueshift) {
+    private void specialRender(final Material material, final int f, final float shine, final float brightness, final float hueshift) {
         material.setRenderInfo(new MaterialRenderInfo.AbstractMaterialRenderInfo() {
             @Override
             public TextureAtlasSprite getTexture(TextureAtlasSprite baseTexture, String location) {
-                return new MetalTextureTexture("taiga:blocks/materials/adamantite", baseTexture, location, f, shine, brightness, hueshift);
+                return new MetalTextureTexture("taiga:blocks/materials/" + material.getIdentifier(), baseTexture, location, f, shine, brightness, hueshift);
             }
         });
     }
