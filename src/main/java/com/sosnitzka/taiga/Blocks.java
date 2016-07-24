@@ -26,6 +26,7 @@ public class Blocks {
     public static Block basalt = new BasicBlock("basalt", Material.ROCK, 45.0f, 35.0f, OBSIDIAN);
     public static Block rottenGround = new BasicBlockGround("rotten_ground", Material.GROUND, 2.0f, 2.0f, STONE);
     public static Block ligniteOre = new BlockLignite();
+    // will be optional / config
     public static Block slagironOre = new BasicBlock("slagiron_ore", Material.ROCK, 3.0f, 5.0f, IRON);
     public static Block slaggoldOre = new BasicBlock("slaggold_ore", Material.ROCK, 3.0f, 5.0f, IRON);
 

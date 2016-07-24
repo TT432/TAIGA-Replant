@@ -67,7 +67,7 @@ public class TraitGarishly extends AbstractTrait {
         float r = random.nextFloat();
         if (r > 0.5f) event.getDrops().clear();
         else if (r < 0.1 && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
-            ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(5));
+            ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(3));
             event.getDrops().add(0, stack);
             ToolHelper.damageTool(tool, random.nextInt(6) + 1, event.getHarvester());
         }
