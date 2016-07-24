@@ -3,7 +3,6 @@ package com.sosnitzka.taiga;
 
 import com.google.common.base.Joiner;
 import com.sosnitzka.taiga.generic.BasicItem;
-import com.sosnitzka.taiga.items.ItemLignite;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -17,7 +16,7 @@ import static com.sosnitzka.taiga.util.Utils.PREFIX_NUGGET;
 
 public class Items {
 
-    public static Item lignite = new ItemLignite("lignite", "lignite");
+    public static Item lignite = new BasicItem("lignite", null, "lignite");
     public static Item iron_nugget = new BasicItem("iron_nugget", PREFIX_NUGGET);
     public static Item slaggoldIngot = new BasicItem("slaggold_ingot");
     public static Item slagironIngot = new BasicItem("slagiron_ingot");
