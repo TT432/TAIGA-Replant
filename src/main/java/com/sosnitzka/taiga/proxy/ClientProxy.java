@@ -35,14 +35,13 @@ public class ClientProxy extends ServerProxy {
     }
 
     @Override
-    public void registerStuff() {
+    public void registerModels() {
         Field[] itemFields = Items.class.getDeclaredFields();
         for (Field field : itemFields) {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
                 Class<?> targetType = field.getType();
                 try {
                     Item item = (Item) field.get(targetType);
-
                     registerItemModel(item);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -56,7 +55,6 @@ public class ClientProxy extends ServerProxy {
                 Class<?> targetType = field.getType();
                 try {
                     Block block = (Block) field.get(targetType);
-
                     registerBlockModel(block);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

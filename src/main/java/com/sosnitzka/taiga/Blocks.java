@@ -91,18 +91,23 @@ public class Blocks {
     public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
     public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 55.0f, 400.0f, 7, PREFIX_BLOCK);
 
-
+    /**
+     * Registers all materials' ingots and nuggets <br>
+     * Detailed summary: <br>
+     * Gets the ingots declared in the class (fields and reflection) and iterates through them: <br>
+     * Checks that the field is static, registers the field (item), and adds an oreDict entry if needed
+     */
     public static void register() {
-        Field[] declaredFields = Blocks.class.getDeclaredFields();
-        for (Field field : declaredFields) {
-            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
+        Field[] declaredFields = Blocks.class.getDeclaredFields(); // Gets the fields (ingots) declared above
+        for (Field field : declaredFields) { // Iterates through the fields declared above
+            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) { // Checks that the fields are static
                 Class<?> targetType = field.getType();
                 try {
-                    Block block = (Block) field.get(targetType);
-                    Utils.registerBlockWithItem(block);
+                    Block block = (Block) field.get(targetType); // Gets the field as a BasicBlock which is then casted to an Block
+                    Utils.registerBlockWithItem(block); // Registers block and its item
 
-                    if (block instanceof BasicBlock) {
-                        if (((BasicBlock) block).isOreDict()) {
+                    if (block instanceof BasicBlock) { // Checks that the block is a BasicBlock
+                        if (((BasicBlock) block).isOreDict()) { // Checks that the block has an oreDict entry
                             String oreDictName;
                             String[] nameParts = block.getUnlocalizedName().replace("tile.", "").split("_");
 
@@ -111,7 +116,7 @@ public class Blocks {
                             } else {
                                 oreDictName = nameParts[0];
                             }
-                            OreDictionary.registerOre(((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName), block);
+                            OreDictionary.registerOre(((BasicBlock) block).getOreDictPrefix() + StringUtils.capitalize(oreDictName), block); // Registers the block's oreDict
                         }
                     }
                 } catch (IllegalAccessException e) {

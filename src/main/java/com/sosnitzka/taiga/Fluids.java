@@ -61,21 +61,28 @@ public class Fluids {
     public static BasicTinkerFluid anthraciteFluid = new BasicTinkerFluid("anthracite_fluid", 0xFF111111, false, 500, 0, 632);
     public static BasicTinkerFluid spectrumFluid = new BasicTinkerFluid("spectrum_fluid", 0xFF64748f, false, 600, 0, 512);
 
-
+    /**
+     * Registers all materials' fluids <br>
+     * Detailed summary: <br>
+     * Gets the fluids declared in the class (fields and reflection) and iterates through them: <br>
+     * Checks that the field is static, registers the field (fluids), and registers the models on the client
+     */
     static void register() {
-        Field[] declaredFields = Fluids.class.getDeclaredFields();
-        for (Field field : declaredFields) {
-            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
+        Field[] declaredFields = Fluids.class.getDeclaredFields(); // Gets the blocks and ores declared above
+        for (Field field : declaredFields) { // Iterates through the fields declared above
+            if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) { // Checks that the fields are static
                 Class<?> targetType = field.getType();
                 try {
-                    BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType);
-                    registerFluid(fluid);
+                    BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType); // Gets the field as a BasicTinkerFluid
+                    registerFluid(fluid); // Registers the fluid into the game along wit its bucket
 
                     BlockMolten block = new BlockMolten(fluid);
+                    // Sets names
                     block.setUnlocalizedName("molten_" + fluid.getName());
                     block.setRegistryName(TAIGA.MODID, "molten_" + fluid.getName());
+                    // Registers the fluid in its block form and its corresponding item (block/fluid as item in inventory)
                     Utils.registerBlockWithItem(block);
-
+                    // Registers the fluid's model but only on the client side
                     TAIGA.proxy.registerFluidModels(fluid);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -84,7 +91,9 @@ public class Fluids {
         }
     }
 
-
+    /**
+     * Registers special smeltery recipes (not alloying)
+     */
     static void registerfromItem() {
         registerMelting(radiant_pearl, radiant_enderium, 72);
         registerMelting(glimmer_pearl, glimming_enderium, 72);

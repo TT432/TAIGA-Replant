@@ -8,6 +8,9 @@ import static com.sosnitzka.taiga.util.Utils.registerTinkerAlloys;
 
 public class Alloys {
 
+    /**
+     * Registers alloying in the smeltery
+     */
     static void register() {
         registerTinkerAlloys(nitroniteFluid, 2, tiberiumFluid, 4, vibraniumFluid, 3, nitroFluid, 3);
         registerTinkerAlloys(bysmuidFluid, 1, rubiumFluid, 3, bismuthFluid, 2, anthraciteFluid, 3);
