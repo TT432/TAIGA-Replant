@@ -32,65 +32,65 @@ public class Blocks {
 
     // Ores
     // Group: Solide
-    public static Block titaniteOre = new BasicBlock("titanite_ore", Material.ROCK, 55.0f, 400.0f, TITANITE, PREFIX_ORE);
-    public static Block meteoriteOre = new BasicBlock("meteorite_ore", Material.ROCK, 60.0f, 500.0f, METEORITE, PREFIX_ORE);
-    public static Block vibraniumOre = new BasicBlock("vibranium_ore", Material.ROCK, 70.0f, 800.0f, VIBRANIUM, PREFIX_ORE);
-    public static Block adamantiteOre = new BasicBlock("adamantite_ore", Material.ROCK, 80.0f, 1000.0f, ADAMANTITE, PREFIX_ORE);
+    public static Block titaniteOre = new BasicBlock("titanite_ore", Material.ROCK, 55.0f, 40f, TITANITE, PREFIX_ORE);
+    public static Block meteoriteOre = new BasicBlock("meteorite_ore", Material.ROCK, 60.0f, 50f, METEORITE, PREFIX_ORE);
+    public static Block vibraniumOre = new BasicBlock("vibranium_ore", Material.ROCK, 70.0f, 60f, VIBRANIUM, PREFIX_ORE);
+    public static Block adamantiteOre = new BasicBlock("adamantite_ore", Material.ROCK, 80.0f, 70f, ADAMANTITE, PREFIX_ORE);
     // Group: Arcane
-    public static Block prometheumOre = new BasicBlock("prometheum_ore", Material.ROCK, 35.0f, 35.0f, COBALT, 0.25f, PREFIX_ORE);
-    public static Block rubiumOre = new BasicBlock("rubium_ore", Material.ROCK, 13.0f, 15.0f, TITANITE, PREFIX_ORE);
+    public static Block prometheumOre = new BasicBlock("prometheum_ore", Material.ROCK, 35.0f, 12f, COBALT, 0.4f, PREFIX_ORE);
+    public static Block rubiumOre = new BasicBlock("rubium_ore", Material.ROCK, 13.0f, 12f, TITANITE, PREFIX_ORE);
     public static Block tiberiumOre = new BlockTiberium();
-    public static Block arcaniteOre = new BasicBlock("arcanite_ore", Material.ROCK, 23.0f, 25.0f, METEORITE, PREFIX_ORE);
+    public static Block arcaniteOre = new BasicBlock("arcanite_ore", Material.ROCK, 23.0f, 12f, METEORITE, PREFIX_ORE);
     // Group: Etheri
-    public static Block eterniteOre = new BasicBlock("eternite_ore", Material.ROCK, 24.0f, 25.0f, COBALT, PREFIX_ORE);
-    public static Block mythrilOre = new BasicBlock("mythril_ore", Material.ROCK, 25.0f, 25.0f, TITANITE, PREFIX_ORE);
-    public static Block palladiumOre = new BasicBlock("palladium_ore", Material.ROCK, 25.0f, 25.0f, METEORITE, PREFIX_ORE);
-    public static Block ignititeOre = new BasicBlock("ignitite_ore", Material.ROCK, 23.0f, 25.0f, VIBRANIUM, PREFIX_ORE);
+    public static Block eterniteOre = new BasicBlock("eternite_ore", Material.ROCK, 24.0f, 15f, COBALT, PREFIX_ORE);
+    public static Block mythrilOre = new BasicBlock("mythril_ore", Material.ROCK, 25.0f, 15f, TITANITE, PREFIX_ORE);
+    public static Block palladiumOre = new BasicBlock("palladium_ore", Material.ROCK, 25.0f, 15f, METEORITE, 0.4f, PREFIX_ORE);
+    public static Block ignititeOre = new BasicBlock("ignitite_ore", Material.ROCK, 23.0f, 15f, VIBRANIUM, PREFIX_ORE);
     // Group: Ratio
-    public static Block violiumOre = new BasicBlock("violium_ore", Material.ROCK, 13.0f, 13.0f, COBALT, PREFIX_ORE);
-    public static Block bismuthOre = new BasicBlock("bismuth_ore", Material.ROCK, 8.0f, 8.0f, OBSIDIAN, PREFIX_ORE);
-    public static Block mindoriteOre = new BasicBlock("mindorite_ore", Material.ROCK, 12.0f, 12.0f, TITANITE, PREFIX_ORE);
-    public static Block karmesineOre = new BasicBlock("karmesine_ore", Material.ROCK, 13.0f, 15.0f, METEORITE, PREFIX_ORE);
+    public static Block violiumOre = new BasicBlock("violium_ore", Material.ROCK, 13.0f, 10f, COBALT, PREFIX_ORE);
+    public static Block bismuthOre = new BasicBlock("bismuth_ore", Material.ROCK, 8.0f, 5f, OBSIDIAN, PREFIX_ORE);
+    public static Block mindoriteOre = new BasicBlock("mindorite_ore", Material.ROCK, 12.0f, 10f, TITANITE, PREFIX_ORE);
+    public static Block karmesineOre = new BasicBlock("karmesine_ore", Material.ROCK, 13.0f, 10f, METEORITE, PREFIX_ORE);
 
     // Blocks
     // Group: Solide
-    public static Block titaniteBlock = new BasicBlock("titanite_block", Material.ROCK, 55.0f, 400.0f, 5, PREFIX_BLOCK);
-    public static Block meteoriteBlock = new BasicBlock("meteorite_block", Material.ROCK, 60.0f, 500.0f, 6, PREFIX_BLOCK);
-    public static Block vibraniumBlock = new BasicBlock("vibranium_block", Material.ROCK, 70.0f, 800.0f, 7, PREFIX_BLOCK);
-    public static Block adamantiteBlock = new BasicBlock("adamantite_block", Material.ROCK, 80.0f, 1000.0f, 8, PREFIX_BLOCK);
+    public static Block titaniteBlock = new BasicBlock("titanite_block", Material.ROCK, 55.0f, 50f, 5, PREFIX_BLOCK);
+    public static Block meteoriteBlock = new BasicBlock("meteorite_block", Material.ROCK, 60.0f, 60f, 6, PREFIX_BLOCK);
+    public static Block vibraniumBlock = new BasicBlock("vibranium_block", Material.ROCK, 70.0f, 70f, 7, PREFIX_BLOCK);
+    public static Block adamantiteBlock = new BasicBlock("adamantite_block", Material.ROCK, 80.0f, 80f, 8, PREFIX_BLOCK);
     // Group: Arcane
-    public static Block prometheumBlock = new BasicBlock("prometheum_block", Material.ROCK, 35.0f, 35.0f, 4, 0.25f, PREFIX_BLOCK);
-    public static Block rubiumBlock = new BasicBlock("rubium_block", Material.ROCK, 13.0f, 15.0f, 5, PREFIX_BLOCK);
-    public static Block tiberiumBlock = new BasicBlock("tiberium_block", Material.ROCK, 30.0f, 30.0f, 6, 1f, PREFIX_BLOCK);
-    public static Block arcaniteBlock = new BasicBlock("arcanite_block", Material.ROCK, 23.0f, 25.0f, 7, PREFIX_BLOCK);
+    public static Block prometheumBlock = new BasicBlock("prometheum_block", Material.ROCK, 35.0f, 15f, 2, 0.5f, PREFIX_BLOCK);
+    public static Block rubiumBlock = new BasicBlock("rubium_block", Material.ROCK, 13.0f, 15f, 5, PREFIX_BLOCK);
+    public static Block tiberiumBlock = new BasicBlock("tiberium_block", Material.ROCK, 30.0f, 15f, 6, 1f, PREFIX_BLOCK);
+    public static Block arcaniteBlock = new BasicBlock("arcanite_block", Material.ROCK, 23.0f, 15f, 7, PREFIX_BLOCK);
     // Group: Etheri
-    public static Block eterniteBlock = new BasicBlock("eternite_block", Material.ROCK, 24.0f, 25.0f, 4, PREFIX_BLOCK);
-    public static Block mythrilBlock = new BasicBlock("mythril_block", Material.ROCK, 25.0f, 25.0f, 5, PREFIX_BLOCK);
-    public static Block palladiumBlock = new BasicBlock("palladium_block", Material.ROCK, 25.0f, 25.0f, 6, PREFIX_BLOCK);
-    public static Block ignititeBlock = new BasicBlock("ignitite_block", Material.ROCK, 23.0f, 25.0f, 7, PREFIX_BLOCK);
+    public static Block eterniteBlock = new BasicBlock("eternite_block", Material.ROCK, 24.0f, 20f, 4, PREFIX_BLOCK);
+    public static Block mythrilBlock = new BasicBlock("mythril_block", Material.ROCK, 25.0f, 20f, 5, PREFIX_BLOCK);
+    public static Block palladiumBlock = new BasicBlock("palladium_block", Material.ROCK, 25.0f, 20f, 6, 0.5f, PREFIX_BLOCK);
+    public static Block ignititeBlock = new BasicBlock("ignitite_block", Material.ROCK, 23.0f, 20f, 7, PREFIX_BLOCK);
     // Group: Ratio
-    public static Block violiumBlock = new BasicBlock("violium_block", Material.ROCK, 13.0f, 13.0f, 4, PREFIX_BLOCK);
-    public static Block bismuthBlock = new BasicBlock("bismuth_block", Material.ROCK, 8.0f, 8.0f, 5, PREFIX_BLOCK);
-    public static Block mindoriteBlock = new BasicBlock("mindorite_block", Material.ROCK, 12.0f, 12.0f, 2, PREFIX_BLOCK);
-    public static Block karmesineBlock = new BasicBlock("karmesine_block", Material.ROCK, 13.0f, 15.0f, 3, PREFIX_BLOCK);
+    public static Block violiumBlock = new BasicBlock("violium_block", Material.ROCK, 13.0f, 12f, 4, PREFIX_BLOCK);
+    public static Block bismuthBlock = new BasicBlock("bismuth_block", Material.ROCK, 8.0f, 10f, 5, PREFIX_BLOCK);
+    public static Block mindoriteBlock = new BasicBlock("mindorite_block", Material.ROCK, 12.0f, 12f, 2, PREFIX_BLOCK);
+    public static Block karmesineBlock = new BasicBlock("karmesine_block", Material.ROCK, 13.0f, 12f, 3, PREFIX_BLOCK);
 
 
-    public static Block imperomiteBlock = new BasicBlock("imperomite_block", Material.ROCK, 24.0f, 25.0f, 5, PREFIX_BLOCK);
-    public static Block fractoryteBlock = new BasicBlock("fractoryte_block", Material.ROCK, 8.0f, 8.0f, 8, PREFIX_BLOCK);
-    public static Block noctunyxBlock = new BasicBlock("noctunyx_block", Material.ROCK, 60.0f, 500.0f, 6, PREFIX_BLOCK);
-    public static Block nitroniteBlock = new BasicBlock("nitronite_block", Material.ROCK, 13.0f, 15.0f, 7, PREFIX_BLOCK);
-    public static Block cryptogenBlock = new BasicBlock("cryptogen_block", Material.ROCK, 23.0f, 25.0f, 6, PREFIX_BLOCK);
-    public static Block seismodiumBlock = new BasicBlock("seismodium_block", Material.ROCK, 30.0f, 30.0f, 7, 1f, PREFIX_BLOCK);
-    public static Block aegisaltBlock = new BasicBlock("aegisalt_block", Material.ROCK, 13.0f, 13.0f, 5, PREFIX_BLOCK);
-    public static Block ultraniteBlock = new BasicBlock("ultranite_block", Material.ROCK, 13.0f, 15.0f, 8, PREFIX_BLOCK);
-    public static Block bysmuidBlock = new BasicBlock("bysmuid_block", Material.ROCK, 35.0f, 35.0f, 5, 0.25f, PREFIX_BLOCK);
-    public static Block nucleumBlock = new BasicBlock("nucleum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
-    public static Block terramiteBlock = new BasicBlock("terramite_block", Material.ROCK, 70.0f, 800.0f, 4, PREFIX_BLOCK);
-    public static Block solariumBlock = new BasicBlock("solarium_block", Material.ROCK, 80.0f, 1000.0f, 5, PREFIX_BLOCK);
-    public static Block lumixylBlock = new BasicBlock("lumixyl_block", Material.ROCK, 12.0f, 12.0f, 5, PREFIX_BLOCK);
-    public static Block dyoniteBlock = new BasicBlock("dyonite_block", Material.ROCK, 23.0f, 25.0f, 4, PREFIX_BLOCK);
-    public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 25.0f, 4, PREFIX_BLOCK);
-    public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 55.0f, 400.0f, 7, PREFIX_BLOCK);
+    public static Block imperomiteBlock = new BasicBlock("imperomite_block", Material.ROCK, 24.0f, 25f, 5, PREFIX_BLOCK);
+    public static Block fractoryteBlock = new BasicBlock("fractoryte_block", Material.ROCK, 8.0f, 15f, 8, PREFIX_BLOCK);
+    public static Block noctunyxBlock = new BasicBlock("noctunyx_block", Material.ROCK, 60.0f, 15f, 6, PREFIX_BLOCK);
+    public static Block nitroniteBlock = new BasicBlock("nitronite_block", Material.ROCK, 13.0f, 12f, 7, 0.8f, PREFIX_BLOCK);
+    public static Block cryptogenBlock = new BasicBlock("cryptogen_block", Material.ROCK, 23.0f, 15f, 6, PREFIX_BLOCK);
+    public static Block seismodiumBlock = new BasicBlock("seismodium_block", Material.ROCK, 30.0f, 25f, 7, PREFIX_BLOCK);
+    public static Block aegisaltBlock = new BasicBlock("aegisalt_block", Material.ROCK, 13.0f, 15f, 5, PREFIX_BLOCK);
+    public static Block ultraniteBlock = new BasicBlock("ultranite_block", Material.ROCK, 13.0f, 25f, 8, 0.6f, PREFIX_BLOCK);
+    public static Block bysmuidBlock = new BasicBlock("bysmuid_block", Material.ROCK, 35.0f, 15f, 5, PREFIX_BLOCK);
+    public static Block nucleumBlock = new BasicBlock("nucleum_block", Material.ROCK, 25.0f, 15f, 4, 0.85f, PREFIX_BLOCK);
+    public static Block terramiteBlock = new BasicBlock("terramite_block", Material.ROCK, 70.0f, 15f, 4, PREFIX_BLOCK);
+    public static Block solariumBlock = new BasicBlock("solarium_block", Material.ROCK, 80.0f, 25f, 5, PREFIX_BLOCK);
+    public static Block lumixylBlock = new BasicBlock("lumixyl_block", Material.ROCK, 12.0f, 15f, 5, 1f, PREFIX_BLOCK);
+    public static Block dyoniteBlock = new BasicBlock("dyonite_block", Material.ROCK, 23.0f, 15f, 4, 0.3f, PREFIX_BLOCK);
+    public static Block proxideumBlock = new BasicBlock("proxideum_block", Material.ROCK, 25.0f, 15f, 4, PREFIX_BLOCK);
+    public static Block astriumBlock = new BasicBlock("astrium_block", Material.ROCK, 55.0f, 15f, 7, PREFIX_BLOCK);
 
     /**
      * Registers all materials' ingots and nuggets <br>
