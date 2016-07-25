@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.7'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.8'
     }
 }
 
@@ -124,13 +124,21 @@ artifacts {
 
 curseforge {
     apiKey = System.getenv().CURSE_API_KEY ? System.getenv().CURSE_API_KEY : "devBuild"
+    //noinspection GroovyAssignabilityCheck
     project {
         id = '247661'
         changelog = project.buildInfo.changes // A file can also be set using: changelog = file('changelog.txt')
         releaseType = 'release'
+        addGameVersion '1.10.2'
+        addGameVersion '1.10.1'
+        addArtifact deobfJar
 
         mainArtifact(jar) {
             displayName = "taiga-${project.buildInfo.revision}"
+        }
+
+        relations {
+            requiredLibrary 'tinkers-construct'
         }
     }
 }
