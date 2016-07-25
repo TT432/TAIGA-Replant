@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TAIGAConfiguration {
@@ -73,8 +74,6 @@ public class TAIGAConfiguration {
 
 
         if (readFieldsFromConfig) {
-            //If getInt cannot get an integer value from the config file value of myInteger (e.g. corrupted file)
-            // it will set it to the default value passed to the function
             oreResistenceFactor = resMultiplier.getInt(RESMUT_DEFAULT_VALUE);
             if (oreResistenceFactor > RESMUT_MAX_VALUE || oreResistenceFactor < RESMUT_MIN_VALUE) {
                 oreResistenceFactor = RESMUT_DEFAULT_VALUE;
@@ -89,6 +88,8 @@ public class TAIGAConfiguration {
         if (config.hasChanged()) {
             config.save();
         }
+
+        System.out.println(Arrays.toString(config.getCategoryNames().toArray()));
     }
 
     public static class ConfigEventHandler {

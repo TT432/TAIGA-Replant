@@ -115,6 +115,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void initConfig() {
+        super.initConfig();
         TAIGAConfiguration.clientPreInit();
     }
 
