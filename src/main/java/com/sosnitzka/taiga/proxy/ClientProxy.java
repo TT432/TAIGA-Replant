@@ -3,6 +3,7 @@ package com.sosnitzka.taiga.proxy;
 import com.sosnitzka.taiga.Blocks;
 import com.sosnitzka.taiga.Items;
 import com.sosnitzka.taiga.TAIGA;
+import com.sosnitzka.taiga.TAIGAConfiguration;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -24,7 +25,7 @@ import java.lang.reflect.Field;
 
 import static com.sosnitzka.taiga.MaterialTraits.*;
 
-public class ClientProxy extends ServerProxy {
+public class ClientProxy extends CommonProxy {
 
     private static void registerBlockModel(Block block) {
         registerItemModel(Item.getItemFromBlock(block));
@@ -110,6 +111,11 @@ public class ClientProxy extends ServerProxy {
             // block-model
             ModelLoader.setCustomStateMapper(block, mapper);
         }
+    }
+
+    @Override
+    public void initConfig() {
+        TAIGAConfiguration.clientPreInit();
     }
 
     public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {

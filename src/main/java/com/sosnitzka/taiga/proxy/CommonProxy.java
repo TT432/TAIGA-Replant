@@ -1,9 +1,10 @@
 package com.sosnitzka.taiga.proxy;
 
+import com.sosnitzka.taiga.TAIGAConfiguration;
 import net.minecraftforge.fluids.Fluid;
 import slimeknights.tconstruct.library.materials.Material;
 
-public class ServerProxy {
+public class CommonProxy {
 
     public void registerModels() {
 
@@ -14,5 +15,9 @@ public class ServerProxy {
     }
 
     public void registerFluidModels(Fluid fluid) {
+    }
+
+    public void initConfig() {
+        TAIGAConfiguration.preInit();
     }
 }

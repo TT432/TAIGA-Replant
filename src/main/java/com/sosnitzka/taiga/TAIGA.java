@@ -1,7 +1,7 @@
 package com.sosnitzka.taiga;
 
 import com.google.common.collect.Lists;
-import com.sosnitzka.taiga.proxy.ServerProxy;
+import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.Crafting;
 import com.sosnitzka.taiga.recipes.Smelting;
 import com.sosnitzka.taiga.util.FuelHandler;
@@ -31,19 +31,22 @@ import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
-@Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)")
+@Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)")
 public class TAIGA {
 
     public static final String MODID = "taiga";
     public static final String VERSION = "${version}";
+    public static final String GUIFACTORY = "com.sosnitzka.taiga.TAIGAGuiFactory";
 
-    @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.ServerProxy")
-    public static ServerProxy proxy;
+    @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.CommonProxy")
+    public static CommonProxy proxy;
 
     private List<MaterialIntegration> integrateList = Lists.newArrayList(); // List of materials needed to be integrated
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
+        proxy.initConfig();
+
         Items.register(); // Registers items and its oreDict
         Blocks.register(); // Registers blocks and its items form a long with its oreDict
         Fluids.register(); // Registers all fluids and its buckets
@@ -70,8 +73,6 @@ public class TAIGA {
         for (MaterialIntegration m : integrateList) {
             m.integrateRecipes();
         }
-
-
     }
 
     @EventHandler
@@ -93,7 +94,6 @@ public class TAIGA {
      * @param craft      Can craft parts in part builder
      * @param cast       Can craft parts by casting with fluid (smeltery)
      */
-
     private void registerTinkerMaterial(String oreSuffix, Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, boolean craft, boolean cast) {
         TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
         TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
