@@ -15,7 +15,7 @@ Included:
  
 Download
 ===============
-[Link coming](www.sosnitzka.com)
+[TAIGA on CurseForge](http://minecraft.curseforge.com/projects/taiga-tinkers-alloying-addon/files)
 
 Dependencies
 ===============
