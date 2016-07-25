@@ -15,10 +15,10 @@ import static com.sosnitzka.taiga.Blocks.*;
 public class ZWorldGen implements IWorldGenerator {
     private void nether(Random random, int x, int z, World world) {
 
-        Generator.generateNetherOre(titaniteOre.getDefaultState(), random, x, z, world, 30, 1, 32, 2, 12);
-        Generator.generateNetherOre(tiberiumOre.getDefaultState(), random, x, z, world, 20, 1, 128, 7, 15);
+        Generator.generateNetherOre(titaniteOre.getDefaultState(), random, x, z, world, 30, 1, 64, 2, 12);
+        Generator.generateNetherOre(tiberiumOre.getDefaultState(), random, x, z, world, 30, 1, 128, 7, 15);
         Generator.generateNetherOre(palladiumOre.getDefaultState(), random, x, z, world, 30, 32, 64, 2, 7);
-        Generator.generateNetherOre(prometheumOre.getDefaultState(), random, x, z, world, 30, 32, 64, 2, 6);
+        Generator.generateNetherOre(prometheumOre.getDefaultState(), random, x, z, world, 30, 64, 128, 2, 6);
     }
 
     private void world(Random random, int x, int z, World world) {
@@ -40,10 +40,10 @@ public class ZWorldGen implements IWorldGenerator {
     }
 
     private void end(Random random, int x, int z, World world) {
-        Generator.generateEndOre(adamantiteOre.getDefaultState(), random, x, z, world, 18, 40, 65, 2, 8);
-        Generator.generateEndOre(rubiumOre.getDefaultState(), random, x, z, world, 18, 10, 35, 2, 8);
-        Generator.generateEndOre(ignititeOre.getDefaultState(), random, x, z, world, 18, 20, 45, 2, 8);
-        Generator.generateEndOre(violiumOre.getDefaultState(), random, x, z, world, 18, 30, 55, 2, 8);
+        Generator.generateEndOre(adamantiteOre.getDefaultState(), random, x, z, world, 15, 10, 35, 2, 8);
+        Generator.generateEndOre(rubiumOre.getDefaultState(), random, x, z, world, 15, 10, 65, 2, 8);
+        Generator.generateEndOre(ignititeOre.getDefaultState(), random, x, z, world, 15, 10, 45, 2, 8);
+        Generator.generateEndOre(violiumOre.getDefaultState(), random, x, z, world, 15, 10, 55, 2, 8);
 
     }
 
