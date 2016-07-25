@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TAIGAConfiguration {
@@ -88,8 +87,6 @@ public class TAIGAConfiguration {
         if (config.hasChanged()) {
             config.save();
         }
-
-        System.out.println(Arrays.toString(config.getCategoryNames().toArray()));
     }
 
     public static class ConfigEventHandler {
