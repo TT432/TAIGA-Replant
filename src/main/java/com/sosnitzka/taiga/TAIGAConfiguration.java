@@ -14,9 +14,12 @@ import java.util.List;
 
 public class TAIGAConfiguration {
     public static final String CATEGORY_NAME_GENERAL = "category_general";
-    public static final String CATEGORY_NAME_ORE = "category_ore";
-    public static int oreResistenceFactor;
+    public static final String CATEGORY_NAME_ORE_GEN = "category_ore_gen";
+    public static final String CATEGORY_NAME_ORE_VAL = "category_ore_val";
+    public static double oreResistenceFactor;
     public static boolean slagIronGen;
+    public static boolean slagGoldGen;
+    public static boolean ironGen;
     private static Configuration config = null;
 
     public static void preInit() {
@@ -51,38 +54,55 @@ public class TAIGAConfiguration {
             config.load();
         }
 
-        final int RESMUT_MIN_VALUE = 0;
-        final int RESMUT_MAX_VALUE = 9999;
-        final int RESMUT_DEFAULT_VALUE = 1;
-        Property resMultiplier = config.get(CATEGORY_NAME_ORE, "res_multiplier", RESMUT_DEFAULT_VALUE,
+        final double RESMUT_MIN_VALUE = 0;
+        final double RESMUT_MAX_VALUE = 9999;
+        final double RESMUT_DEFAULT_VALUE = 1.0;
+
+        Property resMultiplier = config.get(CATEGORY_NAME_ORE_GEN, "Percentage resource multiplier", RESMUT_DEFAULT_VALUE,
                 "Resistance multiplier", RESMUT_MIN_VALUE, RESMUT_MAX_VALUE);
         resMultiplier.setLanguageKey("gui.taiga_configuration.res_multiplier");
 
+
+        final boolean IRONGEN_DEFAULT_VALUE = true;
         final boolean SLAGIRONGEN_DEFAULT_VALUE = true;
+        final boolean SLAGGOLDGEN_DEFAULT_VALUE = true;
+        Property ironSwitch = config.get(CATEGORY_NAME_GENERAL, "switch_iron", IRONGEN_DEFAULT_VALUE);
         Property slagIronSwitch = config.get(CATEGORY_NAME_GENERAL, "switch_slagiron", SLAGIRONGEN_DEFAULT_VALUE);
+        Property slagGoldSwitch = config.get(CATEGORY_NAME_GENERAL, "switch_slaggold", SLAGGOLDGEN_DEFAULT_VALUE);
+        ironSwitch.setComment("Switch extra iron on/off");
+        slagGoldSwitch.setComment("Switch slaggold on/off");
         slagIronSwitch.setComment("Switch slagiron on/off");
+        ironSwitch.setLanguageKey("gui.taiga_configuration.gen_iron");
         slagIronSwitch.setLanguageKey("gui.taiga_configuration.gen_slagiron");
+        slagGoldSwitch.setLanguageKey("gui.taiga_configuration.gen_slaggold");
 
         List<String> propOrderGeneral = new ArrayList<String>();
+        propOrderGeneral.add(ironSwitch.getName());
         propOrderGeneral.add(slagIronSwitch.getName());
+        propOrderGeneral.add(slagGoldSwitch.getName());
         config.setCategoryPropertyOrder(CATEGORY_NAME_GENERAL, propOrderGeneral);
 
         List<String> propOrderOre = new ArrayList<String>();
         propOrderOre.add(resMultiplier.getName());
-        config.setCategoryPropertyOrder(CATEGORY_NAME_ORE, propOrderOre);
+        config.setCategoryPropertyOrder(CATEGORY_NAME_ORE_GEN, propOrderOre);
 
 
         if (readFieldsFromConfig) {
-            oreResistenceFactor = resMultiplier.getInt(RESMUT_DEFAULT_VALUE);
+            oreResistenceFactor = resMultiplier.getDouble(RESMUT_DEFAULT_VALUE);
             if (oreResistenceFactor > RESMUT_MAX_VALUE || oreResistenceFactor < RESMUT_MIN_VALUE) {
                 oreResistenceFactor = RESMUT_DEFAULT_VALUE;
             }
 
+            ironGen = ironSwitch.getBoolean(IRONGEN_DEFAULT_VALUE);
             slagIronGen = slagIronSwitch.getBoolean(SLAGIRONGEN_DEFAULT_VALUE);
+            slagGoldGen = slagGoldSwitch.getBoolean(SLAGGOLDGEN_DEFAULT_VALUE);
+
         }
 
         resMultiplier.set(oreResistenceFactor);
+        ironSwitch.set(ironGen);
         slagIronSwitch.set(slagIronGen);
+        slagGoldSwitch.set(slagGoldGen);
 
         if (config.hasChanged()) {
             config.save();
@@ -93,7 +113,7 @@ public class TAIGAConfiguration {
         @SubscribeEvent(priority = EventPriority.NORMAL)
         public void onEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
             if (TAIGA.MODID.equals(event.getModID()) && !event.isWorldRunning()) {
-                if (event.getConfigID().equals(CATEGORY_NAME_GENERAL) || event.getConfigID().equals(CATEGORY_NAME_ORE)) {
+                if (event.getConfigID().equals(CATEGORY_NAME_GENERAL) || event.getConfigID().equals(CATEGORY_NAME_ORE_GEN) || event.getConfigID().equals(CATEGORY_NAME_ORE_VAL)) {
                     syncFromGUI();
                 }
             }

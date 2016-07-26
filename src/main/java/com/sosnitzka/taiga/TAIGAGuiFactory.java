@@ -36,14 +36,16 @@ public class TAIGAGuiFactory implements IModGuiFactory {
     }
 
     public static class TAIGAConfigGui extends GuiConfig {
+
         public TAIGAConfigGui(GuiScreen parentScreen) {
             super(parentScreen, getConfigElements(), TAIGA.MODID, false, false, I18n.format("gui.taiga_configuration.mainTitle"));
         }
 
         private static List<IConfigElement> getConfigElements() {
             List<IConfigElement> list = new ArrayList<IConfigElement>();
-            list.add(new DummyConfigElement.DummyCategoryElement("mainCfg", "gui.taiga_configuration.ctgy.general", CategoryEntryGeneral.class));
-            list.add(new DummyConfigElement.DummyCategoryElement("oreCfg", "gui.taiga_configuration.ctgy.ore", CategoryEntryOre.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Main Configuration", "gui.taiga_configuration.ctgy.general", CategoryEntryGeneral.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Ore Generation", "gui.taiga_configuration.ctgy.oregen", CategoryEntryOreGen.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Ore Values", "gui.taiga_configuration.ctgy.oreval", CategoryEntryOreVal.class));
             return list;
         }
 
@@ -63,19 +65,35 @@ public class TAIGAGuiFactory implements IModGuiFactory {
             }
         }
 
-        public static class CategoryEntryOre extends GuiConfigEntries.CategoryEntry {
-            public CategoryEntryOre(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
+        public static class CategoryEntryOreGen extends GuiConfigEntries.CategoryEntry {
+            public CategoryEntryOreGen(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
                 super(owningScreen, owningEntryList, prop);
             }
 
             @Override
             protected GuiScreen buildChildScreen() {
                 Configuration configuration = TAIGAConfiguration.getConfig();
-                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration.CATEGORY_NAME_ORE));
+                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration.CATEGORY_NAME_ORE_GEN));
                 List<IConfigElement> propertiesOnThisScreen = cat_general.getChildElements();
                 String windowTitle = configuration.toString();
 
-                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_ORE, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
+                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_ORE_GEN, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
+            }
+        }
+
+        public static class CategoryEntryOreVal extends GuiConfigEntries.CategoryEntry {
+            public CategoryEntryOreVal(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
+                super(owningScreen, owningEntryList, prop);
+            }
+
+            @Override
+            protected GuiScreen buildChildScreen() {
+                Configuration configuration = TAIGAConfiguration.getConfig();
+                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration.CATEGORY_NAME_ORE_VAL));
+                List<IConfigElement> propertiesOnThisScreen = cat_general.getChildElements();
+                String windowTitle = configuration.toString();
+
+                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_ORE_VAL, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
             }
         }
     }

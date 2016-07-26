@@ -15,10 +15,10 @@ import static com.sosnitzka.taiga.Blocks.*;
 public class ZWorldGen implements IWorldGenerator {
     private void nether(Random random, int x, int z, World world) {
 
-        Generator.generateNetherOre(titaniteOre.getDefaultState(), random, x, z, world, 30, 1, 64, 2, 12);
+        Generator.generateNetherOre(titaniteOre.getDefaultState(), random, x, z, world, 35, 1, 64, 2, 12);
         Generator.generateNetherOre(tiberiumOre.getDefaultState(), random, x, z, world, 30, 1, 128, 7, 15);
-        Generator.generateNetherOre(palladiumOre.getDefaultState(), random, x, z, world, 30, 32, 64, 2, 7);
-        Generator.generateNetherOre(prometheumOre.getDefaultState(), random, x, z, world, 30, 64, 128, 2, 6);
+        Generator.generateNetherOre(palladiumOre.getDefaultState(), random, x, z, world, 35, 32, 64, 2, 6);
+        Generator.generateNetherOre(prometheumOre.getDefaultState(), random, x, z, world, 35, 64, 128, 2, 6);
     }
 
     private void world(Random random, int x, int z, World world) {
@@ -62,6 +62,9 @@ public class ZWorldGen implements IWorldGenerator {
                 break;
             case 1:
                 end(random, x, z, world);
+                break;
+            default:
+                world(random, x, z, world);
                 break;
         }
     }

@@ -38,7 +38,7 @@ public class Fluids {
     public static BasicTinkerFluid nitroniteFluid = new BasicTinkerFluid("nitronite", 0xFFdfe553, true, 680, 10, 2185);
     public static BasicTinkerFluid proxideumFluid = new BasicTinkerFluid("proxideum", 0xFF2f7177, true, 700, 9, 3859);
     public static BasicTinkerFluid noctunyxFluid = new BasicTinkerFluid("noctunyx", 0xFF5f5081, true, 712, 8, 3983);
-    public static BasicTinkerFluid imperomiteFluid = new BasicTinkerFluid("imperomite", 0xFFff6642, true, 510, 10, 2353);
+    public static BasicTinkerFluid imperomiteFluid = new BasicTinkerFluid("imperomite", 0xFF5cc96b, true, 510, 10, 2353);
     public static BasicTinkerFluid cryptogenFluid = new BasicTinkerFluid("cryptogen", 0xFF9f8a4a, true, 560, 10, 3243);
     public static BasicTinkerFluid fractoryteFluid = new BasicTinkerFluid("fractoryte", 0xFF983f11, true, 670, 8, 3805);
     public static BasicTinkerFluid seismodiumFluid = new BasicTinkerFluid("seismodium", 0xFF46131D, true, 831, 10, 1837);
