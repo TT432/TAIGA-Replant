@@ -78,4 +78,8 @@ public class Utils {
         message.setTag("alloy", tagList);
         FMLInterModComms.sendMessage("tconstruct", "alloy", message);
     }
+
+    public static boolean isNight(int time) {
+        return time > 12500;
+    }
 }

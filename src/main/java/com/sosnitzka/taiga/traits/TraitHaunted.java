@@ -11,13 +11,14 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
+
 public class TraitHaunted extends AbstractTrait {
 
     public TraitHaunted() {
         super("haunted", TextFormatting.DARK_GRAY);
         MinecraftForge.EVENT_BUS.register(this);
     }
-
 
     // Just several tested Vanilla-Mobs, e.g. no ghasts, bats or skeletons
     @Override
@@ -32,13 +33,5 @@ public class TraitHaunted extends AbstractTrait {
                 ((EntityLiving) target).tasks.addTask(0, new EntityAIPermanentPanic((EntityCreature) target, target.getAIMoveSpeed() + 3.5D));
 
             }
-    }
-
-    public boolean isNight(int time) {
-        if (time > 12500) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

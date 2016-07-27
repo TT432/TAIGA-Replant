@@ -18,8 +18,6 @@ public class TraitResonance extends AbstractTrait {
             target.knockBack(target, random.nextFloat() * random.nextFloat() * 12, player.posX - target.posX, player.posZ - target.posZ);
         }
     }
-
-
 }
 
 

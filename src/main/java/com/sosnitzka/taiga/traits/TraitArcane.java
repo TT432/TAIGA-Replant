@@ -9,6 +9,8 @@ import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
+
 public class TraitArcane extends AbstractTrait {
 
     public TraitArcane() {
@@ -28,15 +30,6 @@ public class TraitArcane extends AbstractTrait {
         int time = (int) player.getEntityWorld().getWorldTime();
         if (random.nextFloat() <= 0.1 && isNight(time)) {
             ToolHelper.healTool(tool, random.nextInt(15) + 1, null);
-        }
-    }
-
-
-    public boolean isNight(int time) {
-        if (time > 12500) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

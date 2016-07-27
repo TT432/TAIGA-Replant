@@ -34,6 +34,5 @@ public class Smelting {
         GameRegistry.addSmelting(vibraniumOre, new ItemStack(vibraniumIngot), RandomUtils.nextFloat(0F, 2F));
         GameRegistry.addSmelting(rubiumOre, new ItemStack(rubiumIngot), RandomUtils.nextFloat(0F, 2F));
         */
-
     }
 }

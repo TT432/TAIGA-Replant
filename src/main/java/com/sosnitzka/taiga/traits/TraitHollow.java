@@ -15,6 +15,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
+
 public class TraitHollow extends AbstractTrait {
 
     public TraitHollow() {
@@ -43,14 +45,6 @@ public class TraitHollow extends AbstractTrait {
             if (random.nextFloat() <= 0.9 && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 event.getDrops().clear();
             }
-        }
-    }
-
-    public boolean isNight(int time) {
-        if (time > 12500) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

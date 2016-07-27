@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EntityAIPermanentPanic extends EntityAIBase {
     private EntityCreature theEntityCreature;
-    protected double speed;
+    private double speed;
     private double randPosX;
     private double randPosY;
     private double randPosZ;
@@ -45,10 +45,10 @@ public class EntityAIPermanentPanic extends EntityAIBase {
                     this.randPosY = (double) blockpos.getY();
                     this.randPosZ = (double) blockpos.getZ();
                 }
-                }
+            }
 
             return true;
-            }
+        }
 
     }
 

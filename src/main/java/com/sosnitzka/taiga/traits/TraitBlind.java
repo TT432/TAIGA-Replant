@@ -10,6 +10,8 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
+
 public class TraitBlind extends AbstractTrait {
 
     public TraitBlind() {
@@ -35,14 +37,6 @@ public class TraitBlind extends AbstractTrait {
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, random.nextInt(400) + 200));
             else
                 player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, random.nextInt(400) + 200));
-        }
-    }
-
-    public boolean isNight(int time) {
-        if (time > 12500) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

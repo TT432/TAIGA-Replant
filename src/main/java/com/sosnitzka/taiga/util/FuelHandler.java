@@ -21,5 +21,4 @@ public class FuelHandler implements IFuelHandler {
         }
         return 0;
     }
-
 }

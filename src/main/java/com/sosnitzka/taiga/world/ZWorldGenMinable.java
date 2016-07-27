@@ -10,6 +10,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 public class ZWorldGenMinable extends WorldGenMinable {
@@ -32,6 +33,7 @@ public class ZWorldGenMinable extends WorldGenMinable {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean generate(World worldIn, Random rand, BlockPos position) {
         float f = rand.nextFloat() * (float) Math.PI;
         double d0 = (double) ((float) (position.getX() + 8) + MathHelper.sin(f) * (float) this.numberOfBlocks / 8.0F);

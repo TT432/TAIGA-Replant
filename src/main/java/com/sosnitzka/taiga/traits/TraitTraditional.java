@@ -11,6 +11,4 @@ public class TraitTraditional extends AbstractTrait {
         super("traditional", TextFormatting.GREEN);
         MinecraftForge.EVENT_BUS.register(this);
     }
-
-
 }

@@ -26,7 +26,5 @@ public class Crafting {
         GameRegistry.addShapelessRecipe(new ItemStack(nitro_brick), fuel_brick, Items.GUNPOWDER, Items.BLAZE_POWDER);
         GameRegistry.addShapelessRecipe(new ItemStack(anthracite_dust), matNecroticBone, Items.COAL, Items.GUNPOWDER);
         GameRegistry.addShapelessRecipe(new ItemStack(spectrum_dust), matNecroticBone, glimmerstone_dust);
-
-
     }
 }

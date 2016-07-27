@@ -31,7 +31,7 @@ public class TraitRandomize extends AbstractTrait {
     @Override
     public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event) {
         if (ToolHelper.isToolEffective2(tool, event.getState())) {
-            event.setNewSpeed((float) (event.getNewSpeed() + random.nextFloat() * 2));
+            event.setNewSpeed(event.getNewSpeed() + random.nextFloat() * 2);
         }
     }
 
@@ -113,13 +113,15 @@ public class TraitRandomize extends AbstractTrait {
                 }
                 e.setPosition(target.getPosition().getX(), target.getPosition().getY() + 0.1f, target.getPosition().getZ());
                 e.setCustomNameTag("Missingno");
-                ((EntityLiving) e).setHealth(((EntityLiving) e).getHealth() * (random.nextInt(5) + 1));
+                if (e instanceof EntityLiving)
+                    ((EntityLiving) e).setHealth(((EntityLiving) e).getHealth() * (random.nextInt(5) + 1));
                 w.spawnEntityInWorld(e);
                 target.setDead();
             }
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         float r = random.nextFloat();

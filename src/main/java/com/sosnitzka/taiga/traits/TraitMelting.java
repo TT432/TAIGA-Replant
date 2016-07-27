@@ -7,9 +7,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.world.BlockEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-/**
- * Created by Robert on 03.06.2016.
- */
+
 public class TraitMelting extends AbstractTrait {
 
     public TraitMelting() {
@@ -24,8 +22,6 @@ public class TraitMelting extends AbstractTrait {
             event.getWorld().setBlockState(event.getPos(), Blocks.LAVA.getDefaultState());
         }
     }
-
-
 }
 
 

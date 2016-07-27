@@ -36,5 +36,4 @@ public class BasicBlock extends Block {
     public String getOreDictPrefix() {
         return this.oreDictPrefix;
     }
-
 }

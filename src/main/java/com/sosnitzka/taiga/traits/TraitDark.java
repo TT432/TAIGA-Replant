@@ -5,6 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
+
 
 public class TraitDark extends AbstractTrait {
 
@@ -20,13 +22,5 @@ public class TraitDark extends AbstractTrait {
         }
         return super.damage(tool, player, target, damage, newDamage, isCritical);
 
-    }
-
-    public boolean isNight(int time) {
-        if (time > 12500) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

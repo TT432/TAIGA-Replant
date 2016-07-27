@@ -58,5 +58,4 @@ public class BlockTiberium extends BasicBlock {
             }
         }
     }
-
 }

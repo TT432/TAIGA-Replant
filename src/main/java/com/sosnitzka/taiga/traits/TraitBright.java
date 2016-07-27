@@ -12,6 +12,8 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
+
 
 public class TraitBright extends AbstractTrait {
 
@@ -22,7 +24,7 @@ public class TraitBright extends AbstractTrait {
     @Override
     public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
         int time = (int) target.getEntityWorld().getWorldTime();
-        if (isDay(time)) {
+        if (!isNight(time)) {
             newDamage += damage / 2f;
         }
         return super.damage(tool, player, target, damage, newDamage, isCritical);
@@ -36,15 +38,6 @@ public class TraitBright extends AbstractTrait {
             if (TinkerUtil.hasTrait(TagUtil.getTagSafe(e.getHeldItemMainhand()), identifier)) {
                 e.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 100));
             }
-        }
-
-    }
-
-    public boolean isDay(int time) {
-        if (time < 12500) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

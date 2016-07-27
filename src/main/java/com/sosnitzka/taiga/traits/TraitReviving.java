@@ -18,10 +18,9 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import static com.sosnitzka.taiga.util.Utils.isNight;
 
-/**
- * Created by Robert on 03.06.2016.
- */
+
 public class TraitReviving extends AbstractTrait {
 
     public TraitReviving() {
@@ -38,6 +37,7 @@ public class TraitReviving extends AbstractTrait {
                 if (isNight((int) w.getWorldTime()) && random.nextFloat() > 0.85 && TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
                     String name = EntityList.getEntityString(e.getEntity());
                     Entity ent = EntityList.createEntityByName(name, w);
+                    assert ent != null;
                     ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
                     w.spawnEntityInWorld(ent);
                 }
@@ -58,15 +58,6 @@ public class TraitReviving extends AbstractTrait {
         int time = (int) player.getEntityWorld().getWorldTime();
         if (random.nextFloat() <= 0.1 && isNight(time)) {
             ToolHelper.healTool(tool, random.nextInt(15) + 1, null);
-        }
-    }
-
-
-    public boolean isNight(int time) {
-        if (time > 12500) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

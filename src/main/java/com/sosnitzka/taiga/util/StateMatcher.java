@@ -18,7 +18,7 @@ public class StateMatcher implements Predicate<IBlockState> {
         this.value = value;
     }
 
-    public static StateMatcher forState(IBlockState state, IProperty property, Comparable value) {
+    static StateMatcher forState(IBlockState state, IProperty property, Comparable value) {
         return new StateMatcher(state, property, value);
     }
 

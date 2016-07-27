@@ -28,12 +28,10 @@ public class TraitPulverizing extends AbstractTrait {
         return speed * (maxDurability - maxDurability / 10) / (durability);
     }
 
-
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         if (random.nextFloat() < 0.9) {
             event.getDrops().clear();
         }
     }
-
 }

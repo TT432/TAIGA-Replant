@@ -47,10 +47,14 @@ task buildInfo {
         ext.buildNum = System.getenv().BUILD_NUMBER
     }
 
-    if (System.getenv().TAIGA_CHANGES != null) {
-        ext.changes = System.getenv().TAIGA_CHANGES
+
+    def cmd = "git log \$(git tag --sort=-refname | sed -n '2p')..\$(git tag --sort=-refname | sed -n '1p') --oneline"
+    def proc = cmd.execute()
+    proc.waitFor()
+    if (proc.exitValue() == 0) {
+        ext.changes = proc.text.trim()
     } else {
-        ext.changes = ""
+        ext.changes = "N/A"
     }
 }
 

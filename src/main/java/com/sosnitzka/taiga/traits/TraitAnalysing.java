@@ -52,7 +52,7 @@ public class TraitAnalysing extends AbstractTrait {
     }
 
     private int getUpdateXP(int xp) {
-        float exp = (float) random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + 18) * 50;
+        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + 18) * 50;
         return Math.round(exp);
     }
 
@@ -62,5 +62,4 @@ public class TraitAnalysing extends AbstractTrait {
             event.getDrops().clear();
         }
     }
-
 }

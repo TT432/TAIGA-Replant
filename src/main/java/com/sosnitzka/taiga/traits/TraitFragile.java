@@ -78,7 +78,6 @@ public class TraitFragile extends AbstractTrait {
         }
     }
 
-
     private float calcBonus(ItemStack tool) {
         int durability = ToolHelper.getCurrentDurability(tool);
         int maxDurability = ToolHelper.getMaxDurability(tool);

@@ -33,10 +33,9 @@ public class TraitDiffuse extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (!player.getEntityWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        if (!player.getEntityWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
             event.setExpToDrop(this.getUpdateXP(event.getExpToDrop()));
         }
-
     }
 
     @SubscribeEvent
@@ -51,7 +50,7 @@ public class TraitDiffuse extends AbstractTrait {
     }
 
     private int getUpdateXP(int xp) {
-        float exp = (float) random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextInt(10));
+        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextInt(10));
         if (random.nextBoolean())
             return Math.round(exp);
         else return 0;
@@ -63,5 +62,4 @@ public class TraitDiffuse extends AbstractTrait {
             event.getDrops().clear();
         }
     }
-
 }
