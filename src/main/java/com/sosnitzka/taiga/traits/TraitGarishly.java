@@ -57,6 +57,7 @@ public class TraitGarishly extends AbstractTrait {
                         break;
                 }
 
+                assert i != null;
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }
         }

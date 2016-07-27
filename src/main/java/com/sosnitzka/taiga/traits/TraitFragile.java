@@ -40,7 +40,6 @@ public class TraitFragile extends AbstractTrait {
                     if (r == 1) y += d;
                     if (r == 2) z += d;
                     BlockPos nextBlock = new BlockPos(x, y, z);
-                    int tn = (int) world.getWorldTime() + 5;
                     if (world.getBlockState(nextBlock) == world.getBlockState(pos)) {
                         Block block = Blocks.STONE;
                         int ib = random.nextInt(3);

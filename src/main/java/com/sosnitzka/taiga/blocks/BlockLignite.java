@@ -9,6 +9,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 import static com.sosnitzka.taiga.Items.lignite;
@@ -29,6 +30,7 @@ public class BlockLignite extends BasicBlock {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public int quantityDropped(IBlockState state, int fortune, Random random) {
         return MathHelper.getRandomIntegerInRange(random, 1, 3 + fortune);
     }

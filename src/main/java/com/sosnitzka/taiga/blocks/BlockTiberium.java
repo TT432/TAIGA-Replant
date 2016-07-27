@@ -11,6 +11,7 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 import static com.sosnitzka.taiga.util.Utils.PREFIX_ORE;
@@ -25,13 +26,13 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
-        Random rand = world instanceof World ? ((World) world).rand : new Random();
         if (random.nextBoolean()) {
             return random.nextInt(10) + fortune;
         } else return 0;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public int quantityDropped(IBlockState state, int fortune, Random random) {
         return (random.nextInt(3 + fortune) + 1);
     }
