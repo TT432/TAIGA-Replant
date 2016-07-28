@@ -1,14 +1,12 @@
 package com.sosnitzka.taiga;
 
 import com.google.common.collect.Lists;
-import com.sosnitzka.taiga.dev.BlockHandler;
 import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
 import com.sosnitzka.taiga.util.FuelHandler;
 import com.sosnitzka.taiga.world.ZWorldGen;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -31,9 +29,7 @@ import java.util.List;
 
 import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
-import static com.sosnitzka.taiga.TAIGAConfiguration.attackFactorGeneral;
-import static com.sosnitzka.taiga.TAIGAConfiguration.durabilityFactorGeneral;
-import static com.sosnitzka.taiga.TAIGAConfiguration.speedFactorGeneral;
+import static com.sosnitzka.taiga.TAIGAConfiguration.*;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)")
@@ -50,7 +46,6 @@ public class TAIGA {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-        MinecraftForge.EVENT_BUS.register(new BlockHandler());
         proxy.initConfig();
 
         Items.register(); // Registers items and its oreDict

@@ -23,7 +23,8 @@ public class TraitCascade extends AbstractTrait {
             sx = x = pos.getX();
             sy = y = pos.getY();
             sz = z = pos.getZ();
-            for (int i = random.nextInt((int) (ToolHelper.getCurrentDurability(tool) * 1.5f)); i > 0; i--) { // TODO: limit to 100
+            int i = random.nextInt((int) Math.min(300f * (float) ToolHelper.getCurrentDurability(tool) / ToolHelper.getMaxDurability(tool), 50f));
+            for (int a = i; a > 0; a--) {
                 int r = random.nextInt(3);
                 int d = random.nextBoolean() ? 1 : -1;
                 if (r == 0) x += d;
