@@ -267,3 +267,7 @@ item.tiberium_shard_instable.name=Instabile Tiberiumscherbe
 item.tiberium_nugget.name=Tiberium Nugget
 item.radiant_pearl.name=Radiumperle
 item.luminar_dust.name=Luminarstaub
+
+gui.taiga_configuration.mainTitle=TAIGA Configuration
+itemGroup.taiga_block=TAIGA Blocks
+itemGroup.taiga_item=TAIGA Items

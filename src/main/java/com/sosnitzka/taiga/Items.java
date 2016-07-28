@@ -116,6 +116,11 @@ public class Items {
                 Class<?> targetType = field.getType();
                 try {
                     Item item = (Item) field.get(targetType); // Gets the field as a BasicItem which is then casted to an Item
+                    if (item.equals(iron_nugget) && OreDictionary.doesOreNameExist("nuggetIron")) {
+                        System.out.println("TAIGA: Skipped registration of nuggetIron which already exists.");
+                        continue;
+                    }
+                    item.setCreativeTab(CreativeTab.tabTaigaItem);
                     GameRegistry.register(item); // Registers the item into the game
                     if (item instanceof BasicItem) {  // Checks that the item is a BasicItem
                         if (((BasicItem) item).isOreDict()) { // Checks if this item should be registered into the oreDict and registers it

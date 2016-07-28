@@ -267,3 +267,7 @@ item.tiberium_shard_instable.name=不稳定泰伯利亚碎片
 item.tiberium_nugget.name=泰伯利亚粒
 item.radiant_pearl.name=辐射珍珠
 item.luminar_dust.name=流明粉
+
+gui.taiga_configuration.mainTitle=TAIGA 组态
+itemGroup.taiga_block=TAIGA 块
+itemGroup.taiga_item=TAIGA 对象
