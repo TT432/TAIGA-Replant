@@ -18,7 +18,6 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
 public class TraitNatureBound extends AbstractTrait {
-    private static int chance = 20;
 
     public TraitNatureBound() {
         super("naturebound", TextFormatting.GREEN);
@@ -34,6 +33,7 @@ public class TraitNatureBound extends AbstractTrait {
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         // *20 because 20 ticks in a second
+        int chance = 20;
         if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(30 * chance) == 0) {
             ToolHelper.healTool(tool, random.nextInt(9) + 1, (EntityLivingBase) entity);
         }

@@ -34,7 +34,7 @@ public class TraitGarishly extends AbstractTrait {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
             if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
 
-                int r = random.nextInt(5);
+                int r = random.nextInt(6);
                 ItemStack i = null;
                 switch (r) {
                     case 0:
@@ -56,7 +56,6 @@ public class TraitGarishly extends AbstractTrait {
                         i = new ItemStack(lignite, random.nextInt(3));
                         break;
                 }
-
                 assert i != null;
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }

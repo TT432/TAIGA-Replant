@@ -43,9 +43,9 @@ public class TAIGAGuiFactory implements IModGuiFactory {
 
         private static List<IConfigElement> getConfigElements() {
             List<IConfigElement> list = new ArrayList<IConfigElement>();
-            list.add(new DummyConfigElement.DummyCategoryElement("Main Configuration", "gui.taiga_configuration.ctgy.general", CategoryEntryGeneral.class));
-            list.add(new DummyConfigElement.DummyCategoryElement("Ore Generation", "gui.taiga_configuration.ctgy.oregen", CategoryEntryOreGen.class));
-            list.add(new DummyConfigElement.DummyCategoryElement("Ore Values", "gui.taiga_configuration.ctgy.oreval", CategoryEntryOreVal.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Basics configuration", "gui.taiga_configuration.ctgy.general", CategoryEntryGeneral.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Specific ore generation", "gui.taiga_configuration.ctgy.oregen", CategoryEntryOreGen.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Specific ore values", "gui.taiga_configuration.ctgy.oreval", CategoryEntryOreVal.class));
             return list;
         }
 

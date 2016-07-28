@@ -32,7 +32,7 @@ public class BlockLignite extends BasicBlock {
     @Override
     @ParametersAreNonnullByDefault
     public int quantityDropped(IBlockState state, int fortune, Random random) {
-        return MathHelper.getRandomIntegerInRange(random, 1, 3 + fortune);
+        return random.nextInt(3) + 1 + fortune;
     }
 
     @Override

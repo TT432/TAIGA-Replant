@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import static com.sosnitzka.taiga.Items.*;
 import static slimeknights.tconstruct.shared.TinkerCommons.matNecroticBone;
 
-public class Crafting {
+public class CraftingRegistry {
     public static void register() {
         GameRegistry.addShapelessRecipe(new ItemStack(fuel_brick), Items.COAL, Items.COAL, Items.COAL, lignite, lignite, lignite);
 

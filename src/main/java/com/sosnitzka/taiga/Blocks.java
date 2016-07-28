@@ -106,7 +106,6 @@ public class Blocks {
                 try {
                     Block block = (Block) field.get(targetType); // Gets the field as a BasicBlock which is then casted to an Block
                     Utils.registerBlockWithItem(block); // Registers block and its item
-
                     if (block instanceof BasicBlock) { // Checks that the block is a BasicBlock
                         if (((BasicBlock) block).isOreDict()) { // Checks that the block has an oreDict entry
                             String oreDictName;

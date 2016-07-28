@@ -105,9 +105,10 @@ public class Fluids {
         registerMelting(Blocks.OBSIDIAN, FluidRegistry.LAVA, 432);
         registerMelting(Blocks.NETHERRACK, FluidRegistry.LAVA, 48);
         registerMelting(Blocks.STONE, FluidRegistry.LAVA, 144);
-        registerMelting(slaggoldOre, TinkerFluids.gold, 16);
         registerMelting(slagironOre, TinkerFluids.iron, 16);
         registerMelting(slagironIngot, TinkerFluids.iron, 24);
+        registerMelting(slaggoldOre, TinkerFluids.gold, 16);
         registerMelting(slaggoldIngot, TinkerFluids.gold, 24);
+
     }
 }
