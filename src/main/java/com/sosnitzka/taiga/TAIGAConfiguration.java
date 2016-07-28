@@ -46,8 +46,6 @@ public class TAIGAConfiguration {
     public static double ligniteFactor;
 
 
-
-
     public static boolean slagIronGen;
     public static boolean slagGoldGen;
     public static boolean ironGen;
@@ -107,18 +105,18 @@ public class TAIGAConfiguration {
         ironSwitch.setLanguageKey("gui.taiga_configuration.gen_iron");
 
         Property oreFactorGeneralProp = config.get(CATEGORY_NAME_GENERAL, "Ore factor", RESFAC_DEFAULT_VALUE,
-                "General multiplier for all ores at once", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+                "General multiplier for all TAIGA ores at once", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         oreFactorGeneralProp.setLanguageKey("gui.taiga_configuration.ore_multiplier");
         Property durabilityFactorGeneralProp = config.get(CATEGORY_NAME_GENERAL, "Durability factor", RESFAC_DEFAULT_VALUE,
-                "General multiplier for all materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+                "General multiplier for all TAIGA materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         durabilityFactorGeneralProp.setLanguageKey("gui.taiga_configuration.durability_multiplier");
         durabilityFactorGeneralProp.setRequiresMcRestart(true);
         Property speedFactorGeneralProp = config.get(CATEGORY_NAME_GENERAL, "Speed factor", RESFAC_DEFAULT_VALUE,
-                "General multiplier for all materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+                "General multiplier for all TAIGA materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         speedFactorGeneralProp.setLanguageKey("gui.taiga_configuration.speed_multiplier");
         speedFactorGeneralProp.setRequiresMcRestart(true);
         Property attackFactorGeneralProp = config.get(CATEGORY_NAME_GENERAL, "Attack factor", RESFAC_DEFAULT_VALUE,
-                "General multiplier for all materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+                "General multiplier for all TAIGA materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         attackFactorGeneralProp.setLanguageKey("gui.taiga_configuration.attack_multiplier");
         attackFactorGeneralProp.setRequiresMcRestart(true);
 
