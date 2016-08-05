@@ -66,6 +66,6 @@ public class TraitInstable extends AbstractTrait {
     }
 
     private void explode(World w, Entity e, double x, double y, double z) {
-        w.newExplosion(e, x, y, z, 1.2f + random.nextFloat() * 35, random.nextBoolean(), true);
+        w.newExplosion(e, x, y, z, 1.2f + random.nextFloat() * 5, random.nextBoolean(), true);
     }
 }
