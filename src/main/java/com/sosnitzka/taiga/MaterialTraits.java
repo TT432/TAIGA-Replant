@@ -8,7 +8,7 @@ import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import static slimeknights.tconstruct.tools.TinkerMaterials.*;
+import static slimeknights.tconstruct.tools.TinkerTraits.*;
 
 public class MaterialTraits {
 

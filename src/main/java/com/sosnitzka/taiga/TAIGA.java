@@ -130,11 +130,11 @@ public class TAIGA {
     private void registerTinkerMaterials() {
 
         double d = durabilityFactorGeneral;
-        System.out.println("DURABILITY FACTOR" + d);
+        System.out.println("Durability=" + d);
         float s = (float) speedFactorGeneral;
-        System.out.println("SPEED FACTOR" + s);
+        System.out.println("Speed=" + s);
         float a = (float) attackFactorGeneral;
-        System.out.println("ATTACK FACTOR" + a);
+        System.out.println("Attack=" + a);
 
         // ARCANE ORES
         registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, (int) (223 * d), 6.2f * s, 8.35f * a, 0.63f, 50, 50, OBSIDIAN, false, true);
