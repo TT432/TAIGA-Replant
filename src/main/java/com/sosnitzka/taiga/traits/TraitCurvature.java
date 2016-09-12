@@ -67,6 +67,11 @@ public class TraitCurvature extends AbstractTrait {
             y++;
         }
         while (w.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.AIR) {
+            if (y <= 0) {
+                y = 0;
+                break;
+            }
+
             y--;
         }
 
