@@ -63,6 +63,8 @@ public class TraitCurvature extends AbstractTrait {
         int x = e.getPosition().getX() + random.nextInt(250) - 125;
         int y = e.getPosition().getY();
         int z = e.getPosition().getZ() + random.nextInt(250) - 125;
+
+        // TODO: Make this a proper search for top block (if there is one)
         while (w.getBlockState(new BlockPos(x, y, z)).getBlock() != Blocks.AIR) {
             y++;
         }
