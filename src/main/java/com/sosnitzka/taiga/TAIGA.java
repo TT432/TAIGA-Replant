@@ -48,8 +48,6 @@ public class TAIGA {
     public void preInit(FMLPreInitializationEvent e) {
         proxy.initConfig();
 
-        System.out.println(String.format("init from TAIGA Version %s", VERSION));
-
         Items.register(); // Registers items and its oreDict
         Blocks.register(); // Registers blocks and its items form a long with its oreDict
         Fluids.register(); // Registers all fluids and its buckets
