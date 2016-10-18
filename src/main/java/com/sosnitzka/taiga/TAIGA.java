@@ -32,11 +32,11 @@ import static com.sosnitzka.taiga.MaterialTraits.*;
 import static com.sosnitzka.taiga.TAIGAConfiguration.*;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
-@Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10-2.3.3,);" + "required-after:mantle@[1.10-0.10.3,)")
+@Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10.2-2.5.0,);" + "required-after:mantle@[1.10.2-1.0.0,)")
 public class TAIGA {
 
     public static final String MODID = "taiga";
-    public static final String VERSION = "${version}";
+    public static final String VERSION = "@VERSION@";
     public static final String GUIFACTORY = "com.sosnitzka.taiga.TAIGAGuiFactory";
 
     @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.CommonProxy")
@@ -47,6 +47,8 @@ public class TAIGA {
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
         proxy.initConfig();
+
+        System.out.println(String.format("init from TAIGA Version %s", VERSION));
 
         Items.register(); // Registers items and its oreDict
         Blocks.register(); // Registers blocks and its items form a long with its oreDict
