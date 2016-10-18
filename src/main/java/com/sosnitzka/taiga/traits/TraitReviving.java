@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -36,10 +37,16 @@ public class TraitReviving extends AbstractTrait {
             if (e.getSource().getEntity() instanceof EntityPlayer && e.getEntity() instanceof EntityCreature) {
                 if (isNight((int) w.getWorldTime()) && random.nextFloat() > 0.85 && TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
                     String name = EntityList.getEntityString(e.getEntity());
+
                     Entity ent = EntityList.createEntityByName(name, w);
-                    assert ent != null;
-                    ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
-                    w.spawnEntityInWorld(ent);
+                    if (ent != null) {
+                        if (ent instanceof EntitySkeleton && e.getEntity() instanceof EntitySkeleton) {
+                            ((EntitySkeleton) ent).setSkeletonType(((EntitySkeleton) e.getEntity()).getSkeletonType());
+                        }
+
+                        ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
+                        w.spawnEntityInWorld(ent);
+                    }
                 }
             }
         }
