@@ -30,7 +30,7 @@ Latest tests done with:
 
 What's going on?
 ===
-What's does the mod add?
+What does the mod add?
 * There are 16 kinds of new ores, seperated in 4 categories each: Arcane, solide, ethere and ratio metals.
 * You are just able to combine some of them as neigbours in a "circle": Arcane <> Solide <> Ethere <> Ratio <> Arcane - you gonna check JEI for Recipes!
 * The hardness of the new tool depends on their parents. Not every alloy is hard enough, to mine the next alloy-level.
