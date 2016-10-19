@@ -23,14 +23,14 @@ Necessary:
 * Tinkers Construct for 1.10.2 + associated version of mantle
 * Minecraft Forge 1.10.2
 
-Tested with:
+Latest tests done with:
 
-* [Tinkers Construct 2.3.3a](http://minecraft.curseforge.com/projects/tinkers-construct/files)
-* [Minecraft Forge 12.18.1.2011](http://files.minecraftforge.net/)
+* [Tinkers Construct 2.5.5](http://minecraft.curseforge.com/projects/tinkers-construct/files)
+* [Minecraft Forge 12.18.2.2107](http://files.minecraftforge.net/)
 
 What's going on?
 ===
-What's actually new?
+What's does the mod add?
 * There are 16 kinds of new ores, seperated in 4 categories each: Arcane, solide, ethere and ratio metals.
 * You are just able to combine some of them as neigbours in a "circle": Arcane <> Solide <> Ethere <> Ratio <> Arcane - you gonna check JEI for Recipes!
 * The hardness of the new tool depends on their parents. Not every alloy is hard enough, to mine the next alloy-level.
