@@ -36,7 +36,7 @@ public class TraitInstable extends AbstractTrait {
                     explode(world, player, pos.getX(), pos.getY(), pos.getZ());
                 } else explode(world, null, pos.getX(), pos.getY(), pos.getZ());
             }
-            ToolHelper.damageTool(tool, 11 + random.nextInt(10), null);
+            ToolHelper.damageTool(tool, 11 + random.nextInt(10), player);
         }
     }
 
@@ -49,7 +49,7 @@ public class TraitInstable extends AbstractTrait {
                     explode(player.getEntityWorld(), player, pos.getX(), pos.getY(), pos.getZ());
                 } else explode(player.getEntityWorld(), target, pos.getX(), pos.getY(), pos.getZ());
             }
-            ToolHelper.damageTool(tool, 3 + random.nextInt(18), null);
+            ToolHelper.damageTool(tool, 3 + random.nextInt(18), player);
         }
     }
 
