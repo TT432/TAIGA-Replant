@@ -35,7 +35,7 @@ repositories {
 group = "com.sosnitzka" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "taiga"
 
-sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_8
 
 
