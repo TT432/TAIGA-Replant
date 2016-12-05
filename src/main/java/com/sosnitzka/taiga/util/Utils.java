@@ -3,7 +3,6 @@ package com.sosnitzka.taiga.util;
 
 import com.sosnitzka.taiga.Items;
 import com.sosnitzka.taiga.TAIGA;
-import com.sun.istack.internal.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -17,6 +16,7 @@ import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.util.Random;
 
