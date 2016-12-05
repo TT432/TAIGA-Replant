@@ -43,7 +43,7 @@ public class TraitAnalysing extends AbstractTrait {
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (event.getSource().getEntity() instanceof EntityPlayer) {
+        if (random.nextFloat() < .1f && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
             if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 event.getDrops().clear();
@@ -52,13 +52,13 @@ public class TraitAnalysing extends AbstractTrait {
     }
 
     private int getUpdateXP(int xp) {
-        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + 18) * 50;
+        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextInt(xp) * (1 + random.nextFloat()));
         return Math.round(exp);
     }
 
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
-        if (random.nextFloat() < 0.85) {
+        if (random.nextFloat() < 0.1) {
             event.getDrops().clear();
         }
     }

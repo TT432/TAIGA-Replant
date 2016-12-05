@@ -1,7 +1,18 @@
 {
-    "variants": {
-        "normal": {
-            "model": "taiga:vibranium_ore"
-        }
-    }
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all",
+    "textures": {
+      "all": "taiga:blocks/ore/vibranium"
+    },
+    "transform": "forge:default-block"
+  },
+  "variants": {
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {}
+    ]
+  }
 }

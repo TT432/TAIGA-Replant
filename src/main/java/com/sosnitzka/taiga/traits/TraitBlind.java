@@ -21,7 +21,7 @@ public class TraitBlind extends AbstractTrait {
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
         int time = (int) world.getWorldTime();
-        if (random.nextFloat() <= 0.05 || (random.nextFloat() <= 0.1 && isNight(time))) {
+        if (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) {
             if (random.nextBoolean())
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, random.nextInt(200) + 100));
             else
@@ -32,7 +32,7 @@ public class TraitBlind extends AbstractTrait {
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
         int time = (int) player.getEntityWorld().getWorldTime();
-        if (random.nextFloat() <= 0.05 || (random.nextFloat() <= 0.1 && isNight(time))) {
+        if (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) {
             if (random.nextBoolean())
                 player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, random.nextInt(400) + 200));
             else

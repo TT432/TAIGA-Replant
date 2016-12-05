@@ -16,16 +16,15 @@ public class TraitPulverizing extends AbstractTrait {
     @Override
     public void miningSpeed(ItemStack tool, PlayerEvent.BreakSpeed event) {
         if (ToolHelper.isToolEffective2(tool, event.getState())) {
-            event.setNewSpeed((float) (event.getNewSpeed() + calcBonus(tool)));
+            event.setNewSpeed((float) (event.getNewSpeed() * calcBonus(tool)));
         }
     }
 
     private double calcBonus(ItemStack tool) {
         int durability = ToolHelper.getCurrentDurability(tool);
         int maxDurability = ToolHelper.getMaxDurability(tool);
-        float speed = ToolHelper.getMiningSpeedStat(tool);
-        tool.setItemDamage(tool.getItemDamage() + 1);
-        return speed * (maxDurability - maxDurability / 10) / (durability);
+        return (1 + .9f * (maxDurability - durability) / maxDurability);
+        // Min 1.0; Max 1.9
     }
 
     @Override

@@ -23,8 +23,10 @@ import slimeknights.tconstruct.library.materials.Material;
 import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 
+import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 
+@SuppressWarnings("unused")
 public class ClientProxy extends CommonProxy {
 
     private static void registerBlockModel(Block block) {
@@ -65,32 +67,33 @@ public class ClientProxy extends CommonProxy {
     }
 
     public void setRenderInfo(final Material material) {
-
-        if (material.equals(adamantite)) specialRender(material, 0xd55cdf, 0.5f, 0.6f, 0.2f);
-        else if (material.equals(solarium)) specialRender(material, 0xFFDD11, 0.7f, 0.3f, 0.1f);
-        else if (material.equals(proxideum)) specialRender(material, 0x2d8f8b, 0.4f, 0.3f, 0.1f);
-        else if (material.equals(meteorite)) specialRender(material, 0xaaaaaa, 0.6f, 0.8f, 0.0f);
-        else if (material.equals(tiberium)) specialRender(material, 0x33ff33, 0.5f, 0.2f, 0.1f);
-        else if (material.equals(bismuth)) specialRender(material, 0xffffff, 0.3f, 0.0f, 0.0f);
-        else if (material.equals(bysmuid)) specialRender(material, 0xccccee, 0.6f, 0.2f, 0.0f);
-        else if (material.equals(imperomite)) specialRender(material, 0x8decaf, 0.8f, 0.5f, -0.0f);
-        else if (material.equals(noctunyx)) specialRender(material, 0xce70e8, 0.5f, 0.2f, 0.3f);
-        else if (material.equals(nucleum)) specialRender(material, 0xd9f446, 1.0f, 0.4f, 0.3f);
-        else if (material.equals(dyonite)) specialRender(material, 0xffe240, 0.6f, 1.0f, 0.2f);
-        else if (material.equals(arcanite)) specialRender(material, 0x5e5499, 0.6f, 0.8f, 0.2f);
+        if (material.equals(adamant)) metalRender(material, adamantFluid.getColor(), 1f, 0.8f, 0f);
+        else if (material.equals(duranite)) metalRender(material, duraniteFluid.getColor(), .4f, .4f, 0);
+        else if (material.equals(tiberium)) metalRender(material, tiberiumFluid.getColor(), 1f, .3f, 0f);
+        else if (material.equals(palladium)) metalRender(material, palladiumFluid.getColor(), .7f, .6f, 0f);
+        else if (material.equals(osram)) metalRender(material, osramFluid.getColor(), .7f, .6f, 0f);
+        else if (material.equals(tritonite)) metalRender(material, tritoniteFluid.getColor(), .3f, .3f, 0f);
+        else if (material.equals(nucleum)) metalRender(material, nucleumFluid.getColor(), .4f, .6f, .2f);
+        else if (material.equals(triberium)) metalRender(material, triberiumFluid.getColor(), 2f, 2f, 0.5f);
+        else if (material.equals(solarium)) metalRender(material, solariumFluid.getColor(), 1.5f, 1.5f, 0.5f);
+        else if (material.equals(uru)) metalRender(material, uruFluid.getColor(), 1.0f, 1.0f, 0.3f);
+        else if (material.equals(imperomite)) metalRender(material, imperomiteFluid.getColor(), 0.4f, 1.0f, 0.7f);
+        else if (material.equals(vibranium)) metalRender(material, vibraniumFluid.getColor(), 0.6f, .8f, 1f);
+        else if (material.equals(valyrium)) metalRender(material, valyriumFluid.getColor(), .8f, 1.5f, -0.1f);
         else {
-            material.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/" + material.getIdentifier() + "_block"));
+            material.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/block/" + material.getIdentifier()));
         }
     }
 
-    private void specialRender(final Material material, final int f, final float shine, final float brightness, final float hueshift) {
+    private void metalRender(final Material material, final int f, final float shine, final float brightness, final float hueshift) {
         material.setRenderInfo(new MaterialRenderInfo.AbstractMaterialRenderInfo() {
             @Override
             public TextureAtlasSprite getTexture(TextureAtlasSprite baseTexture, String location) {
-                return new MetalTextureTexture("taiga:blocks/materials/" + material.getIdentifier(), baseTexture, location, f, shine, brightness, hueshift);
+                return new MetalTextureTexture("taiga:materials/" + material.getIdentifier(), baseTexture, location, f, shine, brightness, hueshift);
             }
         });
     }
+
 
     @Override
     public void registerFluidModels(Fluid fluid) {

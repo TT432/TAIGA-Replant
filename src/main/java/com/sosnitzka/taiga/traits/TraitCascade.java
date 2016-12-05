@@ -36,7 +36,7 @@ public class TraitCascade extends AbstractTrait {
                     sx = x = nextBlock.getX();
                     sy = y = nextBlock.getY();
                     sz = z = nextBlock.getZ();
-                    ToolHelper.damageTool(tool, random.nextInt(2), player);
+                    ToolHelper.damageTool(tool, 1, player);
                 } else {
                     x = sx;
                     y = sy;

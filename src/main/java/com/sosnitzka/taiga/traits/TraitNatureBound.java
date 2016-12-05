@@ -1,19 +1,13 @@
 package com.sosnitzka.taiga.traits;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
@@ -26,26 +20,19 @@ public class TraitNatureBound extends AbstractTrait {
 
     @Override
     public int onToolHeal(ItemStack tool, int amount, int newAmount, EntityLivingBase entity) {
-        // 5% less durability repaired!
-        return newAmount - amount * 5 / 100;
+        // 10% less durability repaired!
+        return newAmount - amount * 10 / 100;
     }
 
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-        // *20 because 20 ticks in a second
-        int chance = 20;
-        if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(30 * chance) == 0) {
-            ToolHelper.healTool(tool, random.nextInt(9) + 1, (EntityLivingBase) entity);
-        }
-
-    }
-
-    @SubscribeEvent
-    public void onBlockBreak(BlockEvent.BreakEvent e) {
-        Block b = e.getWorld().getBlockState(e.getPos()).getBlock();
-        if (!e.getWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(e.getPlayer().getHeldItemMainhand()), identifier) && random.nextFloat() <= .07 && (b == Blocks.DIRT || b == Blocks.GRASS || b == Blocks.LOG || b == Blocks.LOG2 || b == Blocks.STONE)) {
-            e.setCanceled(true);
-            e.getPlayer().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+        // * 20 because 20 ticks in a second
+        int chance = 20 * 20;
+        Material m = world.getBlockState(entity.getPosition().down()).getMaterial();
+        if (!world.isRemote && entity instanceof EntityLivingBase && random.nextInt(chance) == 0) {
+            if (m.equals(Material.GRASS) || m.equals(Material.LEAVES)) {
+                ToolHelper.healTool(tool, random.nextInt(2) + 1, (EntityLivingBase) entity);
+            } else ToolHelper.damageTool(tool, 1, (EntityLivingBase) entity);
         }
     }
 }

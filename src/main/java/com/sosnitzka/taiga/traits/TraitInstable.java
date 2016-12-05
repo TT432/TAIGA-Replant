@@ -36,7 +36,7 @@ public class TraitInstable extends AbstractTrait {
                     explode(world, player, pos.getX(), pos.getY(), pos.getZ());
                 } else explode(world, null, pos.getX(), pos.getY(), pos.getZ());
             }
-            ToolHelper.damageTool(tool, 11 + random.nextInt(10), player);
+            ToolHelper.damageTool(tool, random.nextInt(10) + 2, player);
         }
     }
 
@@ -49,17 +49,17 @@ public class TraitInstable extends AbstractTrait {
                     explode(player.getEntityWorld(), player, pos.getX(), pos.getY(), pos.getZ());
                 } else explode(player.getEntityWorld(), target, pos.getX(), pos.getY(), pos.getZ());
             }
-            ToolHelper.damageTool(tool, 3 + random.nextInt(18), player);
+            ToolHelper.damageTool(tool, 2 + random.nextInt(10), player);
         }
     }
 
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
+        if (random.nextFloat() < 0.05 && !w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
             if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
-                ItemStack i = new ItemStack(Items.GUNPOWDER, random.nextInt(4));
+                ItemStack i = new ItemStack(Items.GUNPOWDER, random.nextInt(2));
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }
         }

@@ -18,9 +18,8 @@ public class TraitDark extends AbstractTrait {
     public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
         int time = (int) target.getEntityWorld().getWorldTime();
         if (isNight(time)) {
-            newDamage += damage / 2f;
-        }
+            newDamage = damage * (1 + random.nextFloat() / 2f);
+        } else newDamage = damage / (1 + random.nextFloat() / 3f);
         return super.damage(tool, player, target, damage, newDamage, isCritical);
-
     }
 }

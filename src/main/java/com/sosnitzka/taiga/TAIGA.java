@@ -4,32 +4,25 @@ import com.google.common.collect.Lists;
 import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
-import com.sosnitzka.taiga.util.FuelHandler;
-import com.sosnitzka.taiga.world.ZWorldGen;
-import net.minecraft.item.Item;
-import net.minecraftforge.fluids.Fluid;
+import com.sosnitzka.taiga.world.WorldGen;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import org.apache.commons.lang3.StringUtils;
 import slimeknights.tconstruct.library.MaterialIntegration;
-import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
-import slimeknights.tconstruct.library.materials.HandleMaterialStats;
-import slimeknights.tconstruct.library.materials.HeadMaterialStats;
-import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.materials.BowMaterialStats;
 import slimeknights.tconstruct.tools.TinkerMaterials;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
-import static com.sosnitzka.taiga.TAIGAConfiguration.*;
+import static com.sosnitzka.taiga.util.Utils.integrateMaterial;
+import static com.sosnitzka.taiga.util.Utils.integrateOre;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10.2-2.5.0,);" + "required-after:mantle@[1.10.2-1.0.0,)")
@@ -42,7 +35,7 @@ public class TAIGA {
     @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.CommonProxy")
     public static CommonProxy proxy;
 
-    private List<MaterialIntegration> integrateList = Lists.newArrayList(); // List of materials needed to be integrated
+    public static List<MaterialIntegration> integrateList = Lists.newArrayList(); // List of materials needed to be integrated
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
@@ -53,23 +46,22 @@ public class TAIGA {
         Fluids.register(); // Registers all fluids and its buckets
         Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
         Alloys.register(); // Registers alloying recipes
-
         registerTinkerMaterials(); // Registers materials and associated fluids and stats into tconstruct
     }
 
     @EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.registerModels(); // Registers models on the client side
-        GameRegistry.registerWorldGenerator(new ZWorldGen(), 100); // Generates ores
-        GameRegistry.registerFuelHandler(new FuelHandler()); // Registeres fuels' burn times
+        GameRegistry.registerWorldGenerator(new WorldGen(), 100); // Generates ores
+        // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
         SmeltingRegistry.register(); // Registers smelting recipes
         CraftingRegistry.register(); // Registers crafting recipes
 
         // Adds new harvest levels' names
-        harvestLevelNames.put(METEORITE, TinkerMaterials.bone.getTextColor() + "Meteorite");
+        harvestLevelNames.put(DURANITE, TinkerMaterials.bone.getTextColor() + "Duranite");
+        harvestLevelNames.put(VALYRIUM, TinkerMaterials.bone.getTextColor() + "Valyrium");
         harvestLevelNames.put(VIBRANIUM, TinkerMaterials.blueslime.getTextColor() + "Vibranium");
-        harvestLevelNames.put(ADAMANTITE, TinkerMaterials.ardite.getTextColor() + "Adamantite");
-        harvestLevelNames.put(TITANITE, TinkerMaterials.silver.getTextColor() + "Titanite");
+
 
         for (MaterialIntegration m : integrateList) {
             m.integrateRecipes();
@@ -78,49 +70,11 @@ public class TAIGA {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
-
     }
 
-    /**
-     * @param oreSuffix  Suffix in the oreDict, also the name. ex) the "Iron" in "ingotIron"
-     * @param material   TConstruct material
-     * @param fluid      material's fluid
-     * @param headDura   Durability (head)
-     * @param headSpeed  Mining speed (head)
-     * @param headAttack Attack speed (head)
-     * @param handleMod  Durability multiplier (handle)
-     * @param handleDura Extra durability (handle)
-     * @param extra      Extra durability (binding and more)
-     * @param headLevel  Mining level (head)
-     * @param craft      Can craft parts in part builder
-     * @param cast       Can craft parts by casting with fluid (smeltery)
-     */
-    private void registerTinkerMaterial(String oreSuffix, Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, boolean craft, boolean cast) {
-        TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
-        TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
-        TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
-
-        Item item = null;
-        Field[] items = Items.class.getDeclaredFields();
-        for (Field i : items) {
-            if (i.getName().equals(StringUtils.uncapitalize(oreSuffix) + "Ingot")) {
-                Item r = null;
-                try {
-                    r = (Item) i.get(i.getType());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                item = r;
-            }
-        }
-
-        material.setFluid(fluid).setCraftable(craft).setCastable(cast).addItem(item, 1, Material.VALUE_Ingot);
-        material.setRepresentativeItem(item);
-
-        proxy.setRenderInfo(material);
-        MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
-        integration.integrate();
-        integrateList.add(integration);
+    @EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+        proxy.registerServerCommands(event);
     }
 
 
@@ -128,50 +82,46 @@ public class TAIGA {
      * Registers materials and associated fluids and stats into tconstruct
      */
     private void registerTinkerMaterials() {
+        BowMaterialStats shitty = new BowMaterialStats(0.2f, 0.4f, -1f);
 
-        double d = durabilityFactorGeneral;
-        System.out.println("Durability=" + d);
-        float s = (float) speedFactorGeneral;
-        System.out.println("Speed=" + s);
-        float a = (float) attackFactorGeneral;
-        System.out.println("Attack=" + a);
+        integrateMaterial("Tiberium", tiberium, tiberiumFluid, 80, 3.3f, 4f, 0.7f, -25, 50, DIAMOND, shitty, true, false);
+        integrateMaterial("Aurorium", aurorium, auroriumFluid, 750, 3.6f, 3.78f, 0.77f, 25, 130, COBALT, 0.45f, 1f, 1);
+        integrateMaterial("Prometheum", prometheum, prometheumFluid, 844, 4.75f, 6.6f, 1.2f, 25, 50, DURANITE, 0.2f, 0.6f, 3);
+        integrateMaterial("Duranite", duranite, duraniteFluid, 1550, 3.2f, 3.2f, 1.16f, 100, 100, DURANITE, 0.3f, 1.4f, 2);
+        integrateMaterial("Valyrium", valyrium, valyriumFluid, 1111, 5.37f, 4.8f, 1.30f, 100, 100, VALYRIUM, 1.1f, 1.2f, 4);
+        integrateMaterial("Vibranium", vibranium, vibraniumFluid, 1235, 7.62f, 8.1f, 1.3f, 100, 100, VIBRANIUM, 1.1f, 1.8f, 4);
+        integrateMaterial("Karmesine", karmesine, karmesineFluid, 444, 4.77f, 2.9f, 0.8f, 100, 50, COBALT, shitty, true, true);
+        integrateMaterial("Palladium", palladium, palladiumFluid, 797, 4.35f, 6.8f, 1.3f, 130, -50, DURANITE, .5f, .2f, 3);
+        integrateMaterial("Uru", uru, uruFluid, 877, 2f, 8.2f, 1.5f, -50, 175, VALYRIUM, 1.3f, 0.8f, 6);
+        integrateMaterial("Eezo", eezo, eezoFluid, 50, 14f, 3.5f, .1f, 10, 10, COBALT, shitty, true, false);
+        integrateMaterial("Basalt", basalt, basaltFluid, 200, 3, 2.5f, 0.5f, -25, 25, STONE, shitty, true, false);
+        integrateMaterial("Triberium", triberium, triberiumFluid, 223, 6.2f, 8.35f, 0.63f, 50, 50, DIAMOND, shitty, true, true);
+        integrateMaterial("Fractum", fractum, fractumFluid, 538, 5.71f, 6.93f, 0.88f, 58, 117, DIAMOND, shitty);
+        integrateMaterial("Violium", violium, violiumFluid, 925, 3.8f, 3.75f, .90f, 175, 50, COBALT, .45f, .95f, 1);
+        integrateMaterial("Proxii", proxii, proxiiFluid, 625, 6.8f, 4.21f, 1.25f, 80, 25, DURANITE, .35f, .5f, 3);
+        integrateMaterial("Tritonite", tritonite, tritoniteFluid, 780, 8f, 3.3f, 1.45f, -25, 150, COBALT, shitty);
+        integrateMaterial("Ignitz", ignitz, ignitzFluid, 350, 2f, 6.66f, .85f, 150, 250, COBALT, .8f, .8f, 3);
+        integrateMaterial("Imperomite", imperomite, imperomiteFluid, 1350, 4.65f, 5.9f, 1.15f, -100, 150, DURANITE, 1.2f, 1.8f, 2);
+        integrateMaterial("Solarium", solarium, solariumFluid, 1100, 13.78f, 7f, 1.25f, 150, 150, VIBRANIUM, .8f, 1.5f, 5);
+        integrateMaterial("Nihilite", nihilite, nihiliteFluid, 400, 2.8f, 4.50f, .77f, 350, 155, VALYRIUM, 1.5f, .8f, 3);
+        integrateMaterial("Adamant", adamant, adamantFluid, 1750, 6f, 6f, 2f, 0, 0, VIBRANIUM, .35f, 1.85f, 8);
+        integrateMaterial("Dyonite", dyonite, dyoniteFluid, 900, 6.45f, 5f, 0.66f, -50, 250, DURANITE, 2, .9f, -1);
+        integrateMaterial("Nucleum", nucleum, nucleumFluid, 505, 15.5f, 9.5f, 1.05f, 100, 125, VALYRIUM, shitty);
+        integrateMaterial("Lumix", lumix, lumixFluid, 666, 3.84f, 3.92f, 0.85f, 250, 200, COBALT, .8f, 1.3f, 1);
+        integrateMaterial("Seismum", seismum, seismumFluid, 780, 3.66f, 6.05f, .95f, 250, 50, COBALT, shitty);
+        integrateMaterial("Astrium", astrium, astriumFluid, 750, 8.35f, 5.4f, 0.95f, -100, 200, COBALT, .7f, .8f, 2);
+        integrateMaterial("Niob", niob, niobFluid, 700, 4.5f, 4.5f, 2f, 200, 50, COBALT, shitty);
+        integrateMaterial("Yrdeen", yrdeen, yrdeenFluid, 999, 9.1f, 3f, 1.35f, 150, 250, COBALT, shitty);
+        integrateMaterial("Meteorite", meteorite, meteoriteFluid, 1500, 1.5f, 1.5f, .5f, 0, 0, OBSIDIAN, shitty);
+        integrateMaterial("Obsidiorite", obsidiorite, obsidioriteFluid, 1500, .5f, .5f, 1, -100, 100, COBALT, shitty);
+        // when more traits / ideas are available
+        // integrateMaterial("Uru", uru, uruFluid, (552), 8.75f, 2.87f, 0.98f, -100, 200, DIAMOND);
+        // integrateMaterial("Osram", osram, osramFluid, 500, 5f, 3f, 0.8f, -50, 50, DIAMOND);
+        // integrateMaterial("Abyssum", abyssum, abyssumFluid, 100, 1f, 1f, 1f, 300, 300, DIAMOND);
+        integrateOre("Osram", osramFluid);
+        integrateOre("Abyssum", abyssumFluid);
+        integrateOre("Iox", ioxFluid);
 
-        // ARCANE ORES
-        registerTinkerMaterial("Tiberium", tiberium, tiberiumFluid, (int) (223 * d), 6.2f * s, 8.35f * a, 0.63f, 50, 50, OBSIDIAN, false, true);
-        registerTinkerMaterial("Rubium", rubium, rubiumFluid, (int) (351 * d), 5.15f * s, 7.00f * a, 1.05f, -100, 250, COBALT, false, true);
-        registerTinkerMaterial("Prometheum", prometheum, prometheumFluid, (int) (539 * d), 3.6f * s, 6.60f, 0.90f, 0, 150, TITANITE, false, true);
-        registerTinkerMaterial("Arcanite", arcanite, arcaniteFluid, (int) (698 * d), 4.3f * s, 7.88f * a, 0.85f, -50, 150, METEORITE, false, true);
-        // SOLIDE ORES
-        registerTinkerMaterial("Titanite", titanite, titaniteFluid, (int) (811 * d), 4.8f * s, 6.40f * a, 1.00f, -50, 150, TITANITE, false, true);
-        registerTinkerMaterial("Meteorite", meteorite, meteoriteFluid, (int) (823 * d), 6.1f * s, 6.83f * a, 1.20f, -50, 200, METEORITE, false, true);
-        registerTinkerMaterial("Vibranium", vibranium, vibraniumFluid, (int) (917 * d), 7.45f * s, 7.17f * a, 1.15f, 50, 150, VIBRANIUM, false, true);
-        registerTinkerMaterial("Adamantite", adamantite, adamantiteFluid, (int) (981 * d), 8.9f * s, 9.11f * a, 1.20f, -200, 300, ADAMANTITE, false, true);
-        // ETHERE ORES
-        registerTinkerMaterial("Eternite", eternite, eterniteFluid, (int) (592 * d), 7.35f * s, 1.95f * a, 1.10f, 150, 150, COBALT, false, true);
-        registerTinkerMaterial("Mythril", mythril, mythrilFluid, (int) (552 * d), 8.75f * s, 2.87f * a, 0.98f, -100, 200, TITANITE, false, true);
-        registerTinkerMaterial("Palladium", palladium, palladiumFluid, (int) (578 * d), 10.4f * s, 3.13f * a, 1.09f, 0, 100, METEORITE, false, true);
-        registerTinkerMaterial("Ignitite", ignitite, ignititeFluid, (int) (673 * d), 12.1f * s, 4.10f * a, 1.15f, -50, 150, VIBRANIUM, false, true);
-        // RATIO ORES
-        registerTinkerMaterial("Bismuth", bismuth, bismuthFluid, (int) (235 * d), 5.33f * s, 3.80f * a, 1.15f, 17, 117, OBSIDIAN, false, true);
-        registerTinkerMaterial("Violium", violium, violiumFluid, (int) (427 * d), 4.2f * s, 3.30f * a, 1.00f, 133, 150, COBALT, false, true);
-        registerTinkerMaterial("Mindorite", mindorite, mindoriteFluid, (int) (458 * d), 6.41f * s, 4.40f * a, 0.90f, 83, 100, TITANITE, false, true);
-        registerTinkerMaterial("Karmesine", karmesine, karmesineFluid, (int) (627 * d), 6.75f * s, 5.10f * a, 0.99f, 0, 200, METEORITE, false, true);
-        // Material from alloys
-        registerTinkerMaterial("Nitronite", nitronite, nitroniteFluid, (int) (745 * d), 6.74f * s, 8.74f * a, 0.85f, 75, 93, TITANITE, false, true);
-        registerTinkerMaterial("Bysmuid", bysmuid, bysmuidFluid, (int) (305 * d), 5.22f * s, 6.47f * a, 1.09f, -80, 197, COBALT, false, true);
-        registerTinkerMaterial("Ultranite", ultranite, ultraniteFluid, (int) (1016 * d), 5.72f * s, 6.76f * a, 1.02f, -120, 210, VIBRANIUM, false, true);
-        registerTinkerMaterial("Astrium", astrium, astriumFluid, (int) (670 * d), 5.28f * s, 9.14f * a, 0.91f, -45, 170, VIBRANIUM, false, true);
-        registerTinkerMaterial("Imperomite", imperomite, imperomiteFluid, (int) (770 * d), 11.60f * s, 3.57f * a, 1.05f, -38, 125, METEORITE, false, true);
-        registerTinkerMaterial("Dyonite", dyonite, dyoniteFluid, (int) (733 * d), 6.14f * s, 7.69f * a, 0.97f, -15, 140, TITANITE, false, true);
-        registerTinkerMaterial("Solarium", solarium, solariumFluid, (int) (1020 * d), 13.78f * s, 4.64f * a, 1.15f, 0, 150, ADAMANTITE, false, true);
-        registerTinkerMaterial("Fractoryte", fractoryte, fractoryteFluid, (int) (1071 * d), 7.65f * s, 7.75f * a, 1.15f, -250, 283, METEORITE, false, true);
-        registerTinkerMaterial("Aegisalt", aegisalt, aegisaltFluid, (int) (355 * d), 8.88f * s, 3.18f * a, 1.00f, 175, 125, TITANITE, false, true);
-        registerTinkerMaterial("Noctunyx", noctunyx, noctunyxFluid, (int) (713 * d), 10.43f * s, 3.25f * a, 0.99f, -125, 183, METEORITE, false, true);
-        registerTinkerMaterial("Nucleum", nucleum, nucleumFluid, (int) (503 * d), 11.30f * s, 3.22f * a, 1.05f, 100, 125, TITANITE, false, true);
-        registerTinkerMaterial("Seismodium", seismodium, seismodiumFluid, (int) (879 * d), 13.85f * s, 4.19f * a, 1.17f, -75, 169, VIBRANIUM, false, true);
-        registerTinkerMaterial("Lumixyl", lumixyl, lumixylFluid, (int) (357 * d), 4.64f * s, 5.92f * a, 1.05f, 15, 130, COBALT, false, true);
-        registerTinkerMaterial("Terramite", terramite, terramiteFluid, (int) (482 * d), 7.25f * s, 2.85f * a, 1.03f, 208, 150, TITANITE, false, true);
-        registerTinkerMaterial("Cryptogen", cryptogen, cryptogenFluid, (int) (538 * d), 5.71f * s, 6.93f * a, 0.88f, 58, 117, METEORITE, false, true);
-        registerTinkerMaterial("Proxideum", proxideum, proxideumFluid, (int) (597 * d), 10.55f * s, 4.21f * a, 0.99f, -60, 200, METEORITE, false, true);
+
     }
 }

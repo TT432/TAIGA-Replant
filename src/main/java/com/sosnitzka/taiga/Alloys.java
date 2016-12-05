@@ -1,35 +1,43 @@
 package com.sosnitzka.taiga;
 
 
-import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import slimeknights.tconstruct.shared.TinkerFluids;
 
 import static com.sosnitzka.taiga.Fluids.*;
-import static com.sosnitzka.taiga.util.Utils.registerTinkerAlloys;
+import static com.sosnitzka.taiga.util.Utils.registerTinkerAlloy;
 
 public class Alloys {
 
     /**
      * Registers alloying in the smeltery
      */
-    static void register() {
-        registerTinkerAlloys(nitroniteFluid, 2, tiberiumFluid, 4, vibraniumFluid, 3, nitroFluid, 3);
-        registerTinkerAlloys(bysmuidFluid, 1, rubiumFluid, 3, bismuthFluid, 2, anthraciteFluid, 3);
-        registerTinkerAlloys(ultraniteFluid, 1, prometheumFluid, 3, adamantiteFluid, 2, radiant_enderium, 3);
-        registerTinkerAlloys(astriumFluid, 1, arcaniteFluid, 3, karmesineFluid, 2, energy_enderium, 3);
+    public static void register() {
+        registerTinkerAlloy(new FluidStack(triberiumFluid, 1), new FluidStack(tiberiumFluid, 5), new FluidStack(basaltFluid, 1));
+        registerTinkerAlloy(new FluidStack(fractumFluid, 2), new FluidStack(triberiumFluid, 3), new FluidStack(TinkerFluids.obsidian, 3), new FluidStack(abyssumFluid, 1));
+        registerTinkerAlloy(new FluidStack(violiumFluid, 2), new FluidStack(auroriumFluid, 3), new FluidStack(TinkerFluids.ardite, 2));
+        registerTinkerAlloy(new FluidStack(proxiiFluid, 3), new FluidStack(prometheumFluid, 3), new FluidStack(palladiumFluid, 3), new FluidStack(eezoFluid, 1));
+        registerTinkerAlloy(new FluidStack(tritoniteFluid, 2), new FluidStack(TinkerFluids.cobalt, 3), new FluidStack(karmesineFluid, 2));
+        registerTinkerAlloy(new FluidStack(ignitzFluid, 2), new FluidStack(TinkerFluids.ardite, 2), new FluidStack(karmesineFluid, 2), new FluidStack(osramFluid, 1));
+        registerTinkerAlloy(new FluidStack(imperomiteFluid, 2), new FluidStack(duraniteFluid, 3), new FluidStack(prometheumFluid, 1), new FluidStack(abyssumFluid, 1));
+        registerTinkerAlloy(new FluidStack(solariumFluid, 2), new FluidStack(valyriumFluid, 2), new FluidStack(uruFluid, 2), new FluidStack(nucleumFluid, 1));
+        registerTinkerAlloy(new FluidStack(adamantFluid, 3), new FluidStack(vibraniumFluid, 1), new FluidStack(solariumFluid, 1), new FluidStack(ioxFluid, 3));
+        registerTinkerAlloy(new FluidStack(nihiliteFluid, 1), new FluidStack(vibraniumFluid, 1), new FluidStack(solariumFluid, 1));
+        registerTinkerAlloy(new FluidStack(seismumFluid, 4), new FluidStack(TinkerFluids.obsidian, 4), new FluidStack(triberiumFluid, 2), new FluidStack(eezoFluid, 1));
+        registerTinkerAlloy(new FluidStack(astriumFluid, 2), new FluidStack(karmesineFluid, 3), new FluidStack(auroriumFluid, 2));
+        registerTinkerAlloy(new FluidStack(niobFluid, 3), new FluidStack(palladiumFluid, 3), new FluidStack(duraniteFluid, 1), new FluidStack(osramFluid, 1));
+        registerTinkerAlloy(new FluidStack(yrdeenFluid, 3), new FluidStack(uruFluid, 3), new FluidStack(valyriumFluid, 3), new FluidStack(osramFluid, 1));
+        registerTinkerAlloy(new FluidStack(yrdeenFluid, 3), new FluidStack(uruFluid, 3), new FluidStack(valyriumFluid, 3), new FluidStack(eezoFluid, 1));
+        registerTinkerAlloy(new FluidStack(yrdeenFluid, 3), new FluidStack(uruFluid, 3), new FluidStack(valyriumFluid, 3), new FluidStack(abyssumFluid, 1));
+        registerTinkerAlloy(new FluidStack(ioxFluid, 1), new FluidStack(eezoFluid, 2), new FluidStack(abyssumFluid, 2), new FluidStack(osramFluid, 2), new FluidStack(obsidioriteFluid, 9));
+        registerTinkerAlloy(new FluidStack(ioxFluid, 1), new FluidStack(eezoFluid, 2), new FluidStack(abyssumFluid, 2), new FluidStack(osramFluid, 2), new FluidStack(meteoriteFluid, 9), new FluidStack(TinkerFluids.obsidian, 9));
+        registerTinkerAlloy(new FluidStack(lumixFluid, 1), new FluidStack(palladiumFluid, 1), new FluidStack(karmesineFluid, 1));
+        registerTinkerAlloy(new FluidStack(obsidioriteFluid, 1), new FluidStack(meteoriteFluid, 1), new FluidStack(TinkerFluids.obsidian, 1));
+        registerTinkerAlloy(new FluidStack(nucleumFluid, 3), new FluidStack(proxiiFluid, 3), new FluidStack(abyssumFluid, 1), new FluidStack(osramFluid, 1));
+        registerTinkerAlloy(new FluidStack(nucleumFluid, 3), new FluidStack(imperomiteFluid, 3), new FluidStack(osramFluid, 1), new FluidStack(eezoFluid, 1));
+        registerTinkerAlloy(new FluidStack(nucleumFluid, 3), new FluidStack(niobFluid, 3), new FluidStack(eezoFluid, 1), new FluidStack(abyssumFluid, 1));
+        registerTinkerAlloy(new FluidStack(dyoniteFluid, 3), new FluidStack(triberiumFluid, 3), new FluidStack(fractumFluid, 1), new FluidStack(seismumFluid, 1), new FluidStack(osramFluid, 1));
+        registerTinkerAlloy(new FluidStack(dyoniteFluid, 3), new FluidStack(tiberiumFluid, 12), new FluidStack(fractumFluid, 1), new FluidStack(seismumFluid, 1), new FluidStack(osramFluid, 1));
 
-        registerTinkerAlloys(imperomiteFluid, 2, titaniteFluid, 3, palladiumFluid, 3, FluidRegistry.LAVA, 3);
-        registerTinkerAlloys(dyoniteFluid, 1, meteoriteFluid, 3, tiberiumFluid, 2, spectrumFluid, 3);
-        registerTinkerAlloys(solariumFluid, 2, vibraniumFluid, 4, ignititeFluid, 4, nitroFluid, 3);
-        registerTinkerAlloys(fractoryteFluid, 2, adamantiteFluid, 4, rubiumFluid, 2, FluidRegistry.LAVA, 3);
-
-        registerTinkerAlloys(aegisaltFluid, 1, eterniteFluid, 3, mindoriteFluid, 3, glimmercoalFluid, 3);
-        registerTinkerAlloys(noctunyxFluid, 1, mythrilFluid, 4, titaniteFluid, 2, spectrumFluid, 3);
-        registerTinkerAlloys(nucleumFluid, 1, palladiumFluid, 3, violiumFluid, 3, radiant_enderium, 3);
-        registerTinkerAlloys(seismodiumFluid, 2, ignititeFluid, 5, meteoriteFluid, 3, glimming_enderium, 3);
-
-        registerTinkerAlloys(lumixylFluid, 1, bismuthFluid, 3, prometheumFluid, 2, glimming_enderium, 6);
-        registerTinkerAlloys(terramiteFluid, 2, violiumFluid, 4, eterniteFluid, 2, energy_enderium, 3);
-        registerTinkerAlloys(cryptogenFluid, 1, mindoriteFluid, 4, arcaniteFluid, 2, anthraciteFluid, 3);
-        registerTinkerAlloys(proxideumFluid, 1, karmesineFluid, 3, mythrilFluid, 2, glimmercoalFluid, 3);
     }
 }

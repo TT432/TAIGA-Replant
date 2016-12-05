@@ -1,13 +1,11 @@
 package com.sosnitzka.taiga.traits;
 
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -17,12 +15,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-import slimeknights.tconstruct.library.utils.ToolHelper;
-
-import static com.sosnitzka.taiga.util.Utils.isNight;
 
 
 public class TraitReviving extends AbstractTrait {
+
+
+    public final float chance = 0.15f;
 
     public TraitReviving() {
         super("reviving", TextFormatting.DARK_PURPLE);
@@ -35,36 +33,19 @@ public class TraitReviving extends AbstractTrait {
         World w = e.getEntity().getEntityWorld();
         if (!w.isRemote && e.getSource().getEntity() != null) {
             if (e.getSource().getEntity() instanceof EntityPlayer && e.getEntity() instanceof EntityCreature) {
-                if (isNight((int) w.getWorldTime()) && random.nextFloat() > 0.85 && TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
+                if (random.nextFloat() <= chance && TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
                     String name = EntityList.getEntityString(e.getEntity());
-
                     Entity ent = EntityList.createEntityByName(name, w);
                     if (ent != null) {
                         if (ent instanceof EntitySkeleton && e.getEntity() instanceof EntitySkeleton) {
                             ((EntitySkeleton) ent).setSkeletonType(((EntitySkeleton) e.getEntity()).getSkeletonType());
                         }
-
                         ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
                         w.spawnEntityInWorld(ent);
+                        e.getSource().getEntity().playSound(SoundEvents.AMBIENT_CAVE, 1.0F, 1.0F);
                     }
                 }
             }
-        }
-    }
-
-    @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        int time = (int) world.getWorldTime();
-        if (random.nextFloat() <= 0.1 && isNight(time)) {
-            ToolHelper.healTool(tool, random.nextInt(15) + 1, null);
-        }
-    }
-
-    @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
-        int time = (int) player.getEntityWorld().getWorldTime();
-        if (random.nextFloat() <= 0.1 && isNight(time)) {
-            ToolHelper.healTool(tool, random.nextInt(15) + 1, null);
         }
     }
 }

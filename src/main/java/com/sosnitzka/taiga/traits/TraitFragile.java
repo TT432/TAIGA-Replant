@@ -24,6 +24,7 @@ public class TraitFragile extends AbstractTrait {
             float b = 0.99F * calcBonus(tool);
             if (!world.isRemote && tool.canHarvestBlock(state) && f <= b) {
                 if (random.nextBoolean()) ToolHelper.damageTool(tool, random.nextInt(3), player);
+                else ToolHelper.healTool(tool, random.nextInt(3), player);
             }
         } else {
             float f = random.nextFloat();
@@ -41,20 +42,18 @@ public class TraitFragile extends AbstractTrait {
                     if (r == 2) z += d;
                     BlockPos nextBlock = new BlockPos(x, y, z);
                     if (world.getBlockState(nextBlock) == world.getBlockState(pos)) {
-                        Block block = Blocks.STONE;
-                        int ib = random.nextInt(3);
+                        Block block = null;
+                        int ib = random.nextInt(2);
                         switch (ib) {
                             case 0:
                                 block = Blocks.COBBLESTONE;
                                 break;
                             case 1:
-                                block = Blocks.MOSSY_COBBLESTONE;
-                                break;
-                            case 2:
-                                block = Blocks.GRAVEL;
-                                break;
+                                if (random.nextFloat() <= 0.9) block = Blocks.GRAVEL;
+                                else block = Blocks.MOSSY_COBBLESTONE;
                         }
                         f = random.nextFloat();
+                        assert block != null;
                         if (f < 0.85) {
                             world.setBlockState(nextBlock, block.getDefaultState());
                         } else if (f > 95) {

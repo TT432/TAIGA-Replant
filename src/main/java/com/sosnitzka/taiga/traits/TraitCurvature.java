@@ -1,5 +1,7 @@
 package com.sosnitzka.taiga.traits;
 
+import com.google.common.collect.Lists;
+import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -10,42 +12,61 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
+import java.util.List;
+
 
 public class TraitCurvature extends AbstractTrait {
+    public static int chance = 5;
+    public static int distance = 10;
+
     public TraitCurvature() {
-        super("curvature", TextFormatting.BLACK);
+        super("curvature", TextFormatting.DARK_PURPLE);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
-        if (player.worldObj.isRemote) {
-            return;
-        }
-        if (random.nextFloat() <= 0.01 && world.provider.getDimension() != -1) {
-            teleport(player, world);
-            player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+    public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
+        if (!event.getWorld().isRemote && random.nextFloat() < 0.05) {
+            List<IBlockState> blockstates = Lists.newArrayList(Blocks.STONE.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), Blocks.DIRT.getDefaultState());
+            IBlockState mainstate = event.getState();
+            if (blockstates.contains(mainstate)) return;
+            for (int i = 0; i < chance; i++) {
+                int x = event.getPos().getX() + Utils.nextInt(random, -distance, distance);
+                int y = event.getPos().getY() + Utils.nextInt(random, -distance, distance);
+                int z = event.getPos().getZ() + Utils.nextInt(random, -distance, distance);
+                BlockPos cPos = new BlockPos(x, y, z);
+                IBlockState state = event.getWorld().getBlockState(cPos);
+                if (blockstates.contains(state)) {
+                    event.getDrops().clear();
+                    event.getWorld().setBlockState(cPos, mainstate);
+                    event.getHarvester().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+                    event.getHarvester().addChatComponentMessage(new TextComponentString("Teleported to: " + x + " " + y + " " + z));
+                    return;
+                }
+
+            }
+
         }
     }
 
-
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
-        if (random.nextFloat() <= 0.3) {
+        if (random.nextFloat() <= 0.15) {
             target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             changePos(player, target);
         }
     }
-
 
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
@@ -53,31 +74,10 @@ public class TraitCurvature extends AbstractTrait {
         if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
             if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
-                ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(3));
+                ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(2));
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
             }
         }
-    }
-
-    private void teleport(EntityLivingBase e, World w) {
-        int x = e.getPosition().getX() + random.nextInt(250) - 125;
-        int y = e.getPosition().getY();
-        int z = e.getPosition().getZ() + random.nextInt(250) - 125;
-
-        // TODO: Make this a proper search for top block (if there is one)
-        while (w.getBlockState(new BlockPos(x, y, z)).getBlock() != Blocks.AIR) {
-            y++;
-        }
-        while (w.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == Blocks.AIR) {
-            if (y <= 0) {
-                y = 1;
-                break;
-            }
-
-            y--;
-        }
-
-        e.setPosition(x, y, z);
     }
 
     private void changePos(EntityLivingBase player, EntityLivingBase target) {

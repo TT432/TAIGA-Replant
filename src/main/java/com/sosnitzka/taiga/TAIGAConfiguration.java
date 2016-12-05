@@ -17,14 +17,11 @@ public class TAIGAConfiguration {
     public static final String CATEGORY_NAME_ORE_GEN = "category_ore_gen";
     public static final String CATEGORY_NAME_ORE_VAL = "category_ore_val";
 
-    public static double oreFactorGeneral;
     public static double speedFactorGeneral;
     public static double attackFactorGeneral;
     public static double durabilityFactorGeneral;
 
     public static double ironFactor;
-    public static double slagironFactor;
-    public static double slaggoldFactor;
     public static double titaniteFactor;
     public static double adamantiteFactor;
     public static double arcaniteFactor;
@@ -45,9 +42,6 @@ public class TAIGAConfiguration {
     public static double rottengroundFactor;
     public static double ligniteFactor;
 
-
-    public static boolean slagIronGen;
-    public static boolean slagGoldGen;
     public static boolean ironGen;
     private static Configuration config = null;
 
@@ -83,7 +77,7 @@ public class TAIGAConfiguration {
             config.load();
         }
 
-        /**
+        /*
          *  Declaration of general ore generation values: <br>
          *  Activation of additional ores (iron/gold) <br>
          *  Ore generation chance multiplier
@@ -104,9 +98,6 @@ public class TAIGAConfiguration {
         ironSwitch.setComment("Switch ore on/off");
         ironSwitch.setLanguageKey("gui.taiga_configuration.gen_iron");
 
-        Property oreFactorGeneralProp = config.get(CATEGORY_NAME_GENERAL, "Ore factor", RESFAC_DEFAULT_VALUE,
-                "General multiplier for all TAIGA ores at once", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        oreFactorGeneralProp.setLanguageKey("gui.taiga_configuration.ore_multiplier");
         Property durabilityFactorGeneralProp = config.get(CATEGORY_NAME_GENERAL, "Durability factor", RESFAC_DEFAULT_VALUE,
                 "General multiplier for all TAIGA materials", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         durabilityFactorGeneralProp.setLanguageKey("gui.taiga_configuration.durability_multiplier");
@@ -124,25 +115,18 @@ public class TAIGAConfiguration {
         propOrderGeneral.add(ironSwitch.getName());
         propOrderGeneral.add(slagIronSwitch.getName());
         propOrderGeneral.add(slagGoldSwitch.getName());
-        propOrderGeneral.add(oreFactorGeneralProp.getName());
         propOrderGeneral.add(durabilityFactorGeneralProp.getName());
         propOrderGeneral.add(speedFactorGeneralProp.getName());
         propOrderGeneral.add(attackFactorGeneralProp.getName());
         config.setCategoryPropertyOrder(CATEGORY_NAME_GENERAL, propOrderGeneral);
 
-        /**
+        /*
          *  Declaration of specific ore generation values: <br>
          *  Generation chance multiplier
          */
         Property ironFactorProp = config.get(CATEGORY_NAME_ORE_GEN, "Iron factor", RESFAC_DEFAULT_VALUE,
                 "specific generation multiplier", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         ironFactorProp.setLanguageKey("gui.taiga_configuration.titanite_multiplier");
-        Property slagironFactorProp = config.get(CATEGORY_NAME_ORE_GEN, "Slagiorn factor", RESFAC_DEFAULT_VALUE,
-                "specific generation multiplier", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        slagironFactorProp.setLanguageKey("gui.taiga_configuration.titanite_multiplier");
-        Property slaggoldFactorProp = config.get(CATEGORY_NAME_ORE_GEN, "Slaggold factor", RESFAC_DEFAULT_VALUE,
-                "specific generation multiplier", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        slaggoldFactorProp.setLanguageKey("gui.taiga_configuration.titanite_multiplier");
         Property titaniteFactorProp = config.get(CATEGORY_NAME_ORE_GEN, "Titanite factor", RESFAC_DEFAULT_VALUE,
                 "specific generation multiplier", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         titaniteFactorProp.setLanguageKey("gui.taiga_configuration.titanite_multiplier");
@@ -204,8 +188,6 @@ public class TAIGAConfiguration {
 
         List<String> propOrderOreGen = new ArrayList<String>();
         propOrderOreGen.add(ironFactorProp.getName());
-        propOrderOreGen.add(slagironFactorProp.getName());
-        propOrderOreGen.add(slaggoldFactorProp.getName());
         propOrderOreGen.add(ligniteFactorProp.getName());
         propOrderOreGen.add(basaltFactorProp.getName());
         propOrderOreGen.add(rottengroundFactorProp.getName());
@@ -233,10 +215,6 @@ public class TAIGAConfiguration {
 
 
         if (readFieldsFromConfig) {
-            oreFactorGeneral = oreFactorGeneralProp.getDouble(RESFAC_DEFAULT_VALUE);
-            if (oreFactorGeneral > RESFAC_MAX_VALUE || oreFactorGeneral < RESFAC_MIN_VALUE) {
-                oreFactorGeneral = RESFAC_DEFAULT_VALUE;
-            }
             durabilityFactorGeneral = durabilityFactorGeneralProp.getDouble(RESFAC_DEFAULT_VALUE);
             if (durabilityFactorGeneral > RESFAC_MAX_VALUE || durabilityFactorGeneral < RESFAC_MIN_VALUE) {
                 durabilityFactorGeneral = RESFAC_DEFAULT_VALUE;
@@ -250,19 +228,9 @@ public class TAIGAConfiguration {
                 attackFactorGeneral = RESFAC_DEFAULT_VALUE;
             }
             ironGen = ironSwitch.getBoolean(GENERATION_DEFAULT_VALUE);
-            slagIronGen = slagIronSwitch.getBoolean(GENERATION_DEFAULT_VALUE);
-            slagGoldGen = slagGoldSwitch.getBoolean(GENERATION_DEFAULT_VALUE);
             ironFactor = ironFactorProp.getDouble(RESFAC_DEFAULT_VALUE);
             if (ironFactor > RESFAC_MAX_VALUE || ironFactor < RESFAC_MIN_VALUE) {
                 ironFactor = RESFAC_DEFAULT_VALUE;
-            }
-            slagironFactor = slagironFactorProp.getDouble(RESFAC_DEFAULT_VALUE);
-            if (slagironFactor > RESFAC_MAX_VALUE || slagironFactor < RESFAC_MIN_VALUE) {
-                slagironFactor = RESFAC_DEFAULT_VALUE;
-            }
-            slaggoldFactor = slaggoldFactorProp.getDouble(RESFAC_DEFAULT_VALUE);
-            if (slaggoldFactor > RESFAC_MAX_VALUE || slaggoldFactor < RESFAC_MIN_VALUE) {
-                slaggoldFactor = RESFAC_DEFAULT_VALUE;
             }
             titaniteFactor = titaniteFactorProp.getDouble(RESFAC_DEFAULT_VALUE);
             if (titaniteFactor > RESFAC_MAX_VALUE || titaniteFactor < RESFAC_MIN_VALUE) {
@@ -343,9 +311,6 @@ public class TAIGAConfiguration {
         }
 
         ironSwitch.set(ironGen);
-        slagIronSwitch.set(slagIronGen);
-        slagGoldSwitch.set(slagGoldGen);
-        oreFactorGeneralProp.set(oreFactorGeneral);
         durabilityFactorGeneralProp.set(durabilityFactorGeneral);
         speedFactorGeneralProp.set(speedFactorGeneral);
         attackFactorGeneralProp.set(attackFactorGeneral);
