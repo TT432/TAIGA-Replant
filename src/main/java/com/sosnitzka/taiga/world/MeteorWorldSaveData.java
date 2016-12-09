@@ -20,6 +20,11 @@ public class MeteorWorldSaveData extends WorldSavedData {
         super(DATA_NAME);
     }
 
+    @SuppressWarnings("unused")
+    public MeteorWorldSaveData(String name) {
+        super(name);
+    }
+
     public static MeteorWorldSaveData getForWorld(World world) {
         MapStorage storage = world.getPerWorldStorage();
         MeteorWorldSaveData instance = (MeteorWorldSaveData) storage.getOrLoadData(MeteorWorldSaveData.class, DATA_NAME);
