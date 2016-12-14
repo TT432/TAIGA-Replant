@@ -3,6 +3,7 @@ package com.sosnitzka.taiga;
 
 import com.sosnitzka.taiga.generic.BasicTinkerFluid;
 import com.sosnitzka.taiga.util.Utils;
+import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
@@ -16,9 +17,9 @@ public class Fluids {
     public static BasicTinkerFluid tiberiumFluid = new BasicTinkerFluid("tiberium_fluid", 0xFF66f136, 400, 10, 8000);
     public static BasicTinkerFluid auroriumFluid = new BasicTinkerFluid("aurorium_fluid", 0xFFefae94, 750, 10, 10000);
     public static BasicTinkerFluid prometheumFluid = new BasicTinkerFluid("prometheum_fluid", 0xFF271c29, 850, 10, 10000);
-    public static BasicTinkerFluid duraniteFluid = new BasicTinkerFluid("duranite_fluid", 0xFFacddeb, 10000, 10, 10000);
-    public static BasicTinkerFluid valyriumFluid = new BasicTinkerFluid("valyrium_fluid", 0xFFe85c31, 1250, 10, 10000);
-    public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium_fluid", 0xFFbad2d9, 1400, 10, 10000);
+    public static BasicTinkerFluid duraniteFluid = new BasicTinkerFluid("duranite_fluid", 0xFFacddeb, 1400, 10, 10000);
+    public static BasicTinkerFluid valyriumFluid = new BasicTinkerFluid("valyrium_fluid", 0xFFe85c31, 1915, 10, 10000);
+    public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium_fluid", 0xFFbad2d9, 3050, 10, 10000);
     public static BasicTinkerFluid karmesineFluid = new BasicTinkerFluid("karmesine_fluid", 0xFFeb484a, 750, 10, 9000);
     public static BasicTinkerFluid palladiumFluid = new BasicTinkerFluid("palladium_fluid", 0xFFee8736, 690, 10, 10000);
     public static BasicTinkerFluid uruFluid = new BasicTinkerFluid("uru_fluid", 0xFFbfb9f0, 1200, 10, 10000);
@@ -45,6 +46,8 @@ public class Fluids {
     public static BasicTinkerFluid ioxFluid = new BasicTinkerFluid("iox_fluid", 0xFF99323c, 900, 10, 10000);
     public static BasicTinkerFluid meteoriteFluid = new BasicTinkerFluid("meteorite_fluid", 0xFF374f3d, 950, 10, 7000);
     public static BasicTinkerFluid obsidioriteFluid = new BasicTinkerFluid("obsidiorite_fluid", 0xFF224853, 1050, 10, 7000);
+    public static BasicTinkerFluid magmaFluid = new BasicTinkerFluid("magma_fluid", 0xFFffc000, 2000, 10, 5000);
+    public static BasicTinkerFluid nitroniteFluid = new BasicTinkerFluid("nitronite_fluid", 0xFFCCFF00, 3100, 10, 5000);
 
     /**
      * Registers all materials' fluids <br>
@@ -80,7 +83,12 @@ public class Fluids {
      * Registers special smeltery recipes (not alloying)
      */
     static void registerfromItem() {
-        TinkerRegistry.registerMelting(Blocks.blockMeteoriteCobble, meteoriteFluid, 144);
+        TinkerRegistry.registerMelting(Blocks.blockMeteoriteCobble, meteoriteFluid, 288);
+        TinkerRegistry.registerMelting(Blocks.blockObsidiorite, meteoriteFluid, 288);
+        TinkerRegistry.registerMelting(net.minecraft.init.Blocks.MAGMA, magmaFluid, 288);
+
+        TinkerRegistry.registerSmelteryFuel(new FluidStack(magmaFluid, 50), 100);
+        TinkerRegistry.registerSmelteryFuel(new FluidStack(nitroniteFluid, 100), 500);
     }
 
 }

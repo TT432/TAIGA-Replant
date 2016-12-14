@@ -38,6 +38,7 @@ public class Alloys {
         registerTinkerAlloy(new FluidStack(nucleumFluid, 3), new FluidStack(niobFluid, 3), new FluidStack(eezoFluid, 1), new FluidStack(abyssumFluid, 1));
         registerTinkerAlloy(new FluidStack(dyoniteFluid, 3), new FluidStack(triberiumFluid, 3), new FluidStack(fractumFluid, 1), new FluidStack(seismumFluid, 1), new FluidStack(osramFluid, 1));
         registerTinkerAlloy(new FluidStack(dyoniteFluid, 3), new FluidStack(tiberiumFluid, 12), new FluidStack(fractumFluid, 1), new FluidStack(seismumFluid, 1), new FluidStack(osramFluid, 1));
+        registerTinkerAlloy(new FluidStack(nitroniteFluid, 6), new FluidStack(magmaFluid, 6), new FluidStack(osramFluid, 1));
 
     }
 }

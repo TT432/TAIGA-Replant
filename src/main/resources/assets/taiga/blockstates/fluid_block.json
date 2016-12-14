@@ -11,6 +11,20 @@
         }
       }
     ],
+    "magma_fluid": [
+      {
+        "custom": {
+          "fluid": "magma_fluid"
+        }
+      }
+    ],
+    "nitronite_fluid": [
+      {
+        "custom": {
+          "fluid": "nitronite_fluid"
+        }
+      }
+    ],
     "meteorite_fluid": [
       {
         "custom": {

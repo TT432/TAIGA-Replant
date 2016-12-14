@@ -45,7 +45,6 @@ public class TAIGAGuiFactory implements IModGuiFactory {
             List<IConfigElement> list = new ArrayList<IConfigElement>();
             list.add(new DummyConfigElement.DummyCategoryElement("Basics configuration", "gui.taiga_configuration.ctgy.general", CategoryEntryGeneral.class));
             list.add(new DummyConfigElement.DummyCategoryElement("Specific ore generation", "gui.taiga_configuration.ctgy.oregen", CategoryEntryOreGen.class));
-            //list.add(new DummyConfigElement.DummyCategoryElement("Specific ore values", "gui.taiga_configuration.ctgy.oreval", CategoryEntryOreVal.class));
             return list;
         }
 
@@ -78,22 +77,6 @@ public class TAIGAGuiFactory implements IModGuiFactory {
                 String windowTitle = configuration.toString();
 
                 return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_ORE_GEN, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
-            }
-        }
-
-        public static class CategoryEntryOreVal extends GuiConfigEntries.CategoryEntry {
-            public CategoryEntryOreVal(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement prop) {
-                super(owningScreen, owningEntryList, prop);
-            }
-
-            @Override
-            protected GuiScreen buildChildScreen() {
-                Configuration configuration = TAIGAConfiguration.getConfig();
-                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration.CATEGORY_NAME_ORE_VAL));
-                List<IConfigElement> propertiesOnThisScreen = cat_general.getChildElements();
-                String windowTitle = configuration.toString();
-
-                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_ORE_VAL, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
             }
         }
     }
