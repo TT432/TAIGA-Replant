@@ -3,6 +3,7 @@ package com.sosnitzka.taiga.util;
 import com.google.common.collect.Lists;
 import com.sosnitzka.taiga.world.MeteorWorldSaveData;
 import com.sosnitzka.taiga.world.WorldGenMinable;
+import net.minecraft.block.BlockStone;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -23,14 +24,18 @@ import static com.sosnitzka.taiga.util.Utils.nextInt;
 
 public class Generator {
 
-    public static void generateOre(boolean center, IBlockState state, IBlockState replace, Random random, int x, int z, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
-        if (center) {
-            generateOreDense(state, replace, random, x, z, world, chance, minY, maxY, minSize, maxSize, null);
-        } else {
-            generateOre(state, replace, null, null, random, x, z, world, chance, minY, maxY, minSize, maxSize, null);
-        }
+    public static void generateOre(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
+        if (replace == Blocks.IRON_ORE.getDefaultState()) System.out.println(" HIER ");
+        generateOre(state, replace, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
     }
 
+    public static void generateOre(IBlockState oldState, IBlockState newState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
+        generateOre(oldState, newState, property, comparable, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
+    }
+
+    public static void generateOre(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
+        generateOre(state, replace, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
+    }
 
     public static void generateOre(IBlockState state, IBlockState replace, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
         int size = minSize + random.nextInt(maxSize - minSize);
@@ -48,11 +53,11 @@ public class Generator {
 
     public static void generateOreDescending(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY, int chance) {
         if (random.nextFloat() < (float) (0.01 * chance))
-            generateOreDescending(replaceBlockList, replacementBlock, random, chunkX, chunkZ, world, count, minY, maxY);
+            generateOreDescendingTopLayer(replaceBlockList, replacementBlock, random, chunkX, chunkZ, world, count, minY, maxY);
     }
 
 
-    public static void generateOreDescending(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY) {
+    public static void generateOreDescendingTopLayer(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY) {
         for (int i = 0; i < count; i++) {
             int posX = chunkX + random.nextInt(16);
             int posZ = chunkZ + random.nextInt(16);
@@ -70,7 +75,28 @@ public class Generator {
         }
     }
 
-    public static void generateOreBottom(IBlockState replacedBlock, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int chance, int spread, int maxY) {
+    public static void generateOreDescending(IBlockState oldState, IBlockState newState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int count) {
+        for (int i = 0; i < count; i++) {
+            int posX = chunkX + random.nextInt(16);
+            int posZ = chunkZ + random.nextInt(16);
+            BlockPos cPos = new BlockPos(posX, random.nextInt(93) + 3, posZ);
+            IBlockState state = world.getBlockState(cPos);
+            if (oldState.getBlock().equals(state.getBlock()) && state.getBlock() instanceof BlockStone && comparable.equals(state.getValue(property))) {
+
+                world.setBlockState(cPos, newState);
+
+                continue;
+            }
+            while (!(state.getBlock() instanceof BlockStone) && !oldState.getBlock().equals(state.getBlock()) && !comparable.equals(state.getValue(property)) && cPos.getY() > 5) {
+                cPos = cPos.down();
+            }
+            if (state.getBlock() instanceof BlockStone && oldState.getBlock().equals(state.getBlock()) && comparable.equals(state.getValue(property))) {
+                world.setBlockState(cPos, newState);
+            }
+        }
+    }
+
+    public static void generateOreBottom(IBlockState oldState, IBlockState newState, Random random, int chunkX, int chunkZ, World world, int chance, int spread, int maxY) {
         for (int i = 0; i < chance; i++) {
             int posX = chunkX + random.nextInt(16);
             int posY = 0;
@@ -80,8 +106,8 @@ public class Generator {
                 while (world.getBlockState(cPos).equals(Blocks.AIR.getDefaultState()) && cPos.getY() < maxY) {
                     cPos = cPos.up();
                 }
-                if (world.getBlockState(cPos).equals(replacedBlock)) {
-                    world.setBlockState(cPos.up(random.nextInt(spread)), replacementBlock);
+                if (world.getBlockState(cPos).equals(oldState)) {
+                    world.setBlockState(cPos.up(random.nextInt(spread)), newState);
                 }
             }
         }
@@ -184,29 +210,6 @@ public class Generator {
                             world.setBlockState(nPos, hullBlock);
                         }
                     }
-                }
-            }
-        }
-    }
-
-
-    public static void generateOreDense(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
-        int size = minSize + random.nextInt(maxSize - minSize);
-        int height = maxY - minY;
-        BlockPos cPos;
-        for (int i = 0; i < chance; i += 5) {
-            for (int j = 0; j <= 2; j++) {
-                cPos = new BlockPos(chunkX + random.nextInt(16), minY + height * j / 5 + random.nextInt(height * 3 / 5), chunkZ + random.nextInt(16));
-                if (biome == null || biome.contains(world.getBiome(cPos))) {
-                    new WorldGenMinable(state, size, StateMatcher.forState(replace, null, null)).generate(world, random, cPos);
-                }
-            }
-            for (int j = 0; j <= 1; j++) {
-                int x = chunkX + random.nextInt(16);
-                int y = chunkZ + random.nextInt(16);
-                cPos = new BlockPos(x, minY + height * 4 / 9 + random.nextInt(height / 9), y);
-                if (biome == null || biome.contains(world.getBiome(cPos))) {
-                    new WorldGenMinable(state, size, StateMatcher.forState(replace, null, null)).generate(world, random, cPos);
                 }
             }
         }

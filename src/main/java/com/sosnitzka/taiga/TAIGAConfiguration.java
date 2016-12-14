@@ -13,29 +13,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TAIGAConfiguration {
+
     public static final String CATEGORY_NAME_GENERAL = "category_general";
     public static final String CATEGORY_NAME_ORE_GEN = "category_ore_gen";
 
-    public static double RESFAC_MIN_VALUE = 0;
-    public static double RESFAC_MAX_VALUE = 9999;
+    public static boolean ironGen;
+    public static boolean endGen;
 
-    public static int IRON_VAL = 20;
-    public static int TIBERIUM_VAL = 15;
-    public static int PROMETHEUM_VAL = 25;
-    public static int VALYRIUM_VAL = 10;
-    public static int OSRAM_VAL = 1;
-    public static int DURANITE_VAL = 1;
-    public static int BASALT_VAL = 10;
-    public static int EEZO_VAL = 3;
-    public static int KARMESINE_VAL = 15;
-    public static int VIBRANIUM_VAL = 10;
-    public static int URU_VAL = 1;
-    public static int AURORIUM_VAL = 10;
-    public static int PALLADIUM_VAL = 10;
-    public static int ABYSSUM_VAL = 4;
+    public static int IRON_VAL;
+    public static int TIBERIUM_VAL;
+    public static int PROMETHEUM_VAL;
+    public static int VALYRIUM_VAL;
+    public static int OSRAM_VAL;
+    public static int DURANITE_VAL;
+    public static int BASALT_VAL;
+    public static int EEZO_VAL;
+    public static int KARMESINE_VAL;
+    public static int VIBRANIUM_VAL;
+    public static int URU_VAL;
+    public static int AURORIUM_VAL;
+    public static int PALLADIUM_VAL;
+    public static int ABYSSUM_VAL;
 
-    public static boolean ironGen = false;
-    public static boolean endGen = true;
     private static Configuration config = null;
 
     public static void preInit() {
@@ -70,17 +69,33 @@ public class TAIGAConfiguration {
             config.load();
         }
 
-        /*
-         *  Declaration of general ore generation values: <br>
-         *  Activation of additional ores (iron/gold) <br>
-         *  Ore generation chance multiplier
-         */
+        final int RESFAC_MIN_VALUE = 0;
+        final int RESFAC_MAX_VALUE = 100;
 
-        Property ironSwitch = config.get(CATEGORY_NAME_GENERAL, "Extra Iron Switch", ironGen);
+        final int IRON_DEFAULT = 20;
+        final int TIBERIUM_DEFAULT = 15;
+        final int PROMETHEUM_DEFAULT = 25;
+        final int VALYRIUM_DEFAULT = 10;
+        final int OSRAM_DEFAULT = 1;
+        final int DURANITE_DEFAULT = 1;
+        final int BASALT_DEFAULT = 10;
+        final int EEZO_DEFAULT = 3;
+        final int KARMESINE_DEFAULT = 15;
+        final int VIBRANIUM_DEFAULT = 10;
+        final int URU_DEFAULT = 1;
+        final int AURORIUM_DEFAULT = 10;
+        final int PALLADIUM_DEFAULT = 10;
+        final int ABYSSUM_DEFAULT = 4;
+
+        final boolean FALSE = false;
+        final boolean TRUE = true;
+
+
+        Property ironSwitch = config.get(CATEGORY_NAME_GENERAL, "Extra Iron Switch", FALSE);
         ironSwitch.setComment("Switch ore on/off");
         ironSwitch.setLanguageKey("gui.taiga_configuration.gen_iron");
 
-        Property endSwitch = config.get(CATEGORY_NAME_GENERAL, "Extra Endstone Switch", endGen);
+        Property endSwitch = config.get(CATEGORY_NAME_GENERAL, "Extra Endstone Switch", TRUE);
         endSwitch.setComment("Switch extra End on/off");
         endSwitch.setLanguageKey("gui.taiga_configuration.gen_end");
 
@@ -105,52 +120,131 @@ public class TAIGAConfiguration {
          *  Generation chance multiplier
          */
 
-        Property ironValue = config.get(CATEGORY_NAME_ORE_GEN, "Iron", IRON_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        ironValue.setLanguageKey("gui.taiga_configuration.iron_multiplier");
-        Property basaltValue = config.get(CATEGORY_NAME_ORE_GEN, "Basalt", BASALT_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        basaltValue.setLanguageKey("gui.taiga_configuration.basalt_multiplier");
-        Property tiberiumValue = config.get(CATEGORY_NAME_ORE_GEN, "Tiberium", TIBERIUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        tiberiumValue.setLanguageKey("gui.taiga_configuration.tiberium_multiplier");
-        Property auroriumValue = config.get(CATEGORY_NAME_ORE_GEN, "Aurorium", AURORIUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        auroriumValue.setLanguageKey("gui.taiga_configuration.aurorium_multiplier");
-        Property prometheumValue = config.get(CATEGORY_NAME_ORE_GEN, "Prometheum", PROMETHEUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        prometheumValue.setLanguageKey("gui.taiga_configuration.prometheum_multiplier");
-        Property duraniteValue = config.get(CATEGORY_NAME_ORE_GEN, "Duranite", DURANITE_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        duraniteValue.setLanguageKey("gui.taiga_configuration.duranite_multiplier");
-        Property valyriumValue = config.get(CATEGORY_NAME_ORE_GEN, "Valyrium", VALYRIUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        valyriumValue.setLanguageKey("gui.taiga_configuration.valyrium_multiplier");
-        Property vibraniumValue = config.get(CATEGORY_NAME_ORE_GEN, "Vibranium", VIBRANIUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        vibraniumValue.setLanguageKey("gui.taiga_configuration.vibranium_multiplier");
-        Property karmesineValue = config.get(CATEGORY_NAME_ORE_GEN, "Karmesine", KARMESINE_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        karmesineValue.setLanguageKey("gui.taiga_configuration.karmesine_multiplier");
-        Property palladiumValue = config.get(CATEGORY_NAME_ORE_GEN, "Palladium", PALLADIUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        palladiumValue.setLanguageKey("gui.taiga_configuration.palladium_multiplier");
-        Property uruValue = config.get(CATEGORY_NAME_ORE_GEN, "Uru", URU_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        uruValue.setLanguageKey("gui.taiga_configuration.uru_multiplier");
-        Property osramValue = config.get(CATEGORY_NAME_ORE_GEN, "Osram", OSRAM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        osramValue.setLanguageKey("gui.taiga_configuration.osram_multiplier");
-        Property abyssumValue = config.get(CATEGORY_NAME_ORE_GEN, "Abyssum", ABYSSUM_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        abyssumValue.setLanguageKey("gui.taiga_configuration.abyssum_multiplier");
-        Property eezoValue = config.get(CATEGORY_NAME_ORE_GEN, "Eezo", EEZO_VAL, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
-        eezoValue.setLanguageKey("gui.taiga_configuration.eezo_multiplier");
+
+        Property ironValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Iron", IRON_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        ironValueProp.setLanguageKey("gui.taiga_configuration.iron_multiplier");
+        Property basaltValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Basalt", BASALT_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        basaltValueProp.setLanguageKey("gui.taiga_configuration.basalt_multiplier");
+        Property tiberiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Tiberium", TIBERIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        tiberiumValueProp.setLanguageKey("gui.taiga_configuration.tiberium_multiplier");
+        Property auroriumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Aurorium", AURORIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        auroriumValueProp.setLanguageKey("gui.taiga_configuration.aurorium_multiplier");
+        Property prometheumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Prometheum", PROMETHEUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        prometheumValueProp.setLanguageKey("gui.taiga_configuration.prometheum_multiplier");
+        Property duraniteValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Duranite", DURANITE_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        duraniteValueProp.setLanguageKey("gui.taiga_configuration.duranite_multiplier");
+        Property valyriumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Valyrium", VALYRIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        valyriumValueProp.setLanguageKey("gui.taiga_configuration.valyrium_multiplier");
+        Property vibraniumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Vibranium", VIBRANIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        vibraniumValueProp.setLanguageKey("gui.taiga_configuration.vibranium_multiplier");
+        Property karmesineValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Karmesine", KARMESINE_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        karmesineValueProp.setLanguageKey("gui.taiga_configuration.karmesine_multiplier");
+        Property palladiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Palladium", PALLADIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        palladiumValueProp.setLanguageKey("gui.taiga_configuration.palladium_multiplier");
+        Property uruValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Uru", URU_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        uruValueProp.setLanguageKey("gui.taiga_configuration.uru_multiplier");
+        Property osramValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Osram", OSRAM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        osramValueProp.setLanguageKey("gui.taiga_configuration.osram_multiplier");
+        Property abyssumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Abyssum", ABYSSUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        abyssumValueProp.setLanguageKey("gui.taiga_configuration.abyssum_multiplier");
+        Property eezoValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Eezo", EEZO_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        eezoValueProp.setLanguageKey("gui.taiga_configuration.eezo_multiplier");
 
 
         List<String> propOrderOreGen = new ArrayList<String>();
-        propOrderOreGen.add(ironValue.getName());
-        propOrderOreGen.add(basaltValue.getName());
-        propOrderOreGen.add(tiberiumValue.getName());
-        propOrderOreGen.add(auroriumValue.getName());
-        propOrderOreGen.add(prometheumValue.getName());
-        propOrderOreGen.add(duraniteValue.getName());
-        propOrderOreGen.add(valyriumValue.getName());
-        propOrderOreGen.add(vibraniumValue.getName());
-        propOrderOreGen.add(karmesineValue.getName());
-        propOrderOreGen.add(palladiumValue.getName());
-        propOrderOreGen.add(uruValue.getName());
-        propOrderOreGen.add(osramValue.getName());
-        propOrderOreGen.add(abyssumValue.getName());
-        propOrderOreGen.add(eezoValue.getName());
+        propOrderOreGen.add(ironValueProp.getName());
+        propOrderOreGen.add(basaltValueProp.getName());
+        propOrderOreGen.add(tiberiumValueProp.getName());
+        propOrderOreGen.add(auroriumValueProp.getName());
+        propOrderOreGen.add(prometheumValueProp.getName());
+        propOrderOreGen.add(duraniteValueProp.getName());
+        propOrderOreGen.add(valyriumValueProp.getName());
+        propOrderOreGen.add(vibraniumValueProp.getName());
+        propOrderOreGen.add(karmesineValueProp.getName());
+        propOrderOreGen.add(palladiumValueProp.getName());
+        propOrderOreGen.add(uruValueProp.getName());
+        propOrderOreGen.add(osramValueProp.getName());
+        propOrderOreGen.add(abyssumValueProp.getName());
+        propOrderOreGen.add(eezoValueProp.getName());
         config.setCategoryPropertyOrder(CATEGORY_NAME_ORE_GEN, propOrderOreGen);
+
+
+        if (readFieldsFromConfig) {
+            ironGen = ironSwitch.getBoolean(FALSE);
+            endGen = endSwitch.getBoolean(TRUE);
+            IRON_VAL = ironValueProp.getInt(IRON_DEFAULT);
+            if (IRON_VAL > RESFAC_MAX_VALUE || IRON_VAL < RESFAC_MIN_VALUE) {
+                IRON_VAL = IRON_DEFAULT;
+            }
+            TIBERIUM_VAL = tiberiumValueProp.getInt(TIBERIUM_DEFAULT);
+            if (TIBERIUM_VAL > RESFAC_MAX_VALUE || TIBERIUM_VAL < RESFAC_MIN_VALUE) {
+                TIBERIUM_VAL = TIBERIUM_DEFAULT;
+            }
+            PROMETHEUM_VAL = prometheumValueProp.getInt(PROMETHEUM_DEFAULT);
+            if (PROMETHEUM_VAL > RESFAC_MAX_VALUE || PROMETHEUM_VAL < RESFAC_MIN_VALUE) {
+                PROMETHEUM_VAL = PROMETHEUM_DEFAULT;
+            }
+            VALYRIUM_VAL = valyriumValueProp.getInt(VALYRIUM_DEFAULT);
+            if (VALYRIUM_VAL > RESFAC_MAX_VALUE || VALYRIUM_VAL < RESFAC_MIN_VALUE) {
+                VALYRIUM_VAL = VALYRIUM_DEFAULT;
+            }
+            OSRAM_VAL = osramValueProp.getInt(OSRAM_DEFAULT);
+            if (OSRAM_VAL > RESFAC_MAX_VALUE || OSRAM_VAL < RESFAC_MIN_VALUE) {
+                OSRAM_VAL = OSRAM_DEFAULT;
+            }
+            DURANITE_VAL = duraniteValueProp.getInt(DURANITE_DEFAULT);
+            if (DURANITE_VAL > RESFAC_MAX_VALUE || DURANITE_VAL < RESFAC_MIN_VALUE) {
+                DURANITE_VAL = DURANITE_DEFAULT;
+            }
+            BASALT_VAL = basaltValueProp.getInt(BASALT_DEFAULT);
+            if (BASALT_VAL > RESFAC_MAX_VALUE || BASALT_VAL < RESFAC_MIN_VALUE) {
+                BASALT_VAL = BASALT_DEFAULT;
+            }
+            EEZO_VAL = eezoValueProp.getInt(EEZO_DEFAULT);
+            if (EEZO_VAL > RESFAC_MAX_VALUE || EEZO_VAL < RESFAC_MIN_VALUE) {
+                EEZO_VAL = EEZO_DEFAULT;
+            }
+            KARMESINE_VAL = karmesineValueProp.getInt(KARMESINE_DEFAULT);
+            if (KARMESINE_VAL > RESFAC_MAX_VALUE || KARMESINE_VAL < RESFAC_MIN_VALUE) {
+                KARMESINE_VAL = KARMESINE_DEFAULT;
+            }
+            VIBRANIUM_VAL = vibraniumValueProp.getInt(VIBRANIUM_DEFAULT);
+            if (VIBRANIUM_VAL > RESFAC_MAX_VALUE || VIBRANIUM_VAL < RESFAC_MIN_VALUE) {
+                VIBRANIUM_VAL = VIBRANIUM_DEFAULT;
+            }
+            URU_VAL = uruValueProp.getInt(URU_DEFAULT);
+            if (URU_VAL > RESFAC_MAX_VALUE || URU_VAL < RESFAC_MIN_VALUE) {
+                URU_VAL = URU_DEFAULT;
+            }
+            AURORIUM_VAL = auroriumValueProp.getInt(AURORIUM_DEFAULT);
+            if (AURORIUM_VAL > RESFAC_MAX_VALUE || AURORIUM_VAL < RESFAC_MIN_VALUE) {
+                AURORIUM_VAL = AURORIUM_DEFAULT;
+            }
+            PALLADIUM_VAL = palladiumValueProp.getInt(PALLADIUM_DEFAULT);
+            if (PALLADIUM_VAL > RESFAC_MAX_VALUE || PALLADIUM_VAL < RESFAC_MIN_VALUE) {
+                PALLADIUM_VAL = PALLADIUM_DEFAULT;
+            }
+            ABYSSUM_VAL = abyssumValueProp.getInt(ABYSSUM_DEFAULT);
+            if (ABYSSUM_VAL > RESFAC_MAX_VALUE || ABYSSUM_VAL < RESFAC_MIN_VALUE) {
+                ABYSSUM_VAL = ABYSSUM_DEFAULT;
+            }
+        }
+
+        ironSwitch.set(ironGen);
+        ironValueProp.set(IRON_VAL);
+        tiberiumValueProp.set(TIBERIUM_VAL);
+        prometheumValueProp.set(PROMETHEUM_VAL);
+        valyriumValueProp.set(VALYRIUM_VAL);
+        osramValueProp.set(OSRAM_VAL);
+        duraniteValueProp.set(DURANITE_VAL);
+        basaltValueProp.set(BASALT_VAL);
+        eezoValueProp.set(EEZO_VAL);
+        karmesineValueProp.set(KARMESINE_VAL);
+        vibraniumValueProp.set(VIBRANIUM_VAL);
+        uruValueProp.set(URU_VAL);
+        auroriumValueProp.set(AURORIUM_VAL);
+        palladiumValueProp.set(PALLADIUM_VAL);
+        abyssumValueProp.set(ABYSSUM_VAL);
 
 
         if (config.hasChanged()) {
