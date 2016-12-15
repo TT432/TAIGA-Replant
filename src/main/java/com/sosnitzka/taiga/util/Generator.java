@@ -25,7 +25,6 @@ import static com.sosnitzka.taiga.util.Utils.nextInt;
 public class Generator {
 
     public static void generateOre(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
-        if (replace == Blocks.IRON_ORE.getDefaultState()) System.out.println(" HIER ");
         generateOre(state, replace, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
     }
 
@@ -33,11 +32,11 @@ public class Generator {
         generateOre(oldState, newState, property, comparable, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
     }
 
-    public static void generateOre(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
-        generateOre(state, replace, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
+    public static void generateOre(IBlockState oldState, IBlockState newState, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
+        generateOre(oldState, newState, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
     }
 
-    public static void generateOre(IBlockState state, IBlockState replace, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
+    public static void generateOre(IBlockState oldState, IBlockState newState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
         int size = minSize + random.nextInt(maxSize - minSize);
         int height = maxY - minY;
         for (int i = 0; i < chance; i++) {
@@ -46,7 +45,7 @@ public class Generator {
             int posZ = chunkZ + random.nextInt(16);
             BlockPos cPos = new BlockPos(posX, posY, posZ);
             if (biome == null || biome.contains(world.getBiome(cPos))) {
-                new WorldGenMinable(state, size, StateMatcher.forState(replace, property, comparable)).generate(world, random, new BlockPos(posX, posY, posZ));
+                new WorldGenMinable(oldState, size, StateMatcher.forState(newState, property, comparable)).generate(world, random, new BlockPos(posX, posY, posZ));
             }
         }
     }
@@ -75,23 +74,30 @@ public class Generator {
         }
     }
 
-    public static void generateOreDescending(IBlockState oldState, IBlockState newState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int count) {
+    public static void generateOreDescending(IBlockState oldState, IBlockState newState, IProperty property, List<BlockStone.EnumType> comparable, Random random, int chunkX, int chunkZ, World world, int count) {
         for (int i = 0; i < count; i++) {
             int posX = chunkX + random.nextInt(16);
             int posZ = chunkZ + random.nextInt(16);
-            BlockPos cPos = new BlockPos(posX, random.nextInt(93) + 3, posZ);
+            BlockPos cPos = new BlockPos(posX, random.nextInt(64) + 16, posZ);
             IBlockState state = world.getBlockState(cPos);
-            if (oldState.getBlock().equals(state.getBlock()) && state.getBlock() instanceof BlockStone && comparable.equals(state.getValue(property))) {
-
-                world.setBlockState(cPos, newState);
-
-                continue;
-            }
-            while (!(state.getBlock() instanceof BlockStone) && !oldState.getBlock().equals(state.getBlock()) && !comparable.equals(state.getValue(property)) && cPos.getY() > 5) {
-                cPos = cPos.down();
-            }
-            if (state.getBlock() instanceof BlockStone && oldState.getBlock().equals(state.getBlock()) && comparable.equals(state.getValue(property))) {
-                world.setBlockState(cPos, newState);
+            if (state.getBlock().equals(oldState.getBlock())) {
+                if (comparable.contains(state.getValue(property))) {
+                    System.out.println("Yes, a variant");
+                    world.setBlockState(cPos, newState);
+                }
+            } else {
+                while (cPos.getY() > 4) {
+                    cPos = cPos.down();
+                    if (state.getBlock().equals(oldState.getBlock())) {
+                        if (comparable.contains(state.getValue(property))) {
+                            System.out.println("Yes!! a variant");
+                            world.setBlockState(cPos, newState);
+                            continue;
+                        }
+                    }
+                    if (random.nextBoolean())
+                        i--;
+                }
             }
         }
     }

@@ -51,6 +51,7 @@ public class MaterialTraits {
     public static final AbstractTrait ported = new TraitPorted();
     public static final AbstractTrait decay = new TraitDecay();
     public static final AbstractTrait whirl = new TraitWhirl();
+    public static final AbstractTrait dev = new TraitDevelopement();
 
     /**
      * Assign traits to related materials. <br>
@@ -80,7 +81,10 @@ public class MaterialTraits {
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(hollow);
     public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(pulverizing);
     public static Material nihilite = new Material("nihilite", TextFormatting.BLACK).addTrait(souleater);
-    public static Material adamant = new Material("adamant", TextFormatting.GOLD);
+    /**
+     * With Dev
+     **/
+    public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(dev);
     public static Material dyonite = new Material("dyonite", TextFormatting.GREEN).addTrait(tantrum);
     public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay);
     public static Material lumix = new Material("lumix", TextFormatting.YELLOW).addTrait(bright, MaterialTypes.HANDLE).addTrait(glimmer, MaterialTypes.HEAD);

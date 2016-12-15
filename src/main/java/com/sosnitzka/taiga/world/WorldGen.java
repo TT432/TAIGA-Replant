@@ -35,7 +35,7 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOreDescendingTopLayer(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), basaltBlock.getDefaultState(), random, x, z, world, BASALT_VAL, 0, 64);
         Generator.generateOreDescendingTopLayer(newArrayList(Blocks.BEDROCK.getDefaultState()), eezoOre.getDefaultState(), random, x, z, world, EEZO_VAL, 0, 10);
 
-        Generator.generateOreDescending(Blocks.STONE.getDefaultState(), karmesineOre.getDefaultState(), BlockStone.VARIANT, BlockStone.EnumType.DIORITE, random, x, z, world, KARMESINE_VAL);
+        Generator.generateOreDescending(Blocks.STONE.getDefaultState(), karmesineOre.getDefaultState(), BlockStone.VARIANT, newArrayList(BlockStone.EnumType.DIORITE, BlockStone.EnumType.GRANITE, BlockStone.EnumType.ANDESITE), random, x, z, world, KARMESINE_VAL);
 
         Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, VIBRANIUM_VAL, 0, 64, 2, 12, newArrayList(Biomes.DESERT_HILLS, Biomes.EXTREME_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.DESERT));
         Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 1, 0, 128, 1, 3, null);
