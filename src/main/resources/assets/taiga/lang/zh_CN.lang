@@ -267,6 +267,6 @@ item.tiberium_nugget.name=泰伯利亚粒
 item.radiant_pearl.name=辐射珍珠
 item.luminar_dust.name=流明粉
 
-gui.taiga_configuration.mainTitle=TAIGA 组态
-itemGroup.taiga_block=TAIGA 块
-itemGroup.taiga_item=TAIGA 对象
+gui.taiga_configuration.mainTitle=TAIGA 配置
+itemGroup.taiga_block=TAIGA 方块
+itemGroup.taiga_item=TAIGA 物品
