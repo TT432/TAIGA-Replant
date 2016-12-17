@@ -20,43 +20,43 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static com.sosnitzka.taiga.util.Utils.nextInt;
 
 public class Generator {
 
-    public static void generateOre(IBlockState state, IBlockState replace, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
-        generateOre(state, replace, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
+    public static void generateOre(IBlockState newState, IBlockState oldState, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY, int minSize, int maxSize) {
+        generateOre(newState, oldState, null, null, random, chunkX, chunkZ, world, count, 100, minY, maxY, minSize, maxSize, null);
     }
 
-    public static void generateOre(IBlockState oldState, IBlockState newState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize) {
-        generateOre(oldState, newState, property, comparable, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
+    public static void generateOre(IBlockState newState, IBlockState oldState, Random random, int chunkX, int chunkZ, World world, int count, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
+        generateOre(newState, oldState, null, null, random, chunkX, chunkZ, world, count, chance, minY, maxY, minSize, maxSize, biome);
     }
 
-    public static void generateOre(IBlockState oldState, IBlockState newState, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
-        generateOre(oldState, newState, null, null, random, chunkX, chunkZ, world, chance, minY, maxY, minSize, maxSize, null);
-    }
-
-    public static void generateOre(IBlockState oldState, IBlockState newState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
+    public static void generateOre(IBlockState newState, IBlockState oldState, IProperty property, Comparable comparable, Random random, int chunkX, int chunkZ, World world, int count, int chance, int minY, int maxY, int minSize, int maxSize, List<Biome> biome) {
         int size = minSize + random.nextInt(maxSize - minSize);
         int height = maxY - minY;
-        for (int i = 0; i < chance; i++) {
-            int posX = chunkX + random.nextInt(16);
-            int posY = random.nextInt(height) + minY;
-            int posZ = chunkZ + random.nextInt(16);
-            BlockPos cPos = new BlockPos(posX, posY, posZ);
-            if (biome == null || biome.contains(world.getBiome(cPos))) {
-                new WorldGenMinable(oldState, size, StateMatcher.forState(newState, property, comparable)).generate(world, random, new BlockPos(posX, posY, posZ));
+        for (int i = 0; i < count; i++) {
+            if (0.01f * chance >= random.nextFloat()) {
+                int posX = chunkX + random.nextInt(16);
+                int posY = random.nextInt(height) + minY;
+                int posZ = chunkZ + random.nextInt(16);
+                BlockPos cPos = new BlockPos(posX, posY, posZ);
+                if (biome == null || biome.contains(world.getBiome(cPos))) {
+                    new WorldGenMinable(newState, size, StateMatcher.forState(oldState, property, comparable)).generate(world, random, new BlockPos(posX, posY, posZ));
+                }
             }
+
         }
     }
 
-    public static void generateOreDescending(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY, int chance) {
+    public static void generateOre(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY, int chance) {
         if (random.nextFloat() < (float) (0.01 * chance))
-            generateOreDescendingTopLayer(replaceBlockList, replacementBlock, random, chunkX, chunkZ, world, count, minY, maxY);
+            generateOreDescending(replaceBlockList, replacementBlock, random, chunkX, chunkZ, world, count, minY, maxY);
     }
 
 
-    public static void generateOreDescendingTopLayer(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY) {
+    public static void generateOreDescending(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random random, int chunkX, int chunkZ, World world, int count, int minY, int maxY) {
         for (int i = 0; i < count; i++) {
             int posX = chunkX + random.nextInt(16);
             int posZ = chunkZ + random.nextInt(16);
@@ -74,29 +74,45 @@ public class Generator {
         }
     }
 
-    public static void generateOreDescending(IBlockState oldState, IBlockState newState, IProperty property, List<BlockStone.EnumType> comparable, Random random, int chunkX, int chunkZ, World world, int count) {
-        for (int i = 0; i < count; i++) {
+    public static void generateOreStoneVariant(IBlockState newState, BlockStone.EnumType type, Random random, int chunkX, int chunkZ, World world, int count) {
+        List<BlockStone.EnumType> list = newArrayList(type);
+        for (int i = 0; i < count; i += 2) {
             int posX = chunkX + random.nextInt(16);
             int posZ = chunkZ + random.nextInt(16);
-            BlockPos cPos = new BlockPos(posX, random.nextInt(64) + 16, posZ);
+            BlockPos cPos = new BlockPos(posX, random.nextInt(64) + 32, posZ);
             IBlockState state = world.getBlockState(cPos);
-            if (state.getBlock().equals(oldState.getBlock())) {
-                if (comparable.contains(state.getValue(property))) {
-                    System.out.println("Yes, a variant");
+            if (state.getBlock().equals(Blocks.STONE.getDefaultState().getBlock())) {
+                if (list.contains(state.getValue(BlockStone.VARIANT))) {
                     world.setBlockState(cPos, newState);
                 }
             } else {
-                while (cPos.getY() > 4) {
+                while (cPos.getY() >= 0) {
                     cPos = cPos.down();
-                    if (state.getBlock().equals(oldState.getBlock())) {
-                        if (comparable.contains(state.getValue(property))) {
-                            System.out.println("Yes!! a variant");
+                    state = world.getBlockState(cPos);
+                    if (state.getBlock().equals(Blocks.STONE.getDefaultState().getBlock())) {
+                        if (list.contains(state.getValue(BlockStone.VARIANT))) {
                             world.setBlockState(cPos, newState);
-                            continue;
+                            break;
                         }
                     }
-                    if (random.nextBoolean())
-                        i--;
+                }
+            }
+            cPos = new BlockPos(posX, random.nextInt(32), posZ);
+            state = world.getBlockState(cPos);
+            if (state.getBlock().equals(Blocks.STONE.getDefaultState().getBlock())) {
+                if (list.contains(state.getValue(BlockStone.VARIANT))) {
+                    world.setBlockState(cPos, newState);
+                }
+            } else {
+                while (cPos.getY() <= 96) {
+                    cPos = cPos.up();
+                    state = world.getBlockState(cPos);
+                    if (state.getBlock().equals(Blocks.STONE.getDefaultState().getBlock())) {
+                        if (list.contains(state.getValue(BlockStone.VARIANT))) {
+                            world.setBlockState(cPos, newState);
+                            break;
+                        }
+                    }
                 }
             }
         }

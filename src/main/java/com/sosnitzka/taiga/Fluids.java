@@ -21,6 +21,9 @@ public class Fluids {
     public static BasicTinkerFluid valyriumFluid = new BasicTinkerFluid("valyrium_fluid", 0xFFe85c31, 1915, 10, 10000);
     public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium_fluid", 0xFFbad2d9, 3050, 10, 10000);
     public static BasicTinkerFluid karmesineFluid = new BasicTinkerFluid("karmesine_fluid", 0xFFeb484a, 750, 10, 9000);
+    public static BasicTinkerFluid jauxumFluid = new BasicTinkerFluid("jauxum_fluid", 0xFF68c663, 750, 10, 9000);
+    public static BasicTinkerFluid oviumFluid = new BasicTinkerFluid("ovium_fluid", 0xFF7d77c3, 750, 10, 9000);
+    public static BasicTinkerFluid terraxFluid = new BasicTinkerFluid("terrax_fluid", 0xFFa5978e, 850, 10, 9000);
     public static BasicTinkerFluid palladiumFluid = new BasicTinkerFluid("palladium_fluid", 0xFFee8736, 690, 10, 10000);
     public static BasicTinkerFluid uruFluid = new BasicTinkerFluid("uru_fluid", 0xFFbfb9f0, 1200, 10, 10000);
     public static BasicTinkerFluid osramFluid = new BasicTinkerFluid("osram_fluid", 0xFFffbc90, 800, 10, 4000);

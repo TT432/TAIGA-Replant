@@ -67,7 +67,7 @@ public class MaterialTraits {
     public static Material duranite = new Material("duranite", TextFormatting.YELLOW).addTrait(analysing);
     public static Material valyrium = new Material("valyrium", TextFormatting.DARK_GRAY).addTrait(congenial);
     public static Material vibranium = new Material("vibranium", TextFormatting.GRAY).addTrait(resonance, MaterialTypes.HANDLE).addTrait(heroic, MaterialTypes.HEAD);
-    public static Material karmesine = new Material("karmesine", TextFormatting.RED).addTrait(slaughtering);
+    public static Material terrax = new Material("terrax", TextFormatting.DARK_GRAY).addTrait(slaughtering);
     public static Material palladium = new Material("palladium", TextFormatting.GOLD).addTrait(dark).addTrait(cursed);
     public static Material uru = new Material("uru", TextFormatting.DARK_RED).addTrait(diffuse);
     public static Material basalt = new Material("basalt", TextFormatting.WHITE).addTrait(softy);
@@ -98,5 +98,8 @@ public class MaterialTraits {
     public static Material osram = new Material("osram", TextFormatting.GOLD);
     public static Material abyssum = new Material("abyssum", TextFormatting.GOLD);
     public static Material iox = new Material("iox", TextFormatting.RED);
+    public static Material ovium = new Material("ovium", TextFormatting.BLUE);
+    public static Material jauxum = new Material("jauxum", TextFormatting.YELLOW);
+    public static Material karmesine = new Material("karmesine", TextFormatting.RED);
 
 }

@@ -88,6 +88,27 @@
         }
       }
     ],
+    "jaxum_fluid": [
+      {
+        "custom": {
+          "fluid": "jaxum_fluid"
+        }
+      }
+    ],
+    "ovium_fluid": [
+      {
+        "custom": {
+          "fluid": "ovium_fluid"
+        }
+      }
+    ],
+    "terrax_fluid": [
+      {
+        "custom": {
+          "fluid": "terrax_fluid"
+        }
+      }
+    ],
     "palladium_fluid": [
       {
         "custom": {

@@ -20,6 +20,23 @@ public class TAIGAConfiguration {
     public static boolean ironGen;
     public static boolean endGen;
 
+    public static boolean tiberiumGen;
+    public static boolean prometheumGen;
+    public static boolean valyriumGen;
+    public static boolean osramGen;
+    public static boolean duraniteGen;
+    public static boolean basaltGen;
+    public static boolean eezoGen;
+    public static boolean karmesineGen;
+    public static boolean oviumGen;
+    public static boolean jauxumGen;
+    public static boolean vibraniumGen;
+    public static boolean uruGen;
+    public static boolean auroriumGen;
+    public static boolean palladiumGen;
+    public static boolean abyssumGen;
+
+
     public static int IRON_VAL;
     public static int TIBERIUM_VAL;
     public static int PROMETHEUM_VAL;
@@ -29,6 +46,8 @@ public class TAIGAConfiguration {
     public static int BASALT_VAL;
     public static int EEZO_VAL;
     public static int KARMESINE_VAL;
+    public static int OVIUM_VAL;
+    public static int JAUXUM_VAL;
     public static int VIBRANIUM_VAL;
     public static int URU_VAL;
     public static int AURORIUM_VAL;
@@ -80,7 +99,9 @@ public class TAIGAConfiguration {
         final int DURANITE_DEFAULT = 1;
         final int BASALT_DEFAULT = 10;
         final int EEZO_DEFAULT = 3;
-        final int KARMESINE_DEFAULT = 15;
+        final int KARMESINE_DEFAULT = 8;
+        final int JAUXUM_DEFAULT = 8;
+        final int OVIUM_DEFAULT = 8;
         final int VIBRANIUM_DEFAULT = 10;
         final int URU_DEFAULT = 1;
         final int AURORIUM_DEFAULT = 10;
@@ -139,6 +160,10 @@ public class TAIGAConfiguration {
         vibraniumValueProp.setLanguageKey("gui.taiga_configuration.vibranium_multiplier");
         Property karmesineValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Karmesine", KARMESINE_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         karmesineValueProp.setLanguageKey("gui.taiga_configuration.karmesine_multiplier");
+        Property oviumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Ovium", OVIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        oviumValueProp.setLanguageKey("gui.taiga_configuration.ovium_multiplier");
+        Property jauxumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Jauxum", JAUXUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        jauxumValueProp.setLanguageKey("gui.taiga_configuration.jauxum_multiplier");
         Property palladiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Palladium", PALLADIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         palladiumValueProp.setLanguageKey("gui.taiga_configuration.palladium_multiplier");
         Property uruValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Uru", URU_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
@@ -161,6 +186,8 @@ public class TAIGAConfiguration {
         propOrderOreGen.add(valyriumValueProp.getName());
         propOrderOreGen.add(vibraniumValueProp.getName());
         propOrderOreGen.add(karmesineValueProp.getName());
+        propOrderOreGen.add(oviumValueProp.getName());
+        propOrderOreGen.add(jauxumValueProp.getName());
         propOrderOreGen.add(palladiumValueProp.getName());
         propOrderOreGen.add(uruValueProp.getName());
         propOrderOreGen.add(osramValueProp.getName());
@@ -208,6 +235,14 @@ public class TAIGAConfiguration {
             if (KARMESINE_VAL > RESFAC_MAX_VALUE || KARMESINE_VAL < RESFAC_MIN_VALUE) {
                 KARMESINE_VAL = KARMESINE_DEFAULT;
             }
+            OVIUM_VAL = oviumValueProp.getInt(OVIUM_DEFAULT);
+            if (OVIUM_VAL > RESFAC_MAX_VALUE || OVIUM_VAL < RESFAC_MIN_VALUE) {
+                OVIUM_VAL = KARMESINE_DEFAULT;
+            }
+            JAUXUM_VAL = jauxumValueProp.getInt(OVIUM_DEFAULT);
+            if (JAUXUM_VAL > RESFAC_MAX_VALUE || JAUXUM_VAL < RESFAC_MIN_VALUE) {
+                JAUXUM_VAL = JAUXUM_DEFAULT;
+            }
             VIBRANIUM_VAL = vibraniumValueProp.getInt(VIBRANIUM_DEFAULT);
             if (VIBRANIUM_VAL > RESFAC_MAX_VALUE || VIBRANIUM_VAL < RESFAC_MIN_VALUE) {
                 VIBRANIUM_VAL = VIBRANIUM_DEFAULT;
@@ -240,6 +275,8 @@ public class TAIGAConfiguration {
         basaltValueProp.set(BASALT_VAL);
         eezoValueProp.set(EEZO_VAL);
         karmesineValueProp.set(KARMESINE_VAL);
+        oviumValueProp.set(OVIUM_VAL);
+        jauxumValueProp.set(JAUXUM_VAL);
         vibraniumValueProp.set(VIBRANIUM_VAL);
         uruValueProp.set(URU_VAL);
         auroriumValueProp.set(AURORIUM_VAL);

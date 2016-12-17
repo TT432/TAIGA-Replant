@@ -3,7 +3,7 @@
   "defaults": {
     "model": "minecraft:cube_all",
     "textures": {
-      "all": "taiga:blocks/ore/karmesinediorite"
+      "all": "taiga:blocks/ore/ovium"
     },
     "transform": "forge:default-block"
   },

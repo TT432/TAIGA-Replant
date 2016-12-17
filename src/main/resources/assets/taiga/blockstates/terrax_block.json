@@ -3,7 +3,7 @@
   "defaults": {
     "model": "minecraft:cube_all",
     "textures": {
-      "all": "taiga:blocks/ore/karmesineandensite"
+      "all": "taiga:blocks/block/terrax"
     },
     "transform": "forge:default-block"
   },

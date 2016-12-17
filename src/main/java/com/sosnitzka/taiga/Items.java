@@ -45,6 +45,18 @@ public class Items {
     public static Item karmesineDust = new BasicItem("karmesine_dust", PREFIX_DUST);
     public static Item karmesineNugget = new BasicItem("karmesine_nugget", PREFIX_NUGGET);
 
+    public static Item oviumIngot = new BasicItem("ovium_ingot", PREFIX_INGOT);
+    public static Item oviumDust = new BasicItem("ovium_dust", PREFIX_DUST);
+    public static Item oviumNugget = new BasicItem("ovium_nugget", PREFIX_NUGGET);
+
+    public static Item jauxumIngot = new BasicItem("jauxum_ingot", PREFIX_INGOT);
+    public static Item jauxumDust = new BasicItem("jauxum_dust", PREFIX_DUST);
+    public static Item jauxumNugget = new BasicItem("jauxum_nugget", PREFIX_NUGGET);
+
+    public static Item terraxIngot = new BasicItem("terrax_ingot", PREFIX_INGOT);
+    public static Item terraxDust = new BasicItem("terrax_dust", PREFIX_DUST);
+    public static Item terraxNugget = new BasicItem("terrax_nugget", PREFIX_NUGGET);
+
     public static Item palladiumIngot = new BasicItem("palladium_ingot", PREFIX_INGOT);
     public static Item palladiumDust = new BasicItem("palladium_dust", PREFIX_DUST);
     public static Item palladiumNugget = new BasicItem("palladium_nugget", PREFIX_NUGGET);

@@ -90,7 +90,7 @@ public class TAIGA {
         integrateMaterial("Duranite", duranite, duraniteFluid, 1550, 3.2f, 3.2f, 1.16f, 100, 100, DURANITE, 0.3f, 1.4f, 2);
         integrateMaterial("Valyrium", valyrium, valyriumFluid, 1111, 5.37f, 4.8f, 1.30f, 100, 100, VALYRIUM, 1.1f, 1.2f, 4);
         integrateMaterial("Vibranium", vibranium, vibraniumFluid, 1235, 7.62f, 8.1f, 1.3f, 100, 100, VIBRANIUM, 1.1f, 1.8f, 4);
-        integrateMaterial("Karmesine", karmesine, karmesineFluid, 444, 4.77f, 2.9f, 0.8f, 100, 50, COBALT, shitty, true, true);
+        integrateMaterial("Karmesine", karmesine, terraxFluid, 444, 4.77f, 2.9f, 0.8f, 100, 50, COBALT, shitty, true, true);
         integrateMaterial("Palladium", palladium, palladiumFluid, 797, 4.35f, 6.8f, 1.3f, 130, -50, DURANITE, .5f, .2f, 3);
         integrateMaterial("Uru", uru, uruFluid, 877, 2f, 8.2f, 1.5f, -50, 175, VALYRIUM, 1.3f, 0.8f, 6);
         integrateMaterial("Eezo", eezo, eezoFluid, 50, 14f, 3.5f, .1f, 10, 10, COBALT, shitty, true, false);

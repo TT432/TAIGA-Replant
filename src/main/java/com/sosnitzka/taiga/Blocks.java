@@ -31,6 +31,8 @@ public class Blocks {
     public static Block valyriumOre = new BasicBlock("valyrium_ore", Material.ROCK, 60.0f, 50f, VALYRIUM, PREFIX_ORE);
     public static Block vibraniumOre = new BasicBlock("vibranium_ore", Material.ROCK, 70.0f, 60f, VIBRANIUM, PREFIX_ORE);
     public static Block karmesineOre = new BasicBlock("karmesine_ore", Material.ROCK, 13.0f, 10f, COBALT, PREFIX_ORE);
+    public static Block oviumOre = new BasicBlock("ovium_ore", Material.ROCK, 13.0f, 10f, COBALT, PREFIX_ORE);
+    public static Block jauxumOre = new BasicBlock("jauxum_ore", Material.ROCK, 13.0f, 10f, COBALT, PREFIX_ORE);
     public static Block palladiumOre = new BasicBlock("palladium_ore", Material.ROCK, 25.0f, 15f, DURANITE, 0.4f, PREFIX_ORE);
     public static Block uruOre = new BasicBlock("uru_ore", Material.ROCK, 25.0f, 15f, VALYRIUM, PREFIX_ORE);
     public static Block osramOre = new BasicBlock("osram_ore", Material.ROCK, 45.0f, 35.0f, COBALT, PREFIX_ORE);
@@ -45,12 +47,15 @@ public class Blocks {
     public static Block valyriumBlock = new BasicBlock("valyrium_block", Material.ROCK, 70.0f, 70f, VALYRIUM, PREFIX_BLOCK);
     public static Block vibraniumBlock = new BasicBlock("vibranium_block", Material.ROCK, 80.0f, 80f, VIBRANIUM, PREFIX_BLOCK);
     public static Block karmesineBlock = new BasicBlock("karmesine_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
+    public static Block oviumBlock = new BasicBlock("ovium_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
+    public static Block jauxumBlock = new BasicBlock("jauxum_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
     public static Block palladiumBlock = new BasicBlock("palladium_block", Material.ROCK, 25.0f, 20f, DURANITE, 0.5f, PREFIX_BLOCK);
     public static Block uruBlock = new BasicBlock("uru_block", Material.ROCK, 25.0f, 20f, VALYRIUM, PREFIX_BLOCK);
     public static Block osramBlock = new BasicBlock("osram_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
     public static Block abyssumBlock = new BasicBlock("abyssum_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
     public static Block eezoBlock = new BasicBlock("eezo_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
 
+    public static Block terraxBlock = new BasicBlock("terrax_block", Material.ROCK, 13.0f, 12f, COBALT, PREFIX_BLOCK);
     public static Block triberiumBlock = new BasicBlock("triberium_block", Material.ROCK, 30.0f, 15f, OBSIDIAN, 1f, PREFIX_BLOCK);
     public static Block fractumBlock = new BasicBlock("fractum_block", Material.ROCK, 25.0f, 25f, COBALT, PREFIX_BLOCK);
     public static Block violiumBlock = new BasicBlock("violium_block", Material.ROCK, 25.0f, 25f, COBALT, PREFIX_BLOCK);
