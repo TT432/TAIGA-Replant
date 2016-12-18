@@ -202,7 +202,7 @@ public class Generator {
                 }
                 if (!validSurface.contains(Item.getItemFromBlock(world.getBlockState(cPos.down()).getBlock())))
                     continue;
-                cPos.down((random.nextInt(3) + 1) * r);
+                cPos = cPos.down(random.nextInt(r * 2) + r + 1);
 
                 MeteorWorldSaveData saveData = MeteorWorldSaveData.getForWorld(world);
                 saveData.addPos(cPos);

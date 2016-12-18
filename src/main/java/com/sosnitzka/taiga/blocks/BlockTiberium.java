@@ -21,7 +21,7 @@ import static slimeknights.tconstruct.library.utils.HarvestLevels.STONE;
 public class BlockTiberium extends BasicBlock {
 
     public BlockTiberium() {
-        super("tiberium_ore", Material.ROCK, 15.0f, 2.0f, STONE, 1.0F, PREFIX_ORE);
+        super("tiberium_ore", Material.ROCK, 10.0f, 2.0f, STONE, 1.0F, PREFIX_ORE);
     }
 
     @Override
