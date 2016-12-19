@@ -123,6 +123,8 @@ public class Utils {
         public int curse;
         public String name;
         public float radius;
+        public float dfloat;
+        public int dint;
 
         public static GeneralNBTData read(NBTTagCompound tag) {
             GeneralNBTData data = new GeneralNBTData();
@@ -133,6 +135,8 @@ public class Utils {
             data.curse = tag.getInteger("curse");
             data.name = tag.getString("name");
             data.radius = tag.getFloat("radius");
+            data.dfloat = tag.getFloat("dfloat");
+            data.dint = tag.getInteger("dint");
             return data;
         }
 
@@ -144,6 +148,8 @@ public class Utils {
             tag.setInteger("curse", curse);
             tag.setString("name", name);
             tag.setFloat("radius", radius);
+            tag.setInteger("dint", dint);
+            tag.setFloat("dfloat", dfloat);
         }
     }
 }
