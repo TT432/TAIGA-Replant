@@ -125,6 +125,7 @@ public class Utils {
         public float radius;
         public float dfloat;
         public int dint;
+        public boolean active;
 
         public static GeneralNBTData read(NBTTagCompound tag) {
             GeneralNBTData data = new GeneralNBTData();
@@ -137,6 +138,7 @@ public class Utils {
             data.radius = tag.getFloat("radius");
             data.dfloat = tag.getFloat("dfloat");
             data.dint = tag.getInteger("dint");
+            data.active = tag.getBoolean("active");
             return data;
         }
 
@@ -150,6 +152,7 @@ public class Utils {
             tag.setFloat("radius", radius);
             tag.setInteger("dint", dint);
             tag.setFloat("dfloat", dfloat);
+            tag.setBoolean("active", active);
         }
     }
 }

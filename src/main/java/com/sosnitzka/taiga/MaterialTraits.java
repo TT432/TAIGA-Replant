@@ -52,7 +52,9 @@ public class MaterialTraits {
     public static final AbstractTrait decay = new TraitDecay();
     public static final AbstractTrait whirl = new TraitWhirl();
     public static final AbstractTrait superheavy = new TraitSuperHeavy();
-    //public static final AbstractTrait dev = new TraitDevelopement();
+    public static final AbstractTrait dev = new TraitDevelopement();
+    public static final AbstractTrait carousel = new TraitCarousel();
+    public static final AbstractTrait beserk = new TraitBeserk();
 
 
     /**
@@ -86,7 +88,7 @@ public class MaterialTraits {
     /**
      * With Dev
      **/
-    public static Material adamant = new Material("adamant", TextFormatting.GOLD); //.addTrait(dev);
+    public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(beserk); //.addTrait(dev);
     public static Material dyonite = new Material("dyonite", TextFormatting.GREEN).addTrait(tantrum);
     public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay);
     public static Material lumix = new Material("lumix", TextFormatting.YELLOW).addTrait(bright, MaterialTypes.HANDLE).addTrait(glimmer, MaterialTypes.HEAD);

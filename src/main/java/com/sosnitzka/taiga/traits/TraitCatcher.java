@@ -3,6 +3,8 @@ package com.sosnitzka.taiga.traits;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,7 +24,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class TraitCatcher extends AbstractTrait {
 
-    public static int chance = 1;
+    public static int chance = 3;
     public static float costMulti = 0.25f;
 
     public TraitCatcher() {
@@ -29,24 +32,49 @@ public class TraitCatcher extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @Override
-    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
-        World w = player.worldObj;
+    @SubscribeEvent
+    public void killEntity(LivingDeathEvent event) {
+        if (!(event.getSource().getEntity() instanceof EntityPlayer))
+            return;
+        if (event.getEntityLiving() instanceof EntityPlayer || event.getEntityLiving() instanceof EntityPlayerMP)
+            return;
+        World w = event.getSource().getEntity().getEntityWorld();
+        EntityPlayer p = (EntityPlayer) event.getSource().getEntity();
+        EntityLivingBase target = event.getEntityLiving();
+        NBTTagCompound tag = TagUtil.getExtraTag(p.getHeldItemMainhand());
+        Data data = Data.read(tag);
+        if (!data.mobClass.isEmpty())
+            return;
         if (!w.isRemote && random.nextInt((int) target.getMaxHealth()) <= chance && target instanceof EntityLiving) {
-            NBTTagCompound tag = TagUtil.getExtraTag(tool);
-            Data data = Data.read(tag);
+            event.setCanceled(true);
+            target.setDropItemsWhenDead(false);
             if (data.mobClass.isEmpty()) {
                 data.mobClass = target.getClass().getName();
                 data.mobName = target.getName();
                 data.write(tag);
-                TagUtil.setEnchantEffect(tool, true);
-                TagUtil.setExtraTag(tool, tag);
-                player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+                TagUtil.setExtraTag(p.getHeldItemMainhand(), tag);
+                p.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
                 target.setDropItemsWhenDead(false);
                 target.setDead();
             }
         }
     }
+
+
+    @Override
+    public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
+        if (!world.isRemote) {
+            NBTTagCompound tag = TagUtil.getExtraTag(tool);
+            Data data = Data.read(tag);
+            if (data.mobClass.isEmpty()) {
+                TagUtil.setEnchantEffect(tool, false);
+            } else
+                TagUtil.setEnchantEffect(tool, true);
+
+
+        }
+    }
+
 
     @SubscribeEvent
     public void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
@@ -72,7 +100,6 @@ public class TraitCatcher extends AbstractTrait {
                     data.mobName = "";
                     data.write(tag);
                     TagUtil.setExtraTag(tool, tag);
-                    TagUtil.setEnchantEffect(tool, false);
                     ToolHelper.damageTool(tool, random.nextInt((int) (ToolHelper.getCurrentDurability(tool) * costMulti)), event.getEntityPlayer());
                 }
             }

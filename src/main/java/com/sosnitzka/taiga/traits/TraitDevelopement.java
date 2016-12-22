@@ -2,11 +2,14 @@ package com.sosnitzka.taiga.traits;
 
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.utils.TagUtil;
+import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 
 public class TraitDevelopement extends AbstractTrait {
@@ -20,7 +23,8 @@ public class TraitDevelopement extends AbstractTrait {
     @SubscribeEvent
     public void onBreak(BlockEvent.BreakEvent e) {
         IBlockState state = e.getState();
-        if (state.getBlock().equals(net.minecraft.init.Blocks.STONE))
+        ItemStack tool = e.getPlayer().getHeldItemMainhand();
+        if (state.getBlock().equals(net.minecraft.init.Blocks.STONE) && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier))
             System.out.println("State.Variant: " + state.getValue(BlockStone.VARIANT));
     }
 
