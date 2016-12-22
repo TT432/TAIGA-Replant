@@ -1,5 +1,6 @@
 package com.sosnitzka.taiga.world;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -53,8 +54,8 @@ public class MeteorWorldSaveData extends WorldSavedData {
 
     @Override
     public void readFromNBT(NBTTagCompound nbt) {
-        if (nbt.hasKey("posData")) {
-            posList = new Gson().fromJson(nbt.getString("posData"), posList.getClass());
+        if (nbt.hasKey("posData") && !nbt.getString("posData").isEmpty()) {
+            posList = new Gson().fromJson(nbt.getString("posData"), new TypeToken<List<BlockPos>>(){}.getType());
         }
     }
 
