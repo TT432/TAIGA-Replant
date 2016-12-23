@@ -35,7 +35,6 @@ public class TraitWhirl extends AbstractTrait {
         if (entity instanceof FakePlayer || entity.worldObj.isRemote) {
             return;
         }
-
         if (entity.ticksExisted % TICK_PER_STAT > 0) {
             return;
         }

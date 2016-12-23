@@ -19,7 +19,7 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitSoulEater extends AbstractTrait {
 
-    private static float divisor = 20000f;
+    private static float divisor = 25000f;
 
     public TraitSoulEater() {
         super(TraitSoulEater.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
