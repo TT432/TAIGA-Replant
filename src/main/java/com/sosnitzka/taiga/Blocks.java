@@ -39,7 +39,7 @@ public class Blocks {
     public static Block eezoOre = new BasicBlock("eezo_ore", Material.ROCK, 50.0f, 50000.0f, COBALT, PREFIX_ORE);
     public static Block abyssumOre = new BasicBlock("abyssum_ore", Material.ROCK, 15.0f, 35.0f, COBALT, PREFIX_ORE);
 
-    // Ore Casts
+    // Ore Castsee
     public static Block tiberiumBlock = new BasicBlock("tiberium_block", Material.ROCK, 10.0f, 15f, STONE, 1f, PREFIX_BLOCK);
     public static Block auroriumBlock = new BasicBlock("aurorium_block", Material.ROCK, 15.0f, 15f, COBALT, PREFIX_BLOCK);
     public static Block prometheumBlock = new BasicBlock("prometheum_block", Material.ROCK, 20.0f, 15f, DURANITE, 0.5f, PREFIX_BLOCK);
