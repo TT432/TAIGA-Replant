@@ -144,13 +144,6 @@
         }
       }
     ],
-    "tiberiumX_fluid": [
-      {
-        "custom": {
-          "fluid": "tiberiumX_fluid"
-        }
-      }
-    ],
     "fractum_fluid": [
       {
         "custom": {

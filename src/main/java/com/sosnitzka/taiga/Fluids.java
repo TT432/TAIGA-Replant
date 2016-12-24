@@ -16,7 +16,7 @@ public class Fluids {
     public static BasicTinkerFluid basaltFluid = new BasicTinkerFluid("basalt_fluid", 0xFFe4ddc3, 550, 10, 6000);
     public static BasicTinkerFluid tiberiumFluid = new BasicTinkerFluid("tiberium_fluid", 0xFF66f136, 400, 10, 8000);
     public static BasicTinkerFluid auroriumFluid = new BasicTinkerFluid("aurorium_fluid", 0xFFefae94, 750, 10, 10000);
-    public static BasicTinkerFluid prometheumFluid = new BasicTinkerFluid("prometheum_fluid", 0xFF271c29, 850, 10, 10000);
+    public static BasicTinkerFluid prometheumFluid = new BasicTinkerFluid("prometheum_fluid", 0xFF372c49, 850, 10, 10000);
     public static BasicTinkerFluid duraniteFluid = new BasicTinkerFluid("duranite_fluid", 0xFFacddeb, 1400, 10, 10000);
     public static BasicTinkerFluid valyriumFluid = new BasicTinkerFluid("valyrium_fluid", 0xFFe85c31, 1915, 10, 10000);
     public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium_fluid", 0xFFbad2d9, 3050, 10, 10000);

@@ -5,6 +5,7 @@ import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
 import com.sosnitzka.taiga.world.WorldGen;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -15,7 +16,6 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
-import slimeknights.tconstruct.tools.TinkerMaterials;
 
 import java.util.List;
 
@@ -58,9 +58,9 @@ public class TAIGA {
         CraftingRegistry.register(); // Registers crafting recipes
 
         // Adds new harvest levels' names
-        harvestLevelNames.put(DURANITE, TinkerMaterials.bone.getTextColor() + "Duranite");
-        harvestLevelNames.put(VALYRIUM, TinkerMaterials.bone.getTextColor() + "Valyrium");
-        harvestLevelNames.put(VIBRANIUM, TinkerMaterials.blueslime.getTextColor() + "Vibranium");
+        harvestLevelNames.put(DURANITE, TextFormatting.DARK_GREEN + "Duranite");
+        harvestLevelNames.put(VALYRIUM, TextFormatting.GOLD + "Valyrium");
+        harvestLevelNames.put(VIBRANIUM, TextFormatting.DARK_PURPLE + "Vibranium");
 
 
         for (MaterialIntegration m : integrateList) {

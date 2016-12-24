@@ -84,7 +84,7 @@ public class MaterialTraits {
     public static Material ignitz = new Material("ignitz", TextFormatting.RED).addTrait(melting).addTrait(garishly, MaterialTypes.HANDLE);
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(hollow);
     public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(pulverizing).addTrait(superheavy);
-    public static Material nihilite = new Material("nihilite", TextFormatting.BLACK).addTrait(souleater);
+    public static Material nihilite = new Material("nihilite", TextFormatting.DARK_GRAY).addTrait(souleater);
     /**
      * With Dev
      **/
