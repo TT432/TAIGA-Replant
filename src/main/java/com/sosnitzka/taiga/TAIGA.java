@@ -70,6 +70,7 @@ public class TAIGA {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
+        proxy.registerBookPages();
     }
 
     @EventHandler
@@ -124,7 +125,5 @@ public class TAIGA {
         integrateOre("Karmesine", karmesineFluid);
         integrateOre("Ovium", oviumFluid);
         integrateOre("Jauxum", jauxumFluid);
-
-
     }
 }

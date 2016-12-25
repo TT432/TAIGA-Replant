@@ -1,0 +1,9 @@
+[
+  {
+    "name": "index_title",
+    "data": "sections/intro.json",
+    "icon": {
+      "file": "taiga:textures/gui/book/logo.png"
+    }
+  }
+]

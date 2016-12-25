@@ -16,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
+import slimeknights.mantle.client.book.repository.FileRepository;
+import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
 import slimeknights.tconstruct.library.client.texture.MetalTextureTexture;
 import slimeknights.tconstruct.library.materials.Material;
@@ -120,6 +122,11 @@ public class ClientProxy extends CommonProxy {
     public void initConfig() {
         super.initConfig();
         TAIGAConfiguration.clientPreInit();
+    }
+
+    @Override
+    public void registerBookPages() {
+        TinkerBook.INSTANCE.addRepository(new FileRepository("taiga:book"));
     }
 
     public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {

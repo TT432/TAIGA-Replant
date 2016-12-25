@@ -24,4 +24,7 @@ public class CommonProxy {
 
     public void registerServerCommands(FMLServerStartingEvent e) {
     }
+
+    public void registerBookPages() {
+    }
 }
