@@ -52,7 +52,8 @@ public class TraitCatcher extends AbstractTrait {
                 data.mobClass = target.getClass().getName();
                 data.mobName = target.getName();
                 data.write(tag);
-                TagUtil.setExtraTag(p.getHeldItemMainhand(), tag);
+                if (p.getHeldItemMainhand() != null)
+                    TagUtil.setExtraTag(p.getHeldItemMainhand(), tag);
                 p.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
                 target.setDropItemsWhenDead(false);
                 target.setDead();
