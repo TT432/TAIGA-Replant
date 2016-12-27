@@ -1,4 +1,4 @@
-![TAIGA IMAGE](http://www.sosnitzka.com/alt/files/taiga.jpg)
+![TAIGA IMAGE](https://raw.githubusercontent.com/Zkaface/TAIGA/master/taiga.svg)
 
 Tinkers Alloying Addon(TAIGA)
 ===============
