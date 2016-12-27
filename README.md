@@ -1,4 +1,4 @@
-![TAIGA IMAGE](/taiga.svg?raw=true)
+![TAIGA IMAGE](/taiga.png?raw=true)
 
 Tinkers Alloying Addon(TAIGA)
 ===============
