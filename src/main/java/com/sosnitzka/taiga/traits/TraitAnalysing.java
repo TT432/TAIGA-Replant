@@ -25,7 +25,7 @@ public class TraitAnalysing extends AbstractTrait {
     @SubscribeEvent
     public void onXpDrop(LivingExperienceDropEvent event) {
         EntityPlayer player = event.getAttackingPlayer();
-        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier) && event.getDroppedExperience() >= 0) {
             event.setDroppedExperience(this.getUpdateXP(event.getDroppedExperience()));
         }
 
@@ -34,7 +34,7 @@ public class TraitAnalysing extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (!event.getWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+        if (!event.getWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier) && event.getExpToDrop() >= 0) {
             event.setExpToDrop(this.getUpdateXP(event.getExpToDrop()));
         }
 

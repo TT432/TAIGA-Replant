@@ -71,8 +71,6 @@ public class TraitCatcher extends AbstractTrait {
                 TagUtil.setEnchantEffect(tool, false);
             } else
                 TagUtil.setEnchantEffect(tool, true);
-
-
         }
     }
 
