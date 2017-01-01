@@ -9,7 +9,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import slimeknights.tconstruct.gadgets.block.BlockStoneTorch;
 
 import java.util.Random;
 
@@ -34,7 +33,8 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOreStoneVariant(karmesineOre.getDefaultState(), BlockStone.EnumType.ANDESITE, random, x, z, world, KARMESINE_VAL);
         Generator.generateOreStoneVariant(oviumOre.getDefaultState(), BlockStone.EnumType.DIORITE, random, x, z, world, OVIUM_VAL);
         Generator.generateOreStoneVariant(jauxumOre.getDefaultState(), BlockStone.EnumType.GRANITE, random, x, z, world, JAUXUM_VAL);
-        Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, VIBRANIUM_VAL, 100, 0, 64, 2, 9, newArrayList(Biomes.DESERT_HILLS, Biomes.EXTREME_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.DESERT));
+        Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, VIBRANIUM_VAL, 100, 0, 64, 2, 6, newArrayList(Biomes.DESERT_HILLS, Biomes.EXTREME_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.DESERT));
+        Generator.generateOre(dilithiumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, DILITHIUM_VAL, 100, 0, 64, 2, 8, newArrayList(Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.FROZEN_OCEAN, Biomes.BEACH));
         Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 1, 25, 0, 128, 1, 5, null);
         if (ironGen) {
             Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, IRON_VAL, 0, 32, 2, 8);

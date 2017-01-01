@@ -49,6 +49,7 @@ public class TAIGAConfiguration {
     public static int OVIUM_VAL;
     public static int JAUXUM_VAL;
     public static int VIBRANIUM_VAL;
+    public static int DILITHIUM_VAL;
     public static int URU_VAL;
     public static int AURORIUM_VAL;
     public static int PALLADIUM_VAL;
@@ -95,6 +96,7 @@ public class TAIGAConfiguration {
         final int TIBERIUM_DEFAULT = 15;
         final int PROMETHEUM_DEFAULT = 25;
         final int VALYRIUM_DEFAULT = 10;
+        final int DILITHIUM_DEFAULT = 12;
         final int OSRAM_DEFAULT = 1;
         final int DURANITE_DEFAULT = 1;
         final int BASALT_DEFAULT = 10;
@@ -158,6 +160,8 @@ public class TAIGAConfiguration {
         valyriumValueProp.setLanguageKey("gui.taiga_configuration.valyrium_multiplier");
         Property vibraniumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Vibranium", VIBRANIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         vibraniumValueProp.setLanguageKey("gui.taiga_configuration.vibranium_multiplier");
+        Property dilithiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Dilithium", DILITHIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        dilithiumValueProp.setLanguageKey("gui.taiga_configuration.dilithium_multiplier");
         Property karmesineValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Karmesine", KARMESINE_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         karmesineValueProp.setLanguageKey("gui.taiga_configuration.karmesine_multiplier");
         Property oviumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Ovium", OVIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
@@ -185,6 +189,7 @@ public class TAIGAConfiguration {
         propOrderOreGen.add(duraniteValueProp.getName());
         propOrderOreGen.add(valyriumValueProp.getName());
         propOrderOreGen.add(vibraniumValueProp.getName());
+        propOrderOreGen.add(dilithiumValueProp.getName());
         propOrderOreGen.add(karmesineValueProp.getName());
         propOrderOreGen.add(oviumValueProp.getName());
         propOrderOreGen.add(jauxumValueProp.getName());
@@ -247,6 +252,10 @@ public class TAIGAConfiguration {
             if (VIBRANIUM_VAL > RESFAC_MAX_VALUE || VIBRANIUM_VAL < RESFAC_MIN_VALUE) {
                 VIBRANIUM_VAL = VIBRANIUM_DEFAULT;
             }
+            DILITHIUM_VAL = dilithiumValueProp.getInt(DILITHIUM_DEFAULT);
+            if (DILITHIUM_VAL > RESFAC_MAX_VALUE || DILITHIUM_VAL < RESFAC_MIN_VALUE) {
+                DILITHIUM_VAL = DILITHIUM_DEFAULT;
+            }
             URU_VAL = uruValueProp.getInt(URU_DEFAULT);
             if (URU_VAL > RESFAC_MAX_VALUE || URU_VAL < RESFAC_MIN_VALUE) {
                 URU_VAL = URU_DEFAULT;
@@ -278,6 +287,7 @@ public class TAIGAConfiguration {
         oviumValueProp.set(OVIUM_VAL);
         jauxumValueProp.set(JAUXUM_VAL);
         vibraniumValueProp.set(VIBRANIUM_VAL);
+        dilithiumValueProp.set(DILITHIUM_VAL);
         uruValueProp.set(URU_VAL);
         auroriumValueProp.set(AURORIUM_VAL);
         palladiumValueProp.set(PALLADIUM_VAL);

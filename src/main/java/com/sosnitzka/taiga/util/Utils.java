@@ -28,6 +28,7 @@ public class Utils {
     public static String PREFIX_ORE = "ore";
     public static String PREFIX_BLOCK = "block";
     public static String PREFIX_DUST = "dust";
+    public static String PREFIX_CRYSTAL = "crystal";
 
     /**
      * Registers the block and its corresponding item (block as item in inventory)

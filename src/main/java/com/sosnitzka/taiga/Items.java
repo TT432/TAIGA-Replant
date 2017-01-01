@@ -161,6 +161,12 @@ public class Items {
     public static Item obsidioriteDust = new BasicItem("obsidiorite_dust", PREFIX_DUST);
     public static Item obsidioriteNugget = new BasicItem("obsidiorite_nugget", PREFIX_NUGGET);
 
+    public static Item dilithiumIngot = new BasicItem("dilithium_ingot", PREFIX_INGOT);
+    public static Item dilithiumDust = new BasicItem("dilithium_dust", PREFIX_DUST);
+    public static Item dilithiumCrystal = new BasicItem("dilithium_crystal", PREFIX_CRYSTAL);
+    public static Item tiberiumCrystal = new BasicItem("tiberium_crystal", PREFIX_CRYSTAL);
+    public static Item dilithiumNugget = new BasicItem("dilithium_nugget", PREFIX_NUGGET);
+
     /**
      * Registers all materials' ingots and nuggets <br>
      * Detailed summary: <br>

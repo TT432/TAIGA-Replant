@@ -37,6 +37,7 @@ public class ClientProxy extends CommonProxy {
 
     private static void registerItemModel(Item item) {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+
     }
 
     @Override

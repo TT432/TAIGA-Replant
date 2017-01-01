@@ -1,4 +1,5 @@
 material.basalt.name=Basalt
+material.dilithium.name=Dilithium
 material.tiberium.name=Tiberium
 material.aurorium.name=Aurorium
 material.prometheum.name=Prometheum
@@ -38,6 +39,7 @@ material.magma.name=Magma
 material.nitronite.name=Nitronit
 
 tile.basalt_block.name=Basalt Block
+tile.dilithium_block.name=Dilithium Block
 tile.tiberium_block.name=Tiberium Block
 tile.aurorium_block.name=Aurorium Block
 tile.prometheum_block.name=Prometheum Block
@@ -79,8 +81,10 @@ tile.meteoritecobble_block.name=Meteorite Cobble Block
 tile.obsidioritecobble_block.name=Meteorite Cobble Block
 
 
+
 tile.basalt_ore.name=Basalt Ore
 tile.tiberium_ore.name=Tiberium Ore
+tile.dilithium_ore.name=Dilithium Ore
 tile.aurorium_ore.name=Aurorium Ore
 tile.prometheum_ore.name=Prometheum Ore
 tile.duranite_ore.name=Duranite Ore
@@ -118,8 +122,12 @@ tile.obsidiorite_ore.name=Obsidiorite Ore
 tile.magma_ore.name=Magma Ore
 tile.nitronite_ore.name=Nitronite Ore
 
+item.dilithium_crystal.name=Dilithium Crystal
+item.tiberium_crystal.name=Tiberium Crystal
+
 
 item.basalt_nugget.name=Basalt Nugget
+item.dilithium_nugget.name=Dilithium Nugget
 item.tiberium_nugget.name=Tiberium Nugget
 item.aurorium_nugget.name=Aurorium Nugget
 item.prometheum_nugget.name=Prometheum Nugget
@@ -162,6 +170,7 @@ item.iron_nugget.name=Iron Nugget
 
 item.basalt_dust.name=Basalt Dust
 item.tiberium_dust.name=Tiberium Dust
+item.dilithium_dust.name=Dilithium Dust
 item.aurorium_dust.name=Aurorium Dust
 item.prometheum_dust.name=Prometheum Dust
 item.duranite_dust.name=Duranite Dust
@@ -201,6 +210,7 @@ item.nitronite_dust.name=Nitronite Dust
 
 item.basalt_ingot.name=Basalt Ingot
 item.tiberium_ingot.name=Tiberium Ingot
+item.dilithium_ingot.name=Dilithium Ingot
 item.aurorium_ingot.name=Aurorium Ingot
 item.prometheum_ingot.name=Prometheum Ingot
 item.duranite_ingot.name=Duranite Ingot
@@ -240,6 +250,7 @@ item.nitronite_ingot.name=Nitronite Ingot
 
 fluid.tconstruct.basalt_fluid.name=Basalt Fluid
 fluid.tconstruct.tiberium_fluid.name=Tiberium Fluid
+fluid.tconstruct.dilithium_fluid.name=Dilithium Fluid
 fluid.tconstruct.aurorium_fluid.name=Aurorium Fluid
 fluid.tconstruct.prometheum_fluid.name=Prometheum Fluid
 fluid.tconstruct.duranite_fluid.name=Duranite Fluid

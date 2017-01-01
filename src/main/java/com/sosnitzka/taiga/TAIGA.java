@@ -125,5 +125,10 @@ public class TAIGA {
         integrateOre("Karmesine", karmesineFluid);
         integrateOre("Ovium", oviumFluid);
         integrateOre("Jauxum", jauxumFluid);
+        // Community Wishlist
+        integrateOre("Dilithium", dilithiumFluid);
+
+
+
     }
 }

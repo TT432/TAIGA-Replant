@@ -18,6 +18,13 @@
         }
       }
     ],
+    "dilithium_fluid": [
+      {
+        "custom": {
+          "fluid": "dilithium_fluid"
+        }
+      }
+    ],
     "nitronite_fluid": [
       {
         "custom": {

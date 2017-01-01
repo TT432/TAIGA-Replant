@@ -5,6 +5,7 @@ import com.sosnitzka.taiga.blocks.BlockCobble;
 import com.sosnitzka.taiga.blocks.BlockMeteoriteRock;
 import com.sosnitzka.taiga.blocks.BlockTiberium;
 import com.sosnitzka.taiga.generic.BasicBlock;
+import com.sosnitzka.taiga.generic.BlockOre;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -40,7 +41,7 @@ public class Blocks {
     public static Block abyssumOre = new BasicBlock("abyssum_ore", Material.ROCK, 15.0f, 35.0f, COBALT, PREFIX_ORE);
 
     // Ore Castsee
-    public static Block tiberiumBlock = new BasicBlock("tiberium_block", Material.ROCK, 10.0f, 15f, STONE, 1f, PREFIX_BLOCK);
+    public static Block tiberiumBlock = new BasicBlock("tiberium_block", Material.GLASS, 10.0f, 15f, STONE, 1f, PREFIX_BLOCK);
     public static Block auroriumBlock = new BasicBlock("aurorium_block", Material.ROCK, 15.0f, 15f, COBALT, PREFIX_BLOCK);
     public static Block prometheumBlock = new BasicBlock("prometheum_block", Material.ROCK, 20.0f, 15f, DURANITE, 0.5f, PREFIX_BLOCK);
     public static Block duraniteBlock = new BasicBlock("duranite_block", Material.ROCK, 20.0f, 800f, DURANITE, PREFIX_BLOCK);
@@ -80,6 +81,11 @@ public class Blocks {
     public static Block blockObsidioriteCobble = new BlockCobble("obsidioritecobble_block", Material.ROCK, 25f, 20f, DURANITE, 0.035f, PREFIX_BLOCK);
     public static Block blockMeteorite = new BlockMeteoriteRock("meteorite_block", Material.ROCK, 40f, 2000f, COBALT, 0.15f, PREFIX_BLOCK, blockMeteoriteCobble.getDefaultState());
     public static Block blockObsidiorite = new BlockMeteoriteRock("obsidiorite_block", Material.ROCK, 50f, 4000f, DURANITE, 0.2f, PREFIX_BLOCK, blockObsidioriteCobble.getDefaultState());
+
+    // Community
+
+    public static Block dilithiumOre = new BlockOre("dilithium_ore", Material.GLASS, 18f, 18f, DIAMOND, 0.73f, Items.dilithiumCrystal, 3, 10);
+    public static Block dilithiumBlock = new BasicBlock("dilithium_block", Material.GLASS, 18f, 18f, DIAMOND, 0.73f, PREFIX_ORE);
 
 
     /**

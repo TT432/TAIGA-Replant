@@ -1,7 +1,15 @@
 [
   {
-    "name": "welcome",
-    "type": "text",
-    "data": "intro/welcome.json"
+    "name": "intro",
+    "type": "image with text below",
+    "data": "ores/intro.json"
+  },
+  {
+    "name": "firstwords",
+    "type": "text with right image etch",
+    "data": "ores/firstwords.json"
+  },
+  {
+    "type": "blank"
   }
 ]

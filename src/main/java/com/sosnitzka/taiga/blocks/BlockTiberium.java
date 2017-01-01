@@ -39,7 +39,7 @@ public class BlockTiberium extends BasicBlock {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Items.tiberiumDust;
+        return Items.tiberiumCrystal;
     }
 
     @Override
