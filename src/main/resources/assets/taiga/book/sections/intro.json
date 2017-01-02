@@ -6,10 +6,40 @@
   },
   {
     "name": "firstwords",
-    "type": "text with right image etch",
+    "type": "image with text below",
     "data": "ores/firstwords.json"
   },
   {
+    "name": "basalt",
+    "type": "text with right image etch",
+    "data": "ores/basalt.json"
+  },
+  {
     "type": "blank"
+  },
+  {
+    "name": "PageCrafter",
+    "type": "crafting",
+    "data": "bsp/pagecrafting.json"
+  },
+  {
+    "name": "PageSmallCrafter",
+    "type": "crafting",
+    "data": "bsp/pagecraftingsmall.json"
+  },
+  {
+    "name": "PageSmelting",
+    "type": "smelting",
+    "data": "bsp/pagesmelting.json"
+  },
+  {
+    "name": "PageSmithing",
+    "type": "smithing",
+    "data": "bsp/pagesmithing.json"
+  },
+  {
+    "name": "PageBlockInteraction",
+    "type": "block interaction",
+    "data": "bsp/pageblkinteraction.json"
   }
 ]

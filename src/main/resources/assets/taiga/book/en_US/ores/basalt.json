@@ -1,0 +1,16 @@
+{
+  "title": "Basalt",
+  "text1": [
+    {
+      "text": "TAIGA adds various new blocks and ores. To get higher tiers, stats and traits you need to alloy them."
+    }
+  ],
+  "text2": [
+    {
+      "text": "On the next Pages you will learn where to get these new materials and what you need to know else."
+    }
+  ],
+  "image": {
+    "file": "taiga:textures/book/ores.png"
+  }
+}
