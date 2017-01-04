@@ -198,6 +198,10 @@ public class Generator {
                     // we are in mid air, go down
                     while (world.getBlockState(cPos.down()).equals(Blocks.AIR.getDefaultState())) {
                         cPos = cPos.down();
+
+                        // if we are below 0, we might be in a void dim
+                        if (cPos.getY() < 0)
+                            break;
                     }
                 }
                 if (!validSurface.contains(Item.getItemFromBlock(world.getBlockState(cPos.down()).getBlock())))
