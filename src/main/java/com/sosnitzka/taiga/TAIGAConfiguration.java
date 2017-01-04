@@ -108,16 +108,13 @@ public class TAIGAConfiguration {
         final int PALLADIUM_DEFAULT = 10;
         final int ABYSSUM_DEFAULT = 4;
 
-        final boolean FALSE = false;
-        final boolean TRUE = true;
 
-
-        Property ironSwitch = config.get(CATEGORY_NAME_GENERAL, "Extra Iron Switch", FALSE);
-        ironSwitch.setComment("Switch ore on/off");
+        Property ironSwitch = config.get(CATEGORY_NAME_GENERAL, "Additional Iron", false);
+        ironSwitch.setComment("Switch additional ore on/off");
         ironSwitch.setLanguageKey("gui.taiga_configuration.gen_iron");
 
-        Property endSwitch = config.get(CATEGORY_NAME_GENERAL, "Extra Endstone Switch", TRUE);
-        endSwitch.setComment("Switch extra End on/off");
+        Property endSwitch = config.get(CATEGORY_NAME_GENERAL, "Additional Endstone", true);
+        endSwitch.setComment("Switch additional endstone on/off");
         endSwitch.setLanguageKey("gui.taiga_configuration.gen_end");
 
         /*
@@ -197,8 +194,8 @@ public class TAIGAConfiguration {
 
 
         if (readFieldsFromConfig) {
-            ironGen = ironSwitch.getBoolean(FALSE);
-            endGen = endSwitch.getBoolean(TRUE);
+            ironGen = ironSwitch.getBoolean(false);
+            endGen = endSwitch.getBoolean(true);
             IRON_VAL = ironValueProp.getInt(IRON_DEFAULT);
             if (IRON_VAL > RESFAC_MAX_VALUE || IRON_VAL < RESFAC_MIN_VALUE) {
                 IRON_VAL = IRON_DEFAULT;
@@ -266,6 +263,7 @@ public class TAIGAConfiguration {
         }
 
         ironSwitch.set(ironGen);
+        endSwitch.set(endGen);
         ironValueProp.set(IRON_VAL);
         tiberiumValueProp.set(TIBERIUM_VAL);
         prometheumValueProp.set(PROMETHEUM_VAL);

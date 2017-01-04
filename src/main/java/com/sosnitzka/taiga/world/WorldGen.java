@@ -24,7 +24,6 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOre(Blocks.NETHERRACK.getDefaultState(), prometheumOre.getDefaultState(), random, x, z, world, PROMETHEUM_VAL, 0, 128, 2, 4);
         Generator.generateOre(Blocks.NETHERRACK.getDefaultState(), valyriumOre.getDefaultState(), random, x, z, world, VALYRIUM_VAL, 0, 32, 2, 4);
         Generator.generateOre(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), osramOre.getDefaultState(), random, x, z, world, OSRAM_VAL, 0, 64, 15);
-
     }
 
     private void world(Random random, int x, int z, World world) {
