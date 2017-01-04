@@ -55,7 +55,8 @@ public class MeteorWorldSaveData extends WorldSavedData {
     @Override
     public void readFromNBT(NBTTagCompound nbt) {
         if (nbt.hasKey("posData") && !nbt.getString("posData").isEmpty()) {
-            posList = new Gson().fromJson(nbt.getString("posData"), new TypeToken<List<BlockPos>>(){}.getType());
+            posList = new Gson().fromJson(nbt.getString("posData"), new TypeToken<List<BlockPos>>() {
+            }.getType());
         }
     }
 

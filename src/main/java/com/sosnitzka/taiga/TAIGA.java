@@ -127,8 +127,5 @@ public class TAIGA {
         integrateOre("Jauxum", jauxumFluid);
         // Community Wishlist
         integrateOre("Dilithium", dilithiumFluid);
-
-
-
     }
 }

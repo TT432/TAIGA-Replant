@@ -43,16 +43,13 @@ public class ContentOres extends TinkerPage {
     public static final transient ImageData IMG_SLOT_3 = new ImageData(ClientProxy.BOOK_MODIFY, 0, 119, 58, 22, TEX_SIZE, TEX_SIZE);
     public static final transient ImageData IMG_SLOT_5 = new ImageData(ClientProxy.BOOK_MODIFY, 0, 141, 58, 41, TEX_SIZE, TEX_SIZE);
     public static final transient ImageData IMG_TABLE = new ImageData(ClientProxy.BOOK_MODIFY, 214, 0, 42, 46, TEX_SIZE, TEX_SIZE);
-
-    private transient IModifier modifier;
-    private transient List<Item> tool;
-
     public TextData[] text;
     public String[] effects;
-
     @SerializedName("modifier")
     public String modifierName;
     public String[] demoTool = new String[]{Util.getResource("pickaxe").toString()};
+    private transient IModifier modifier;
+    private transient List<Item> tool;
 
     public ContentOres() {
     }
