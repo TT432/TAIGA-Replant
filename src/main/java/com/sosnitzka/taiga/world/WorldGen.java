@@ -20,9 +20,9 @@ import static com.sosnitzka.taiga.TAIGAConfiguration.*;
 @SuppressWarnings("unchecked")
 public class WorldGen implements IWorldGenerator {
     private void nether(Random random, int x, int z, World world) {
-        Generator.generateOre(Blocks.NETHERRACK.getDefaultState(), tiberiumOre.getDefaultState(), random, x, z, world, TIBERIUM_VAL, 0, 128, 10, 35);
-        Generator.generateOre(Blocks.NETHERRACK.getDefaultState(), prometheumOre.getDefaultState(), random, x, z, world, PROMETHEUM_VAL, 0, 128, 2, 4);
-        Generator.generateOre(Blocks.NETHERRACK.getDefaultState(), valyriumOre.getDefaultState(), random, x, z, world, VALYRIUM_VAL, 0, 32, 2, 4);
+        Generator.generateOre(tiberiumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, TIBERIUM_VAL, 0, 128, 10, 35);
+        Generator.generateOre(prometheumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, PROMETHEUM_VAL, 0, 128, 2, 4);
+        Generator.generateOre(valyriumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, VALYRIUM_VAL, 0, 32, 2, 4);
         Generator.generateOre(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), osramOre.getDefaultState(), random, x, z, world, OSRAM_VAL, 0, 64, 15);
     }
 
