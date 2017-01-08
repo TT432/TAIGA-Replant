@@ -1,6 +1,7 @@
 package com.sosnitzka.taiga;
 
 import com.google.common.collect.Lists;
+import com.sosnitzka.taiga.book.ContentOre;
 import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
@@ -23,6 +24,7 @@ import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 import static com.sosnitzka.taiga.util.Utils.integrateMaterial;
 import static com.sosnitzka.taiga.util.Utils.integrateOre;
+import static slimeknights.mantle.client.book.BookLoader.registerPageType;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10.2-2.5.0,);" + "required-after:mantle@[1.10.2-1.0.0,)")
@@ -66,6 +68,8 @@ public class TAIGA {
         for (MaterialIntegration m : integrateList) {
             m.integrateRecipes();
         }
+
+        registerPageType("taigaore", ContentOre.class);
     }
 
     @EventHandler

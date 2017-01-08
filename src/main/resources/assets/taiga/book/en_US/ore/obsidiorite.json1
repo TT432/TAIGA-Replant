@@ -1,0 +1,11 @@
+{
+  "title": "Obsidiorite",
+  "input": {
+    "id": "taiga:obsidiorite_block"
+  },
+  "description": [
+    {
+      "text": "They are flying in the end!"
+    }
+  ]
+}

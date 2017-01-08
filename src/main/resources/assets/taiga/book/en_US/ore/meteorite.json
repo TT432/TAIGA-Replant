@@ -1,0 +1,15 @@
+{
+  "title": "Meteorite",
+  "input": {
+    "id": "taiga:meteorite_block"
+  },
+  "description": [
+    {
+      "text": "You have to be patient, to find meteorite in your surroundings. Many hundrets of thounsands years ago they fell from the sky. Most of them are buried under dirt and grass and you have to dig a lot."
+    }
+  ],
+  "informations": [
+    "Deals massive damage to spiders and silverfish",
+    "Multiple levels"
+  ]
+}
