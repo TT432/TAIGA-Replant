@@ -4,6 +4,7 @@ import com.sosnitzka.taiga.Blocks;
 import com.sosnitzka.taiga.Items;
 import com.sosnitzka.taiga.TAIGA;
 import com.sosnitzka.taiga.TAIGAConfiguration;
+import com.sosnitzka.taiga.book.ContentOre;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -27,6 +28,7 @@ import java.lang.reflect.Field;
 
 import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
+import static slimeknights.mantle.client.book.BookLoader.registerPageType;
 
 @SuppressWarnings("unused")
 public class ClientProxy extends CommonProxy {
@@ -127,7 +129,9 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerBookPages() {
+
         TinkerBook.INSTANCE.addRepository(new FileRepository("taiga:book"));
+        registerPageType("taigaore", ContentOre.class);
     }
 
     public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {

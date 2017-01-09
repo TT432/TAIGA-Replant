@@ -69,7 +69,7 @@ public class TAIGA {
             m.integrateRecipes();
         }
 
-        registerPageType("taigaore", ContentOre.class);
+
     }
 
     @EventHandler
