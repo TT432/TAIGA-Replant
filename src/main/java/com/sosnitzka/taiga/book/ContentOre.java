@@ -17,12 +17,14 @@ import java.util.List;
 
 public class ContentOre extends TinkerPage {
 
-    public static final transient int INPUT_X = 100;
+    public static final transient int INPUT_X = 110;
     public static final transient int INPUT_Y = 80;
 
-    public static final transient float ITEM_SCALE = 1.75F;
+    public static final transient float ITEM_SCALE = 1.5F;
 
     public String title = "Ore";
+    public int r, g, b;
+
     public ItemStackData input;
     public TextData[] description;
     public String[] informations;
@@ -33,9 +35,9 @@ public class ContentOre extends TinkerPage {
 
         TextData tdTitle = new TextData(title);
         tdTitle.underlined = true;
-        //list.add(new ElementText(GuiBook.PAGE_WIDTH/2, 0, GuiBook.PAGE_WIDTH, 9, new TextData[]{tdTitle}));
 
-        addTitle(list, CustomFontColor.encodeColor(0xcccccc) + title, true);
+
+        addTitle(list, CustomFontColor.encodeColor(r, g, b) + title, true);
 
         if (input != null && !input.id.equals("")) {
             list.add(new ElementItem(INPUT_X, INPUT_Y, ITEM_SCALE * 2.5f, input.getItems(), input.action));

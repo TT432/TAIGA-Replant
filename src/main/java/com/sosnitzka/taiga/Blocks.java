@@ -24,7 +24,7 @@ public class Blocks {
 
 
     // blocks and ores spawned via worldgen
-    public static Block basaltBlock = new BasicBlock("basalt_block", Material.ROCK, 20.0f, 35.0f, DIAMOND, PREFIX_BLOCK);
+    public static Block basaltBlock = new BasicBlock("basalt_block", Material.ROCK, 20.0f, 35.0f, IRON, PREFIX_BLOCK);
     public static Block tiberiumOre = new BlockTiberium();
     public static Block auroriumOre = new BasicBlock("aurorium_ore", Material.ROCK, 15.0f, 12f, COBALT, 0.2f, PREFIX_ORE);
     public static Block prometheumOre = new BasicBlock("prometheum_ore", Material.ROCK, 20.0f, 12f, DURANITE, 0.4f, PREFIX_ORE);

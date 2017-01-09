@@ -1,15 +1,18 @@
 {
   "title": "Meteorite",
+  "r": 35,
+  "g": 35,
+  "b": 35,
   "input": {
     "id": "taiga:meteorite_block"
   },
   "description": [
     {
-      "text": "You have to be patient, to find meteorite in your surroundings. Many hundrets of thounsands years ago they fell from the sky. Most of them are buried under dirt and grass and you have to dig a lot."
+      "text": "You have to be patient, to find meteorite in your surroundings. Many thounsands years ago they fell from the sky. Most of them are buried under dirt and grass and you have to dig a lot."
     }
   ],
   "informations": [
-    "Deals massive damage to spiders and silverfish",
-    "Multiple levels"
+    "Level: Cobalt",
+    "Will be cracked sometimes"
   ]
 }

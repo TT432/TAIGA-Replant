@@ -13,5 +13,15 @@
     "name": "meteorite",
     "type": "taigaore",
     "data": "ore/meteorite.json"
+  },
+  {
+    "name": "obsidiorite",
+    "type": "taigaore",
+    "data": "ore/obsidiorite.json"
+  },
+  {
+    "name": "basalt",
+    "type": "taigaore",
+    "data": "ore/basalt.json"
   }
 ]
