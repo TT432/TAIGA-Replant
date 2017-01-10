@@ -94,7 +94,7 @@ public class TAIGAConfiguration {
 
         final int IRON_DEFAULT = 20;
         final int TIBERIUM_DEFAULT = 15;
-        final int PROMETHEUM_DEFAULT = 25;
+        final int PROMETHEUM_DEFAULT = 18;
         final int VALYRIUM_DEFAULT = 10;
         final int DILITHIUM_DEFAULT = 12;
         final int OSRAM_DEFAULT = 1;
@@ -104,7 +104,7 @@ public class TAIGAConfiguration {
         final int KARMESINE_DEFAULT = 8;
         final int JAUXUM_DEFAULT = 8;
         final int OVIUM_DEFAULT = 8;
-        final int VIBRANIUM_DEFAULT = 10;
+        final int VIBRANIUM_DEFAULT = 8;
         final int URU_DEFAULT = 1;
         final int AURORIUM_DEFAULT = 10;
         final int PALLADIUM_DEFAULT = 10;

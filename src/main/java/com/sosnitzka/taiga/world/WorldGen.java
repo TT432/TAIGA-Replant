@@ -19,9 +19,9 @@ import static com.sosnitzka.taiga.TAIGAConfiguration.*;
 @SuppressWarnings("unchecked")
 public class WorldGen implements IWorldGenerator {
     private void nether(Random random, int x, int z, World world) {
-        Generator.generateOre(tiberiumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, TIBERIUM_VAL, 0, 128, 10, 35);
-        Generator.generateOre(prometheumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, PROMETHEUM_VAL, 0, 128, 2, 4);
-        Generator.generateOre(valyriumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, VALYRIUM_VAL, 0, 32, 2, 4);
+        Generator.generateOre(tiberiumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, TIBERIUM_VAL, 32, 128, 10, 35);
+        Generator.generateOre(prometheumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, PROMETHEUM_VAL, 0, 32, 2, 4);
+        Generator.generateOre(valyriumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, VALYRIUM_VAL, 0, 128, 2, 4);
         Generator.generateOre(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), osramOre.getDefaultState(), random, x, z, world, OSRAM_VAL, 0, 64, 15);
     }
 
@@ -34,7 +34,7 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOreStoneVariant(jauxumOre.getDefaultState(), BlockStone.EnumType.GRANITE, random, x, z, world, JAUXUM_VAL);
         Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, VIBRANIUM_VAL, 100, 0, 64, 2, 6, newArrayList(Biomes.DESERT_HILLS, Biomes.EXTREME_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.DESERT));
         Generator.generateOre(dilithiumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, DILITHIUM_VAL, 100, 0, 64, 2, 8, newArrayList(Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.FROZEN_OCEAN, Biomes.BEACH));
-        Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 1, 25, 0, 128, 1, 5, null);
+        Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 1, 15, 0, 128, 1, 5, null);
         if (ironGen) {
             Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, IRON_VAL, 0, 32, 2, 8);
         }

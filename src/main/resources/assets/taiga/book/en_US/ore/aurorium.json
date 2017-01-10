@@ -1,0 +1,18 @@
+{
+  "title": "Aurorium",
+  "r": 239,
+  "g": 174,
+  "b": 148,
+  "input": {
+    "id": "taiga:aurorium_ore"
+  },
+  "description": [
+    {
+      "text": "Aurorium ore isn't very common in the end, but you can find a lot if you are patient enough. With some twists and turns it will maybe get some more unique features later."
+    }
+  ],
+  "informations": [
+    "Level: Cobalt",
+    "Uncommon"
+  ]
+}

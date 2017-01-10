@@ -2,12 +2,37 @@
   {
     "name": "intro",
     "type": "image with text below",
-    "data": "ores/intro.json"
+    "data": "taiga/intro.json"
   },
   {
     "name": "firstwords",
     "type": "image with text below",
-    "data": "ores/firstwords.json"
+    "data": "taiga/firstwords.json"
+  },
+  {
+    "name": "aurorium",
+    "type": "taigaore",
+    "data": "ore/aurorium.json"
+  },
+  {
+    "name": "basalt",
+    "type": "taigaore",
+    "data": "ore/basalt.json"
+  },
+  {
+    "name": "duranite",
+    "type": "taigaore",
+    "data": "ore/duranite.json"
+  },
+  {
+    "name": "jauxum",
+    "type": "taigaore",
+    "data": "ore/jauxum.json"
+  },
+  {
+    "name": "karmesine",
+    "type": "taigaore",
+    "data": "ore/karmesine.json"
   },
   {
     "name": "meteorite",
@@ -20,8 +45,33 @@
     "data": "ore/obsidiorite.json"
   },
   {
-    "name": "basalt",
+    "name": "ovium",
     "type": "taigaore",
-    "data": "ore/basalt.json"
+    "data": "ore/ovium.json"
+  },
+  {
+    "name": "palladium",
+    "type": "taigaore",
+    "data": "ore/palladium.json"
+  },
+  {
+    "name": "prometheum",
+    "type": "taigaore",
+    "data": "ore/prometheum.json"
+  },
+  {
+    "name": "tiberium",
+    "type": "taigaore",
+    "data": "ore/tiberium.json"
+  },
+  {
+    "name": "valyrium",
+    "type": "taigaore",
+    "data": "ore/valyrium.json"
+  },
+  {
+    "name": "vibranium",
+    "type": "taigaore",
+    "data": "ore/vibranium.json"
   }
 ]
