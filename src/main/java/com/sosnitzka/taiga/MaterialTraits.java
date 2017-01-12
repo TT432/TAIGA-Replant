@@ -108,5 +108,6 @@ public class MaterialTraits {
     public static Material ovium = new Material("ovium", TextFormatting.BLUE);
     public static Material jauxum = new Material("jauxum", TextFormatting.YELLOW);
     public static Material karmesine = new Material("karmesine", TextFormatting.RED);
+    public static Material dilithium = new Material("dilithium", TextFormatting.BLUE);
 
 }

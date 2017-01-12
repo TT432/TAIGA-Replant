@@ -1,0 +1,18 @@
+{
+  "title": "Abyssum",
+  "r": 33,
+  "g": 188,
+  "b": 194,
+  "input": {
+    "id": "taiga:abyssum_ore"
+  },
+  "description": [
+    {
+      "text": "Just like eezo, abyssum accrues from solar storms which are affecting the end. The magnetized void fuses with endstone and absorbs a lot of energy. Because there is no bedrock, abyssum is found at the bottom of ender islands."
+    }
+  ],
+  "informations": [
+    "Level: Cobalt",
+    "Caution: Don't fall into the void"
+  ]
+}

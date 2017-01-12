@@ -99,7 +99,7 @@ public class TAIGAConfiguration {
         final int DILITHIUM_DEFAULT = 12;
         final int OSRAM_DEFAULT = 1;
         final int DURANITE_DEFAULT = 1;
-        final int BASALT_DEFAULT = 10;
+        final int BASALT_DEFAULT = 12;
         final int EEZO_DEFAULT = 3;
         final int KARMESINE_DEFAULT = 8;
         final int JAUXUM_DEFAULT = 8;

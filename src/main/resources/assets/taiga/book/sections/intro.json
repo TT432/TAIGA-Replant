@@ -10,6 +10,11 @@
     "data": "taiga/firstwords.json"
   },
   {
+    "name": "abyssum",
+    "type": "taigaore",
+    "data": "ore/abyssum.json"
+  },
+  {
     "name": "aurorium",
     "type": "taigaore",
     "data": "ore/aurorium.json"
@@ -20,9 +25,19 @@
     "data": "ore/basalt.json"
   },
   {
+    "name": "dilithium",
+    "type": "taigaore",
+    "data": "ore/dilithium.json"
+  },
+  {
     "name": "duranite",
     "type": "taigaore",
     "data": "ore/duranite.json"
+  },
+  {
+    "name": "eezo",
+    "type": "taigaore",
+    "data": "ore/eezo.json"
   },
   {
     "name": "jauxum",
@@ -45,6 +60,11 @@
     "data": "ore/obsidiorite.json"
   },
   {
+    "name": "osram",
+    "type": "taigaore",
+    "data": "ore/osram.json"
+  },
+  {
     "name": "ovium",
     "type": "taigaore",
     "data": "ore/ovium.json"
@@ -63,6 +83,11 @@
     "name": "tiberium",
     "type": "taigaore",
     "data": "ore/tiberium.json"
+  },
+  {
+    "name": "uru",
+    "type": "taigaore",
+    "data": "ore/uru.json"
   },
   {
     "name": "valyrium",

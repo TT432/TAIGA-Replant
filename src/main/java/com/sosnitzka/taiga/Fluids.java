@@ -54,7 +54,7 @@ public class Fluids {
 
     // Community
 
-    public static BasicTinkerFluid dilithiumFluid = new BasicTinkerFluid("dilithium_fluid", 0xEEEEEEEE, 2500, 10, 5000);
+    public static BasicTinkerFluid dilithiumFluid = new BasicTinkerFluid("dilithium_fluid", 0xFF79aea6, 1500, 10, 5000);
 
     /**
      * Registers all materials' fluids <br>

@@ -36,7 +36,6 @@ public class ContentOre extends TinkerPage {
         TextData tdTitle = new TextData(title);
         tdTitle.underlined = true;
 
-
         addTitle(list, CustomFontColor.encodeColor(r, g, b) + title, true);
 
         if (input != null && !input.id.equals("")) {

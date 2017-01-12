@@ -1,7 +1,6 @@
 package com.sosnitzka.taiga;
 
 import com.google.common.collect.Lists;
-import com.sosnitzka.taiga.book.ContentOre;
 import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
@@ -24,7 +23,6 @@ import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 import static com.sosnitzka.taiga.util.Utils.integrateMaterial;
 import static com.sosnitzka.taiga.util.Utils.integrateOre;
-import static slimeknights.mantle.client.book.BookLoader.registerPageType;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 @Mod(modid = TAIGA.MODID, version = TAIGA.VERSION, guiFactory = TAIGA.GUIFACTORY, dependencies = "required-after:tconstruct@[1.10.2-2.5.0,);" + "required-after:mantle@[1.10.2-1.0.0,)")
@@ -119,10 +117,7 @@ public class TAIGA {
         integrateMaterial("Yrdeen", yrdeen, yrdeenFluid, 999, 9.1f, 3f, 1.35f, 150, 250, COBALT, shitty);
         integrateMaterial("Meteorite", meteorite, meteoriteFluid, 1500, 1.5f, 1.5f, .5f, 0, 0, OBSIDIAN, shitty);
         integrateMaterial("Obsidiorite", obsidiorite, obsidioriteFluid, 1500, .5f, .5f, 1, -100, 100, COBALT, shitty);
-        // when more traits / ideas are available
-        // integrateMaterial("Uru", uru, uruFluid, (552), 8.75f, 2.87f, 0.98f, -100, 200, DIAMOND);
-        // integrateMaterial("Osram", osram, osramFluid, 500, 5f, 3f, 0.8f, -50, 50, DIAMOND);
-        // integrateMaterial("Abyssum", abyssum, abyssumFluid, 100, 1f, 1f, 1f, 300, 300, DIAMOND);
+
         integrateOre("Osram", osramFluid);
         integrateOre("Abyssum", abyssumFluid);
         integrateOre("Iox", ioxFluid);
