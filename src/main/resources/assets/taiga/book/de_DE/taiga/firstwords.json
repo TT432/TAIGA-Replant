@@ -1,11 +1,11 @@
 {
-  "title": "New ores",
+  "title": "Neue Erze",
   "image": {
     "file": "taiga:textures/book/ores.png"
   },
   "text": [
     {
-      "text": "TAIGA adds various new blocks and ores. To get higher tiers, stats and traits you need to alloy them wisely. On the next Pages you will learn where to get these new materials and what else you need to know."
+      "text": "TAIGA fügt viele neue Blöcke und Erze hinzu, die nach und nach zu besseren Legierungen verschmolzen werden können. Auf den nächsten Seiten lernst du die Erze von TAIGA kennen."
     }
   ]
 }
