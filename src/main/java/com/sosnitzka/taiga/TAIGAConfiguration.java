@@ -141,39 +141,39 @@ public class TAIGAConfiguration {
          */
 
 
-        Property ironValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Iron", IRON_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property ironValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Iron", IRON_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         ironValueProp.setLanguageKey("gui.taiga_configuration.iron_multiplier");
-        Property basaltValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Basalt", BASALT_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property basaltValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Basalt", BASALT_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         basaltValueProp.setLanguageKey("gui.taiga_configuration.basalt_multiplier");
-        Property tiberiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Tiberium", TIBERIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property tiberiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Tiberium", TIBERIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         tiberiumValueProp.setLanguageKey("gui.taiga_configuration.tiberium_multiplier");
-        Property auroriumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Aurorium", AURORIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property auroriumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Aurorium", AURORIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         auroriumValueProp.setLanguageKey("gui.taiga_configuration.aurorium_multiplier");
-        Property prometheumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Prometheum", PROMETHEUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property prometheumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Prometheum", PROMETHEUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         prometheumValueProp.setLanguageKey("gui.taiga_configuration.prometheum_multiplier");
-        Property duraniteValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Duranite", DURANITE_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property duraniteValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Duranite", DURANITE_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         duraniteValueProp.setLanguageKey("gui.taiga_configuration.duranite_multiplier");
-        Property valyriumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Valyrium", VALYRIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property valyriumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Valyrium", VALYRIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         valyriumValueProp.setLanguageKey("gui.taiga_configuration.valyrium_multiplier");
-        Property vibraniumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Vibranium", VIBRANIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property vibraniumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Vibranium", VIBRANIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         vibraniumValueProp.setLanguageKey("gui.taiga_configuration.vibranium_multiplier");
-        Property dilithiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Dilithium", DILITHIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property dilithiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Dilithium", DILITHIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         dilithiumValueProp.setLanguageKey("gui.taiga_configuration.dilithium_multiplier");
-        Property karmesineValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Karmesine", KARMESINE_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property karmesineValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Karmesine", KARMESINE_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         karmesineValueProp.setLanguageKey("gui.taiga_configuration.karmesine_multiplier");
-        Property oviumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Ovium", OVIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property oviumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Ovium", OVIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         oviumValueProp.setLanguageKey("gui.taiga_configuration.ovium_multiplier");
-        Property jauxumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Jauxum", JAUXUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property jauxumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Jauxum", JAUXUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         jauxumValueProp.setLanguageKey("gui.taiga_configuration.jauxum_multiplier");
-        Property palladiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Palladium", PALLADIUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property palladiumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Palladium", PALLADIUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         palladiumValueProp.setLanguageKey("gui.taiga_configuration.palladium_multiplier");
-        Property uruValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Uru", URU_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property uruValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Uru", URU_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         uruValueProp.setLanguageKey("gui.taiga_configuration.uru_multiplier");
-        Property osramValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Osram", OSRAM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property osramValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Osram", OSRAM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         osramValueProp.setLanguageKey("gui.taiga_configuration.osram_multiplier");
-        Property abyssumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Abyssum", ABYSSUM_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property abyssumValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Abyssum", ABYSSUM_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         abyssumValueProp.setLanguageKey("gui.taiga_configuration.abyssum_multiplier");
-        Property eezoValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Eezo", EEZO_DEFAULT, "value for generation", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
+        Property eezoValueProp = config.get(CATEGORY_NAME_ORE_GEN, "Eezo", EEZO_DEFAULT, "generation count per chunk", RESFAC_MIN_VALUE, RESFAC_MAX_VALUE);
         eezoValueProp.setLanguageKey("gui.taiga_configuration.eezo_multiplier");
 
 
