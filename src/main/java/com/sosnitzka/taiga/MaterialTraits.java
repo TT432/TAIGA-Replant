@@ -58,6 +58,7 @@ public class MaterialTraits {
     public static final AbstractTrait leveled1 = new TraitLeveled(1);
     public static final AbstractTrait leveled2 = new TraitLeveled(2);
     public static final AbstractTrait leveled3 = new TraitLeveled(3);
+    public static final AbstractTrait crushing = new TraitCrushing();
 
 
     /**
@@ -86,11 +87,8 @@ public class MaterialTraits {
     public static Material tritonite = new Material("tritonite", TextFormatting.GOLD).addTrait(whirl);
     public static Material ignitz = new Material("ignitz", TextFormatting.RED).addTrait(melting).addTrait(garishly, MaterialTypes.HANDLE);
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(hollow);
-    public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(pulverizing).addTrait(superheavy);
+    public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(superheavy).addTrait(crushing);
     public static Material nihilite = new Material("nihilite", TextFormatting.DARK_GRAY).addTrait(souleater);
-    /**
-     * With Dev
-     **/
     public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(beserk).addTrait(leveled1, MaterialTypes.EXTRA).addTrait(leveled2, MaterialTypes.HANDLE).addTrait(leveled3, MaterialTypes.HEAD); //.addTrait(dev);
     public static Material dyonite = new Material("dyonite", TextFormatting.GREEN).addTrait(tantrum);
     public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay);
@@ -99,7 +97,7 @@ public class MaterialTraits {
     public static Material astrium = new Material("astrium", TextFormatting.DARK_PURPLE).addTrait(ported);
     public static Material niob = new Material("niob", TextFormatting.RED).addTrait(reviving);
     public static Material yrdeen = new Material("yrdeen", TextFormatting.RED).addTrait(naturebound);
-    public static Material meteorite = new Material("meteorite", TextFormatting.DARK_GREEN).addTrait(crumbling, MaterialTypes.HEAD).addTrait(cheap);
+    public static Material meteorite = new Material("meteorite", TextFormatting.DARK_GREEN).addTrait(crumbling, MaterialTypes.HEAD).addTrait(pulverizing);
     public static Material obsidiorite = new Material("obsidiorite", obsidioriteFluid.getColor()).addTrait(alien);
 
     public static Material osram = new Material("osram", TextFormatting.GOLD);

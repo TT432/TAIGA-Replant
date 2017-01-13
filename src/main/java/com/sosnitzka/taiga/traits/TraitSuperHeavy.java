@@ -20,7 +20,7 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 public class TraitSuperHeavy extends TraitProgressiveStats {
 
     protected static int TICK_PER_STAT = 50;
-    protected static float blockcount = 250f;
+    protected static float blockcount = 500f;
 
     public TraitSuperHeavy() {
         super(TraitSuperHeavy.class.getSimpleName().toLowerCase().substring(5), TextFormatting.DARK_GRAY);
@@ -33,7 +33,7 @@ public class TraitSuperHeavy extends TraitProgressiveStats {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
         if (data.brokenblocks == 0) return;
-        event.setNewSpeed(Math.max(event.getNewSpeed() - data.brokenblocks * event.getOriginalSpeed() / blockcount, 0.25f));
+        event.setNewSpeed(Math.max(event.getNewSpeed() - data.brokenblocks * event.getOriginalSpeed() / blockcount, 0.35f));
     }
 
     @Override

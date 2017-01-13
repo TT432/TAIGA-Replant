@@ -29,7 +29,7 @@ public class TraitPulverizing extends AbstractTrait {
 
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
-        if (random.nextFloat() < 0.9) {
+        if (random.nextFloat() < 0.6) {
             event.getDrops().clear();
         }
     }
