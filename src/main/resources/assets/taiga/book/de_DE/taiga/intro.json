@@ -1,7 +1,7 @@
 {
   "title": "TAIGA: Tinkers' Alloying Addon",
   "image": {
-    "file": "taiga:textures/logo.png"
+    "file": "taiga:textures/gui/book/logo.png"
   },
   "text": [
     {

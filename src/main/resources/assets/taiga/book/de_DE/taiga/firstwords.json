@@ -1,7 +1,7 @@
 {
   "title": "Neue Erze",
   "image": {
-    "file": "taiga:textures/book/ores.png"
+    "file": "taiga:textures/gui/book/ores.png"
   },
   "text": [
     {
