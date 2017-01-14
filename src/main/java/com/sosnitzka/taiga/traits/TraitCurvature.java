@@ -51,7 +51,7 @@ public class TraitCurvature extends AbstractTrait {
                     event.getDrops().clear();
                     event.getWorld().setBlockState(cPos, mainstate);
                     event.getHarvester().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-                    event.getHarvester().addChatComponentMessage(new TextComponentString("Teleported to: " + x + " " + y + " " + z));
+                    event.getHarvester().sendStatusMessage(new TextComponentString("Teleported to: " + x + " " + y + " " + z));
                     return;
                 }
 

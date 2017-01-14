@@ -22,7 +22,7 @@ public class BlockLignite extends BasicBlock {
         Random rand = world instanceof World ? ((World) world).rand : new Random();
         int r = RANDOM.nextInt(11);
         if (r > 7) {
-            return MathHelper.getRandomIntegerInRange(rand, 0, 10) + fortune;
+            return MathHelper.getInt(rand, 0, 10) + fortune;
         } else return 0;
     }
 

@@ -8,7 +8,8 @@ import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import static com.sosnitzka.taiga.Fluids.obsidioriteFluid;
-import static slimeknights.tconstruct.tools.TinkerTraits.*;
+import static slimeknights.tconstruct.tools.TinkerTraits.alien;
+import static slimeknights.tconstruct.tools.TinkerTraits.crumbling;
 
 public class MaterialTraits {
 

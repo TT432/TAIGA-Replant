@@ -27,7 +27,7 @@ public class TraitCongenial extends AbstractTrait {
 
     @SubscribeEvent
     public void onEntityKill(LivingDeathEvent e) {
-        if (e.getSource().getEntity() instanceof EntityPlayer && !e.getSource().getEntity().worldObj.isRemote && e.getEntity() instanceof EntityCreature) {
+        if (e.getSource().getEntity() instanceof EntityPlayer && !e.getSource().getEntity().world.isRemote && e.getEntity() instanceof EntityCreature) {
             if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
                 ItemStack tool = ((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand();
                 String name = e.getEntity().getName();

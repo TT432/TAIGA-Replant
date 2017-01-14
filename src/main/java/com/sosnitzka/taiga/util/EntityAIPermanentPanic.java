@@ -38,7 +38,7 @@ public class EntityAIPermanentPanic extends EntityAIBase {
             this.randPosZ = vec3d.zCoord;
 
             if (this.theEntityCreature.isBurning()) {
-                BlockPos blockpos = this.getRandPos(this.theEntityCreature.worldObj, this.theEntityCreature, 5, 4);
+                BlockPos blockpos = this.getRandPos(this.theEntityCreature.world, this.theEntityCreature, 5, 4);
 
                 if (blockpos != null) {
                     this.randPosX = (double) blockpos.getX();

@@ -217,7 +217,7 @@ public class Generator {
                 for (int x = -t; x <= t; x++) {
                     for (int y = -t; y <= t; y++) {
                         for (int z = -t; z <= t; z++) {
-                            if (MathHelper.sqrt_double(x * x + y * y + z * z) > t) {
+                            if (MathHelper.sqrt(x * x + y * y + z * z) > t) {
                                 continue;
                             }
                             world.setBlockState(new BlockPos(cPos.getX() + x, cPos.getY() + y, cPos.getZ() + z), centerBlock);
@@ -227,7 +227,7 @@ public class Generator {
                 for (int x = -r; x <= r; x++) {
                     for (int y = -r; y <= r; y++) {
                         for (int z = -r; z <= r; z++) {
-                            if (MathHelper.sqrt_double(x * x + y * y + z * z) > r) {
+                            if (MathHelper.sqrt(x * x + y * y + z * z) > r) {
                                 continue;
                             }
                             BlockPos nPos = new BlockPos(cPos.getX() + x, cPos.getY() + y, cPos.getZ() + z);

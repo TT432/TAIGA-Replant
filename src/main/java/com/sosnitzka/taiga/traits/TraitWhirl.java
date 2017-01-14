@@ -32,7 +32,7 @@ public class TraitWhirl extends AbstractTrait {
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
 
-        if (entity instanceof FakePlayer || entity.worldObj.isRemote) {
+        if (entity instanceof FakePlayer || entity.world.isRemote) {
             return;
         }
         if (entity.ticksExisted % TICK_PER_STAT > 0) {
@@ -61,7 +61,7 @@ public class TraitWhirl extends AbstractTrait {
                 for (int x = -r; x <= r; x++) {
                     for (int y = -r; y <= r; y++) {
                         for (int z = -r; z <= r; z++) {
-                            if (MathHelper.sqrt_double(x * x + y * y + z * z) > r) {
+                            if (MathHelper.sqrt(x * x + y * y + z * z) > r) {
                                 continue;
                             }
                             BlockPos nPos = new BlockPos(event.getPos().getX() + x, event.getPos().getY() + y, event.getPos().getZ() + z);
