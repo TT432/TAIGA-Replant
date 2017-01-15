@@ -41,7 +41,7 @@ public class TraitReviving extends AbstractTrait {
                             ((EntitySkeleton) ent).setSkeletonType(((EntitySkeleton) e.getEntity()).getSkeletonType());
                         }
                         ent.setPosition(pos.getX(), pos.getY(), pos.getZ());
-                        w.spawnEntityInWorld(ent);
+                        w.spawnEntity(ent);
                         e.getSource().getEntity().playSound(SoundEvents.AMBIENT_CAVE, 1.0F, 1.0F);
                     }
                 }

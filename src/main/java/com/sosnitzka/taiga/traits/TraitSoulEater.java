@@ -29,7 +29,7 @@ public class TraitSoulEater extends AbstractTrait {
     @SubscribeEvent
     public void onTargetKilled(LivingDeathEvent event) {
         if (event.getSource().getEntity() instanceof EntityPlayer && event.getEntity() instanceof EntityLiving) {
-            World w = event.getSource().getEntity().worldObj;
+            World w = event.getSource().getEntity().world;
             ItemStack tool = ((EntityPlayer) event.getSource().getEntity()).getHeldItemMainhand();
             if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
                 NBTTagCompound tag = TagUtil.getExtraTag(tool);

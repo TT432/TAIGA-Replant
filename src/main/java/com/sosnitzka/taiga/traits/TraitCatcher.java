@@ -93,7 +93,7 @@ public class TraitCatcher extends AbstractTrait {
 
                 if (ent != null) {
                     ent.setPosition(pos.getX(), pos.getY(), pos.getZ()); // TODO: set to player view target
-                    w.spawnEntityInWorld(ent);
+                    w.spawnEntity(ent);
                     event.getEntityPlayer().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
                     data.mobClass = "";
                     data.mobName = "";
