@@ -59,6 +59,7 @@ public class MaterialTraits {
     public static final AbstractTrait leveled2 = new TraitLeveled(2);
     public static final AbstractTrait leveled3 = new TraitLeveled(3);
     public static final AbstractTrait crushing = new TraitCrushing();
+    public static final AbstractTrait mutate = new TraitMutate();
 
 
     /**
@@ -91,7 +92,7 @@ public class MaterialTraits {
     public static Material nihilite = new Material("nihilite", TextFormatting.DARK_GRAY).addTrait(souleater);
     public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(beserk).addTrait(leveled1, MaterialTypes.EXTRA).addTrait(leveled2, MaterialTypes.HANDLE).addTrait(leveled3, MaterialTypes.HEAD); //.addTrait(dev);
     public static Material dyonite = new Material("dyonite", TextFormatting.GREEN).addTrait(tantrum);
-    public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay);
+    public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay).addTrait(mutate);
     public static Material lumix = new Material("lumix", TextFormatting.YELLOW).addTrait(bright, MaterialTypes.HANDLE).addTrait(glimmer, MaterialTypes.HEAD);
     public static Material seismum = new Material("seismum", TextFormatting.GREEN).addTrait(cascade);
     public static Material astrium = new Material("astrium", TextFormatting.DARK_PURPLE).addTrait(ported);

@@ -21,7 +21,7 @@ import java.util.List;
 public class TraitDecay extends TraitProgressiveStats {
 
     protected static int TICK_PER_STAT = 24;
-    protected static int DURABILITY_STEP = 10;
+    protected static int DURABILITY_STEP = 1;
     protected static float SPEED_STEP = 0.05f;
     protected static float ATTACK_STEP = 0.05f;
 
