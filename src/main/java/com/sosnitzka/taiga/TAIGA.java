@@ -14,6 +14,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
 
@@ -31,6 +33,7 @@ public class TAIGA {
     public static final String MODID = "taiga";
     public static final String VERSION = "@VERSION@";
     public static final String GUIFACTORY = "com.sosnitzka.taiga.TAIGAGuiFactory";
+    public static final Logger logger = LogManager.getLogger("TAIGA");
 
     @SidedProxy(clientSide = "com.sosnitzka.taiga.proxy.ClientProxy", serverSide = "com.sosnitzka.taiga.proxy.CommonProxy")
     public static CommonProxy proxy;
@@ -52,7 +55,7 @@ public class TAIGA {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.registerModels(); // Registers models on the client side
-        GameRegistry.registerWorldGenerator(new WorldGen(), 100); // Generates ores
+        GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 100); // Generates ores
         // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
         SmeltingRegistry.register(); // Registers smelting recipes
         CraftingRegistry.register(); // Registers crafting recipes
@@ -66,8 +69,6 @@ public class TAIGA {
         for (MaterialIntegration m : integrateList) {
             m.integrateRecipes();
         }
-
-
     }
 
     @EventHandler

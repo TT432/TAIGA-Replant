@@ -178,7 +178,7 @@ public class Generator {
     }
 
 
-    public static void generateMeteor(IBlockState centerBlock, IBlockState hullBlock, Random random, int chunkX, int chunkZ, World world, int count, int chance, int minY, int maxY) {
+    public static int generateMeteor(IBlockState centerBlock, IBlockState hullBlock, Random random, int chunkX, int chunkZ, World world, int count, int chance, int minY, int maxY) {
         Set<Item> validSurface = new HashSet<Item>();
         List<String> oredictentries = Lists.newArrayList("dirt", "grass", "stone", "sand", "gravel", "cobblestone", "sandstone");
         for (String e : oredictentries) {
@@ -186,6 +186,8 @@ public class Generator {
                 validSurface.add(stack.getItem());
             }
         }
+
+        int mGenerated = 0;
 
         for (int i = 0; i < count; i++) {
             if (random.nextFloat() < 0.01 * chance) {
@@ -199,8 +201,7 @@ public class Generator {
                     while (world.getBlockState(cPos.down()).equals(Blocks.AIR.getDefaultState())) {
                         cPos = cPos.down();
 
-                        // if we are below 0, we might be in a void dim
-                        if (cPos.getY() < 0)
+                        if (cPos.getY() < minY)
                             break;
                     }
                 }
@@ -211,6 +212,8 @@ public class Generator {
                 MeteorWorldSaveData saveData = MeteorWorldSaveData.getForWorld(world);
                 saveData.addPos(cPos);
                 saveData.markDirty();
+
+                mGenerated++;
 
                 int t = 1;
                 if (r > 3) t = random.nextInt(r - 1);
@@ -239,5 +242,7 @@ public class Generator {
                 }
             }
         }
+
+        return mGenerated;
     }
 }

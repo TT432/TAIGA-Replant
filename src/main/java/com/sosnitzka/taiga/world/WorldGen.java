@@ -1,6 +1,7 @@
 package com.sosnitzka.taiga.world;
 
 
+import com.sosnitzka.taiga.TAIGA;
 import com.sosnitzka.taiga.util.Generator;
 import net.minecraft.block.BlockStone;
 import net.minecraft.init.Biomes;
@@ -10,7 +11,7 @@ import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.Random;
+import java.util.*;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.sosnitzka.taiga.Blocks.*;
@@ -18,6 +19,18 @@ import static com.sosnitzka.taiga.TAIGAConfiguration.*;
 
 @SuppressWarnings("unchecked")
 public class WorldGen implements IWorldGenerator {
+    private static WorldGen INSTANCE;
+    private final List<Integer> blackList = new ArrayList();
+    private final Map<Integer, Integer> meteorGenStats = new HashMap();
+    private final Map<Integer, Integer> meteorChunkStats = new HashMap();
+
+    public static WorldGen getInstance() {
+        if (INSTANCE == null)
+            INSTANCE = new WorldGen();
+
+        return INSTANCE;
+    }
+
     private void nether(Random random, int x, int z, World world) {
         Generator.generateOre(tiberiumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, TIBERIUM_VAL, 32, 128, 10, 35);
         Generator.generateOre(prometheumOre.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), random, x, z, world, PROMETHEUM_VAL, 0, 32, 2, 4);
@@ -26,7 +39,15 @@ public class WorldGen implements IWorldGenerator {
     }
 
     private void world(Random random, int x, int z, World world) {
-        Generator.generateMeteor(duraniteOre.getDefaultState(), blockMeteorite.getDefaultState(), random, x, z, world, DURANITE_VAL, 6, 16, 112);
+        int dim = world.provider.getDimension();
+        if (!meteorGenStats.containsKey(dim))
+            meteorGenStats.put(dim, 0);
+
+        if (!meteorChunkStats.containsKey(dim))
+            meteorChunkStats.put(dim, 0);
+
+        meteorChunkStats.put(dim, meteorChunkStats.get(dim) + 1);
+        meteorGenStats.put(meteorGenStats.get(dim), meteorGenStats.get(dim) + Generator.generateMeteor(duraniteOre.getDefaultState(), blockMeteorite.getDefaultState(), random, x, z, world, DURANITE_VAL, 6, 16, 112));
         Generator.generateOreDescending(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), basaltBlock.getDefaultState(), random, x, z, world, BASALT_VAL, 0, 64);
         Generator.generateOreDescending(newArrayList(Blocks.BEDROCK.getDefaultState()), eezoOre.getDefaultState(), random, x, z, world, EEZO_VAL, 0, 10);
         Generator.generateOreStoneVariant(karmesineOre.getDefaultState(), BlockStone.EnumType.ANDESITE, random, x, z, world, KARMESINE_VAL);
@@ -37,6 +58,11 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 1, 15, 0, 128, 1, 5, null);
         if (ironGen) {
             Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, IRON_VAL, 0, 32, 2, 8);
+        }
+
+        if (meteorChunkStats.get(dim) > 100 && meteorGenStats.get(dim) == 0) {
+            blackList.add(dim);
+            TAIGA.logger.info(String.format("Detected void dimension, adding to blacklist: %d", dim));
         }
     }
 
@@ -64,7 +90,8 @@ public class WorldGen implements IWorldGenerator {
                 end(random, x, z, world);
                 break;
             default:
-                world(random, x, z, world);
+                if (!blackList.contains(world.provider.getDimension()))
+                    world(random, x, z, world);
                 break;
         }
     }
