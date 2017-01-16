@@ -38,7 +38,7 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOre(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), osramOre.getDefaultState(), random, x, z, world, OSRAM_VAL, 0, 64, 15);
     }
 
-    private void world(Random random, int x, int z, World world) {
+    private void other(Random random, int x, int z, World world) {
         int dim = world.provider.getDimension();
         if (!meteorGenStats.containsKey(dim))
             meteorGenStats.put(dim, 0);
@@ -63,6 +63,21 @@ public class WorldGen implements IWorldGenerator {
         if (meteorChunkStats.get(dim) > 100 && meteorGenStats.get(dim) == 0) {
             blackList.add(dim);
             TAIGA.logger.info(String.format("Detected void dimension, adding to blacklist: %d", dim));
+        }
+    }
+
+    private void world(Random random, int x, int z, World world) {
+        Generator.generateMeteor(duraniteOre.getDefaultState(), blockMeteorite.getDefaultState(), random, x, z, world, DURANITE_VAL, 6, 16, 112);
+        Generator.generateOreDescending(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), basaltBlock.getDefaultState(), random, x, z, world, BASALT_VAL, 0, 64);
+        Generator.generateOreDescending(newArrayList(Blocks.BEDROCK.getDefaultState()), eezoOre.getDefaultState(), random, x, z, world, EEZO_VAL, 0, 10);
+        Generator.generateOreStoneVariant(karmesineOre.getDefaultState(), BlockStone.EnumType.ANDESITE, random, x, z, world, KARMESINE_VAL);
+        Generator.generateOreStoneVariant(oviumOre.getDefaultState(), BlockStone.EnumType.DIORITE, random, x, z, world, OVIUM_VAL);
+        Generator.generateOreStoneVariant(jauxumOre.getDefaultState(), BlockStone.EnumType.GRANITE, random, x, z, world, JAUXUM_VAL);
+        Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, VIBRANIUM_VAL, 100, 0, 64, 2, 6, newArrayList(Biomes.DESERT_HILLS, Biomes.EXTREME_HILLS, Biomes.EXTREME_HILLS_EDGE, Biomes.EXTREME_HILLS_WITH_TREES, Biomes.DESERT));
+        Generator.generateOre(dilithiumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, DILITHIUM_VAL, 100, 0, 64, 2, 8, newArrayList(Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.OCEAN, Biomes.DEEP_OCEAN, Biomes.FROZEN_OCEAN, Biomes.BEACH));
+        Generator.generateOre(vibraniumOre.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, 1, 15, 0, 128, 1, 5, null);
+        if (ironGen) {
+            Generator.generateOre(Blocks.IRON_ORE.getDefaultState(), Blocks.STONE.getDefaultState(), random, x, z, world, IRON_VAL, 0, 32, 2, 8);
         }
     }
 
@@ -91,7 +106,7 @@ public class WorldGen implements IWorldGenerator {
                 break;
             default:
                 if (!blackList.contains(world.provider.getDimension()))
-                    world(random, x, z, world);
+                    other(random, x, z, world);
                 break;
         }
     }
