@@ -17,12 +17,12 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
-public class TraitBeserk extends TraitProgressiveStats {
+public class TraitBerserk extends TraitProgressiveStats {
 
     protected static int TICK_PER_STAT = 8;
 
-    public TraitBeserk() {
-        super(TraitBeserk.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
+    public TraitBerserk() {
+        super(TraitBerserk.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

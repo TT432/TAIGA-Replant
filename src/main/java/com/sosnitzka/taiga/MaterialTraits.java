@@ -55,7 +55,7 @@ public class MaterialTraits {
     public static final AbstractTrait superheavy = new TraitSuperHeavy();
     public static final AbstractTrait dev = new TraitDevelopement();
     public static final AbstractTrait carousel = new TraitCarousel();
-    public static final AbstractTrait beserk = new TraitBeserk();
+    public static final AbstractTrait berserk = new TraitBerserk();
     public static final AbstractTrait leveled1 = new TraitLeveled(1);
     public static final AbstractTrait leveled2 = new TraitLeveled(2);
     public static final AbstractTrait leveled3 = new TraitLeveled(3);
@@ -91,7 +91,7 @@ public class MaterialTraits {
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(hollow);
     public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(superheavy).addTrait(crushing);
     public static Material nihilite = new Material("nihilite", TextFormatting.DARK_GRAY).addTrait(souleater);
-    public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(beserk).addTrait(leveled1, MaterialTypes.EXTRA).addTrait(leveled2, MaterialTypes.HANDLE).addTrait(leveled3, MaterialTypes.HEAD); //.addTrait(dev);
+    public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(berserk);
     public static Material dyonite = new Material("dyonite", TextFormatting.GREEN).addTrait(tantrum);
     public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay).addTrait(mutate);
     public static Material lumix = new Material("lumix", TextFormatting.YELLOW).addTrait(bright, MaterialTypes.HANDLE).addTrait(glimmer, MaterialTypes.HEAD);

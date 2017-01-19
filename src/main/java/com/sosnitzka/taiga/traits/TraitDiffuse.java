@@ -15,6 +15,10 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitDiffuse extends AbstractTrait {
 
+    /**
+     *
+     */
+
     public TraitDiffuse() {
         super("diffuse", TextFormatting.DARK_GRAY);
         MinecraftForge.EVENT_BUS.register(this);
@@ -40,7 +44,7 @@ public class TraitDiffuse extends AbstractTrait {
     }
 
     private float getUpdateXP(int xp) {
-        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextFloat() * xp);
+        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (1 + random.nextFloat() * xp);
         if (random.nextFloat() <= 0.25)
             return exp;
         else return 0;
