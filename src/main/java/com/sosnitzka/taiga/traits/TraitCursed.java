@@ -18,7 +18,7 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitCursed extends AbstractTrait {
 
-    private static int chance = 60 * 1000;
+    private static int chance = 20000;
 
     public TraitCursed() {
         super(TraitCursed.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
