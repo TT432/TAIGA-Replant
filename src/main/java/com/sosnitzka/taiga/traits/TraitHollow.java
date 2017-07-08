@@ -6,14 +6,18 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
+
+import java.util.Optional;
 
 import static com.sosnitzka.taiga.util.Utils.isNight;
 
@@ -40,11 +44,16 @@ public class TraitHollow extends AbstractTrait {
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
+        if (!w.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             if (random.nextFloat() <= 0.9 && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 event.getDrops().clear();
             }
         }
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }

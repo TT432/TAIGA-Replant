@@ -1,17 +1,21 @@
 package com.sosnitzka.taiga.traits;
 
 import com.google.common.collect.ImmutableList;
+import com.sosnitzka.taiga.generic.TraitProgressiveStats;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Gives the tool bonus stats on crafting.
@@ -27,6 +31,11 @@ public class TraitDecay extends TraitProgressiveStats {
 
     public TraitDecay() {
         super("decay", TextFormatting.GREEN);
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 
     @Override

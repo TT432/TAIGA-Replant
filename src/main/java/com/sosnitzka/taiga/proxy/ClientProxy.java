@@ -112,10 +112,8 @@ public class ClientProxy extends CommonProxy {
             FluidStateMapper mapper = new FluidStateMapper(fluid);
 
             // item-model
-            if (item != null) {
-                ModelLoader.registerItemVariants(item);
-                ModelLoader.setCustomMeshDefinition(item, mapper);
-            }
+            ModelLoader.registerItemVariants(item);
+            ModelLoader.setCustomMeshDefinition(item, mapper);
             // block-model
             ModelLoader.setCustomStateMapper(block, mapper);
         }

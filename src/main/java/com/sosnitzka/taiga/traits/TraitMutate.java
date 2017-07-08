@@ -4,12 +4,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.google.common.collect.Lists.newArrayList;
 
@@ -36,6 +39,11 @@ public class TraitMutate extends AbstractTrait {
 
         }
 
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }
 

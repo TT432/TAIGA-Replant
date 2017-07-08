@@ -5,16 +5,20 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+
+import java.util.Optional;
 
 
 public class TraitPorted extends AbstractTrait {
@@ -63,5 +67,10 @@ public class TraitPorted extends AbstractTrait {
         }
         e.setPosition(tPos.getX(), tPos.getY(), tPos.getZ());
         ToolHelper.damageTool(e.getHeldItemMainhand(), ToolHelper.getCurrentDurability(e.getHeldItemMainhand()) / 2 + 1, e);
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }

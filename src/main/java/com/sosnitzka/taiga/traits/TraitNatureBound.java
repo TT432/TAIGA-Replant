@@ -4,11 +4,15 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+
+import java.util.Optional;
 
 
 public class TraitNatureBound extends AbstractTrait {
@@ -34,5 +38,10 @@ public class TraitNatureBound extends AbstractTrait {
                 ToolHelper.healTool(tool, random.nextInt(2) + 1, (EntityLivingBase) entity);
             } else ToolHelper.damageTool(tool, 1, (EntityLivingBase) entity);
         }
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }

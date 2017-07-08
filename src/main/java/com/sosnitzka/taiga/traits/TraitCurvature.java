@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -19,11 +20,13 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public class TraitCurvature extends AbstractTrait {
@@ -51,12 +54,10 @@ public class TraitCurvature extends AbstractTrait {
                     event.getDrops().clear();
                     event.getWorld().setBlockState(cPos, mainstate);
                     event.getHarvester().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-                    event.getHarvester().sendStatusMessage(new TextComponentString("Teleported to: " + x + " " + y + " " + z));
+                    event.getHarvester().sendStatusMessage(new TextComponentString("Teleported to: " + x + " " + y + " " + z), false);
                     return;
                 }
-
             }
-
         }
     }
 
@@ -71,8 +72,8 @@ public class TraitCurvature extends AbstractTrait {
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();
-        if (!w.isRemote && event.getSource().getEntity() instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.getSource().getEntity();
+        if (!w.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(2));
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
@@ -85,5 +86,10 @@ public class TraitCurvature extends AbstractTrait {
         BlockPos tp = new BlockPos(target.getPosition());
         player.setPosition(tp.getX(), tp.getY(), tp.getZ());
         target.setPosition(pp.getX(), pp.getY(), pp.getZ());
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }

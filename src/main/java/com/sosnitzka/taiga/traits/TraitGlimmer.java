@@ -7,12 +7,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
+
+import java.util.Optional;
 
 public class TraitGlimmer extends AbstractTrait {
 
@@ -44,5 +48,10 @@ public class TraitGlimmer extends AbstractTrait {
         if (random.nextFloat() <= 0.05) {
             player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, random.nextInt(600) + 300));
         }
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }

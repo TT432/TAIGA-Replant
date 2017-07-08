@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -16,10 +17,13 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+
+import java.util.Optional;
 
 
 public class TraitCatcher extends AbstractTrait {
@@ -34,12 +38,12 @@ public class TraitCatcher extends AbstractTrait {
 
     @SubscribeEvent
     public void killEntity(LivingDeathEvent event) {
-        if (!(event.getSource().getEntity() instanceof EntityPlayer))
+        if (!(event.getSource().getTrueSource() instanceof EntityPlayer))
             return;
         if (event.getEntityLiving() instanceof EntityPlayer || event.getEntityLiving() instanceof EntityPlayerMP)
             return;
-        World w = event.getSource().getEntity().getEntityWorld();
-        EntityPlayer p = (EntityPlayer) event.getSource().getEntity();
+        World w = event.getSource().getTrueSource().getEntityWorld();
+        EntityPlayer p = (EntityPlayer) event.getSource().getTrueSource();
         EntityLivingBase target = event.getEntityLiving();
         NBTTagCompound tag = TagUtil.getExtraTag(p.getHeldItemMainhand());
         Data data = Data.read(tag);
@@ -52,8 +56,7 @@ public class TraitCatcher extends AbstractTrait {
                 data.mobClass = target.getClass().getName();
                 data.mobName = target.getName();
                 data.write(tag);
-                if (p.getHeldItemMainhand() != null)
-                    TagUtil.setExtraTag(p.getHeldItemMainhand(), tag);
+                TagUtil.setExtraTag(p.getHeldItemMainhand(), tag);
                 p.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
                 target.setDropItemsWhenDead(false);
                 target.setDead();
@@ -115,6 +118,11 @@ public class TraitCatcher extends AbstractTrait {
             if (!data.mobClass.isEmpty())
                 e.getToolTip().add(TextFormatting.DARK_PURPLE + "Captured: " + TextFormatting.LIGHT_PURPLE + data.mobName);
         }
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 
     public static class Data {

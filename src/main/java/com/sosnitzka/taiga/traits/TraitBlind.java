@@ -5,10 +5,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+
+import java.util.Optional;
 
 import static com.sosnitzka.taiga.util.Utils.isNight;
 
@@ -38,5 +42,10 @@ public class TraitBlind extends AbstractTrait {
             else
                 player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, random.nextInt(400) + 200));
         }
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }

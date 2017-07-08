@@ -4,6 +4,7 @@ import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
@@ -12,10 +13,13 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
+
+import java.util.Optional;
 
 import static com.sosnitzka.taiga.Blocks.tiberiumOre;
 
@@ -86,6 +90,11 @@ public class TraitTantrum extends AbstractTrait {
         }
     }
 
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
+    }
+
     public static class Data {
 
         float amount;
@@ -100,6 +109,5 @@ public class TraitTantrum extends AbstractTrait {
             tag.setFloat("amount", amount);
         }
     }
-
 
 }

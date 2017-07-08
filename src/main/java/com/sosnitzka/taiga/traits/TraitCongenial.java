@@ -6,15 +6,19 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
+
+import java.util.Optional;
 
 
 public class TraitCongenial extends AbstractTrait {
@@ -27,9 +31,9 @@ public class TraitCongenial extends AbstractTrait {
 
     @SubscribeEvent
     public void onEntityKill(LivingDeathEvent e) {
-        if (e.getSource().getEntity() instanceof EntityPlayer && !e.getSource().getEntity().world.isRemote && e.getEntity() instanceof EntityCreature) {
-            if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand()), identifier)) {
-                ItemStack tool = ((EntityPlayer) e.getSource().getEntity()).getHeldItemMainhand();
+        if (e.getSource().getTrueSource() instanceof EntityPlayer && !e.getSource().getTrueSource().world.isRemote && e.getEntity() instanceof EntityCreature) {
+            if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()), identifier)) {
+                ItemStack tool = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
                 String name = e.getEntity().getName();
                 NBTTagCompound tag = TagUtil.getExtraTag(tool);
                 Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
@@ -38,7 +42,6 @@ public class TraitCongenial extends AbstractTrait {
                 }
                 data.name = name;
                 data.write(tag);
-                assert tool != null;
                 TagUtil.setExtraTag(tool, tag);
             }
         }
@@ -75,4 +78,8 @@ public class TraitCongenial extends AbstractTrait {
         }
     }
 
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
+    }
 }

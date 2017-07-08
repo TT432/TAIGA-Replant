@@ -5,13 +5,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.tools.ToolCore;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
+
+import java.util.Optional;
 
 public class TraitFracture extends AbstractTrait {
 
@@ -69,5 +73,10 @@ public class TraitFracture extends AbstractTrait {
         int durability = ToolHelper.getCurrentDurability(tool);
         int maxDurability = ToolHelper.getMaxDurability(tool);
         return (0.4f) / (maxDurability - 50) * (durability) + 0.55f;
+    }
+
+    @Override
+    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
+        return null;
     }
 }
