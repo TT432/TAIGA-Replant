@@ -94,7 +94,7 @@ public class Fluids {
         TinkerRegistry.registerMelting(Blocks.blockObsidiorite, meteoriteFluid, 288);
         TinkerRegistry.registerMelting(net.minecraft.init.Blocks.MAGMA, magmaFluid, 288);
         TinkerRegistry.registerMelting(Items.dilithiumCrystal, dilithiumFluid, 72);
-        TinkerRegistry.registerMelting(Items.tiberiumCrystal, dilithiumFluid, 72);
+        TinkerRegistry.registerMelting(Items.tiberiumCrystal, tiberiumFluid, 72);
 
 
         TinkerRegistry.registerSmelteryFuel(new FluidStack(magmaFluid, 50), 100);
