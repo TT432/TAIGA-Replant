@@ -22,7 +22,7 @@ public class CraftingRegistry {
         convertion(Item.getItemFromBlock(Blocks.palladiumBlock), Items.palladiumIngot, Items.palladiumNugget);
         convertion(Item.getItemFromBlock(Blocks.uruBlock), Items.uruIngot, Items.uruNugget);
         convertion(Item.getItemFromBlock(Blocks.osramBlock), Items.osramIngot, Items.osramNugget);
-        convertion(Item.getItemFromBlock(Blocks.eezoBlock), Items.eezoIngot, Items.eezoIngot);
+        convertion(Item.getItemFromBlock(Blocks.eezoBlock), Items.eezoIngot, Items.eezoNugget);
         convertion(Item.getItemFromBlock(Blocks.abyssumBlock), Items.abyssumIngot, Items.abyssumNugget);
         convertion(Item.getItemFromBlock(Blocks.terraxBlock), Items.terraxIngot, Items.terraxNugget);
         convertion(Item.getItemFromBlock(Blocks.triberiumBlock), Items.triberiumIngot, Items.triberiumNugget);
