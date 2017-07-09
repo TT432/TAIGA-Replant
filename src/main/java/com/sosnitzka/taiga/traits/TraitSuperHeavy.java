@@ -1,6 +1,5 @@
 package com.sosnitzka.taiga.traits;
 
-import com.sosnitzka.taiga.generic.TraitProgressiveStats;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;

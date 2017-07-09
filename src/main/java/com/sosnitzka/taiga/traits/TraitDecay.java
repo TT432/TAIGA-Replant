@@ -1,7 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
 import com.google.common.collect.ImmutableList;
-import com.sosnitzka.taiga.generic.TraitProgressiveStats;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

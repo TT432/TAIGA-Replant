@@ -3,7 +3,6 @@ package com.sosnitzka.taiga.traits;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
@@ -32,8 +31,8 @@ public class TraitSlaughtering extends AbstractTrait {
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
             if (!w.isRemote && event.getEntity() instanceof EntityLiving && !(event.getEntity() instanceof EntityPlayer) && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
-                Item i = event.getDrops().get(random.nextInt(event.getDrops().size())).getItem().getItem();
-                event.getDrops().add(new EntityItem(event.getEntity().getEntityWorld(), event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, new ItemStack(i, random.nextInt(4) + 1)));
+                ItemStack i = event.getDrops().get(random.nextInt(event.getDrops().size())).getItem();
+                event.getDrops().add(new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, new ItemStack(i.getItem(), random.nextInt(4) + 1, i.getMetadata(), i.getTagCompound())));
             }
         }
     }

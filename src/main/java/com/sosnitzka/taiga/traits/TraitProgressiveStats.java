@@ -1,4 +1,4 @@
-package com.sosnitzka.taiga.generic;
+package com.sosnitzka.taiga.traits;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;

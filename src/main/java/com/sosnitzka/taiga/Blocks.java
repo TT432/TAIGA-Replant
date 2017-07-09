@@ -70,7 +70,6 @@ public class Blocks {
     public static Block invaliteBlock = new BasicBlock("invalite_block", Material.ROCK, 20.0f, 35.0f, VIBRANIUM, PREFIX_BLOCK);
 
 
-
     /**
      * Registers all materials' ingots and nuggets <br>
      * Detailed summary: <br>
