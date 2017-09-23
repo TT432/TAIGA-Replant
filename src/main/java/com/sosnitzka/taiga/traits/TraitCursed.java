@@ -22,7 +22,7 @@ import java.util.Optional;
 
 public class TraitCursed extends AbstractTrait {
 
-    private static int chance = 20000;
+    private static int chance = 60 * 1000;
 
     public TraitCursed() {
         super(TraitCursed.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);

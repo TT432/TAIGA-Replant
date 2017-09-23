@@ -14,7 +14,9 @@ import static slimeknights.tconstruct.tools.TinkerTraits.crumbling;
 public class MaterialTraits {
 
     // new hardness levels
-    public static final int VIBRANIUM = 5;
+    public static final int DURANITE = 5;
+    public static final int VALYRIUM = 6;
+    public static final int VIBRANIUM = 7;
 
     // Init of new traits
     public static final AbstractTrait instable = new TraitInstable();

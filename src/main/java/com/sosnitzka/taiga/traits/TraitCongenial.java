@@ -57,7 +57,7 @@ public class TraitCongenial extends AbstractTrait {
                 return damage;
             }
             if (!data.name.equals(target.getName())) {
-                return damage / (random.nextInt(5) + 2);
+                return damage / (random.nextInt(5) + 5);
             }
             float x = (1 + random.nextFloat() * 9);
             return damage * x;
