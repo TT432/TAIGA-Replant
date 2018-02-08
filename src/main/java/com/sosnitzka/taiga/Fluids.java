@@ -2,8 +2,9 @@ package com.sosnitzka.taiga;
 
 
 import com.sosnitzka.taiga.generic.BasicTinkerFluid;
-import com.sosnitzka.taiga.util.Utils;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
@@ -16,10 +17,12 @@ public class Fluids {
     public static BasicTinkerFluid basaltFluid = new BasicTinkerFluid("basalt_fluid", 0xFFe4ddc3, 550, 10, 6000);
     public static BasicTinkerFluid tiberiumFluid = new BasicTinkerFluid("tiberium_fluid", 0xFFd4ff00, 400, 10, 8000);
     public static BasicTinkerFluid auroriumFluid = new BasicTinkerFluid("aurorium_fluid", 0xFFefae94, 750, 10, 10000);
-    public static BasicTinkerFluid prometheumFluid = new BasicTinkerFluid("prometheum_fluid", 0xFF372c49, 850, 10, 10000);
+    public static BasicTinkerFluid prometheumFluid = new BasicTinkerFluid("prometheum_fluid", 0xFF372c49, 850, 10,
+            10000);
     public static BasicTinkerFluid duraniteFluid = new BasicTinkerFluid("duranite_fluid", 0xFFacddeb, 1400, 10, 10000);
     public static BasicTinkerFluid valyriumFluid = new BasicTinkerFluid("valyrium_fluid", 0xFFe85c31, 1915, 10, 10000);
-    public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium_fluid", 0xFFbad2d9, 3050, 10, 10000);
+    public static BasicTinkerFluid vibraniumFluid = new BasicTinkerFluid("vibranium_fluid", 0xFFbad2d9, 3050, 10,
+            10000);
     public static BasicTinkerFluid karmesineFluid = new BasicTinkerFluid("karmesine_fluid", 0xFFeb484a, 750, 10, 9000);
     public static BasicTinkerFluid jauxumFluid = new BasicTinkerFluid("jauxum_fluid", 0xFF68c663, 750, 10, 9000);
     public static BasicTinkerFluid oviumFluid = new BasicTinkerFluid("ovium_fluid", 0xFF7d77c3, 750, 10, 9000);
@@ -35,7 +38,8 @@ public class Fluids {
     public static BasicTinkerFluid proxiiFluid = new BasicTinkerFluid("proxii_fluid", 0xFFcefde1, 750, 10, 10000);
     public static BasicTinkerFluid tritoniteFluid = new BasicTinkerFluid("tritonite_fluid", 0xFF8edeff, 550, 10, 10000);
     public static BasicTinkerFluid ignitzFluid = new BasicTinkerFluid("ignitz_fluid", 0xFFff284b, 950, 10, 6000);
-    public static BasicTinkerFluid imperomiteFluid = new BasicTinkerFluid("imperomite_fluid", 0xFF7fefa0, 900, 10, 10000);
+    public static BasicTinkerFluid imperomiteFluid = new BasicTinkerFluid("imperomite_fluid", 0xFF7fefa0, 900, 10,
+            10000);
     public static BasicTinkerFluid solariumFluid = new BasicTinkerFluid("solarium_fluid", 0xFFfef864, 1500, 10, 2000);
     public static BasicTinkerFluid nihiliteFluid = new BasicTinkerFluid("nihilite_fluid", 0xFF6645ba, 580, 10, 10000);
     public static BasicTinkerFluid adamantFluid = new BasicTinkerFluid("adamant_fluid", 0xFFff8efe, 1650, 10, 10000);
@@ -48,7 +52,8 @@ public class Fluids {
     public static BasicTinkerFluid yrdeenFluid = new BasicTinkerFluid("yrdeen_fluid", 0xFF8f385f, 710, 10, 10000);
     public static BasicTinkerFluid ioxFluid = new BasicTinkerFluid("iox_fluid", 0xFF99323c, 900, 10, 10000);
     public static BasicTinkerFluid meteoriteFluid = new BasicTinkerFluid("meteorite_fluid", 0xFF374f3d, 950, 10, 7000);
-    public static BasicTinkerFluid obsidioriteFluid = new BasicTinkerFluid("obsidiorite_fluid", 0xFF224853, 1050, 10, 7000);
+    public static BasicTinkerFluid obsidioriteFluid = new BasicTinkerFluid("obsidiorite_fluid", 0xFF224853, 1050, 10,
+            7000);
     public static BasicTinkerFluid magmaFluid = new BasicTinkerFluid("magma_fluid", 0xFFffc000, 2000, 10, 5000);
     public static BasicTinkerFluid nitroniteFluid = new BasicTinkerFluid("nitronite_fluid", 0xFFCCFF00, 3100, 10, 5000);
 
@@ -68,16 +73,18 @@ public class Fluids {
             if (java.lang.reflect.Modifier.isStatic(field.getModifiers())) { // Checks that the fields are static
                 Class<?> targetType = field.getType();
                 try {
-                    BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType); // Gets the field as a BasicTinkerFluid
+                    BasicTinkerFluid fluid = (BasicTinkerFluid) field.get(targetType); // Gets the field as a
+                    // BasicTinkerFluid
                     registerFluid(fluid); // Registers the fluid into the game along wit its bucket
 
                     BlockMolten block = new BlockMolten(fluid);
                     // Sets names
                     block.setUnlocalizedName("molten_" + fluid.getName());
                     block.setRegistryName(TAIGA.MODID, "molten_" + fluid.getName());
-                    // Registers the fluid in its block form and its corresponding item (block/fluid as item in inventory)
-                    Utils.registerBlockWithItem(block);
-                    // Registers the fluid's model but only on the client side
+                    // Registers the fluid in its block form and its corresponding item (block/fluid as item in
+                    // inventory)
+                    ForgeRegistries.BLOCKS.register(block);
+                    ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
                     TAIGA.proxy.registerFluidModels(fluid);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

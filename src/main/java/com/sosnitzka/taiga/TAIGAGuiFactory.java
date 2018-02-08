@@ -11,7 +11,6 @@ import net.minecraftforge.fml.client.config.GuiConfig;
 import net.minecraftforge.fml.client.config.GuiConfigEntries;
 import net.minecraftforge.fml.client.config.IConfigElement;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -32,31 +31,23 @@ public class TAIGAGuiFactory implements IModGuiFactory {
     }
 
     @Override
-    public Class<? extends GuiScreen> mainConfigGuiClass() {
-        return TAIGAConfigGui.class;
-    }
-
-    @Override
     public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
         return null;
     }
 
     public static class TAIGAConfigGui extends GuiConfig {
 
         public TAIGAConfigGui(GuiScreen parentScreen) {
-            super(parentScreen, getConfigElements(), TAIGA.MODID, false, false, I18n.format("gui.taiga_configuration.mainTitle"));
+            super(parentScreen, getConfigElements(), TAIGA.MODID, false, false, I18n.format("gui.taiga_configuration" +
+                    ".mainTitle"));
         }
 
         private static List<IConfigElement> getConfigElements() {
             List<IConfigElement> list = new ArrayList<IConfigElement>();
-            list.add(new DummyConfigElement.DummyCategoryElement("Basic configuration", "gui.taiga_configuration.ctgy.general", CategoryEntryGeneral.class));
-            list.add(new DummyConfigElement.DummyCategoryElement("Ore specific settings", "gui.taiga_configuration.ctgy.oregen", CategoryEntryOreGen.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Basic configuration", "gui.taiga_configuration.ctgy" +
+                    ".general", CategoryEntryGeneral.class));
+            list.add(new DummyConfigElement.DummyCategoryElement("Ore specific settings", "gui.taiga_configuration" +
+                    ".ctgy.oregen", CategoryEntryOreGen.class));
             return list;
         }
 
@@ -68,11 +59,15 @@ public class TAIGAGuiFactory implements IModGuiFactory {
             @Override
             protected GuiScreen buildChildScreen() {
                 Configuration configuration = TAIGAConfiguration.getConfig();
-                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration.CATEGORY_NAME_GENERAL));
+                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration
+                        .CATEGORY_NAME_GENERAL));
                 List<IConfigElement> propertiesOnThisScreen = cat_general.getChildElements();
                 String windowTitle = configuration.toString();
 
-                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_GENERAL, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
+                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID,
+                        TAIGAConfiguration.CATEGORY_NAME_GENERAL, this.configElement.requiresWorldRestart() || this
+                        .owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this
+                        .owningScreen.allRequireMcRestart, windowTitle);
             }
         }
 
@@ -84,11 +79,15 @@ public class TAIGAGuiFactory implements IModGuiFactory {
             @Override
             protected GuiScreen buildChildScreen() {
                 Configuration configuration = TAIGAConfiguration.getConfig();
-                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration.CATEGORY_NAME_ORE_GEN));
+                ConfigElement cat_general = new ConfigElement(configuration.getCategory(TAIGAConfiguration
+                        .CATEGORY_NAME_ORE_GEN));
                 List<IConfigElement> propertiesOnThisScreen = cat_general.getChildElements();
                 String windowTitle = configuration.toString();
 
-                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID, TAIGAConfiguration.CATEGORY_NAME_ORE_GEN, this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, windowTitle);
+                return new GuiConfig(this.owningScreen, propertiesOnThisScreen, this.owningScreen.modID,
+                        TAIGAConfiguration.CATEGORY_NAME_ORE_GEN, this.configElement.requiresWorldRestart() || this
+                        .owningScreen.allRequireWorldRestart, this.configElement.requiresMcRestart() || this
+                        .owningScreen.allRequireMcRestart, windowTitle);
             }
         }
     }

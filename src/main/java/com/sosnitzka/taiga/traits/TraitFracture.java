@@ -24,7 +24,8 @@ public class TraitFracture extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         float f = random.nextFloat();
         float b = 0.99F * calcBonus(tool);
         if (!world.isRemote && tool.canHarvestBlock(state) && f <= b) {
@@ -34,32 +35,38 @@ public class TraitFracture extends AbstractTrait {
                     switch (mop.sideHit) {
                         case UP:
                             BlockPos next1 = new BlockPos(pos.getX(), pos.getY() - i, pos.getZ());
-                            if (tool.canHarvestBlock(world.getBlockState(next1)) && !world.getBlockState(next1).equals(Blocks.BEDROCK.getDefaultState()))
+                            if (tool.canHarvestBlock(world.getBlockState(next1)) && !world.getBlockState(next1)
+                                    .equals(Blocks.BEDROCK.getDefaultState()))
                                 world.destroyBlock(next1, true);
                             break;
                         case DOWN:
                             BlockPos next2 = new BlockPos(pos.getX(), pos.getY() + i, pos.getZ());
-                            if (tool.canHarvestBlock(world.getBlockState(next2)) && !world.getBlockState(next2).equals(Blocks.BEDROCK.getDefaultState()))
+                            if (tool.canHarvestBlock(world.getBlockState(next2)) && !world.getBlockState(next2)
+                                    .equals(Blocks.BEDROCK.getDefaultState()))
                                 world.destroyBlock(next2, true);
                             break;
                         case WEST:
                             BlockPos next3 = new BlockPos(pos.getX() + i, pos.getY(), pos.getZ());
-                            if (tool.canHarvestBlock(world.getBlockState(next3)) && !world.getBlockState(next3).equals(Blocks.BEDROCK.getDefaultState()))
+                            if (tool.canHarvestBlock(world.getBlockState(next3)) && !world.getBlockState(next3)
+                                    .equals(Blocks.BEDROCK.getDefaultState()))
                                 world.destroyBlock(next3, true);
                             break;
                         case EAST:
                             BlockPos next4 = new BlockPos(pos.getX() - i, pos.getY(), pos.getZ());
-                            if (tool.canHarvestBlock(world.getBlockState(next4)) && !world.getBlockState(next4).equals(Blocks.BEDROCK.getDefaultState()))
+                            if (tool.canHarvestBlock(world.getBlockState(next4)) && !world.getBlockState(next4)
+                                    .equals(Blocks.BEDROCK.getDefaultState()))
                                 world.destroyBlock(next4, true);
                             break;
                         case SOUTH:
                             BlockPos next5 = new BlockPos(pos.getX(), pos.getY(), pos.getZ() - i);
-                            if (tool.canHarvestBlock(world.getBlockState(next5)) && !world.getBlockState(next5).equals(Blocks.BEDROCK.getDefaultState()))
+                            if (tool.canHarvestBlock(world.getBlockState(next5)) && !world.getBlockState(next5)
+                                    .equals(Blocks.BEDROCK.getDefaultState()))
                                 world.destroyBlock(next5, true);
                             break;
                         case NORTH:
                             BlockPos next6 = new BlockPos(pos.getX(), pos.getY() - i, pos.getZ() + i);
-                            if (tool.canHarvestBlock(world.getBlockState(next6)) && !world.getBlockState(next6).equals(Blocks.BEDROCK.getDefaultState()))
+                            if (tool.canHarvestBlock(world.getBlockState(next6)) && !world.getBlockState(next6)
+                                    .equals(Blocks.BEDROCK.getDefaultState()))
                                 world.destroyBlock(next6, true);
                             break;
                     }

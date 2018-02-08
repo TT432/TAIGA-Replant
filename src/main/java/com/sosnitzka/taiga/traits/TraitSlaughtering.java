@@ -30,9 +30,13 @@ public class TraitSlaughtering extends AbstractTrait {
         World w = event.getEntity().getEntityWorld();
         if (event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (!w.isRemote && event.getEntity() instanceof EntityLiving && !(event.getEntity() instanceof EntityPlayer) && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (!w.isRemote && event.getEntity() instanceof EntityLiving && !(event.getEntity() instanceof
+                    EntityPlayer) && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()),
+                    identifier)) {
                 ItemStack i = event.getDrops().get(random.nextInt(event.getDrops().size())).getItem();
-                event.getDrops().add(new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, new ItemStack(i.getItem(), random.nextInt(4) + 1, i.getMetadata(), i.getTagCompound())));
+                event.getDrops().add(new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event
+                        .getEntity().posZ, new ItemStack(i.getItem(), random.nextInt(4) + 1, i.getMetadata(), i
+                        .getTagCompound())));
             }
         }
     }

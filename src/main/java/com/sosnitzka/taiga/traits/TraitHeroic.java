@@ -17,7 +17,8 @@ public class TraitHeroic extends AbstractTrait {
     }
 
     @Override
-    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float
+            newDamage, boolean isCritical) {
         int durability = ToolHelper.getCurrentDurability(tool);
         int durabilitymax = ToolHelper.getMaxDurability(tool);
         int safeDenominator = durabilitymax - durability - 1;
@@ -30,7 +31,8 @@ public class TraitHeroic extends AbstractTrait {
         } else {
             calc = newDamage + (newDamage / 2) / ((durability * durabilitymax / safeDenominator) + 1);
         }
-        if ((float) durability < (float) (0.10 * durabilitymax) || player.getHealth() < player.getMaxHealth() / 8 || (target.getHealth() == target.getMaxHealth() && random.nextFloat() > 0.8)) {
+        if ((float) durability < (float) (0.10 * durabilitymax) || player.getHealth() < player.getMaxHealth() / 8 ||
+                (target.getHealth() == target.getMaxHealth() && random.nextFloat() > 0.8)) {
             return super.damage(tool, player, target, damage, calc, isCritical);
         } else return super.damage(tool, player, target, damage, newDamage * 0.9f, isCritical);
     }

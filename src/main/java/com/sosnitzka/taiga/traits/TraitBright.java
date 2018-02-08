@@ -26,7 +26,8 @@ public class TraitBright extends AbstractTrait {
     }
 
     @Override
-    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float
+            newDamage, boolean isCritical) {
         int time = (int) target.getEntityWorld().getWorldTime();
         if (!isNight(time)) {
             newDamage = damage * (1 + random.nextFloat() / 2f);
@@ -36,7 +37,8 @@ public class TraitBright extends AbstractTrait {
 
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         if (random.nextFloat() >= chance) {
             player.addPotionEffect(new PotionEffect(GLOWING, 200));
         }

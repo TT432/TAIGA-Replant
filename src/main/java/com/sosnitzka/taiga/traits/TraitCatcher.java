@@ -102,7 +102,8 @@ public class TraitCatcher extends AbstractTrait {
                     data.mobName = "";
                     data.write(tag);
                     TagUtil.setExtraTag(tool, tag);
-                    ToolHelper.damageTool(tool, random.nextInt((int) (ToolHelper.getCurrentDurability(tool) * costMulti)), event.getEntityPlayer());
+                    ToolHelper.damageTool(tool, random.nextInt((int) (ToolHelper.getCurrentDurability(tool) *
+                            costMulti)), event.getEntityPlayer());
                 }
             }
         }
@@ -116,7 +117,8 @@ public class TraitCatcher extends AbstractTrait {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (!data.mobClass.isEmpty())
-                e.getToolTip().add(TextFormatting.DARK_PURPLE + "Captured: " + TextFormatting.LIGHT_PURPLE + data.mobName);
+                e.getToolTip().add(TextFormatting.DARK_PURPLE + "Captured: " + TextFormatting.LIGHT_PURPLE + data
+                        .mobName);
         }
     }
 

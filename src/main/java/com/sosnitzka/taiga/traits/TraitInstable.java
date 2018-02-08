@@ -31,7 +31,8 @@ public class TraitInstable extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         if (random.nextFloat() <= 0.03) {
             if (!world.isRemote) {
                 if (random.nextBoolean()) {
@@ -43,7 +44,8 @@ public class TraitInstable extends AbstractTrait {
     }
 
     @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            wasCritical, boolean wasHit) {
         BlockPos pos = target.getPosition();
         if (random.nextFloat() <= 0.04) {
             if (!player.getEntityWorld().isRemote) {
@@ -60,9 +62,11 @@ public class TraitInstable extends AbstractTrait {
         World w = event.getEntity().getEntityWorld();
         if (random.nextFloat() < 0.05 && !w.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player
+                    .getHeldItemMainhand()), identifier)) {
                 ItemStack i = new ItemStack(Items.GUNPOWDER, random.nextInt(2));
-                event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
+                event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event
+                        .getEntity().posZ, i));
             }
         }
     }

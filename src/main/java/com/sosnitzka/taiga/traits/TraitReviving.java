@@ -37,7 +37,8 @@ public class TraitReviving extends AbstractTrait {
         World w = e.getEntity().getEntityWorld();
         if (!w.isRemote && e.getSource().getTrueSource() != null) {
             if (e.getSource().getTrueSource() instanceof EntityPlayer && e.getEntity() instanceof EntityCreature) {
-                if (random.nextFloat() <= chance && TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()), identifier)) {
+                if (random.nextFloat() <= chance && TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e
+                        .getSource().getTrueSource()).getHeldItemMainhand()), identifier)) {
                     int id = e.getEntity().getEntityId();
                     Entity ent = EntityList.createEntityByID(id, w);
                     if (ent != null) {

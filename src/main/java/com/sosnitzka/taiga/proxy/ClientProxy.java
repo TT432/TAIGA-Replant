@@ -39,7 +39,6 @@ public class ClientProxy extends CommonProxy {
 
     private static void registerItemModel(Item item) {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-
     }
 
     @Override
@@ -86,15 +85,18 @@ public class ClientProxy extends CommonProxy {
         else if (material.equals(vibranium)) metalRender(material, vibraniumFluid.getColor(), 0.6f, .8f, 1f);
         else if (material.equals(valyrium)) metalRender(material, valyriumFluid.getColor(), .8f, 1.5f, -0.1f);
         else {
-            material.setRenderInfo(new MaterialRenderInfo.BlockTexture("taiga:blocks/block/" + material.getIdentifier()));
+            material.setRenderInfo(new MaterialRenderInfo.BlockTexture(new ResourceLocation("taiga:blocks/block/" +
+                    material.getIdentifier())));
         }
     }
 
-    private void metalRender(final Material material, final int f, final float shine, final float brightness, final float hueshift) {
+    private void metalRender(final Material material, final int f, final float shine, final float brightness, final
+    float hueshift) {
         material.setRenderInfo(new MaterialRenderInfo.AbstractMaterialRenderInfo() {
             @Override
-            public TextureAtlasSprite getTexture(TextureAtlasSprite baseTexture, String location) {
-                return new MetalTextureTexture("taiga:materials/" + material.getIdentifier(), baseTexture, location, f, shine, brightness, hueshift);
+            public TextureAtlasSprite getTexture(ResourceLocation baseTexture, String location) {
+                return new MetalTextureTexture(new ResourceLocation("taiga:materials/" + material.getIdentifier()),
+                        baseTexture, location, f, shine, brightness, hueshift);
             }
         });
     }
@@ -127,13 +129,11 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void registerBookPages() {
-
         TinkerBook.INSTANCE.addRepository(new FileRepository("taiga:book"));
         registerPageType("taigaore", ContentOre.class);
     }
 
     public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {
-
         public final Fluid fluid;
         public final ModelResourceLocation location;
 
@@ -141,7 +141,8 @@ public class ClientProxy extends CommonProxy {
             this.fluid = fluid;
 
             // have each block hold its fluid per nbt? hm
-            this.location = new ModelResourceLocation(new ResourceLocation(TAIGA.MODID, "fluid_block"), fluid.getName());
+            this.location = new ModelResourceLocation(new ResourceLocation(TAIGA.MODID, "fluid_block"), fluid.getName
+                    ());
         }
 
         @Nonnull

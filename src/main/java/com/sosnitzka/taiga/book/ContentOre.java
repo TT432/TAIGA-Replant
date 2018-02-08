@@ -22,7 +22,7 @@ public class ContentOre extends TinkerPage {
 
     public static final transient float ITEM_SCALE = 1.5F;
 
-    public String title = "Ore";
+    public String title;
     public int r, g, b;
 
     public ItemStackData input;
@@ -31,8 +31,6 @@ public class ContentOre extends TinkerPage {
 
     @Override
     public void build(BookData book, ArrayList<BookElement> list, boolean rightSide) {
-
-
         TextData tdTitle = new TextData(title);
         tdTitle.underlined = true;
 
@@ -47,7 +45,7 @@ public class ContentOre extends TinkerPage {
         }
 
         int h = GuiBook.PAGE_WIDTH / 3 - 10;
-        if (informations.length > 0) {
+        if (informations != null && informations.length > 0) {
             TextData head = new TextData(parent.translate("modifier.informations"));
             head.underlined = true;
             list.add(new ElementText(10, 20 + h, GuiBook.PAGE_WIDTH / 2 - 5, GuiBook.PAGE_HEIGHT - h - 20, head));

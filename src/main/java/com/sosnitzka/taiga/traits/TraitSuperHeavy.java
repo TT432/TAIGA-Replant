@@ -37,11 +37,13 @@ public class TraitSuperHeavy extends TraitProgressiveStats {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
         if (data.brokenblocks == 0) return;
-        event.setNewSpeed(Math.max(event.getNewSpeed() - data.brokenblocks * event.getOriginalSpeed() / blockcount, 0.35f));
+        event.setNewSpeed(Math.max(event.getNewSpeed() - data.brokenblocks * event.getOriginalSpeed() / blockcount,
+                0.35f));
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
         data.brokenblocks += 1;

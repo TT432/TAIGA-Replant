@@ -22,7 +22,8 @@ public class TraitFragile extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         if (random.nextBoolean()) {
             float f = random.nextFloat();
             float b = 0.99F * calcBonus(tool);

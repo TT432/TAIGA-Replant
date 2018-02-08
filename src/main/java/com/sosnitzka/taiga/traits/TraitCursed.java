@@ -36,7 +36,8 @@ public class TraitCursed extends AbstractTrait {
         if (random.nextInt((chance + data.curse) / (data.curse + 1)) == 1) {
             if (isSelected) data.curse += 10;
             else data.curse++;
-            entity.attackEntityFrom(new DamageSource("Curse"), random.nextFloat() * ((EntityPlayer) entity).getHealth() / 2);
+            entity.attackEntityFrom(new DamageSource("Curse"), random.nextFloat() * ((EntityPlayer) entity).getHealth
+                    () / 2);
         }
 
         data.write(tag);

@@ -46,7 +46,8 @@ public class BlockTiberium extends BasicBlock {
     public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
         if (!worldIn.isRemote) {
             if (random.nextFloat() < 0.5) {
-                worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), random.nextFloat() * 2f + 1.5f, true, true);
+                worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), random.nextFloat() * 2f + 1.5f, true,
+                        true);
             }
         }
     }

@@ -3,14 +3,11 @@ package com.sosnitzka.taiga.util;
 
 import com.sosnitzka.taiga.Items;
 import com.sosnitzka.taiga.TAIGA;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.commons.lang3.StringUtils;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
@@ -29,16 +26,6 @@ public class Utils {
     public static String PREFIX_BLOCK = "block";
     public static String PREFIX_DUST = "dust";
     public static String PREFIX_CRYSTAL = "crystal";
-
-    /**
-     * Registers the block and its corresponding item (block as item in inventory)
-     *
-     * @param block the associated block
-     */
-    public static void registerBlockWithItem(Block block) {
-        GameRegistry.register(block);
-        GameRegistry.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-    }
 
     /**
      * Registers the fluid and its bucket item
@@ -65,8 +52,11 @@ public class Utils {
         return (Math.round(d * 100.0) / 100.0);
     }
 
-    public static void integrateMaterial(String oreSuffix, @Nullable Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, float draw, float range, int bdamage) {
-        integrateMaterial(oreSuffix, material, fluid, headDura, headSpeed, headAttack, handleMod, handleDura, extra, headLevel, new BowMaterialStats(draw, range, bdamage), false, true);
+    public static void integrateMaterial(String oreSuffix, @Nullable Material material, Fluid fluid, int headDura,
+                                         float headSpeed, float headAttack, float handleMod, int handleDura, int
+                                                 extra, int headLevel, float draw, float range, int bdamage) {
+        integrateMaterial(oreSuffix, material, fluid, headDura, headSpeed, headAttack, handleMod, handleDura, extra,
+                headLevel, new BowMaterialStats(draw, range, bdamage), false, true);
     }
 
     public static void integrateMaterial(String oreSuffix, @Nullable Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, BowMaterialStats bowstats) {
@@ -78,7 +68,8 @@ public class Utils {
             if (TinkerRegistry.getMaterial(material.identifier) != Material.UNKNOWN)
                 return;
 
-            TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack, headLevel));
+            TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack,
+                    headLevel));
             TinkerRegistry.addMaterialStats(material, new HandleMaterialStats(handleMod, handleDura));
             TinkerRegistry.addMaterialStats(material, new ExtraMaterialStats(extra));
             TinkerRegistry.addMaterialStats(material, bowstats);
@@ -103,12 +94,13 @@ public class Utils {
         }
 
         MaterialIntegration integration = new MaterialIntegration(material, fluid, oreSuffix);
-        integration.integrate();
+        integration.preInit();
         TAIGA.integrateList.add(integration);
     }
 
     public static void integrateOre(String oreSuffix, Fluid fluid) {
-        integrateMaterial(oreSuffix, null, fluid, -1, -1, -1, -1, -1, -1, -1, new BowMaterialStats(0.1f, 0.1f, -1f), true, true);
+        integrateMaterial(oreSuffix, null, fluid, -1, -1, -1, -1, -1, -1, -1, new BowMaterialStats(0.1f, 0.1f, -1f),
+                true, true);
     }
 
     public static int nextInt(Random random, int min, int max) {

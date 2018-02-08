@@ -31,8 +31,10 @@ public class TraitCongenial extends AbstractTrait {
 
     @SubscribeEvent
     public void onEntityKill(LivingDeathEvent e) {
-        if (e.getSource().getTrueSource() instanceof EntityPlayer && !e.getSource().getTrueSource().world.isRemote && e.getEntity() instanceof EntityCreature) {
-            if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()), identifier)) {
+        if (e.getSource().getTrueSource() instanceof EntityPlayer && !e.getSource().getTrueSource().world.isRemote &&
+                e.getEntity() instanceof EntityCreature) {
+            if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getTrueSource())
+                    .getHeldItemMainhand()), identifier)) {
                 ItemStack tool = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
                 String name = e.getEntity().getName();
                 NBTTagCompound tag = TagUtil.getExtraTag(tool);
@@ -48,7 +50,8 @@ public class TraitCongenial extends AbstractTrait {
     }
 
     @Override
-    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float
+            newDamage, boolean isCritical) {
         World w = player.getEntityWorld();
         if (!w.isRemote) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);

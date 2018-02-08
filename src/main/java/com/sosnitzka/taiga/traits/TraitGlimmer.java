@@ -37,14 +37,16 @@ public class TraitGlimmer extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         if (random.nextFloat() <= 0.05) {
             player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, random.nextInt(600) + 300));
         }
     }
 
     @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            wasCritical, boolean wasHit) {
         if (random.nextFloat() <= 0.05) {
             player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, random.nextInt(600) + 300));
         }

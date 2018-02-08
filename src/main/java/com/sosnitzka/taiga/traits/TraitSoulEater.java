@@ -51,7 +51,8 @@ public class TraitSoulEater extends AbstractTrait {
     }
 
     @Override
-    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
+    public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float
+            newDamage, boolean isCritical) {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
         float bonus = data.bonus;

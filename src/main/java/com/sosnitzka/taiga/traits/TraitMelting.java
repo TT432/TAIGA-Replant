@@ -28,7 +28,8 @@ public class TraitMelting extends AbstractTrait {
     public void blockbreak(BlockEvent.BreakEvent e) {
         Block b = e.getWorld().getBlockState(e.getPos()).getBlock();
         if (TinkerUtil.hasTrait(TagUtil.getTagSafe(e.getPlayer().getHeldItemMainhand()), identifier)) {
-            if (!e.getWorld().isRemote && random.nextFloat() <= 0.025 && (b == Blocks.STONE || b == Blocks.COBBLESTONE || b == Blocks.NETHERRACK || b == Blocks.OBSIDIAN)) {
+            if (!e.getWorld().isRemote && random.nextFloat() <= 0.025 && (b == Blocks.STONE || b == Blocks
+                    .COBBLESTONE || b == Blocks.NETHERRACK || b == Blocks.OBSIDIAN)) {
                 e.setCanceled(true);
                 e.getWorld().setBlockState(e.getPos(), Blocks.LAVA.getDefaultState());
             }

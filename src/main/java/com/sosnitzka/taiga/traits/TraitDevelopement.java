@@ -28,7 +28,8 @@ public class TraitDevelopement extends AbstractTrait {
     public void onBreak(BlockEvent.BreakEvent e) {
         IBlockState state = e.getState();
         ItemStack tool = e.getPlayer().getHeldItemMainhand();
-        if (state.getBlock().equals(net.minecraft.init.Blocks.STONE) && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier))
+        if (state.getBlock().equals(net.minecraft.init.Blocks.STONE) && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool),
+                identifier))
             System.out.println("State.Variant: " + state.getValue(BlockStone.VARIANT));
     }
 

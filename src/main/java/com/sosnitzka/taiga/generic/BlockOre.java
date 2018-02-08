@@ -20,7 +20,8 @@ public class BlockOre extends Block {
     private int itemAmount;
     private int xpAmount;
 
-    public BlockOre(String name, Material material, float hardness, float resistance, int harvest, float lightLevel, Item item, int amount, int xp) {
+    public BlockOre(String name, Material material, float hardness, float resistance, int harvest, float lightLevel,
+                    Item item, int amount, int xp) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -55,7 +56,8 @@ public class BlockOre extends Block {
     public void onBlockDestroyedByExplosion(World worldIn, BlockPos pos, Explosion explosionIn) {
         if (!worldIn.isRemote) {
             if (random.nextFloat() < 0.5) {
-                worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), random.nextFloat() * 4f + 1.5f, true, true);
+                worldIn.newExplosion(null, pos.getX(), pos.getY(), pos.getZ(), random.nextFloat() * 4f + 1.5f, true,
+                        true);
             }
         }
     }

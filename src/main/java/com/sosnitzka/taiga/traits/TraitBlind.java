@@ -23,7 +23,8 @@ public class TraitBlind extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         int time = (int) world.getWorldTime();
         if (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) {
             if (random.nextBoolean())
@@ -34,7 +35,8 @@ public class TraitBlind extends AbstractTrait {
     }
 
     @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            wasCritical, boolean wasHit) {
         int time = (int) player.getEntityWorld().getWorldTime();
         if (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) {
             if (random.nextBoolean())

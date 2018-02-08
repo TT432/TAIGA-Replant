@@ -3,15 +3,13 @@ package com.sosnitzka.taiga.blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.block.EnumBlock;
 
-import javax.annotation.Nonnull;
-import java.util.List;
 import java.util.Locale;
 
 public class BlockMetal extends EnumBlock<BlockMetal.MetalTypes> {
@@ -24,7 +22,7 @@ public class BlockMetal extends EnumBlock<BlockMetal.MetalTypes> {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void getSubBlocks(@Nonnull Item itemIn, CreativeTabs tab, List<ItemStack> list) {
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
         for (MetalTypes type : MetalTypes.values()) {
             list.add(new ItemStack(this, 1, type.getMeta()));
         }

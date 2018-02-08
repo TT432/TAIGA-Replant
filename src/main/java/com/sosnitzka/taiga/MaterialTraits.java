@@ -73,10 +73,12 @@ public class MaterialTraits {
 
     public static Material tiberium = new Material("tiberium", TextFormatting.GREEN).addTrait(instable);
     public static Material aurorium = new Material("aurorium", TextFormatting.RED).addTrait(arcane);
-    public static Material prometheum = new Material("prometheum", TextFormatting.DARK_PURPLE).addTrait(blind, MaterialTypes.HANDLE).addTrait(catcher);
+    public static Material prometheum = new Material("prometheum", TextFormatting.DARK_PURPLE).addTrait(blind,
+            MaterialTypes.HANDLE).addTrait(catcher);
     public static Material duranite = new Material("duranite", TextFormatting.YELLOW).addTrait(analysing);
     public static Material valyrium = new Material("valyrium", TextFormatting.DARK_GRAY).addTrait(congenial);
-    public static Material vibranium = new Material("vibranium", TextFormatting.GRAY).addTrait(resonance, MaterialTypes.HANDLE).addTrait(heroic, MaterialTypes.HEAD);
+    public static Material vibranium = new Material("vibranium", TextFormatting.GRAY).addTrait(resonance,
+            MaterialTypes.HANDLE).addTrait(heroic, MaterialTypes.HEAD);
     public static Material terrax = new Material("terrax", TextFormatting.DARK_GRAY).addTrait(slaughtering);
     public static Material palladium = new Material("palladium", TextFormatting.GOLD).addTrait(dark).addTrait(cursed);
     public static Material uru = new Material("uru", TextFormatting.DARK_RED).addTrait(diffuse);
@@ -87,19 +89,23 @@ public class MaterialTraits {
     public static Material violium = new Material("violium", TextFormatting.DARK_PURPLE).addTrait(arcane);
     public static Material proxii = new Material("proxii", TextFormatting.LIGHT_PURPLE).addTrait(curvature);
     public static Material tritonite = new Material("tritonite", TextFormatting.GOLD).addTrait(whirl);
-    public static Material ignitz = new Material("ignitz", TextFormatting.RED).addTrait(melting).addTrait(garishly, MaterialTypes.HANDLE);
+    public static Material ignitz = new Material("ignitz", TextFormatting.RED).addTrait(melting).addTrait(garishly,
+            MaterialTypes.HANDLE);
     public static Material imperomite = new Material("imperomite", TextFormatting.DARK_RED).addTrait(hollow);
-    public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(superheavy).addTrait(crushing);
+    public static Material solarium = new Material("solarium", TextFormatting.YELLOW).addTrait(superheavy).addTrait
+            (crushing);
     public static Material nihilite = new Material("nihilite", TextFormatting.DARK_GRAY).addTrait(souleater);
     public static Material adamant = new Material("adamant", TextFormatting.GOLD).addTrait(berserk);
     public static Material dyonite = new Material("dyonite", TextFormatting.GREEN).addTrait(tantrum);
     public static Material nucleum = new Material("nucleum", TextFormatting.YELLOW).addTrait(decay).addTrait(mutate);
-    public static Material lumix = new Material("lumix", TextFormatting.YELLOW).addTrait(bright, MaterialTypes.HANDLE).addTrait(glimmer, MaterialTypes.HEAD);
+    public static Material lumix = new Material("lumix", TextFormatting.YELLOW).addTrait(bright, MaterialTypes
+            .HANDLE).addTrait(glimmer, MaterialTypes.HEAD);
     public static Material seismum = new Material("seismum", TextFormatting.GREEN).addTrait(cascade);
     public static Material astrium = new Material("astrium", TextFormatting.DARK_PURPLE).addTrait(ported);
     public static Material niob = new Material("niob", TextFormatting.RED).addTrait(reviving);
     public static Material yrdeen = new Material("yrdeen", TextFormatting.RED).addTrait(naturebound);
-    public static Material meteorite = new Material("meteorite", TextFormatting.DARK_GREEN).addTrait(crumbling, MaterialTypes.HEAD).addTrait(pulverizing);
+    public static Material meteorite = new Material("meteorite", TextFormatting.DARK_GREEN).addTrait(crumbling,
+            MaterialTypes.HEAD).addTrait(pulverizing);
     public static Material obsidiorite = new Material("obsidiorite", obsidioriteFluid.getColor()).addTrait(alien);
 
     public static Material osram = new Material("osram", TextFormatting.GOLD);

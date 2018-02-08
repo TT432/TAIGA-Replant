@@ -34,7 +34,8 @@ public class TraitGarishly extends AbstractTrait {
         World w = event.getEntity().getEntityWorld();
         if (!w.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player
+                    .getHeldItemMainhand()), identifier)) {
 
                 int r = random.nextInt(2);
                 ItemStack i = null;
@@ -50,7 +51,8 @@ public class TraitGarishly extends AbstractTrait {
                         break;
                 }
                 assert i != null;
-                event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
+                event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event
+                        .getEntity().posZ, i));
             }
         }
     }
@@ -60,7 +62,8 @@ public class TraitGarishly extends AbstractTrait {
         float r = random.nextFloat();
         if (random.nextBoolean()) event.getDrops().clear();
         else if (r < 0.25 && event.getWorld().getBlockState(event.getPos()).getMaterial() == Material.ROCK) {
-            @SuppressWarnings("ConstantConditions") ItemStack stack = new ItemStack(Item.getItemFromBlock(event.getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(3));
+            @SuppressWarnings("ConstantConditions") ItemStack stack = new ItemStack(Item.getItemFromBlock(event
+                    .getWorld().getBlockState(event.getPos()).getBlock()), random.nextInt(3));
             event.getDrops().add(0, stack);
             ToolHelper.damageTool(tool, random.nextInt(6) + 1, event.getHarvester());
         }

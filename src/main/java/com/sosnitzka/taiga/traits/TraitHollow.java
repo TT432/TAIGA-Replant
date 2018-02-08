@@ -30,7 +30,8 @@ public class TraitHollow extends AbstractTrait {
 
 
     @Override
-    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            isCritical) {
         int time = (int) player.getEntityWorld().getWorldTime();
         if (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) {
             ((EntityLiving) target).setNoAI(true);
@@ -46,7 +47,8 @@ public class TraitHollow extends AbstractTrait {
         World w = event.getEntity().getEntityWorld();
         if (!w.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (random.nextFloat() <= 0.9 && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (random.nextFloat() <= 0.9 && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil
+                    .getTagSafe(player.getHeldItemMainhand()), identifier)) {
                 event.getDrops().clear();
             }
         }

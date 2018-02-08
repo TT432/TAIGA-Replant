@@ -30,7 +30,8 @@ public class TraitArcane extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         int time = (int) world.getWorldTime();
         if (random.nextFloat() <= 0.05 && isNight(time)) {
             ToolHelper.healTool(tool, random.nextInt(8) + 1, null);
@@ -38,7 +39,8 @@ public class TraitArcane extends AbstractTrait {
     }
 
     @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            wasCritical, boolean wasHit) {
         int time = (int) player.getEntityWorld().getWorldTime();
         if (random.nextFloat() <= 0.05 && isNight(time)) {
             ToolHelper.healTool(tool, random.nextInt(8) + 1, null);
@@ -52,7 +54,8 @@ public class TraitArcane extends AbstractTrait {
         if (!w.isRemote && e.getSource().getTrueSource() != null) {
             if (e.getSource().getTrueSource() instanceof EntityPlayer && e.getEntity() instanceof EntityCreature) {
                 ItemStack tool = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
-                if (isNight((int) w.getWorldTime()) && random.nextFloat() < 0.1 && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+                if (isNight((int) w.getWorldTime()) && random.nextFloat() < 0.1 && TinkerUtil.hasTrait(TagUtil
+                        .getTagSafe(tool), identifier)) {
                     ToolHelper.healTool(tool, random.nextInt(16), null);
                 }
             }

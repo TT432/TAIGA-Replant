@@ -2,10 +2,12 @@ package com.sosnitzka.taiga.recipes;
 
 import com.sosnitzka.taiga.Blocks;
 import com.sosnitzka.taiga.Items;
+import com.sosnitzka.taiga.TAIGA;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class CraftingRegistry {
 
@@ -51,10 +53,15 @@ public class CraftingRegistry {
     }
 
     public static void convertion(Item block, Item ingot, Item nugget) {
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block), "###", "###", "###", '#', new ItemStack(ingot)));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ingot), "###", "###", "###", '#', new ItemStack(nugget)));
-        GameRegistry.addShapelessRecipe(new ItemStack(ingot, 9), new ItemStack(block));
-        GameRegistry.addShapelessRecipe(new ItemStack(nugget, 9), new ItemStack(ingot));
+        //GameData.register_impl(new ShapedOreRecipe());
+        //GameData.register_impl(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(ingot), "###", "###",
+        //        "###", '#', new ItemStack(nugget)));
+        //GameRegistry.addShapedRecipe(new ResourceLocation(TAIGA.MODID + ":recipe_ingot_from_block_" + block.getUnlocalizedName()), new ResourceLocation(""), new ItemStack(block), "###", "###", "###", '#', new ItemStack(ingot));
+        GameRegistry.addShapelessRecipe(new ResourceLocation(TAIGA.MODID + ":recipe_ingot_from_block_" + block
+                .getUnlocalizedName()), new ResourceLocation(""), new ItemStack(ingot, 9), Ingredient.fromStacks(new
+                ItemStack(block)));
+        GameRegistry.addShapelessRecipe(new ResourceLocation(TAIGA.MODID + ":recipe_ingot_from_nugget_" + block
+                .getUnlocalizedName()), new ResourceLocation(""), new ItemStack(nugget, 9), Ingredient.fromStacks(new
+                ItemStack(ingot)));
     }
-
 }

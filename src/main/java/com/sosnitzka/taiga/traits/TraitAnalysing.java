@@ -29,7 +29,8 @@ public class TraitAnalysing extends AbstractTrait {
     @SubscribeEvent
     public void onXpDrop(LivingExperienceDropEvent event) {
         EntityPlayer player = event.getAttackingPlayer();
-        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier) && event.getDroppedExperience() > 0) {
+        if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)
+                && event.getDroppedExperience() > 0) {
             event.setDroppedExperience(this.getUpdateXP(event.getDroppedExperience()));
         }
     }
@@ -37,7 +38,8 @@ public class TraitAnalysing extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (!event.getWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier) && event.getExpToDrop() > 0) {
+        if (!event.getWorld().isRemote && player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player
+                .getHeldItemMainhand()), this.identifier) && event.getExpToDrop() > 0) {
             event.setExpToDrop(this.getUpdateXP(event.getExpToDrop()));
         }
     }
@@ -47,14 +49,16 @@ public class TraitAnalysing extends AbstractTrait {
         World w = event.getEntity().getEntityWorld();
         if (random.nextFloat() < .1f && event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (!w.isRemote && event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe
+                    (player.getHeldItemMainhand()), identifier)) {
                 event.getDrops().clear();
             }
         }
     }
 
     private int getUpdateXP(int xp) {
-        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextInt(xp) * (1 + random.nextFloat()));
+        float exp = random.nextFloat() * random.nextFloat() * random.nextFloat() * (xp + random.nextInt(xp) * (1 +
+                random.nextFloat()));
         return Math.round(exp);
     }
 

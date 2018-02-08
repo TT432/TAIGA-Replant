@@ -41,7 +41,9 @@ public class TraitCurvature extends AbstractTrait {
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent event) {
         if (!event.getWorld().isRemote && random.nextFloat() < 0.05) {
-            List<IBlockState> blockstates = Lists.newArrayList(Blocks.STONE.getDefaultState(), Blocks.NETHERRACK.getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), Blocks.DIRT.getDefaultState());
+            List<IBlockState> blockstates = Lists.newArrayList(Blocks.STONE.getDefaultState(), Blocks.NETHERRACK
+                    .getDefaultState(), Blocks.END_STONE.getDefaultState(), Blocks.AIR.getDefaultState(), Blocks.DIRT
+                    .getDefaultState());
             IBlockState mainstate = event.getState();
             if (blockstates.contains(mainstate)) return;
             for (int i = 0; i < chance; i++) {
@@ -54,7 +56,8 @@ public class TraitCurvature extends AbstractTrait {
                     event.getDrops().clear();
                     event.getWorld().setBlockState(cPos, mainstate);
                     event.getHarvester().playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-                    event.getHarvester().sendStatusMessage(new TextComponentString("Teleported to: " + x + " " + y + " " + z), false);
+                    event.getHarvester().sendStatusMessage(new TextComponentString("Teleported to: " + x + " " + y +
+                            " " + z), false);
                     return;
                 }
             }
@@ -62,7 +65,8 @@ public class TraitCurvature extends AbstractTrait {
     }
 
     @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            wasCritical, boolean wasHit) {
         if (random.nextFloat() <= 0.15) {
             target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             changePos(player, target);
@@ -74,9 +78,11 @@ public class TraitCurvature extends AbstractTrait {
         World w = event.getEntity().getEntityWorld();
         if (!w.isRemote && event.getSource().getTrueSource() instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
-            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), identifier)) {
+            if (event.getEntity() instanceof EntityMob && TinkerUtil.hasTrait(TagUtil.getTagSafe(player
+                    .getHeldItemMainhand()), identifier)) {
                 ItemStack i = new ItemStack(Items.ENDER_PEARL, random.nextInt(2));
-                event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event.getEntity().posZ, i));
+                event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event
+                        .getEntity().posZ, i));
             }
         }
     }

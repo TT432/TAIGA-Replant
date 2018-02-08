@@ -13,7 +13,8 @@ public class BlockMeteoriteRock extends BasicBlock {
 
     private IBlockState cobbblestate;
 
-    public BlockMeteoriteRock(String name, Material material, float hardness, float resistance, int harvestlevel, float light, String oreDictPrefix, IBlockState cobble) {
+    public BlockMeteoriteRock(String name, Material material, float hardness, float resistance, int harvestlevel,
+                              float light, String oreDictPrefix, IBlockState cobble) {
         super(name, material, hardness, resistance, harvestlevel, light, oreDictPrefix);
         MinecraftForge.EVENT_BUS.register(this);
         this.cobbblestate = cobble;

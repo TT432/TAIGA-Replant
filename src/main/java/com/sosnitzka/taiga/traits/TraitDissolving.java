@@ -29,7 +29,8 @@ public class TraitDissolving extends AbstractTrait {
         if (!event.getEntity().getEntityWorld().isRemote) {
             EntityPlayer player = event.getAttackingPlayer();
             float r = random.nextFloat();
-            if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this.identifier)) {
+            if (player != null && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()), this
+                    .identifier)) {
                 if (r <= 0.80) {
                     event.setDroppedExperience(0);
                 } else {

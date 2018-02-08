@@ -37,7 +37,8 @@ public class TraitPorted extends AbstractTrait {
     }
 
     @Override
-    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase player, boolean wasEffective) {
+    public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
+            player, boolean wasEffective) {
         if (random.nextFloat() <= 0.005) {
             player.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             teleport(player, world);
@@ -46,7 +47,8 @@ public class TraitPorted extends AbstractTrait {
 
 
     @Override
-    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean wasCritical, boolean wasHit) {
+    public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
+            wasCritical, boolean wasHit) {
         if (random.nextFloat() <= 0.005) {
             target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             teleport(player, player.getEntityWorld());
@@ -66,7 +68,8 @@ public class TraitPorted extends AbstractTrait {
             return;
         }
         e.setPosition(tPos.getX(), tPos.getY(), tPos.getZ());
-        ToolHelper.damageTool(e.getHeldItemMainhand(), ToolHelper.getCurrentDurability(e.getHeldItemMainhand()) / 2 + 1, e);
+        ToolHelper.damageTool(e.getHeldItemMainhand(), ToolHelper.getCurrentDurability(e.getHeldItemMainhand()) / 2 +
+                1, e);
     }
 
     @Override

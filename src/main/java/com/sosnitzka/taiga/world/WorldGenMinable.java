@@ -1,6 +1,5 @@
 package com.sosnitzka.taiga.world;
 
-import com.google.common.base.Predicate;
 import com.sosnitzka.taiga.util.StateMatcher;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -11,6 +10,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class WorldGenMinable extends net.minecraft.world.gen.feature.WorldGenMinable {
     private final IBlockState oreBlock;
@@ -25,7 +25,7 @@ public class WorldGenMinable extends net.minecraft.world.gen.feature.WorldGenMin
     }
 
     public WorldGenMinable(IBlockState state, int blockCount, Predicate<IBlockState> predicate) {
-        super(state, blockCount, predicate);
+        super(state, blockCount, predicate::test);
         this.oreBlock = state;
         this.numberOfBlocks = blockCount;
         this.predicate = predicate;

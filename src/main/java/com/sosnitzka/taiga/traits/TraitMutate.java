@@ -29,7 +29,9 @@ public class TraitMutate extends AbstractTrait {
     public void beforeBlockBreak(ItemStack tool, BlockEvent.BreakEvent event) {
         if (!event.getWorld().isRemote && random.nextFloat() > 0.95) {
             IBlockState state = event.getState();
-            List<Block> blist = newArrayList(Blocks.STONE, Blocks.COBBLESTONE, Blocks.DIRT, Blocks.SAND, Blocks.GRASS, Blocks.CLAY, Blocks.NETHERRACK, Blocks.ICE, Blocks.SNOW, Blocks.BONE_BLOCK, Blocks.LAVA, Blocks.WATER, Blocks.WHEAT);
+            List<Block> blist = newArrayList(Blocks.STONE, Blocks.COBBLESTONE, Blocks.DIRT, Blocks.SAND, Blocks
+                            .GRASS, Blocks.CLAY, Blocks.NETHERRACK, Blocks.ICE, Blocks.SNOW, Blocks.BONE_BLOCK, Blocks.LAVA,
+                    Blocks.WATER, Blocks.WHEAT);
             if (blist.contains(state.getBlock())) {
                 Block newBlock = blist.get(random.nextInt(blist.size()));
                 IBlockState newState = newBlock.getDefaultState();

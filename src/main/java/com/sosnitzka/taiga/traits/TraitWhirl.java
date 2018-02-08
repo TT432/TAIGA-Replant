@@ -68,8 +68,11 @@ public class TraitWhirl extends AbstractTrait {
                             if (MathHelper.sqrt(x * x + y * y + z * z) > r) {
                                 continue;
                             }
-                            BlockPos nPos = new BlockPos(event.getPos().getX() + x, event.getPos().getY() + y, event.getPos().getZ() + z);
-                            if (!(event.getWorld().getBlockState(nPos).equals(Blocks.WATER.getDefaultState()) || event.getWorld().getBlockState(nPos).equals(Blocks.FLOWING_WATER.getDefaultState())))
+                            BlockPos nPos = new BlockPos(event.getPos().getX() + x, event.getPos().getY() + y, event
+                                    .getPos().getZ() + z);
+                            if (!(event.getWorld().getBlockState(nPos).equals(Blocks.WATER.getDefaultState()) ||
+                                    event.getWorld().getBlockState(nPos).equals(Blocks.FLOWING_WATER.getDefaultState
+                                            ())))
                                 continue;
                             event.getWorld().destroyBlock(nPos, false);
                         }
@@ -93,7 +96,8 @@ public class TraitWhirl extends AbstractTrait {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
             if (data.radius > 0) {
-                e.getToolTip().add(TextFormatting.BLUE + "Actual Radius: " + TextFormatting.WHITE + Math.round(data.radius * 100) / 100);
+                e.getToolTip().add(TextFormatting.BLUE + "Actual Radius: " + TextFormatting.WHITE + Math.round(data
+                        .radius * 100) / 100);
             }
         }
     }

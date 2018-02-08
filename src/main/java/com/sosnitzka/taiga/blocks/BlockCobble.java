@@ -11,7 +11,8 @@ import static slimeknights.tconstruct.TConstruct.random;
 
 public class BlockCobble extends BasicBlock {
 
-    public BlockCobble(String name, Material material, float hardness, float resistance, int harvestlevel, float light, String oreDictPrefix) {
+    public BlockCobble(String name, Material material, float hardness, float resistance, int harvestlevel, float
+            light, String oreDictPrefix) {
         super(name, material, hardness, resistance, harvestlevel, light, oreDictPrefix);
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -24,7 +25,8 @@ public class BlockCobble extends BasicBlock {
                 if (random.nextBoolean()) {
                     e.getWorld().setBlockState(e.getPos(), Blocks.LAVA.getDefaultState());
                 } else {
-                    e.getWorld().newExplosion(null, e.getPos().getX(), e.getPos().getY() + 1 / 16f, e.getPos().getZ(), 0.5f + random.nextFloat() * 1.5f, false, true);
+                    e.getWorld().newExplosion(null, e.getPos().getX(), e.getPos().getY() + 1 / 16f, e.getPos().getZ()
+                            , 0.5f + random.nextFloat() * 1.5f, false, true);
                 }
             }
         }

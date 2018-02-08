@@ -52,7 +52,8 @@ public class TraitTantrum extends AbstractTrait {
                 if (data.amount >= max_charges) {
                     TagUtil.setEnchantEffect(tool, true);
                     if (event.getHarvester() instanceof EntityPlayerMP) {
-                        Sounds.PlaySoundForPlayer(event.getHarvester(), Sounds.shocking_discharge, 1f, 0.8f + .2f * random.nextFloat());
+                        Sounds.PlaySoundForPlayer(event.getHarvester(), Sounds.shocking_discharge, 1f, 0.8f + .2f *
+                                random.nextFloat());
                     }
                 }
                 data.write(tag);
@@ -71,7 +72,8 @@ public class TraitTantrum extends AbstractTrait {
             Data data = Data.read(tag);
             if (data.amount > 1f) {
                 double d = Math.min(Utils.round2(random.nextDouble() * data.amount), max_power);
-                w.newExplosion(event.getEntityPlayer(), pos.getX(), pos.getY(), pos.getZ(), (float) Math.pow((double) 1.2f, d), false, true);
+                w.newExplosion(event.getEntityPlayer(), pos.getX(), pos.getY(), pos.getZ(), (float) Math.pow((double)
+                        1.2f, d), false, true);
                 data.amount -= d;
                 data.write(tag);
                 TagUtil.setExtraTag(tool, tag);

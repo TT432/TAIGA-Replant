@@ -5,8 +5,8 @@ import com.google.gson.Gson;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSavedData;
 import net.minecraft.world.storage.MapStorage;
+import net.minecraft.world.storage.WorldSavedData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,8 @@ public class MeteorWorldSaveData extends WorldSavedData {
 
     public static MeteorWorldSaveData getForWorld(World world) {
         MapStorage storage = world.getPerWorldStorage();
-        MeteorWorldSaveData instance = (MeteorWorldSaveData) storage.getOrLoadData(MeteorWorldSaveData.class, DATA_NAME);
+        MeteorWorldSaveData instance = (MeteorWorldSaveData) storage.getOrLoadData(MeteorWorldSaveData.class,
+                DATA_NAME);
 
         if (instance == null) {
             instance = new MeteorWorldSaveData();

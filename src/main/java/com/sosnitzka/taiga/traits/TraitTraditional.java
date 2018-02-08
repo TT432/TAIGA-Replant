@@ -29,8 +29,10 @@ public class TraitTraditional extends AbstractTrait {
     @SubscribeEvent
     public void onEntityKill(LivingDeathEvent e) {
         World w = e.getEntity().getEntityWorld();
-        if (!w.isRemote && e.getSource().getTrueSource() instanceof EntityPlayer && e.getEntity() instanceof EntityCreature) {
-            if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()), identifier)) {
+        if (!w.isRemote && e.getSource().getTrueSource() instanceof EntityPlayer && e.getEntity() instanceof
+                EntityCreature) {
+            if (TinkerUtil.hasTrait(TagUtil.getTagSafe(((EntityPlayer) e.getSource().getTrueSource())
+                    .getHeldItemMainhand()), identifier)) {
                 String name = EntityList.getEntityString(e.getEntity());
             }
         }
