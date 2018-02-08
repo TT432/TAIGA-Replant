@@ -109,12 +109,8 @@ public class Blocks {
             DURANITE, 0.2f, PREFIX_BLOCK, blockObsidioriteCobble.getDefaultState());
 
     // Community
-
-    public static Block dilithiumOre = new BlockOre("dilithium_ore", Material.GLASS, 18f, 18f, DIAMOND, 0.73f, Items
-            .dilithiumCrystal, 3, 10);
-    public static Block dilithiumBlock = new BasicBlock("dilithium_block", Material.GLASS, 18f, 18f, DIAMOND, 0.73f,
-            PREFIX_ORE);
-
+    public static Block dilithiumOre = new BlockOre("dilithium_ore", Material.GLASS, 18f, 18f, DIAMOND, 0.73f, Items.dilithiumCrystal, 3, 10);
+    public static Block dilithiumBlock = new BasicBlock("dilithium_block", Material.GLASS, 18f, 18f, DIAMOND, 0.73f, PREFIX_BLOCK);
 
     /**
      * Registers all materials' ingots and nuggets <br>
