@@ -13,6 +13,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -68,6 +70,7 @@ public class TraitCongenial extends AbstractTrait {
         return damage;
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();

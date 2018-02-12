@@ -92,7 +92,6 @@ public class TraitBerserk extends TraitProgressiveStats {
                 TagUtil.setEnchantEffect(root, false);
                 TagUtil.setExtraTag(root, tag);
                 data.write(tag);
-
             } else {
                 stat.durability -= 10;
                 distributed.durability -= 10;

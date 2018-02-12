@@ -15,6 +15,8 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
@@ -88,7 +90,7 @@ public class TraitWhirl extends AbstractTrait {
         }
     }
 
-
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();

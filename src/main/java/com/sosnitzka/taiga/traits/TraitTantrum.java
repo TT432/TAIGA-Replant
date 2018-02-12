@@ -13,6 +13,8 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
@@ -82,6 +84,7 @@ public class TraitTantrum extends AbstractTrait {
         }
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent e) {
         ItemStack tool = e.getItemStack();

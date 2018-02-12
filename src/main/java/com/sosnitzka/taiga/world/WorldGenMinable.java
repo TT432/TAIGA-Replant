@@ -2,8 +2,6 @@ package com.sosnitzka.taiga.world;
 
 import com.sosnitzka.taiga.util.StateMatcher;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.block.state.pattern.BlockMatcher;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -19,10 +17,6 @@ public class WorldGenMinable extends net.minecraft.world.gen.feature.WorldGenMin
      */
     private final int numberOfBlocks;
     private final Predicate<IBlockState> predicate;
-
-    public WorldGenMinable(IBlockState state, int blockCount) {
-        this(state, blockCount, BlockMatcher.forBlock(Blocks.STONE));
-    }
 
     public WorldGenMinable(IBlockState state, int blockCount, Predicate<IBlockState> predicate) {
         super(state, blockCount, predicate::test);
