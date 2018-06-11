@@ -2,12 +2,8 @@ package com.sosnitzka.taiga.traits;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-
-import java.util.Optional;
 
 public class TraitResonance extends AbstractTrait {
 
@@ -25,11 +21,6 @@ public class TraitResonance extends AbstractTrait {
             target.knockBack(target, random.nextFloat() * random.nextFloat() * 10, player.posX - target.posX, player
                     .posZ - target.posZ);
         }
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }
 

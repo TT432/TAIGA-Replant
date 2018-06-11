@@ -4,18 +4,14 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-
-import java.util.Optional;
 
 public class TraitSlaughtering extends AbstractTrait {
 
@@ -39,10 +35,5 @@ public class TraitSlaughtering extends AbstractTrait {
                         .getTagCompound())));
             }
         }
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }

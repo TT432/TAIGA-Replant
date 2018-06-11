@@ -1,15 +1,11 @@
 package com.sosnitzka.taiga.traits;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-
-import java.util.Optional;
 
 public class TraitPulverizing extends AbstractTrait {
 
@@ -36,10 +32,5 @@ public class TraitPulverizing extends AbstractTrait {
         if (random.nextFloat() < 0.6) {
             event.getDrops().clear();
         }
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }

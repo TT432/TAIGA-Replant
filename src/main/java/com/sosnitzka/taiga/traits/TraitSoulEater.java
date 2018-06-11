@@ -6,7 +6,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,17 +14,12 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
-import java.util.Optional;
-
 
 public class TraitSoulEater extends AbstractTrait {
-
-    private static float divisor = 25000f;
 
     public TraitSoulEater() {
         super(TraitSoulEater.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
@@ -43,6 +37,7 @@ public class TraitSoulEater extends AbstractTrait {
                 float health = ((EntityLiving) event.getEntity()).getMaxHealth();
                 data.killcount += 1;
                 data.health = health;
+                float divisor = 25000f;
                 float bonus = Math.round(random.nextFloat() * health * 100) / divisor;
                 data.bonus += bonus;
                 data.bonus = (float) Math.round(data.bonus * 100f) / 100f;
@@ -73,10 +68,5 @@ public class TraitSoulEater extends AbstractTrait {
                 e.getToolTip().add(TextFormatting.WHITE + "Bonus: " + TextFormatting.WHITE + data.bonus);
             }
         }
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }

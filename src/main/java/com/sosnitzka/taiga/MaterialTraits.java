@@ -21,7 +21,6 @@ public class MaterialTraits {
     // Init of new traits
     public static final AbstractTrait instable = new TraitInstable();
     public static final AbstractTrait naturebound = new TraitNatureBound();
-    public static final AbstractTrait uncertain = new TraitUncertain();
     public static final AbstractTrait softy = new TraitSofty();
     public static final AbstractTrait curvature = new TraitCurvature();
     public static final AbstractTrait resonance = new TraitResonance();
@@ -43,7 +42,6 @@ public class MaterialTraits {
     public static final AbstractTrait diffuse = new TraitDiffuse();
     public static final AbstractTrait reviving = new TraitReviving();
     public static final AbstractTrait melting = new TraitMelting();
-    public static final AbstractTrait traditional = new TraitTraditional();
     public static final AbstractTrait tantrum = new TraitTantrum();
     public static final AbstractTrait catcher = new TraitCatcher();
     public static final AbstractTrait congenial = new TraitCongenial();
@@ -53,12 +51,7 @@ public class MaterialTraits {
     public static final AbstractTrait decay = new TraitDecay();
     public static final AbstractTrait whirl = new TraitWhirl();
     public static final AbstractTrait superheavy = new TraitSuperHeavy();
-    public static final AbstractTrait dev = new TraitDevelopement();
-    public static final AbstractTrait carousel = new TraitCarousel();
     public static final AbstractTrait berserk = new TraitBerserk();
-    public static final AbstractTrait leveled1 = new TraitLeveled(1);
-    public static final AbstractTrait leveled2 = new TraitLeveled(2);
-    public static final AbstractTrait leveled3 = new TraitLeveled(3);
     public static final AbstractTrait crushing = new TraitCrushing();
     public static final AbstractTrait mutate = new TraitMutate();
 
@@ -104,7 +97,6 @@ public class MaterialTraits {
 
     public static Material osram = new Material("osram", TextFormatting.GOLD);
     public static Material abyssum = new Material("abyssum", TextFormatting.GOLD);
-    public static Material iox = new Material("iox", TextFormatting.RED);
     public static Material ovium = new Material("ovium", TextFormatting.BLUE);
     public static Material jauxum = new Material("jauxum", TextFormatting.YELLOW);
     public static Material karmesine = new Material("karmesine", TextFormatting.RED);

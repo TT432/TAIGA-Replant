@@ -50,7 +50,6 @@ task buildInfo {
         ext.buildNum = System.getenv().BUILD_NUMBER
     }
 
-
     def cmd = "git log \$(git tag --sort=-refname | sed -n '2p')..\$(git tag --sort=-refname | sed -n '1p') --oneline"
     def proc = cmd.execute()
     proc.waitFor()
@@ -64,7 +63,7 @@ task buildInfo {
 version = project.buildInfo.revision
 
 minecraft {
-    version = "1.12.2-14.23.2.2611"
+    version = "1.12.2-14.23.4.2705"
     runDir = "run"
     mappings = "snapshot_20170801"
     replace '@VERSION@', project.version

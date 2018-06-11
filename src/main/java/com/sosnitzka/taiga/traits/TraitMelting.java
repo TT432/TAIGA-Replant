@@ -2,18 +2,13 @@ package com.sosnitzka.taiga.traits;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
-
-import java.util.Optional;
 
 
 public class TraitMelting extends AbstractTrait {
@@ -34,11 +29,6 @@ public class TraitMelting extends AbstractTrait {
                 e.getWorld().setBlockState(e.getPos(), Blocks.LAVA.getDefaultState());
             }
         }
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }
 

@@ -2,13 +2,9 @@ package com.sosnitzka.taiga.traits;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-
-import java.util.Optional;
 
 public class TraitHeroic extends AbstractTrait {
 
@@ -35,10 +31,5 @@ public class TraitHeroic extends AbstractTrait {
                 (target.getHealth() == target.getMaxHealth() && random.nextFloat() > 0.8)) {
             return super.damage(tool, player, target, damage, calc, isCritical);
         } else return super.damage(tool, player, target, damage, newDamage * 0.9f, isCritical);
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }

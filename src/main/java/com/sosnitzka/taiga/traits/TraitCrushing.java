@@ -3,13 +3,9 @@ package com.sosnitzka.taiga.traits;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.world.BlockEvent;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-
-import java.util.Optional;
 
 public class TraitCrushing extends AbstractTrait {
 
@@ -34,10 +30,5 @@ public class TraitCrushing extends AbstractTrait {
                 } else e.getDrops().add(new ItemStack(Blocks.STONE));
             }
         }
-    }
-
-    @Override
-    public Optional<RecipeMatch.Match> matches(NonNullList<ItemStack> stacks) {
-        return null;
     }
 }
