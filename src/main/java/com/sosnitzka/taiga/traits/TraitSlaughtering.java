@@ -20,7 +20,6 @@ public class TraitSlaughtering extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-
     @SubscribeEvent
     public void onMobDrops(LivingDropsEvent event) {
         World w = event.getEntity().getEntityWorld();

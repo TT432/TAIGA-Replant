@@ -22,11 +22,10 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 import static com.sosnitzka.taiga.Blocks.tiberiumOre;
 
+/*
+ *  Collects tiberium, to release it for an explosion
+ */
 public class TraitTantrum extends AbstractTrait {
-
-    /*
-     *  Collects tiberium, to release it for an explosion
-     */
 
     public static float max_charges = 12f;
     public static float max_power = 5;
@@ -93,7 +92,6 @@ public class TraitTantrum extends AbstractTrait {
     }
 
     public static class Data {
-
         float amount;
 
         public static Data read(NBTTagCompound tag) {

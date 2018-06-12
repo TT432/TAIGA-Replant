@@ -16,7 +16,6 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitGlimmer extends AbstractTrait {
 
-
     public TraitGlimmer() {
         super("glimmer", TextFormatting.DARK_GRAY);
     }

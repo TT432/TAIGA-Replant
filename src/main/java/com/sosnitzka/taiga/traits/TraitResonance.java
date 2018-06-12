@@ -7,7 +7,6 @@ import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 public class TraitResonance extends AbstractTrait {
 
-
     public static float chance = 0.33f;
 
     public TraitResonance() {

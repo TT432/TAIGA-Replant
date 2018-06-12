@@ -48,15 +48,9 @@ public class CraftingRegistry {
         convertion(Item.getItemFromBlock(Blocks.blockMeteorite), Items.meteoriteIngot, Items.meteoriteNugget);
         convertion(Item.getItemFromBlock(Blocks.blockObsidiorite), Items.obsidioriteIngot, Items.obsidioriteNugget);
         convertion(Item.getItemFromBlock(Blocks.dilithiumBlock), Items.dilithiumIngot, Items.dilithiumNugget);
-        //convertion(Item.getItemFromBlock(Blocks.), Items., Items.);
-
     }
 
     public static void convertion(Item block, Item ingot, Item nugget) {
-        //GameData.register_impl(new ShapedOreRecipe());
-        //GameData.register_impl(new ShapedOreRecipe(new ResourceLocation(""), new ItemStack(ingot), "###", "###",
-        //        "###", '#', new ItemStack(nugget)));
-        //GameRegistry.addShapedRecipe(new ResourceLocation(TAIGA.MODID + ":recipe_ingot_from_block_" + block.getUnlocalizedName()), new ResourceLocation(""), new ItemStack(block), "###", "###", "###", '#', new ItemStack(ingot));
         GameRegistry.addShapelessRecipe(new ResourceLocation(TAIGA.MODID + ":recipe_ingot_from_block_" + block
                 .getUnlocalizedName()), new ResourceLocation(""), new ItemStack(ingot, 9), Ingredient.fromStacks(new
                 ItemStack(block)));

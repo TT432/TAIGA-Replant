@@ -15,6 +15,7 @@ import static com.google.common.collect.Lists.newArrayList;
 
 
 public class TraitMutate extends AbstractTrait {
+
     public TraitMutate() {
         super(TraitMutate.class.getSimpleName().toLowerCase().substring(5), TextFormatting.YELLOW);
         MinecraftForge.EVENT_BUS.register(this);
@@ -33,7 +34,6 @@ public class TraitMutate extends AbstractTrait {
                 event.setCanceled(true);
                 event.getWorld().setBlockState(event.getPos(), newState);
             }
-
         }
     }
 }

@@ -21,6 +21,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
 public class TraitInstable extends AbstractTrait {
+
     public TraitInstable() {
         super("instable", TextFormatting.DARK_RED);
         MinecraftForge.EVENT_BUS.register(this);

@@ -54,7 +54,6 @@ public class Generator {
                             .generate(world, random, new BlockPos(posX, posY, posZ));
                 }
             }
-
         }
     }
 
@@ -63,7 +62,6 @@ public class Generator {
         if (random.nextFloat() < (float) (0.01 * chance))
             generateOreDescending(replaceBlockList, replacementBlock, random, chunkX, chunkZ, world, count, minY, maxY);
     }
-
 
     public static void generateOreDescending(List<IBlockState> replaceBlockList, IBlockState replacementBlock, Random
             random, int chunkX, int chunkZ, World world, int count, int minY, int maxY) {
@@ -194,7 +192,6 @@ public class Generator {
             }
         }
     }
-
 
     public static int generateMeteor(IBlockState centerBlock, IBlockState hullBlock, Random random, int chunkX, int
             chunkZ, World world, int count, int chance, int minY, int maxY) {

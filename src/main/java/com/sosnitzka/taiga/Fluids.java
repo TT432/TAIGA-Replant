@@ -58,7 +58,6 @@ public class Fluids {
     public static BasicTinkerFluid nitroniteFluid = new BasicTinkerFluid("nitronite_fluid", 0xFFCCFF00, 3100, 10, 5000);
 
     // Community
-
     public static BasicTinkerFluid dilithiumFluid = new BasicTinkerFluid("dilithium_fluid", 0xFF79aea6, 1500, 10, 5000);
 
     /**
@@ -102,7 +101,6 @@ public class Fluids {
         TinkerRegistry.registerMelting(net.minecraft.init.Blocks.MAGMA, magmaFluid, 288);
         TinkerRegistry.registerMelting(Items.dilithiumCrystal, dilithiumFluid, 72);
         TinkerRegistry.registerMelting(Items.tiberiumCrystal, tiberiumFluid, 72);
-
 
         TinkerRegistry.registerSmelteryFuel(new FluidStack(magmaFluid, 50), 100);
         TinkerRegistry.registerSmelteryFuel(new FluidStack(nitroniteFluid, 100), 500);

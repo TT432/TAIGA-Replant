@@ -56,7 +56,7 @@ public class MaterialTraits {
     public static final AbstractTrait mutate = new TraitMutate();
 
 
-    /**
+    /*
      * Assign traits to related materials. <br>
      * <p>
      * <p> Example:

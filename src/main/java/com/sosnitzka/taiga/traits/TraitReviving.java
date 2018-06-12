@@ -18,7 +18,6 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitReviving extends AbstractTrait {
 
-
     public final float chance = 0.15f;
 
     public TraitReviving() {

@@ -12,6 +12,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
 public class TraitNatureBound extends AbstractTrait {
+
     public TraitNatureBound() {
         super("naturebound", TextFormatting.GREEN);
         MinecraftForge.EVENT_BUS.register(this);

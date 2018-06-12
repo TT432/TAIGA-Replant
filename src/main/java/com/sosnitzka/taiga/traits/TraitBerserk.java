@@ -45,7 +45,6 @@ public class TraitBerserk extends TraitProgressiveStats {
         return newDamage * 4;
     }
 
-
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         if (!world.isRemote) {

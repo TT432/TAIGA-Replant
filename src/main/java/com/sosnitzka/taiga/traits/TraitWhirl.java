@@ -34,11 +34,7 @@ public class TraitWhirl extends AbstractTrait {
 
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-
-        if (entity instanceof FakePlayer || entity.world.isRemote) {
-            return;
-        }
-        if (entity.ticksExisted % TICK_PER_STAT > 0) {
+        if (entity instanceof FakePlayer || entity.world.isRemote || entity.ticksExisted % TICK_PER_STAT != 0) {
             return;
         }
 
@@ -83,7 +79,6 @@ public class TraitWhirl extends AbstractTrait {
                 TagUtil.setEnchantEffect(tool, false);
                 ToolHelper.damageTool(tool, 2 * r, event.getEntityPlayer());
             }
-
         }
     }
 

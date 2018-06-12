@@ -20,8 +20,6 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 
 public class TraitCongenial extends AbstractTrait {
-
-
     public TraitCongenial() {
         super(TraitCongenial.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
         MinecraftForge.EVENT_BUS.register(this);

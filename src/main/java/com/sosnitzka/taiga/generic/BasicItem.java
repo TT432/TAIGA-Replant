@@ -14,16 +14,6 @@ public class BasicItem extends Item {
         this.oreDictPrefix = oreDictPrefix;
     }
 
-    public BasicItem(String name, String oreDictPrefix, String registryname) {
-        setUnlocalizedName(name);
-        setRegistryName(registryname);
-        this.oreDictPrefix = oreDictPrefix;
-    }
-
-    public BasicItem(String name) {
-        this(name, null);
-    }
-
     public boolean isOreDict() {
         return this.oreDictPrefix != null;
     }

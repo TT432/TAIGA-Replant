@@ -19,6 +19,7 @@ import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
 public class TraitPorted extends AbstractTrait {
+
     public static int distance = 10;
 
     public TraitPorted() {
@@ -41,7 +42,6 @@ public class TraitPorted extends AbstractTrait {
             teleport(player, world);
         }
     }
-
 
     @Override
     public void afterHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean

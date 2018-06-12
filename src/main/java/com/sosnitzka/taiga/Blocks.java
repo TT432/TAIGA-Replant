@@ -24,7 +24,6 @@ import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 
 public class Blocks {
 
-
     // blocks and ores spawned via worldgen
     public static Block basaltBlock = new BasicBlock("basalt_block", Material.ROCK, 20.0f, 35.0f, IRON, PREFIX_BLOCK);
     public static Block tiberiumOre = new BlockTiberium();

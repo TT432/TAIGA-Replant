@@ -31,7 +31,6 @@ public class TraitBright extends AbstractTrait {
         return super.damage(tool, player, target, damage, newDamage, isCritical);
     }
 
-
     @Override
     public void afterBlockBreak(ItemStack tool, World world, IBlockState state, BlockPos pos, EntityLivingBase
             player, boolean wasEffective) {

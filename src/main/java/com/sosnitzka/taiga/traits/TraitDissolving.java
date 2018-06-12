@@ -18,7 +18,6 @@ public class TraitDissolving extends AbstractTrait {
     }
 
     // high chance to remove XP, low chance to double,triple or quatruple dropped Experience
-
     @SubscribeEvent
     public void onXpDrop(LivingExperienceDropEvent event) {
         if (!event.getEntity().getEntityWorld().isRemote) {

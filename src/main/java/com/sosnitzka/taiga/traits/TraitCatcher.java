@@ -64,7 +64,6 @@ public class TraitCatcher extends AbstractTrait {
         }
     }
 
-
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         if (!world.isRemote) {
@@ -76,7 +75,6 @@ public class TraitCatcher extends AbstractTrait {
                 TagUtil.setEnchantEffect(tool, true);
         }
     }
-
 
     @SubscribeEvent
     public void onRightClickItem(PlayerInteractEvent.RightClickItem event) {

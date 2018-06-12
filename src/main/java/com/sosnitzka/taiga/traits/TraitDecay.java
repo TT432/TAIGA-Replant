@@ -62,16 +62,7 @@ public class TraitDecay extends TraitProgressiveStats {
 
     @Override
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
-        if (entity instanceof FakePlayer || entity.world.isRemote) {
-            return;
-        }
-        // every 3.6 seconds we distribute one stat. This means 1h = 1000 applications
-        if (entity.ticksExisted % TICK_PER_STAT > 0) {
-            return;
-        }
-
-        // we don't update if the player is currently breaking a block because that'd reset it
-        if (playerIsBreakingBlock(entity)) {
+        if (entity instanceof FakePlayer || entity.world.isRemote || entity.ticksExisted % TICK_PER_STAT != 0 || playerIsBreakingBlock(entity)) {
             return;
         }
 

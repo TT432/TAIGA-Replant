@@ -20,8 +20,6 @@ import slimeknights.tconstruct.library.utils.TinkerUtil;
 
 public class TraitCursed extends AbstractTrait {
 
-    private static int chance = 60 * 1000;
-
     public TraitCursed() {
         super(TraitCursed.class.getSimpleName().toLowerCase().substring(5), TextFormatting.RED);
         MinecraftForge.EVENT_BUS.register(this);
@@ -31,6 +29,7 @@ public class TraitCursed extends AbstractTrait {
     public void onUpdate(ItemStack tool, World world, Entity entity, int itemSlot, boolean isSelected) {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
+        int chance = 60 * 1000;
         if (random.nextInt((chance + data.curse) / (data.curse + 1)) == 1) {
             if (isSelected) data.curse += 10;
             else data.curse++;

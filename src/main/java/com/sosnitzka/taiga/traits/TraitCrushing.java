@@ -13,7 +13,6 @@ public class TraitCrushing extends AbstractTrait {
         super(TraitCrushing.class.getSimpleName().toLowerCase().substring(5), TextFormatting.GRAY);
     }
 
-
     @Override
     public void blockHarvestDrops(ItemStack tool, BlockEvent.HarvestDropsEvent e) {
         if (!e.getWorld().isRemote) {

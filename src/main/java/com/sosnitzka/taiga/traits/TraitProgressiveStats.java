@@ -29,13 +29,6 @@ public abstract class TraitProgressiveStats extends AbstractTrait {
         applied_key = identifier + "StatBonus";
     }
 
-    public TraitProgressiveStats(String identifier, int color) {
-        super(identifier, color);
-
-        pool_key = identifier + "StatPool";
-        applied_key = identifier + "StatBonus";
-    }
-
     /* Modifier management */
 
     protected static StatNBT getStats(NBTTagCompound root, String key) {
