@@ -1,5 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
+import com.sosnitzka.taiga.Keybindings;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
@@ -28,7 +29,7 @@ public class TraitPorted extends AbstractTrait {
     @SubscribeEvent
     public void onItemRightClick(PlayerInteractEvent.RightClickItem e) {
         ItemStack tool = e.getEntityPlayer().getHeldItemMainhand();
-        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier))
+        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && Keybindings.altKey.isKeyDown())
             teleport(e.getEntityPlayer(), e.getWorld());
     }
 

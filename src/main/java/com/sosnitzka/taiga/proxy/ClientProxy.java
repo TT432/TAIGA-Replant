@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import slimeknights.mantle.client.book.repository.FileRepository;
 import slimeknights.tconstruct.library.book.TinkerBook;
 import slimeknights.tconstruct.library.client.MaterialRenderInfo;
@@ -27,6 +28,7 @@ import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 
 import static com.sosnitzka.taiga.Fluids.*;
+import static com.sosnitzka.taiga.Keybindings.altKey;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 import static slimeknights.mantle.client.book.BookLoader.registerPageType;
 
@@ -39,6 +41,11 @@ public class ClientProxy extends CommonProxy {
 
     private static void registerItemModel(Item item) {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
+
+    @Override
+    public void regsiterKeyBindings() {
+        ClientRegistry.registerKeyBinding(altKey);
     }
 
     @Override

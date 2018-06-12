@@ -1,5 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
+import com.sosnitzka.taiga.Keybindings;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -61,11 +62,11 @@ public class TraitTantrum extends AbstractTrait {
     }
 
     @SubscribeEvent
-    public void RightClickItem(PlayerInteractEvent.RightClickItem event) {
+    public void rightClickItem(PlayerInteractEvent.RightClickItem event) {
         World w = event.getWorld();
         BlockPos pos = event.getPos();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && Keybindings.altKey.isKeyDown()) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (data.amount > 1f) {

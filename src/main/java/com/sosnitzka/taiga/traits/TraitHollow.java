@@ -24,7 +24,6 @@ public class TraitHollow extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-
     @Override
     public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
             isCritical) {

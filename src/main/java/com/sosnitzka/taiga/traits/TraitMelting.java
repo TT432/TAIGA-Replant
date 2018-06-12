@@ -18,7 +18,6 @@ public class TraitMelting extends AbstractTrait {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-
     @SubscribeEvent
     public void blockbreak(BlockEvent.BreakEvent e) {
         Block b = e.getWorld().getBlockState(e.getPos()).getBlock();

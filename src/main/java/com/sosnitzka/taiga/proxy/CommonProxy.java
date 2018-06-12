@@ -27,4 +27,8 @@ public class CommonProxy {
 
     public void registerBookPages() {
     }
+
+    public void regsiterKeyBindings() {
+
+    }
 }

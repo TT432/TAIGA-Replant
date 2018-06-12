@@ -351,8 +351,8 @@ modifier.whirl.name=Whirl
 modifier.whirl.desc=§oLike a sponge!§r\nRemove water at a gained radius.
 modifier.souleater.name=Soul Eater
 modifier.souleater.desc=§oKill a lot, be a veteran§r\nIf you kill a lot of enemies, your weapon will get stronger.
-modifier.beserk.name=BESERK
-modifier.beserk.desc=§oBecome the Hulk!§r\nActivate the life consumption and be three times faster and stronger.
+modifier.berserk.name=BESERK
+modifier.berserk.desc=§oBecome the Hulk!§r\nActivate the life consumption and be three times faster and stronger.
 modifier.tantrum.name=Tantrum
 modifier.tantrum.desc=§oCast an explosion!§r\nIf you activate the stacked explosion you won't get hurt.
 modifier.decay.name=Decay
@@ -367,3 +367,5 @@ modifier.crushing.desc=WIP
 gui.taiga_configuration.mainTitle=TAIGA Configuration
 itemGroup.taiga_block=TAIGA Blocks
 itemGroup.taiga_item=TAIGA Items
+
+key.taiga.alt_action=Mod Tool

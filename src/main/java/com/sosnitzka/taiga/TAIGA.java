@@ -58,6 +58,7 @@ public class TAIGA {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         proxy.registerModels(); // Registers models on the client side
+        proxy.regsiterKeyBindings();
 
         Fluids.registerfromItem(); // Registers some special smeltery recipes (not alloying)
         GameRegistry.registerWorldGenerator(WorldGen.getInstance(), 100); // Generates ores

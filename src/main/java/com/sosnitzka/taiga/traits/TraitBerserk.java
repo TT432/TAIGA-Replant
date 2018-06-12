@@ -16,6 +16,8 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import static com.sosnitzka.taiga.Keybindings.altKey;
+
 
 public class TraitBerserk extends TraitProgressiveStats {
 
@@ -53,11 +55,10 @@ public class TraitBerserk extends TraitProgressiveStats {
             NBTTagCompound root = TagUtil.getTagSafe(tool);
             StatNBT distributed = getBonus(root);
             if (data.active) {
-                TagUtil.setEnchantEffect(root, true);
-                if (entity instanceof FakePlayer) {
-                    return;
-                }
-                if (entity.ticksExisted % TICK_PER_STAT > 0) {
+                if (!TagUtil.hasEnchantEffect(root))
+                    TagUtil.setEnchantEffect(root, true);
+
+                if (entity instanceof FakePlayer || entity.ticksExisted % TICK_PER_STAT != 0) {
                     return;
                 }
 
@@ -69,7 +70,10 @@ public class TraitBerserk extends TraitProgressiveStats {
                     ToolHelper.damageTool(tool, 1, player);
                 TagUtil.setToolTag(root, stat.get());
                 setBonus(root, distributed);
-            } else TagUtil.setEnchantEffect(root, false);
+            } else {
+                if (TagUtil.hasEnchantEffect(root))
+                    TagUtil.setEnchantEffect(root, false);
+            }
         }
     }
 
@@ -77,7 +81,7 @@ public class TraitBerserk extends TraitProgressiveStats {
     public void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
         World w = event.getWorld();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && altKey.isKeyDown()) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
             NBTTagCompound root = TagUtil.getTagSafe(tool);
@@ -99,7 +103,6 @@ public class TraitBerserk extends TraitProgressiveStats {
                 TagUtil.setExtraTag(root, tag);
                 data.write(tag);
             }
-
         }
     }
 }

@@ -23,6 +23,8 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
+import static com.sosnitzka.taiga.Keybindings.altKey;
+
 
 public class TraitCatcher extends AbstractTrait {
 
@@ -81,7 +83,7 @@ public class TraitCatcher extends AbstractTrait {
         World w = event.getWorld();
         BlockPos pos = event.getEntityPlayer().getPosition();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier)) {
+        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && altKey.isKeyDown()) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (!data.mobClass.isEmpty()) {
