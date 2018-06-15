@@ -2,7 +2,6 @@
 
 Tinkers Alloying Addon(TAIGA)
 ===============
-[![][cq img]][cq] [![][license img]][license]
 
 TAIGA is an addon for Tinkers Construct. It aims to find new minable ores, new alloys and a bunch of new tinker traits for them.
 
@@ -22,13 +21,9 @@ Download
 Dependencies
 ===============
 Necessary:
-* Tinkers Construct for 1.10.2 + associated version of mantle
-* Minecraft Forge 1.10.2
+* Tinkers Construct for 1.12.2 + associated version of mantle
+* Minecraft Forge 1.12.2
 
-Latest tests done with:
-
-* [Tinkers Construct 2.5.5](http://minecraft.curseforge.com/projects/tinkers-construct/files)
-* [Minecraft Forge 12.18.2.2107](http://files.minecraftforge.net/)
 
 What's going on?
 ===
@@ -67,6 +62,3 @@ More? Join our community on mumble (ofsg.eu) for questions or to have a nice cha
 This project is licensed under the conditions of the GNU GPL 3.0.
 
 [license]:LICENSE
-[license img]:https://img.shields.io/github/license/zkaface/taiga.svg?style=flat-square
-[cq]:https://www.codacy.com/app/chefeificationful/TAIGA
-[cq img]:https://img.shields.io/codacy/69a9cf26620e4a159c99b62c264d64bb.svg?style=flat-square
