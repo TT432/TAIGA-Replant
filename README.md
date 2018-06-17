@@ -1,9 +1,9 @@
 ![TAIGA IMAGE](/taiga.png?raw=true)
 
-Tinkers Alloying Addon(TAIGA)
+Tinkers Alloying Addon (TAIGA)
 ===============
 
-TAIGA is an addon for Tinkers Construct. It aims to find new minable ores, new alloys and a bunch of new tinker traits for them.
+TAIGA is an addon for Tinkers Construct. It adds new minable ores, new alloys and a bunch of new tinker traits for them.
 
 Included:
  * 16 new meltable Ores with 4 new hardness levels (5,6,7,8)
@@ -60,5 +60,3 @@ More? Join our community on mumble (ofsg.eu) for questions or to have a nice cha
 #### License
 
 This project is licensed under the conditions of the GNU GPL 3.0.
-
-[license]:LICENSE
