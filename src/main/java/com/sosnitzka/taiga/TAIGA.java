@@ -5,6 +5,7 @@ import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
 import com.sosnitzka.taiga.world.WorldGen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -65,9 +66,9 @@ public class TAIGA {
         // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
         // Adds new harvest levels' names
-        harvestLevelNames.put(DURANITE, TextFormatting.DARK_GREEN + "Duranite");
-        harvestLevelNames.put(VALYRIUM, TextFormatting.GOLD + "Valyrium");
-        harvestLevelNames.put(VIBRANIUM, TextFormatting.DARK_PURPLE + "Vibranium");
+        harvestLevelNames.put(DURANITE, I18n.format("harvestlevel.duranite", TextFormatting.GREEN, TextFormatting.RESET));
+        harvestLevelNames.put(VALYRIUM, I18n.format("harvestlevel.valyrium", TextFormatting.GOLD, TextFormatting.RESET));
+        harvestLevelNames.put(VIBRANIUM, I18n.format("harvestlevel.vibranium", TextFormatting.DARK_PURPLE, TextFormatting.RESET));
 
         Blocks.register(true);
 

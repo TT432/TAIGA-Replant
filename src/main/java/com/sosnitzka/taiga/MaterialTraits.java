@@ -19,7 +19,7 @@ public class MaterialTraits {
     public static final int VIBRANIUM = 7;
 
     // Init of new traits
-    public static final AbstractTrait instable = new TraitInstable();
+    public static final AbstractTrait instable = new TraitUnstable();
     public static final AbstractTrait naturebound = new TraitNatureBound();
     public static final AbstractTrait softy = new TraitSofty();
     public static final AbstractTrait curvature = new TraitCurvature();

@@ -24,8 +24,8 @@ public class TraitDiffuse extends AbstractTrait {
     @SubscribeEvent
     public void onBlockBreak(BlockEvent.BreakEvent event) {
         EntityPlayer player = event.getPlayer();
-        if (!player.getEntityWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand())
-                , this.identifier)) {
+        if (!player.getEntityWorld().isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(player.getHeldItemMainhand()),
+                this.identifier)) {
             event.setExpToDrop((int) this.getUpdateXP(event.getExpToDrop()));
         }
     }

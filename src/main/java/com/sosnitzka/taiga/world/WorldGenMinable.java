@@ -12,9 +12,8 @@ import java.util.function.Predicate;
 
 public class WorldGenMinable extends net.minecraft.world.gen.feature.WorldGenMinable {
     private final IBlockState oreBlock;
-    /**
-     * The number of com.sosnitzka.taiga.blocks to generate.
-     */
+
+    // The number of com.sosnitzka.taiga.blocks to generate.
     private final int numberOfBlocks;
     private final Predicate<IBlockState> predicate;
 

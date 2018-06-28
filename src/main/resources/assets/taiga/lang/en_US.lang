@@ -325,8 +325,8 @@ modifier.heroic.name=Heroic
 modifier.heroic.desc=§oUntil you'll die.§r\nWhen the end is near, you grow stronger.
 modifier.hollow.name=Hollow
 modifier.hollow.desc=§oBraindead!§r\nMakes your enemies brainless.
-modifier.instable.name=Unstable
-modifier.instable.desc=§oCan you feel this?§r\nSeriously, this is completely unstable! Expect explosions!
+modifier.unstable.name=Unstable
+modifier.unstable.desc=§oCan you feel this?§r\nSeriously, this is completely unstable! Expect explosions!
 modifier.naturebound.name=Naturebound
 modifier.naturebound.desc=§oYou are one with your surrounding!§r\nRepairs the tool on several blocks.
 modifier.pulverizing.name=Pulverizing
@@ -369,3 +369,7 @@ itemGroup.taiga_block=TAIGA Blocks
 itemGroup.taiga_item=TAIGA Items
 
 key.taiga.alt_action=Mod Tool
+
+harvestlevel.valyrium=%1$sValyrium%2$s
+harvestlevel.duranite=%1$sDuranite%2$s
+harvestlevel.vibranium=%1$sVibranium%2$s
