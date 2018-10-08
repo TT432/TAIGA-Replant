@@ -42,16 +42,24 @@ public class TraitCatcher extends AbstractTrait {
             return;
         if (event.getEntityLiving() instanceof EntityPlayer || event.getEntityLiving() instanceof EntityPlayerMP)
             return;
+
         World w = event.getSource().getTrueSource().getEntityWorld();
         EntityPlayer p = (EntityPlayer) event.getSource().getTrueSource();
+
+        if (!TinkerUtil.hasTrait(TagUtil.getTagSafe(p.getHeldItemMainhand()), identifier))
+            return;
+
         EntityLivingBase target = event.getEntityLiving();
         NBTTagCompound tag = TagUtil.getExtraTag(p.getHeldItemMainhand());
         Data data = Data.read(tag);
+
         if (!data.mobClass.isEmpty())
             return;
+
         if (!w.isRemote && random.nextInt((int) target.getMaxHealth()) <= chance && target instanceof EntityLiving) {
             event.setCanceled(true);
             target.setDropItemsWhenDead(false);
+
             if (data.mobClass.isEmpty()) {
                 data.mobClass = target.getClass().getName();
                 data.mobName = target.getName();
