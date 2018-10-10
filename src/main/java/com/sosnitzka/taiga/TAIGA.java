@@ -5,8 +5,6 @@ import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
 import com.sosnitzka.taiga.world.WorldGen;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -32,7 +30,7 @@ import static slimeknights.tconstruct.library.utils.HarvestLevels.*;
 public class TAIGA {
 
     public static final String MODID = "taiga";
-    public static final String VERSION = "@VERSION@";
+    public static final String VERSION = "1.12.2-1.3.3";
     public static final String GUIFACTORY = "com.sosnitzka.taiga.TAIGAGuiFactory";
     public static Logger logger;
 
@@ -66,9 +64,7 @@ public class TAIGA {
         // GameRegistry.registerFuelHandler(new FuelHandler());  Registeres fuels' burn times
 
         // Adds new harvest levels' names
-        harvestLevelNames.put(DURANITE, I18n.format("harvestlevel.duranite", TextFormatting.GREEN, TextFormatting.RESET));
-        harvestLevelNames.put(VALYRIUM, I18n.format("harvestlevel.valyrium", TextFormatting.GOLD, TextFormatting.RESET));
-        harvestLevelNames.put(VIBRANIUM, I18n.format("harvestlevel.vibranium", TextFormatting.DARK_PURPLE, TextFormatting.RESET));
+        proxy.registerHarvestLevels();
 
         Blocks.register(true);
 

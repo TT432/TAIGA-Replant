@@ -12,9 +12,11 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -31,6 +33,7 @@ import static com.sosnitzka.taiga.Fluids.*;
 import static com.sosnitzka.taiga.Keybindings.altKey;
 import static com.sosnitzka.taiga.MaterialTraits.*;
 import static slimeknights.mantle.client.book.BookLoader.registerPageType;
+import static slimeknights.tconstruct.library.utils.HarvestLevels.harvestLevelNames;
 
 @SuppressWarnings("unused")
 public class ClientProxy extends CommonProxy {
@@ -163,5 +166,12 @@ public class ClientProxy extends CommonProxy {
         public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack) {
             return location;
         }
+    }
+
+    @Override
+    public void registerHarvestLevels() {
+        harvestLevelNames.put(DURANITE, I18n.format("harvestlevel.duranite", TextFormatting.GREEN, TextFormatting.RESET));
+        harvestLevelNames.put(VALYRIUM, I18n.format("harvestlevel.valyrium", TextFormatting.GOLD, TextFormatting.RESET));
+        harvestLevelNames.put(VIBRANIUM, I18n.format("harvestlevel.vibranium", TextFormatting.DARK_PURPLE, TextFormatting.RESET));
     }
 }
