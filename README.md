@@ -1,4 +1,4 @@
-![TAIGA IMAGE](/taiga.png?raw=true)
+![TAIGA IMAGE](https://git.harting.dev/IdleGandalf/TAIGA/raw/branch/master/taiga.png)
 
 Tinkers Alloying Addon (TAIGA)
 ===============
