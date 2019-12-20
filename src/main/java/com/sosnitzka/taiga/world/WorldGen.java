@@ -108,7 +108,7 @@ public class WorldGen implements IWorldGenerator {
                     world, IRON_VAL, 0, 32, 2, 8);
         }
     }
-    
+
     private void end(Random random, int x, int z, World world) {
         Generator.generateCube(true, uruOre.getDefaultState(), blockObsidiorite.getDefaultState(), random, x, z,
                 world, URU_VAL, 2, 0, 96, 3);
@@ -122,13 +122,10 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOreBottom(Blocks.END_STONE.getDefaultState(), abyssumOre.getDefaultState(), random, x, z,
                 world, ABYSSUM_VAL, 4, 64);
     }
-    //Spawns nether/end ores in the Overworld if the server has allow-nether set to 0 WIP: needs alternate textures
+    /** Spawns nether/end ores in the Overworld if the server has allow-nether set to 0 WIP: needs alternate textures */
     private void worldextra(Random random, int x, int z, World world) {
         Generator.generateCube(true, uruOre.getDefaultState(), blockObsidiorite.getDefaultState(), random, x, z,
                 world, URU_VAL, 2, 0, 96, 3);
-        //if (endGen) //What does this do? Might interfere with this generator hack
-            //Generator.generateOre(Blocks.AIR.getDefaultState(), Blocks.END_STONE.getDefaultState(), null, null,
-                    //random, x, z, world, 1, 100, 3, 64, 3, 8, null);
         Generator.generateOre(auroriumOre.getDefaultState(), BlockStone.EnumType.DIORITE, random, x, z, world,
                 AURORIUM_VAL, 8, 48, 2, 4);
         Generator.generateOre(palladiumOre.getDefaultState(), BlockStone.EnumType.DIORITE, random, x, z,
@@ -142,7 +139,7 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOre(valyriumOre.getDefaultState(), BlockStone.EnumType.GRANITE, random, x, z,
                 world, VALYRIUM_VAL, 0, 128, 2, 4);
         Generator.generateOre(newArrayList(Blocks.LAVA.getDefaultState(), Blocks.FLOWING_LAVA.getDefaultState()), 
-        		osramOre.getDefaultState(), random, x, z, world, OSRAM_VAL, 0, 64, 15); //Why is this switched around?
+        		osramOre.getDefaultState(), random, x, z, world, OSRAM_VAL, 0, 64, 15);
     }
 
     @Override
@@ -156,8 +153,8 @@ public class WorldGen implements IWorldGenerator {
                 break;
             case 0:
                 world(random, x, z, world);
-                if(net.minecraft.server.MinecraftServer.getAllowNether() == FALSE)
-                	worldextra(random, x, z, world); //worldextra generates nether/end ores in overworld
+                if(!net.minecraft.server.MinecraftServer.getAllowNether())
+                	worldextra(random, x, z, world); /** worldextra generates nether/end ores in overworld */
                 }
                 break;
             case 1:
