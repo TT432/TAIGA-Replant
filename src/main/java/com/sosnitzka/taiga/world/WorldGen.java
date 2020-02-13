@@ -155,6 +155,7 @@ public class WorldGen implements IWorldGenerator {
             case 0:
                 world(random, x, z, world);
                 if(!net.minecraft.server.MinecraftServer.getAllowNether()) {
+                	
                 	/** worldNetherless generates nether/end ores in overworld */
                 	worldNetherless(random, x, z, world);
                 }
