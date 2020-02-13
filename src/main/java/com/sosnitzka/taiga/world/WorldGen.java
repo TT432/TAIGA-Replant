@@ -122,8 +122,9 @@ public class WorldGen implements IWorldGenerator {
         Generator.generateOreBottom(Blocks.END_STONE.getDefaultState(), abyssumOre.getDefaultState(), random, x, z,
                 world, ABYSSUM_VAL, 4, 64);
     }
+    
     /** Spawns nether/end ores in the Overworld if the server has allow-nether set to 0 WIP: needs alternate textures */
-    private void worldextra(Random random, int x, int z, World world) {
+    private void worldNetherless(Random random, int x, int z, World world) {
         Generator.generateCube(true, uruOre.getDefaultState(), blockObsidiorite.getDefaultState(), random, x, z,
                 world, URU_VAL, 2, 0, 96, 3);
         Generator.generateOre(auroriumOre.getDefaultState(), BlockStone.EnumType.DIORITE, random, x, z, world,
@@ -153,8 +154,9 @@ public class WorldGen implements IWorldGenerator {
                 break;
             case 0:
                 world(random, x, z, world);
-                if(!net.minecraft.server.MinecraftServer.getAllowNether())
-                	worldextra(random, x, z, world); /** worldextra generates nether/end ores in overworld */
+                if(!net.minecraft.server.MinecraftServer.getAllowNether()) {
+                	/** worldNetherless generates nether/end ores in overworld */
+                	worldNetherless(random, x, z, world);
                 }
                 break;
             case 1:
