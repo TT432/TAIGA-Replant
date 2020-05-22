@@ -1,3 +1,6 @@
+> This project needs new maintainers, see #15.
+
+
 ![TAIGA IMAGE](https://git.harting.dev/IdleGandalf/TAIGA/raw/branch/master/taiga.png)
 
 Tinkers Alloying Addon (TAIGA)
