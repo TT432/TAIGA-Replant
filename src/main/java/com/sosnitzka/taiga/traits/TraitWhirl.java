@@ -1,6 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
-import com.sosnitzka.taiga.Keybindings;
+import com.sosnitzka.taiga.traits.abs.AbstractKeyBindTrait;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -17,13 +17,12 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
-public class TraitWhirl extends AbstractTrait {
+public class TraitWhirl extends AbstractKeyBindTrait {
 
     protected static int TICK_PER_STAT = 36;
 
@@ -52,7 +51,7 @@ public class TraitWhirl extends AbstractTrait {
     public void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
         World w = event.getWorld();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && Keybindings.altKey.isKeyDown()) {
+        if (!w.isRemote && canActive(tool)) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
             if ((int) data.radius >= 1) {
@@ -67,8 +66,9 @@ public class TraitWhirl extends AbstractTrait {
                                     .getPos().getZ() + z);
                             if (!(event.getWorld().getBlockState(nPos).equals(Blocks.WATER.getDefaultState()) ||
                                     event.getWorld().getBlockState(nPos).equals(Blocks.FLOWING_WATER.getDefaultState
-                                            ())))
+                                            ()))) {
                                 continue;
+                            }
                             event.getWorld().destroyBlock(nPos, false);
                         }
                     }

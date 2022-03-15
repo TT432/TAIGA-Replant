@@ -63,7 +63,7 @@ task buildInfo {
 version = project.buildInfo.revision
 
 minecraft {
-    version = "1.12.2-14.23.5.2768"
+    version = "1.12.2-14.23.5.2816"
     runDir = "run"
     mappings = "snapshot_20170801"
     replace '@VERSION@', project.version

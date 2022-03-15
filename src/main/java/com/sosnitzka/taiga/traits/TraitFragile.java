@@ -57,7 +57,7 @@ public class TraitFragile extends AbstractTrait {
                         assert block != null;
                         if (f < 0.85) {
                             world.setBlockState(nextBlock, block.getDefaultState());
-                        } else if (f > 95) {
+                        } else if (f > 0.95) {
                             world.destroyBlock(nextBlock, true);
                         }
                         sx = x = nextBlock.getX();

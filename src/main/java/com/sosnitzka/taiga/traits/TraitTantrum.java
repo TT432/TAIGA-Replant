@@ -1,6 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
-import com.sosnitzka.taiga.Keybindings;
+import com.sosnitzka.taiga.traits.abs.AbstractKeyBindTrait;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.tconstruct.common.Sounds;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 
@@ -25,7 +24,7 @@ import static com.sosnitzka.taiga.Blocks.tiberiumOre;
 /*
  *  Collects tiberium, to release it for an explosion
  */
-public class TraitTantrum extends AbstractTrait {
+public class TraitTantrum extends AbstractKeyBindTrait {
 
     public static float max_charges = 12f;
     public static float max_power = 5;
@@ -65,13 +64,12 @@ public class TraitTantrum extends AbstractTrait {
         World w = event.getWorld();
         BlockPos pos = event.getPos();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && Keybindings.altKey.isKeyDown()) {
+        if (!w.isRemote && canActive(tool)) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (data.amount > 1f) {
                 double d = Math.min(Utils.round2(random.nextDouble() * data.amount), max_power);
-                w.newExplosion(event.getEntityPlayer(), pos.getX(), pos.getY(), pos.getZ(), (float) Math.pow((double)
-                        1.2f, d), false, true);
+                w.newExplosion(event.getEntityPlayer(), pos.getX(), pos.getY(), pos.getZ(), (float) Math.pow(1.2f, d), false, true);
                 data.amount -= d;
                 data.write(tag);
                 TagUtil.setExtraTag(tool, tag);

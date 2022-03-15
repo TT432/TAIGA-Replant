@@ -1,6 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
-import com.sosnitzka.taiga.Keybindings;
+import com.sosnitzka.taiga.traits.abs.AbstractKeyBindTrait;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
@@ -12,14 +12,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
 
-public class TraitPorted extends AbstractTrait {
-
+public class TraitPorted extends AbstractKeyBindTrait {
     public static int distance = 10;
 
     public TraitPorted() {
@@ -30,8 +26,9 @@ public class TraitPorted extends AbstractTrait {
     @SubscribeEvent
     public void onItemRightClick(PlayerInteractEvent.RightClickItem e) {
         ItemStack tool = e.getEntityPlayer().getHeldItemMainhand();
-        if (TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && Keybindings.altKey.isKeyDown())
+        if (!e.getEntityPlayer().world.isRemote && canActive(tool)) {
             teleport(e.getEntityPlayer(), e.getWorld());
+        }
     }
 
     @Override

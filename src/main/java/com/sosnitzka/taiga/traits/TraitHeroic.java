@@ -24,12 +24,17 @@ public class TraitHeroic extends AbstractTrait {
 
         float calc;
         if ((durability * durabilitymax / (durabilitymax - durability - 1 / safeDenominator)) != 0) {
-            calc = newDamage + (newDamage / 2) / (durability * durabilitymax / safeDenominator);
+            calc = newDamage + (newDamage / 2) / (durability * durabilitymax / (float) safeDenominator);
         } else {
-            calc = newDamage + (newDamage / 2) / ((durability * durabilitymax / safeDenominator) + 1);
+            calc = newDamage + (newDamage / 2) / ((durability * durabilitymax / (float) safeDenominator) + 1);
         }
-        if ((float) durability < (float) (0.10 * durabilitymax) || player.getHealth() < player.getMaxHealth() / 8 || (target.getHealth() == target.getMaxHealth() && random.nextFloat() > 0.8)) {
+        if (    durability < (0.10 * durabilitymax)
+                || player.getHealth() < player.getMaxHealth() / 8
+                || (target.getHealth() == target.getMaxHealth()
+                && random.nextFloat() > 0.8)) {
             return super.damage(tool, player, target, damage, calc, isCritical);
-        } else return super.damage(tool, player, target, damage, newDamage * 0.9f, isCritical);
+        } else {
+            return super.damage(tool, player, target, damage, newDamage * 0.9f, isCritical);
+        }
     }
 }

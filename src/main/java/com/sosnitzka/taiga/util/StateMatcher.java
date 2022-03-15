@@ -25,13 +25,14 @@ public class StateMatcher implements Predicate<IBlockState> {
     public boolean apply(IBlockState state, BlockPos pos, World world) {
         if (state != null) {
             if (property != null && value != null) {
-                if (state.getBlock() == this.state.getBlock())
+                if (state.getBlock() == this.state.getBlock()) {
                     return checkLayerForBlocks(3, 3, -1, world, pos) ||
                             checkLayerForBlocks(3, 3, 0, world, pos) ||
                             checkLayerForBlocks(3, 3, 1, world, pos);
-
-            } else
+                }
+            } else {
                 return state.getBlock() == this.state.getBlock();
+            }
         }
         return false;
     }

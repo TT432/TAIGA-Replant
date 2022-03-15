@@ -30,8 +30,8 @@ import javax.annotation.Nonnull;
 import java.lang.reflect.Field;
 
 import static com.sosnitzka.taiga.Fluids.*;
-import static com.sosnitzka.taiga.Keybindings.altKey;
 import static com.sosnitzka.taiga.MaterialTraits.*;
+import static com.sosnitzka.taiga.keys.Keybindings.altKey;
 import static slimeknights.mantle.client.book.BookLoader.registerPageType;
 import static slimeknights.tconstruct.library.utils.HarvestLevels.harvestLevelNames;
 
@@ -143,6 +143,13 @@ public class ClientProxy extends CommonProxy {
         registerPageType("taigaore", ContentOre.class);
     }
 
+    @Override
+    public void registerHarvestLevels() {
+        harvestLevelNames.put(DURANITE, I18n.format("harvestlevel.duranite", TextFormatting.GREEN, TextFormatting.RESET));
+        harvestLevelNames.put(VALYRIUM, I18n.format("harvestlevel.valyrium", TextFormatting.GOLD, TextFormatting.RESET));
+        harvestLevelNames.put(VIBRANIUM, I18n.format("harvestlevel.vibranium", TextFormatting.DARK_PURPLE, TextFormatting.RESET));
+    }
+
     public static class FluidStateMapper extends StateMapperBase implements ItemMeshDefinition {
         public final Fluid fluid;
         public final ModelResourceLocation location;
@@ -166,12 +173,5 @@ public class ClientProxy extends CommonProxy {
         public ModelResourceLocation getModelLocation(@Nonnull ItemStack stack) {
             return location;
         }
-    }
-
-    @Override
-    public void registerHarvestLevels() {
-        harvestLevelNames.put(DURANITE, I18n.format("harvestlevel.duranite", TextFormatting.GREEN, TextFormatting.RESET));
-        harvestLevelNames.put(VALYRIUM, I18n.format("harvestlevel.valyrium", TextFormatting.GOLD, TextFormatting.RESET));
-        harvestLevelNames.put(VIBRANIUM, I18n.format("harvestlevel.vibranium", TextFormatting.DARK_PURPLE, TextFormatting.RESET));
     }
 }

@@ -1,5 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
+import com.sosnitzka.taiga.traits.abs.AbstractKeyBindTrait;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,15 +19,12 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 
-import static com.sosnitzka.taiga.Keybindings.altKey;
 
-
-public class TraitCatcher extends AbstractTrait {
+public class TraitCatcher extends AbstractKeyBindTrait {
 
     public static int chance = 3;
     public static float costMulti = 0.25f;
@@ -53,8 +51,9 @@ public class TraitCatcher extends AbstractTrait {
         NBTTagCompound tag = TagUtil.getExtraTag(p.getHeldItemMainhand());
         Data data = Data.read(tag);
 
-        if (!data.mobClass.isEmpty())
+        if (!data.mobClass.isEmpty()) {
             return;
+        }
 
         if (!w.isRemote && random.nextInt((int) target.getMaxHealth()) <= chance && target instanceof EntityLiving) {
             event.setCanceled(true);
@@ -77,10 +76,7 @@ public class TraitCatcher extends AbstractTrait {
         if (!world.isRemote) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
-            if (data.mobClass.isEmpty()) {
-                TagUtil.setEnchantEffect(tool, false);
-            } else
-                TagUtil.setEnchantEffect(tool, true);
+            TagUtil.setEnchantEffect(tool, !data.mobClass.isEmpty());
         }
     }
 
@@ -89,7 +85,7 @@ public class TraitCatcher extends AbstractTrait {
         World w = event.getWorld();
         BlockPos pos = event.getEntityPlayer().getPosition();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && altKey.isKeyDown()) {
+        if (!w.isRemote && canActive(tool)) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Data data = Data.read(tag);
             if (!data.mobClass.isEmpty()) {
@@ -97,7 +93,7 @@ public class TraitCatcher extends AbstractTrait {
                 try {
                     ent = (Entity) Class.forName(data.mobClass).getConstructor(World.class).newInstance(w);
                 } catch (Exception e) {
-                    System.out.println(e.toString());
+                    System.out.println(e);
                 }
 
                 if (ent != null) {

@@ -11,7 +11,7 @@ import static slimeknights.tconstruct.TConstruct.random;
 
 public class BlockMeteoriteRock extends BasicBlock {
 
-    private IBlockState cobbblestate;
+    private final IBlockState cobbblestate;
 
     public BlockMeteoriteRock(String name, Material material, float hardness, float resistance, int harvestlevel,
                               float light, String oreDictPrefix, IBlockState cobble) {

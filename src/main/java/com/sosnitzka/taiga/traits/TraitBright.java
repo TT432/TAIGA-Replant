@@ -27,7 +27,9 @@ public class TraitBright extends AbstractTrait {
         int time = (int) target.getEntityWorld().getWorldTime();
         if (!isNight(time)) {
             newDamage = damage * (1 + random.nextFloat() / 2f);
-        } else newDamage = damage / (1 + random.nextFloat() / 3f);
+        } else {
+            newDamage = damage / (1 + random.nextFloat() / 3f);
+        }
         return super.damage(tool, player, target, damage, newDamage, isCritical);
     }
 

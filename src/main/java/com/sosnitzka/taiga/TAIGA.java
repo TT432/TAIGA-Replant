@@ -1,6 +1,7 @@
 package com.sosnitzka.taiga;
 
 import com.google.common.collect.Lists;
+import com.sosnitzka.taiga.net.NetManager;
 import com.sosnitzka.taiga.proxy.CommonProxy;
 import com.sosnitzka.taiga.recipes.CraftingRegistry;
 import com.sosnitzka.taiga.recipes.SmeltingRegistry;
@@ -54,8 +55,12 @@ public class TAIGA {
         registerTinkerMaterials();
     }
 
+    NetManager a;
+
     @EventHandler
     public void init(FMLInitializationEvent e) {
+        a = NetManager.INSTANCE;
+
         proxy.registerModels(); // Registers models on the client side
         proxy.regsiterKeyBindings();
 

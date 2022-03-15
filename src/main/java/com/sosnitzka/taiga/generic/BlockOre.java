@@ -16,9 +16,9 @@ import static slimeknights.tconstruct.TConstruct.random;
 
 public class BlockOre extends Block {
 
-    private Item dropItem;
-    private int itemAmount;
-    private int xpAmount;
+    private final Item dropItem;
+    private final int itemAmount;
+    private final int xpAmount;
 
     public BlockOre(String name, Material material, float hardness, float resistance, int harvest, float lightLevel,
                     Item item, int amount, int xp) {

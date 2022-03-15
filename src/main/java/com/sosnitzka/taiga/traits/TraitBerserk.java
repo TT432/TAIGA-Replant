@@ -1,5 +1,6 @@
 package com.sosnitzka.taiga.traits;
 
+import com.sosnitzka.taiga.traits.abs.AbstractKeyBindTrait;
 import com.sosnitzka.taiga.util.Utils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,10 +14,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.utils.TagUtil;
-import slimeknights.tconstruct.library.utils.TinkerUtil;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-
-import static com.sosnitzka.taiga.Keybindings.altKey;
 
 
 public class TraitBerserk extends TraitProgressiveStats {
@@ -32,7 +30,9 @@ public class TraitBerserk extends TraitProgressiveStats {
     public void miningSpeed(ItemStack tool, PlayerInteractEvent.BreakSpeed event) {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
-        if (!data.active) return;
+        if (!data.active) {
+            return;
+        }
         event.setNewSpeed(event.getNewSpeed() * 4);
     }
 
@@ -41,7 +41,9 @@ public class TraitBerserk extends TraitProgressiveStats {
             newDamage, boolean isCritical) {
         NBTTagCompound tag = TagUtil.getExtraTag(tool);
         Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
-        if (!data.active) return newDamage;
+        if (!data.active) {
+            return newDamage;
+        }
         return newDamage * 4;
     }
 
@@ -54,8 +56,9 @@ public class TraitBerserk extends TraitProgressiveStats {
             NBTTagCompound root = TagUtil.getTagSafe(tool);
             StatNBT distributed = getBonus(root);
             if (data.active) {
-                if (!TagUtil.hasEnchantEffect(root))
+                if (!TagUtil.hasEnchantEffect(root)) {
                     TagUtil.setEnchantEffect(root, true);
+                }
 
                 if (entity instanceof FakePlayer || entity.ticksExisted % TICK_PER_STAT != 0) {
                     return;
@@ -65,13 +68,15 @@ public class TraitBerserk extends TraitProgressiveStats {
                 if (random.nextFloat() > .80f) {
                     stat.durability -= 1;
                     distributed.durability -= 1;
-                } else
+                } else {
                     ToolHelper.damageTool(tool, 1, player);
+                }
                 TagUtil.setToolTag(root, stat.get());
                 setBonus(root, distributed);
             } else {
-                if (TagUtil.hasEnchantEffect(root))
+                if (TagUtil.hasEnchantEffect(root)) {
                     TagUtil.setEnchantEffect(root, false);
+                }
             }
         }
     }
@@ -80,7 +85,7 @@ public class TraitBerserk extends TraitProgressiveStats {
     public void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
         World w = event.getWorld();
         ItemStack tool = event.getEntityPlayer().getHeldItemMainhand();
-        if (!w.isRemote && TinkerUtil.hasTrait(TagUtil.getTagSafe(tool), identifier) && altKey.isKeyDown()) {
+        if (!w.isRemote && AbstractKeyBindTrait.canActive(this, tool)) {
             NBTTagCompound tag = TagUtil.getExtraTag(tool);
             Utils.GeneralNBTData data = Utils.GeneralNBTData.read(tag);
             NBTTagCompound root = TagUtil.getTagSafe(tool);
@@ -89,8 +94,6 @@ public class TraitBerserk extends TraitProgressiveStats {
             if (data.active) {
                 data.active = false;
                 TagUtil.setEnchantEffect(root, false);
-                TagUtil.setExtraTag(root, tag);
-                data.write(tag);
             } else {
                 stat.durability -= 10;
                 distributed.durability -= 10;
@@ -99,9 +102,9 @@ public class TraitBerserk extends TraitProgressiveStats {
                 data.active = true;
                 data.write(tag);
 
-                TagUtil.setExtraTag(root, tag);
-                data.write(tag);
             }
+            TagUtil.setExtraTag(root, tag);
+            data.write(tag);
         }
     }
 }

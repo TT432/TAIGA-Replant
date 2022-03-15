@@ -65,8 +65,9 @@ public class Utils {
 
     public static void integrateMaterial(String oreSuffix, @Nullable Material material, Fluid fluid, int headDura, float headSpeed, float headAttack, float handleMod, int handleDura, int extra, int headLevel, BowMaterialStats bowstats, boolean craft, boolean cast) {
         if (material != null) {
-            if (TinkerRegistry.getMaterial(material.identifier) != Material.UNKNOWN)
+            if (TinkerRegistry.getMaterial(material.identifier) != Material.UNKNOWN) {
                 return;
+            }
 
             TinkerRegistry.addMaterialStats(material, new HeadMaterialStats(headDura, headSpeed, headAttack,
                     headLevel));

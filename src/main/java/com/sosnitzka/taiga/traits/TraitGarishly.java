@@ -34,7 +34,7 @@ public class TraitGarishly extends AbstractTrait {
                     .getHeldItemMainhand()), identifier)) {
 
                 int r = random.nextInt(2);
-                ItemStack i = null;
+                ItemStack i;
                 switch (r) {
                     case 0:
                         i = new ItemStack(Items.BLAZE_POWDER, random.nextInt(3));
@@ -45,8 +45,8 @@ public class TraitGarishly extends AbstractTrait {
                     case 2:
                         i = new ItemStack(Items.COAL, random.nextInt(3));
                         break;
+                    default: i = new ItemStack(Items.AIR);
                 }
-                assert i != null;
                 event.getDrops().add(0, new EntityItem(w, event.getEntity().posX, event.getEntity().posY, event
                         .getEntity().posZ, i));
             }

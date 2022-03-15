@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class BasicBlock extends Block {
-    private String oreDictPrefix;
+    private final String oreDictPrefix;
 
     public BasicBlock(String name, Material material, float hardness, float resistance, int harvest, float
             lightLevel, String oreDictPrefix) {
