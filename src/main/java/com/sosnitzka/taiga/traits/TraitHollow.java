@@ -25,10 +25,9 @@ public class TraitHollow extends AbstractTrait {
     }
 
     @Override
-    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean
-            isCritical) {
+    public void onHit(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, boolean isCritical) {
         int time = (int) player.getEntityWorld().getWorldTime();
-        if (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) {
+        if ( (random.nextFloat() <= 0.01 || (random.nextFloat() <= 0.03 && isNight(time))) && target instanceof EntityLiving) {
             ((EntityLiving) target).setNoAI(true);
             target.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
             if (target.getMaxHealth() < 250) {
