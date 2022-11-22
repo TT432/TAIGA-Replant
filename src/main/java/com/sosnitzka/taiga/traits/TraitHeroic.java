@@ -18,15 +18,16 @@ public class TraitHeroic extends AbstractTrait {
         int durabilitymax = ToolHelper.getMaxDurability(tool);
 
         int safeDenominator = durabilitymax - durability - 1;
+        /*
         if (safeDenominator <= 0) {
             safeDenominator = 1;
         }
-
+        */
         float calc;
-        if ((durability * durabilitymax / (durabilitymax - durability - 1 / safeDenominator)) != 0) {
-            calc = newDamage + (newDamage / 2) / (durability * durabilitymax / (float) safeDenominator);
+        if ((durability * durabilitymax  != 0) {
+            calc = newDamage + (newDamage * (float) safeDenominator*0.5) / (durability * durabilitymax);
         } else {
-            calc = newDamage + (newDamage / 2) / ((durability * durabilitymax / (float) safeDenominator) + 1);
+            calc = newDamage + (newDamage * (float) safeDenominator*0.5) / (durability * durabilitymax+1);
         }
         if (    durability < (0.10 * durabilitymax)
                 || player.getHealth() < player.getMaxHealth() / 8
